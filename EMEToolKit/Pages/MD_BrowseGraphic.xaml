@@ -1,0 +1,66 @@
+﻿<corepages:EditorPage Tag="MD_MaintenanceInformation" x:Class="CustomMetadataEditor.Pages.MD_BrowseGraphic"    xmlns:corepages="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Pages;assembly=ESRI.ArcGIS.MetadataEditor" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:toolkit="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit"
+    xmlns:pages="clr-namespace:CustomMetadataEditor.Pages"
+    xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
+    xmlns:prop="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
+    xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
+    Loaded="FillXml">
+
+  <UserControl.Resources>
+
+    <!-- 
+      <!ENTITY % DataIdent '(... graphOver*, dsFormat*, discKeys*, otherKeys*, placeKeys*, searchKeys*, stratKeys*, tempKeys*, themeKeys*, idSpecUse*, resConst*, aggrInfo*, spatRpType*, dataScale*, dataLang+, dataChar*, topicCat*, envirDesc?, dataExt*, suppInfo?)'>
+      <!ENTITY % BrowGraph '(bgFileName, bgFileDesc?, bgFileType?)'>      
+    -->
+    <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+      <x:XData>
+        <ANY xmlns="">
+          <bgFileName></bgFileName>
+          <bgFileDesc></bgFileDesc>
+          <bgFileType></bgFileType>
+        </ANY>
+      </x:XData>
+    </XmlDataProvider>
+  </UserControl.Resources>
+
+  <Grid Style="{DynamicResource EditorSubPageStyle}">
+    <StackPanel>
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition />
+          <RowDefinition />
+          <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- file name -->
+        <Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Grid.Row="0" Grid.Column="0" Content="{x:Static prop:Resources.LBL_BROWSE_FILE}"/>
+        <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="0" Grid.Column="1" ToolTip="{x:Static prop:Definitions.MD_BrowseGraphic_fileName}"
+            v:Nav.AnchorName="bgFileName,bgFileName"
+            Text="{e:MetadataBinding XPath=bgFileName}"/>
+
+        <!-- file description-->
+        <Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Grid.Row="1" Grid.Column="0" Content="{x:Static prop:Resources.LBL_BROWSE_DESC}"/>
+        <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="1" Grid.Column="1" ToolTip="{x:Static prop:Definitions.MD_BrowseGraphic_fileDescription}"
+            v:Nav.AnchorName="bgFileDesc,bgFileDesc"
+            Text="{e:MetadataBinding XPath=bgFileDesc}" />
+
+        <!-- file type -->
+        <Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Grid.Row="2" Grid.Column="0" Content="{x:Static prop:Resources.LBL_BROWSE_TYPE}"/>
+        <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="2" Grid.Column="1" ToolTip="{x:Static prop:Definitions.MD_BrowseGraphic_fileType}"
+            v:Nav.AnchorName="bgFileType,bgFileType"
+            Text="{e:MetadataBinding XPath=bgFileType}" />
+
+      </Grid>
+
+      <!-- validate after all anchors are loaded -->
+      <v:PageValidateControl/>
+
+    </StackPanel>
+  </Grid>
+</corepages:EditorPage>

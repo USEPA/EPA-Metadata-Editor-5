@@ -1,0 +1,31 @@
+﻿<corepages:EditorPage x:Class="CustomMetadataEditor.Pages.MD_ClassificationCode"    xmlns:corepages="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Pages;assembly=ESRI.ArcGIS.MetadataEditor" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:pages="clr-namespace:CustomMetadataEditor.Pages"
+    xmlns:prop="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
+    xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
+    xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor">
+
+  <UserControl.Resources>
+    <e:Codelists x:Key="MD_ClassificationCode" CodelistName="MD_ClassificationCode"/>
+  </UserControl.Resources>
+
+  <Grid>
+    <StackPanel>
+      <ComboBox Loaded="PostProcessComboBoxValues" Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
+          ToolTip="{x:Static prop:Definitions.MD_SecurityConstraints_classification}"
+          ItemsSource="{Binding Source={StaticResource MD_ClassificationCode}, Path=List}"
+          DisplayMemberPath="."
+          v:Nav.AnchorName="ClasscationCd,ClasscationCd"
+          SelectedValuePath="@value">
+        <ComboBox.SelectedValue>
+          <e:MetadataBinding XPath="ClasscationCd/@value"/>
+        </ComboBox.SelectedValue>
+      </ComboBox>
+
+      <!-- validate after all anchors are loaded -->
+      <v:PageValidateControl/>
+
+    </StackPanel>
+  </Grid>
+</corepages:EditorPage>
