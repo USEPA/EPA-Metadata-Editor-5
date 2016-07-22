@@ -1,13 +1,113 @@
 ﻿<pages:EditorPage x:Class="EPAMetadataEditor.Pages.EPAMetadataTest"
-                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                  xmlns:r="clr-namespace:EPAMetadataEditor.Properties"
-                  xmlns:rr="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
-                  xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
-                  xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
-                  xmlns:pages="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Pages;assembly=ESRI.ArcGIS.MetadataEditor"
-                  Loaded="FillXml">
-    <Grid>
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:r="clr-namespace:EPAMetadataEditor.Properties"
+             xmlns:rr="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
+             xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
+             xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
+             xmlns:pages="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Pages;assembly=ESRI.ArcGIS.MetadataEditor"
+             xmlns:appcode="clr-namespace:EPAMetadataEditor.AppCode"
+             Loaded="FillXml">
+    <UserControl.Resources>
+        <XmlDataProvider x:Key="XmlRecord" XPath="/"
+                         IsAsynchronous= "False"
+                         IsInitialLoadEnabled= "True">
+            <x:XData>
+                <ANY xmlns="">
+                    <metadata>
+                        <dataIdInfo>
+                            <themeKeys>
+                                <keyword></keyword>
+                            </themeKeys>
+                        </dataIdInfo>
+                    </metadata>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    </Grid>
+        <XmlDataProvider x:Key="XmlRecord_KeywordsEPA"
+                         Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsEPA.xml"
+                         XPath="emeData"
+                         IsInitialLoadEnabled="True"/>
+
+        <DataTemplate x:Key="keywordItemTemplate">
+            <TextBlock Text="{Binding XPath=themekey}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="keywordItemCheckBox">
+            <CheckBox Content="{Binding XPath=themekey}"/>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    
+    <StackPanel>
+        <Label Style="{DynamicResource EditorPageTitle}" Content="EPA MetadataEditor Test"/>
+        
+        <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
+            <Label VerticalAlignment="Center" Foreground="White">ListBox Bound to KeywordsEPA.xml</Label>
+        </Border>
+        <Border Style="{DynamicResource EditorBorder2Style}">
+        <ListBox x:Name="KeywordListBox" Margin="0,0,0,20" Height="280" DockPanel.Dock="Left"
+                 ItemsSource="{Binding Source={StaticResource XmlRecord_KeywordsEPA}, XPath=KeywordsEPA}"
+                 ItemTemplate="{StaticResource keywordItemTemplate}"
+                 IsSynchronizedWithCurrentItem="True"
+                 Visibility="Visible" 
+                 SelectionMode="Multiple">
+        </ListBox>
+        </Border>
+        <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
+            <Label VerticalAlignment="Center" Foreground="White">ListBox with CheckBox Bound to KeywordsEPA.xml</Label>
+        </Border>
+        <Border Style="{DynamicResource EditorBorder2Style}">
+            <ListBox x:Name="KeywordCheckBox" Margin="0,0,0,20" Height="280" DockPanel.Dock="Left"
+                     ItemsSource="{Binding Source={StaticResource XmlRecord_KeywordsEPA}, XPath=KeywordsEPA}"
+                     ItemTemplate="{StaticResource keywordItemCheckBox}"
+                     IsSynchronizedWithCurrentItem="True"
+                     Visibility="Visible" 
+                     SelectionMode="Multiple">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="3"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </Border>
+
+        <ListBox x:Name="lbKeywordsEPA" 
+                 ItemsSource = "{Binding XPath=/metadata/dataIdInfo/themeKeys}"
+                 SelectionMode="Multiple">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
+                            <Label VerticalAlignment="Center" Foreground="White">ComboBox bound to KeywordsEPA.xml - This example will write to Metadata</Label>
+                        </Border>
+                        <Border Style="{DynamicResource EditorBorder2Style}">
+                            <ComboBox Loaded="PostProcessComboBoxValues"
+                                      SelectionChanged="ComboBoxSyncSelectionChanged"
+                                      ItemsSource="{Binding Source={StaticResource XmlRecord_KeywordsEPA}, XPath=KeywordsEPA/themekey}"
+                                      DisplayMemberPath="."
+                                      SelectedValuePath=".">
+                                <ComboBox.SelectedValue>
+                                    <Binding XPath="keyword" Mode="TwoWay"/>
+                                </ComboBox.SelectedValue>
+                            </ComboBox>
+                        </Border>
+                        <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
+                            <Label VerticalAlignment="Center" Foreground="White">TextBox using MetadataBinding - Read and write to metadata - Need documentation</Label>
+                        </Border>
+                        <Border Style="{DynamicResource EditorBorder2Style}">
+                            <TextBox Style="{DynamicResource EditorTextAreaResizeStyle}" Text="{e:MetadataBinding XPath=bag}"/>
+                        </Border>
+                        <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
+                            <Label VerticalAlignment="Center" Foreground="White">Listbox using MetadataBinding - Cannot select or interact with ListBox</Label>
+                        </Border>
+                        <Border Style="{DynamicResource EditorBorder2Style}">
+                            <ListBox ItemsSource="{e:MetadataBinding XPath=bag}"/>
+                        </Border>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
 </pages:EditorPage>
