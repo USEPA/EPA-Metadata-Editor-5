@@ -20,7 +20,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Globalization;
 
-using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace CustomMetadataEditor.Pages
+using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace EPAMetadataEditor.Pages
 {
   public class DateConverter : IValueConverter
   {

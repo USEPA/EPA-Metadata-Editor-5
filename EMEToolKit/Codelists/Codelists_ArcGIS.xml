@@ -1,0 +1,1843 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codelists>
+	<!-- CI_DateTypeCode: dates are stored in elements specific to their type; codelists aren't used -->
+	<codelist id="CI_OnLineFunctionCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="download">Download</code>
+		<code value="002" source="ISO19115" stdvalue="information">Information</code>
+		<code value="003" source="ISO19115" stdvalue="offlineAccess">Off-line Access</code>
+		<code value="004" source="ISO19115" stdvalue="order">Order</code>
+		<code value="005" source="ISO19115" stdvalue="search">Search</code>
+		<code value="006" source="NAP" stdvalue="upload">Upload</code>
+		<code value="007" source="NAP" stdvalue="webService">Web Service</code>
+		<code value="008" source="NAP" stdvalue="emailService">Email Service</code>
+		<code value="009" source="NAP" stdvalue="browsing">Browsing</code>
+		<code value="010" source="NAP" stdvalue="fileAccess">File Access</code>
+		<code value="011" source="NAP" stdvalue="webMapService">Web Map Service</code>
+	</codelist>
+	<codelist id="CI_PresentationFormCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="documentDigital">Digital Document</code>
+		<code value="002" source="ISO19115" stdvalue="documentHardcopy">Hardcopy Document</code>
+		<code value="003" source="ISO19115" stdvalue="imageDigital">Digital Image</code>
+		<code value="004" source="ISO19115" stdvalue="imageHardcopy">Hardcopy Image</code>
+		<code value="005" source="ISO19115" stdvalue="mapDigital">Digital Map</code>
+		<code value="006" source="ISO19115" stdvalue="mapHardcopy">Hardcopy Map</code>
+		<code value="007" source="ISO19115" stdvalue="modelDigital">Digital Model</code>
+		<code value="008" source="ISO19115" stdvalue="modelHardcopy">Hardcopy Model</code>
+		<code value="009" source="ISO19115" stdvalue="profileDigital">Digital Profile</code>
+		<code value="010" source="ISO19115" stdvalue="profileHardcopy">Hardcopy Profile</code>
+		<code value="011" source="ISO19115" stdvalue="tableDigital">Digital Table</code>
+		<code value="012" source="ISO19115" stdvalue="tableHardcopy">Hardcopy Table</code>
+		<code value="013" source="ISO19115" stdvalue="videoDigital">Digital Video</code>
+		<code value="014" source="ISO19115" stdvalue="videoHardcopy">Hardcopy Video</code>
+		<code value="015" source="NAP" stdvalue="audioDigital">Digital Audio</code><!-- used for NAP and FGDC -->
+		<code value="016" source="NAP" stdvalue="audioHardcopy">Hardcopy Audio</code><!-- used for NAP and FGDC -->
+		<code value="017" source="NAP" stdvalue="multimediaDigital">Digital Multimedia</code><!-- used for NAP and FGDC -->
+		<code value="018" source="NAP" stdvalue="multimediaHardcopy">Hardcopy Multimedia</code><!-- used for NAP and FGDC -->
+		<code value="019" source="NAP" stdvalue="diagramDigital">Digital Diagram</code><!-- used for NAP and FGDC -->
+		<code value="020" source="NAP" stdvalue="diagramHardcopy">Hardcopy Diagram</code><!-- used for NAP and FGDC -->
+	</codelist>
+	<codelist id="CI_RoleCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="resourceProvider">Resource Provider</code>
+		<code value="002" source="ISO19115" stdvalue="custodian">Custodian</code>
+		<code value="003" source="ISO19115" stdvalue="owner">Owner</code>
+		<code value="004" source="ISO19115" stdvalue="user">User</code>
+		<code value="005" source="ISO19115" stdvalue="distributor">Distributor</code>
+		<code value="006" source="ISO19115" stdvalue="originator">Originator</code>
+		<code value="007" source="ISO19115" stdvalue="pointOfContact">Point of Contact</code>
+		<code value="008" source="ISO19115" stdvalue="principalInvestigator">Principal Investigator</code>
+		<code value="009" source="ISO19115" stdvalue="processor">Processor</code>
+		<code value="010" source="ISO19115" stdvalue="publisher">Publisher</code>
+		<code value="011" source="ISO19115" stdvalue="author">Author</code>
+		<code value="012" source="NAP" stdvalue="collaborator">Collaborator</code>
+		<code value="013" source="NAP" stdvalue="editor">Editor</code>
+		<code value="014" source="NAP" stdvalue="mediator">Mediator</code>
+		<code value="015" source="NAP" stdvalue="rightsHolder">Rights-holder</code>
+	</codelist>
+	<codelist id="DQ_EvaluationMethodTypeCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="directInternal">Direct Internal</code>
+		<code value="002" source="ISO19115" stdvalue="directExternal">Direct External</code>
+		<code value="003" source="ISO19115" stdvalue="indirect">Indirect</code>
+	</codelist>
+	<codelist id="DS_AssociationTypeCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="crossReference">Cross-reference</code>
+		<code value="002" source="ISO19115" stdvalue="largerWorkCitation">Larger Work Citation</code>
+		<code value="003" source="ISO19115" stdvalue="partOfSeamlessDatabase">Part of Seamless Database</code>
+		<code value="004" source="ISO19115" stdvalue="source">Source</code>
+		<code value="005" source="ISO19115" stdvalue="stereoMate">Stereo-mate</code>
+		<code value="006" source="NAP" stdvalue="isComposedOf">Is Composed Of</code>
+	</codelist>
+	<codelist id="DS_InitiativeTypeCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="campaign">Campaign</code>
+		<code value="002" source="ISO19115" stdvalue="collection">Collection</code>
+		<code value="003" source="ISO19115" stdvalue="exercise">Exercise</code>
+		<code value="004" source="ISO19115" stdvalue="experiment">Experiment</code>
+		<code value="005" source="ISO19115" stdvalue="investigation">Investigation</code>
+		<code value="006" source="ISO19115" stdvalue="mission">Mission</code>
+		<code value="007" source="ISO19115" stdvalue="sensor">Sensor</code>
+		<code value="008" source="ISO19115" stdvalue="operation">Operation</code>
+		<code value="009" source="ISO19115" stdvalue="platform">Platform</code>
+		<code value="010" source="ISO19115" stdvalue="process">Process</code>
+		<code value="011" source="ISO19115" stdvalue="program">Program</code>
+		<code value="012" source="ISO19115" stdvalue="project">Project</code>
+		<code value="013" source="ISO19115" stdvalue="study">Study</code>
+		<code value="014" source="ISO19115" stdvalue="task">Task</code>
+		<code value="015" source="ISO19115" stdvalue="trial">Trial</code>
+	</codelist>
+	<codelist id="EPA_Keywords" xmlns="">
+    <code value="" source="ArcGIS">Empty</code>
+		<code value="001">Agriculture</code>
+		<code value="002">Air</code>
+		<code value="003">Biology</code>
+		<code value="004">Cleanup</code>
+		<code value="005">Climate</code>
+		<code value="006">Compliance</code>
+		<code value="007">Conservation</code>
+		<code value="008">Contaminant</code>
+		<code value="009">Disaster</code>
+		<code value="010">Drinking Water</code>
+		<code value="011">Ecology</code>
+		<code value="012">Ecosystem</code>
+		<code value="013">Emergency</code>
+		<code value="014">Energy</code>
+		<code value="015">Environment</code>
+		<code value="016">Estuary</code>
+		<code value="017">Exposure</code>
+		<code value="018">Facilities</code>
+		<code value="019">Ground Water</code>
+		<code value="020">Hazards</code>
+		<code value="021">Health</code>
+		<code value="022">Human</code>
+		<code value="023">Impact</code>
+		<code value="024">Indicator</code>
+		<code value="025">Indoor Air</code>
+		<code value="026">Inspections</code>
+		<code value="027">Land</code>
+		<code value="028">Management</code>
+		<code value="029">Marine</code>
+		<code value="030">Modeling</code>
+		<code value="031">Monitoring</code>
+		<code value="032">Natural Resources</code>
+		<code value="033">Permits</code>
+		<code value="034">Pesticides</code>
+		<code value="035">Quality</code>
+		<code value="036">Radiation</code>
+		<code value="037">Recreation</code>
+		<code value="038">Regulatory</code>
+		<code value="039">Remediation</code>
+		<code value="040">Response</code>
+		<code value="041">Risk</code>
+		<code value="042">Sites</code>
+		<code value="043">Spills</code>
+		<code value="044">Surface Water</code>
+		<code value="045">Toxics</code>
+		<code value="046">Transportation</code>
+		<code value="047">Waste</code>
+		<code value="048">Water</code>
+	</codelist>
+	<codelist id="MD_CellGeometryCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="point">Point</code>
+		<code value="002" source="ISO19115" stdvalue="area">Area</code>
+		<code value="003" source="NAP_FGDC" stdvalue="voxel">Voxel</code>
+	</codelist>
+	<codelist id="MD_CharacterSetCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="ucs2">ucs2</code>
+		<code value="002" source="ISO19115" stdvalue="ucs4">ucs4</code>
+		<code value="003" source="ISO19115" stdvalue="utf7">utf7</code>
+		<code value="004" source="ISO19115" stdvalue="utf8">utf8</code>
+		<code value="005" source="ISO19115" stdvalue="utf16">utf16</code>
+		<code value="006" source="ISO19115" stdvalue="8859part1">8859part1</code>
+		<code value="007" source="ISO19115" stdvalue="8859part2">8859part2</code>
+		<code value="008" source="ISO19115" stdvalue="8859part3">8859part3</code>
+		<code value="009" source="ISO19115" stdvalue="8859part4">8859part4</code>
+		<code value="010" source="ISO19115" stdvalue="8859part5">8859part5</code>
+		<code value="011" source="ISO19115" stdvalue="8859part6">8859part6</code>
+		<code value="012" source="ISO19115" stdvalue="8859part7">8859part7</code>
+		<code value="013" source="ISO19115" stdvalue="8859part8">8859part8</code>
+		<code value="014" source="ISO19115" stdvalue="8859part9">8859part9</code>
+		<code value="015" source="ISO19115" stdvalue="8859part10">8859part10</code>
+		<code value="016" source="ISO19115" stdvalue="8859part11">8859part11</code>
+		<code value="018" source="ISO19115" stdvalue="8859part13">8859part13</code>
+		<code value="019" source="ISO19115" stdvalue="8859part14">8859part14</code>
+		<code value="020" source="ISO19115" stdvalue="8859part15">8859part15</code>
+		<code value="021" source="ISO19115" stdvalue="8859part16">8859part16</code>
+		<code value="022" source="ISO19115" stdvalue="jis">jis</code>
+		<code value="023" source="ISO19115" stdvalue="shiftJIS">shiftJIS</code>
+		<code value="024" source="ISO19115" stdvalue="eucJP">eucJP</code>
+		<code value="025" source="ISO19115" stdvalue="usAscii">usAscii</code>
+		<code value="026" source="ISO19115" stdvalue="ebcdic">ebcdic</code>
+		<code value="027" source="ISO19115" stdvalue="eucKR">eucKR</code>
+		<code value="028" source="ISO19115" stdvalue="big5">big5</code>
+		<code value="029" source="ISO19115" stdvalue="GB2312">GB2312</code>
+	</codelist>
+	<codelist id="MD_ClassificationCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="unclassified">Unclassified</code>
+		<code value="002" source="ISO19115" stdvalue="restricted">Restricted</code>
+		<code value="003" source="ISO19115" stdvalue="confidential">Confidential</code>
+		<code value="004" source="ISO19115" stdvalue="secret">Secret</code>
+		<code value="005" source="ISO19115" stdvalue="topSecret">Top Secret</code>
+		<code value="006" source="NAP" stdvalue="sensitive">Sensitive</code>
+		<code value="007" source="NAP" stdvalue="forOfficialUseOnly">Official Use Only</code>
+	</codelist>
+  <codelist id="MD_CoverageContentTypeCode" source="ISO19115" xmlns="">
+    <code value="" source="ArcGIS">Empty</code>
+    <code value="001">EPA Image</code>
+    <code value="002">EPA Thematic Classification</code>
+    <code value="003">EPA Physical Measurement</code>
+    <code value="101">EPA Predicted Surface</code>
+    <code value="201">EPA Test Codelist</code>
+  </codelist>
+	<codelist id="MD_DimensionNameTypeCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="row">Row (y-axis)</code>
+		<code value="002" source="ISO19115" stdvalue="column">Column (x-axis)</code>
+		<code value="003" source="ISO19115" stdvalue="vertical">Vertical (z-axis)</code>
+		<code value="004" source="ISO19115" stdvalue="track">Track</code>
+		<code value="005" source="ISO19115" stdvalue="crossTrack">Cross-track</code>
+		<code value="006" source="ISO19115" stdvalue="line">Line</code>
+		<code value="007" source="ISO19115" stdvalue="sample">Sample</code>
+		<code value="008" source="ISO19115" stdvalue="time">Time</code>
+	</codelist>
+	<codelist id="MD_GeometricObjectTypeCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="complex">Complex</code>
+		<code value="002" source="ISO19115" stdvalue="composite">Composite</code>
+		<code value="003" source="ISO19115" stdvalue="curve">Curve</code>
+		<code value="004" source="ISO19115" stdvalue="point">Point</code>
+		<code value="005" source="ISO19115" stdvalue="solid">Solid</code>
+		<code value="006" source="ISO19115" stdvalue="surface">Surface</code>
+	</codelist>
+	<codelist id="MD_ImagingConditionCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="blurredImage">Blurred Image</code>
+		<code value="002" source="ISO19115" stdvalue="cloud">Cloud</code>
+		<code value="003" source="ISO19115" stdvalue="degradingObliquity">Degrading Obliquity</code>
+		<code value="004" source="ISO19115" stdvalue="fog">Fog</code>
+		<code value="005" source="ISO19115" stdvalue="heavySmokeOrDust">Heavy Smoke or Dust</code>
+		<code value="006" source="ISO19115" stdvalue="night">Night</code>
+		<code value="007" source="ISO19115" stdvalue="rain">Rain</code>
+		<code value="008" source="ISO19115" stdvalue="semiDarkness">Semidarkness</code>
+		<code value="009" source="ISO19115" stdvalue="shadow">Shadow</code>
+		<code value="010" source="ISO19115" stdvalue="snow">Snow</code>
+		<code value="011" source="ISO19115" stdvalue="terrainMasking">Terrain Masking</code>
+	</codelist>
+	<!-- MD_KeywordTypeCode: keywords are stored in elements specific to their type; codelists aren't used -->
+	<!-- editor is looking for incorrectly-spelled codelist name, so can't fix it here; should be MD_MaintenanceFrequenceCode -->
+	<codelist id="MD_MaintenanceFrequenceCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="continual">Continual</code>
+		<code value="002" source="ISO19115" stdvalue="daily">Daily</code>
+		<code value="003" source="ISO19115" stdvalue="weekly">Weekly</code>
+		<code value="004" source="ISO19115" stdvalue="fortnightly">Fortnightly</code>
+		<code value="005" source="ISO19115" stdvalue="monthly">Monthly</code>
+		<code value="006" source="ISO19115" stdvalue="quarterly">Quarterly</code>
+		<code value="007" source="ISO19115" stdvalue="biannually">Biannually</code>
+		<code value="008" source="ISO19115" stdvalue="annually">Annually</code>
+		<code value="009" source="ISO19115" stdvalue="asNeeded">As Needed</code>
+		<code value="010" source="ISO19115" stdvalue="irregular">Irregular</code>
+		<code value="011" source="ISO19115" stdvalue="notPlanned">Not Planned</code>
+		<code value="012" source="ISO19115" stdvalue="unknown">Unknown</code>
+		<code value="013" source="NAP" stdvalue="semimonthly">Semimonthly</code>
+		<code value="998" source="ISO19115DIS" stdvalue="unknown">Unknown</code><!-- old code used by early versions of the ESRI-ISO metadata editor wizard; not used in ArcGIS metadata -->
+	</codelist>
+	<codelist id="MD_MediumFormatCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="cpio">CPIO</code>
+		<code value="002" source="ISO19115" stdvalue="tar">TAR</code>
+		<code value="003" source="ISO19115" stdvalue="highSierra">High Sierra</code>
+		<code value="004" source="ISO19115" stdvalue="iso9660">ISO 9660</code>
+		<code value="005" source="ISO19115" stdvalue="iso9660RockRidge">ISO 9660 Rock Ridge</code>
+		<code value="006" source="ISO19115" stdvalue="iso9660AppleHFS">ISO 9660 Apple HFS</code>
+		<code value="007" source="NAP" stdvalue="UDF">UDF</code><!-- used for NAP and FGDC -->
+	</codelist>
+	<codelist id="MD_MediumNameCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="cdRom">CD-ROM</code>
+		<code value="002" source="ISO19115" stdvalue="dvd">DVD</code>
+		<code value="003" source="ISO19115" stdvalue="dvdRom">DVD-ROM</code>
+		<code value="004" source="ISO19115" stdvalue="3halfinchFloppy">3.5 Inch Floppy</code>
+		<code value="005" source="ISO19115" stdvalue="5quarterInchFloppy">5.25 Inch Floppy</code>
+		<code value="006" source="ISO19115" stdvalue="7trackTape">7 Track Tape</code>
+		<code value="007" source="ISO19115" stdvalue="9trackTape">9 Track Tape</code>
+		<code value="008" source="ISO19115" stdvalue="3480Cartridge">3480 Cartridge</code>
+		<code value="009" source="ISO19115" stdvalue="3490Cartridge">3490 Cartridge</code>
+		<code value="010" source="ISO19115" stdvalue="3580Cartridge">3580 Cartridge</code>
+		<code value="011" source="ISO19115" stdvalue="4mmCartridgeTape">4mm Cartridge Tape</code>
+		<code value="012" source="ISO19115" stdvalue="8mmCartridgeTape">8mm Cartridge Tape</code>
+		<code value="013" source="ISO19115" stdvalue="1quarterInchCartridgeTape">1.25 Inch Cartridge Tape</code>
+		<code value="014" source="ISO19115" stdvalue="digitalLinearTape">Digital Linear Tape</code>
+		<code value="015" source="ISO19115" stdvalue="onLine">Online</code>
+		<code value="016" source="ISO19115" stdvalue="satellite">Satellite Link</code>
+		<code value="017" source="ISO19115" stdvalue="telephoneLink">Telephone Link</code>
+		<code value="018" source="ISO19115" stdvalue="hardcopy">Hardcopy</code>
+		<code value="019" source="NAP_FGDC" stdvalue="hardcopyDiazoPolyester08">Diazo Polyester 08</code>
+		<code value="020" source="NAP_FGDC" stdvalue="hardcopyCardMicrofilm">Card Microfilm</code>
+		<code value="021" source="NAP_FGDC" stdvalue="hardcopyMicrofilm240">Microfilm 240</code>
+		<code value="022" source="NAP_FGDC" stdvalue="hardcopyMicrofilm35">Microfilm 35</code>
+		<code value="023" source="NAP_FGDC" stdvalue="hardcopyMicrofilm70">Microfilm 70</code>
+		<code value="024" source="NAP_FGDC" stdvalue="hardcopyMicrofilmGeneral">Microfilm General</code>
+		<code value="025" source="NAP_FGDC" stdvalue="hardcopyMicrofilmMicrofiche">Microfilm Microfiche</code>
+		<code value="026" source="NAP_FGDC" stdvalue="hardcopyNegativePhoto">Negative Photo</code>
+		<code value="027" source="NAP_FGDC" stdvalue="hardcopyPaper">Paper</code>
+		<code value="028" source="NAP_FGDC" stdvalue="hardcopyDiazo">Diazo</code>
+		<code value="029" source="NAP_FGDC" stdvalue="hardcopyPhoto">Photo</code>
+		<code value="030" source="NAP_FGDC" stdvalue="hardcopyTracedPaper">Traced Paper</code>
+		<code value="031" source="NAP_FGDC" stdvalue="hardDisk">Hard Disk</code>
+		<code value="032" source="NAP_FGDC" stdvalue="USBFlashDrive">USB Flash Drive</code>
+	</codelist>
+	<!-- MD_PixelOrientationCode: this is an enumeration in ISO 19115, not a codelist - it can't be extended -->
+	<codelist id="MD_PixelOrientationCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="center">Center</code>
+		<code value="002" source="ISO19115" stdvalue="lowerLeft">Lower Left</code>
+		<code value="003" source="ISO19115" stdvalue="lowerRight">Lower Right</code>
+		<code value="004" source="ISO19115" stdvalue="upperRight">Upper Right</code>
+		<code value="005" source="ISO19115" stdvalue="upperLeft">Upper Left</code>
+	</codelist>
+	<codelist id="MD_ProgressCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="completed">Completed</code>
+		<code value="002" source="ISO19115" stdvalue="historicalArchive">Historical Archive</code>
+		<code value="003" source="ISO19115" stdvalue="obsolete">Obsolete</code>
+		<code value="004" source="ISO19115" stdvalue="onGoing">Ongoing</code>
+		<code value="005" source="ISO19115" stdvalue="planned">Planned</code>
+		<code value="006" source="ISO19115" stdvalue="required">Required</code>
+		<code value="007" source="ISO19115" stdvalue="underDevelopment">Under Development</code>
+		<code value="008" source="NAP" stdvalue="proposed">Proposed</code>
+	</codelist>
+	<codelist id="MD_RestrictionCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="copyright">Copyright</code>
+		<code value="002" source="ISO19115" stdvalue="patent">Patent</code>
+		<code value="003" source="ISO19115" stdvalue="patentPending">Patent Pending</code>
+		<code value="004" source="ISO19115" stdvalue="trademark">Trademark</code>
+		<code value="005" source="ISO19115" stdvalue="license">License</code>
+		<code value="006" source="ISO19115" stdvalue="intellectualPropertyRights">Intellectual Property Rights</code>
+		<code value="007" source="ISO19115" stdvalue="restricted">Restricted</code>
+		<code value="008" source="ISO19115" stdvalue="otherRestrictions">Other Restrictions</code>
+		<code value="009" source="NAP" stdvalue="licenseUnrestricted">Unrestricted License</code>
+		<code value="010" source="NAP" stdvalue="licenseEndUser">End User License</code>
+		<code value="011" source="NAP" stdvalue="licenseDistributor">Distributor License</code>
+		<code value="012" source="NAP" stdvalue="privacy">Privacy</code>
+		<code value="013" source="NAP" stdvalue="statutory">Statutory</code>
+		<code value="014" source="NAP" stdvalue="confidential">Confidential</code>
+		<code value="015" source="NAP" stdvalue="sensitivity">Sensitivity</code>
+	</codelist>
+	<codelist id="MD_Metadata_MD_ScopeCode" source="ISO19115" xmlns=""><!-- used in MD_Metadata.hierarchyLevel element only; only identified scopes are included for INSPIRE -->
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="attribute">Attribute</code>
+		<code value="002" source="ISO19115" stdvalue="attributeType">Attribute Type</code>
+		<code value="003" source="ISO19115" stdvalue="collectionHardware">Collection Hardware</code>
+		<code value="004" source="ISO19115" stdvalue="collectionSession">Collection Session</code>
+		<code value="005" source="ISO19115" stdvalue="dataset" inspire="True">Dataset</code><!-- included for INSPIRE -->
+		<code value="006" source="ISO19115" stdvalue="series" inspire="True">Series</code><!-- included for INSPIRE -->
+		<code value="007" source="ISO19115" stdvalue="nonGeographicDataset">Non-geographic Dataset</code>
+		<code value="008" source="ISO19115" stdvalue="dimensionGroup">Dimension Group</code>
+		<code value="009" source="ISO19115" stdvalue="feature">Feature</code>
+		<code value="010" source="ISO19115" stdvalue="featureType">Feature Type</code>
+		<code value="011" source="ISO19115" stdvalue="propertyType">Property Type</code>
+		<code value="012" source="ISO19115" stdvalue="fieldSession">Field Session</code>
+		<code value="013" source="ISO19115" stdvalue="software">Software</code>
+		<code value="014" source="ISO19115" stdvalue="service" inspire="True">Service</code><!-- included for INSPIRE -->
+		<code value="015" source="ISO19115" stdvalue="model">Model</code>
+		<code value="016" source="ISO19115" stdvalue="tile">Tile</code>
+		<code value="017" source="ISO19139" stdvalue="initiative">Initiative</code>
+		<code value="018" source="ISO19139" stdvalue="stereoMate">Stereo-mate</code>
+		<code value="019" source="ISO19139" stdvalue="sensor">Sensor</code>
+		<code value="020" source="ISO19139" stdvalue="platformSeries">Platform Series</code>
+		<code value="021" source="ISO19139" stdvalue="sensorSeries">Sensor Series</code>
+		<code value="022" source="ISO19139" stdvalue="productionSeries">Production Series</code>
+		<code value="023" source="ISO19139" stdvalue="transferSeries">Transfer Series</code>
+		<code value="024" source="ISO19139" stdvalue="otherSeries">Other Series</code>
+	</codelist>
+	<codelist id="MD_ScopeCode" source="ISO19115" xmlns=""><!-- used in metadata, not in MD_Metadata.hierarchyLevel element -->
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="attribute">Attribute</code>
+		<code value="002" source="ISO19115" stdvalue="attributeType">Attribute Type</code>
+		<code value="003" source="ISO19115" stdvalue="collectionHardware">Collection Hardware</code>
+		<code value="004" source="ISO19115" stdvalue="collectionSession">Collection Session</code>
+		<code value="005" source="ISO19115" stdvalue="dataset">Dataset</code>
+		<code value="006" source="ISO19115" stdvalue="series">Series</code>
+		<code value="007" source="ISO19115" stdvalue="nonGeographicDataset">Non-geographic Dataset</code>
+		<code value="008" source="ISO19115" stdvalue="dimensionGroup">Dimension Group</code>
+		<code value="009" source="ISO19115" stdvalue="feature">Feature</code>
+		<code value="010" source="ISO19115" stdvalue="featureType">Feature Type</code>
+		<code value="011" source="ISO19115" stdvalue="propertyType">Property Type</code>
+		<code value="012" source="ISO19115" stdvalue="fieldSession">Field Session</code>
+		<code value="013" source="ISO19115" stdvalue="software">Software</code>
+		<code value="014" source="ISO19115" stdvalue="service">Service</code>
+		<code value="015" source="ISO19115" stdvalue="model">Model</code>
+		<code value="016" source="ISO19115" stdvalue="tile">Tile</code>
+		<code value="017" source="ISO19139" stdvalue="initiative">Initiative</code>
+		<code value="018" source="ISO19139" stdvalue="stereoMate">Stereo-mate</code>
+		<code value="019" source="ISO19139" stdvalue="sensor">Sensor</code>
+		<code value="020" source="ISO19139" stdvalue="platformSeries">Platform Series</code>
+		<code value="021" source="ISO19139" stdvalue="sensorSeries">Sensor Series</code>
+		<code value="022" source="ISO19139" stdvalue="productionSeries">Production Series</code>
+		<code value="023" source="ISO19139" stdvalue="transferSeries">Transfer Series</code>
+		<code value="024" source="ISO19139" stdvalue="otherSeries">Other Series</code>
+	</codelist>
+	<codelist id="MD_SpatialRepresentationTypeCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="vector">Vector</code>
+		<code value="002" source="ISO19115" stdvalue="grid">Grid</code>
+		<code value="003" source="ISO19115" stdvalue="textTable">Text Table</code>
+		<code value="004" source="ISO19115" stdvalue="tin">Tin</code>
+		<code value="005" source="ISO19115" stdvalue="stereoModel">Stereo Model</code>
+		<code value="006" source="ISO19115" stdvalue="video">Video</code>
+	</codelist>
+	<!-- MD_TopicCategoryCode: this is an enumeration in ISO 19115, not a codelist - it can't be extended; codelist isn't used directly by the editor to set the value, but this records the value that is saved -->
+	<codelist id="MD_TopicCategoryCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="farming">Farming</code>
+		<code value="002" source="ISO19115" stdvalue="biota">Biota</code>
+		<code value="003" source="ISO19115" stdvalue="boundaries">Boundaries</code>
+		<code value="004" source="ISO19115" stdvalue="climatologyMeteorologyAtmosphere">Atmospheric Sciences</code>
+		<code value="005" source="ISO19115" stdvalue="economy">Economy</code>
+		<code value="006" source="ISO19115" stdvalue="elevation">Elevation</code>
+		<code value="007" source="ISO19115" stdvalue="environment">Environment</code>
+		<code value="008" source="ISO19115" stdvalue="geoscientificInformation">Geoscientific</code>
+		<code value="009" source="ISO19115" stdvalue="health">Health</code>
+		<code value="010" source="ISO19115" stdvalue="imageryBaseMapsEarthCover">Imagery &amp; Base Maps</code>
+		<code value="011" source="ISO19115" stdvalue="intelligenceMilitary">Military &amp; Intelligence</code>
+		<code value="012" source="ISO19115" stdvalue="inlandWaters">Inland Waters</code>
+		<code value="013" source="ISO19115" stdvalue="location">Location</code>
+		<code value="014" source="ISO19115" stdvalue="oceans">Oceans</code>
+		<code value="015" source="ISO19115" stdvalue="planningCadastre">Planning &amp; Cadastral</code>
+		<code value="016" source="ISO19115" stdvalue="society">Society</code>
+		<code value="017" source="ISO19115" stdvalue="structure">Structure</code>
+		<code value="018" source="ISO19115" stdvalue="transportation">Transportation</code>
+		<code value="019" source="ISO19115" stdvalue="utilitiesCommunication">Utilities &amp; Communication</code>
+	</codelist>
+	<codelist id="MD_TopologyLevelCode" source="ISO19115" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19115" stdvalue="geometryOnly">Geometry Only</code>
+		<code value="002" source="ISO19115" stdvalue="topology1D">1D Topology</code>
+		<code value="003" source="ISO19115" stdvalue="planarGraph">Planar Graph</code>
+		<code value="004" source="ISO19115" stdvalue="fullPlanarGraph">Full Planar Graph</code>
+		<code value="005" source="ISO19115" stdvalue="surfaceGraph">Surface Graph</code>
+		<code value="006" source="ISO19115" stdvalue="fullSurfaceGraph">Full Surface Graph</code>
+		<code value="007" source="ISO19115" stdvalue="topology3D">3D Topology</code>
+		<code value="008" source="ISO19115" stdvalue="fullTopology3D">Full 3D Topology</code>
+		<code value="009" source="ISO19115" stdvalue="abstract">Abstract</code>
+	</codelist>
+	<codelist id="SV_CouplingType" source="ISO19119" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19119" stdvalue="loose">loose</code>
+		<code value="002" source="ISO19119" stdvalue="mixed">mixed</code>
+		<code value="003" source="ISO19119" stdvalue="tight">tight</code>
+	</codelist>
+
+	<codelist id="AddressType" source="ArcGIS" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="postal" source="FGDC" stdvalue="postal">Postal</code>
+		<code value="physical" source="FGDC" stdvalue="physical">Physical</code>
+		<code value="both" source="FGDC" stdvalue="both">Both</code>
+	</codelist>
+	<codelist id="PresentationForm" source="ArcGIS" xmlns=""><!-- complements CI_PresentationForm in citations -->
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="atlas" source="FGDC" stdvalue="">Atlas</code>
+		<code value="audio" source="FGDC" stdvalue="">Audio</code>
+		<code value="diagram" source="FGDC" stdvalue="">Diagram</code>
+		<code value="document" source="FGDC" stdvalue="">Document</code>
+		<code value="globe" source="FGDC" stdvalue="">Globe</code>
+		<code value="map" source="FGDC" stdvalue="">Map</code>
+		<code value="model" source="FGDC" stdvalue="">Model</code>
+		<code value="multimedia presentation" source="FGDC" stdvalue="">Multimedia Presentation</code>
+		<code value="profile" source="FGDC" stdvalue="">Profile</code>
+		<code value="raster digital data" source="FGDC" stdvalue="">Raster Digital Data</code>
+		<code value="remote-sensing image" source="FGDC" stdvalue="">Remote Sensing Image</code>
+		<code value="section" source="FGDC" stdvalue="">Sectisn</code>
+		<code value="spreadsheet" source="FGDC" stdvalue="">Spreadsheet</code>
+		<code value="tabular digital data" source="FGDC" stdvalue="">Tabular Digital Data</code>
+		<code value="vector digital data" source="FGDC" stdvalue="">Vector Digital Data</code>
+		<code value="video" source="FGDC" stdvalue="">Video</code>
+		<code value="view" source="FGDC" stdvalue="">View</code>
+	</codelist>
+	<codelist id="DQ_ElementDimension" source="ArcGIS" xmlns=""><!-- identifies the dimension of spatial data being described; separate types exist for temporal information -->
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="horizontal" source="ArcGIS" stdvalue="">horizontal</code>
+		<code value="vertical" source="ArcGIS" stdvalue="">vertical</code>
+	</codelist>
+	<codelist id="DQ_ElementType" source="ArcGIS" xmlns=""><!-- codelist representation of ISO 19115 DQ_Element subclasses; only identified types are included for FGDC -->
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="DQCompComm" source="ISO19115" stdvalue="">Completeness Commission</code>
+		<code value="DQCompOm" source="ISO19115" stdvalue="" fgdc="True">Completeness Omission</code><!-- included for FGDC -->
+		<code value="DQConcConsis" source="ISO19115" stdvalue="" fgdc="True">Conceptual Consistency</code><!-- included for FGDC -->
+		<code value="DQDomConsis" source="ISO19115" stdvalue="">Domain Consistency</code>
+		<code value="DQFormConsis" source="ISO19115" stdvalue="">Format Consistency</code>
+		<code value="DQTopConsis" source="ISO19115" stdvalue="">Topological Consistency</code>
+		<code value="DQAbsExtPosAcc" source="ISO19115" stdvalue="" fgdc="True">Absolute External Positional Accuracy</code><!-- included for FGDC -->
+		<code value="DQGridDataPosAcc" source="ISO19115" stdvalue="">Gridded Data Positional Accuracy</code>
+		<code value="DQRelIntPosAcc" source="ISO19115" stdvalue="">Relative Internal Positional Accuracy</code>
+		<code value="DQThemClassCor" source="ISO19115" stdvalue="">Thematic Classification Correctness</code>
+		<code value="DQNonQuanAttAcc" source="ISO19115" stdvalue="">Non-quantitative Attribute Accuracy</code>
+		<code value="DQQuanAttAcc" source="ISO19115" stdvalue="" fgdc="True">Quantitative Attribute Accuracy</code><!-- included for FGDC -->
+		<code value="DQAccTimeMeas" source="ISO19115" stdvalue="">Accuracy of a Time Measurement</code>
+		<code value="DQTempConsis" source="ISO19115" stdvalue="">Temporal Consistency</code>
+		<code value="DQTempValid" source="ISO19115" stdvalue="" nap="False">Temporal Validity</code><!-- not included in NAP -->
+	</codelist>
+	<codelist id="IMS_ContentType" source="ArcGIS" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ArcGIS" stdvalue="">Live Data And Maps</code>
+		<code value="002" source="ArcGIS" stdvalue="">Downloadable Data</code>
+		<code value="003" source="ArcGIS" stdvalue="">Off-line Data</code>
+		<code value="004" source="ArcGIS" stdvalue="">Static Map Images</code>
+		<code value="005" source="ArcGIS" stdvalue="">Other Documents</code>
+		<code value="006" source="ArcGIS" stdvalue="">Applications</code>
+		<code value="007" source="ArcGIS" stdvalue="">Geographic Services</code>
+		<code value="008" source="ArcGIS" stdvalue="">Clearinghouses</code>
+		<code value="009" source="ArcGIS" stdvalue="">Map Files</code>
+		<code value="010" source="ArcGIS" stdvalue="">Geographic Activities</code>
+	</codelist>
+	<codelist id="LI_SourceType" source="ArcGIS" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="used" source="ArcGIS" stdvalue="">Used</code>
+		<code value="produced" source="ArcGIS" stdvalue="">Produced</code>
+	</codelist>
+	<codelist id="RS_Dimension" source="ArcGIS" xmlns=""><!-- used in reference system for NAP, and if page is added to FGDC except as indicated below -->
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="horizontal" source="ArcGIS" stdvalue="">horizontal</code>
+		<code value="vertical" source="ArcGIS" stdvalue="">vertical</code>
+		<code value="temporal" source="ArcGIS" stdvalue="" fgdc="False">temporal</code><!-- not included for FGDC -->
+	</codelist>
+	<codelist id="CountryCode" source="ArcGIS" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="AF" source="ISO3166" stdvalue="AFG">Afghanistan</code>
+		<code value="AX" source="ISO3166" stdvalue="ALA">Åland Islands</code>
+		<code value="AL" source="ISO3166" stdvalue="ALB">Albania</code>
+		<code value="DZ" source="ISO3166" stdvalue="DZA">Algeria</code>
+		<code value="AS" source="ISO3166" stdvalue="ASM">American Samoa</code>
+		<code value="AD" source="ISO3166" stdvalue="AND">Andorra</code>
+		<code value="AO" source="ISO3166" stdvalue="AGO">Angola</code>
+		<code value="AI" source="ISO3166" stdvalue="AIA">Aguilla</code>
+		<code value="AQ" source="ISO3166" stdvalue="ATA">Antarctica</code>
+		<code value="AG" source="ISO3166" stdvalue="ATG">Antigua and Barbuda</code>
+		<code value="AR" source="ISO3166" stdvalue="ARG">Argentina</code>
+		<code value="AM" source="ISO3166" stdvalue="ARM">Armenia</code>
+		<code value="AW" source="ISO3166" stdvalue="ABW">Aruba</code>
+		<code value="AU" source="ISO3166" stdvalue="AUS">Australia</code>
+		<code value="AT" source="ISO3166" stdvalue="AUT">Austria</code>
+		<code value="AZ" source="ISO3166" stdvalue="AZE">Azerbaijan</code>
+		<code value="BS" source="ISO3166" stdvalue="BHS">Bahamas</code>
+		<code value="BH" source="ISO3166" stdvalue="BHR">Bahrain</code>
+		<code value="BD" source="ISO3166" stdvalue="BGD">Bangladesh</code>
+		<code value="BB" source="ISO3166" stdvalue="BRB">Barbados</code>
+		<code value="BY" source="ISO3166" stdvalue="BLR">Belarus</code>
+		<code value="BE" source="ISO3166" stdvalue="BEL">Belgium</code>
+		<code value="BZ" source="ISO3166" stdvalue="BLZ">Belize</code>
+		<code value="BJ" source="ISO3166" stdvalue="BEN">Benin</code>
+		<code value="BM" source="ISO3166" stdvalue="BM">Bermuda</code>
+		<code value="BT" source="ISO3166" stdvalue="BTN">Bhutan</code>
+		<code value="BO" source="ISO3166" stdvalue="BOL">Bolivia, Plurinational State of</code>
+		<code value="BQ" source="ISO3166" stdvalue="BES">Bonaire, Sint Eustatius and Saba</code>
+		<code value="BA" source="ISO3166" stdvalue="BIH">Bosnia and Herzegovina</code>
+		<code value="BW" source="ISO3166" stdvalue="BWA">Botswana</code>
+		<code value="BV" source="ISO3166" stdvalue="BVT">Bouvet Island</code>
+		<code value="BR" source="ISO3166" stdvalue="BRA">Brazil</code>
+		<code value="IO" source="ISO3166" stdvalue="IOT">British Indian Ocean Territory</code>
+		<code value="BN" source="ISO3166" stdvalue="BRN">Brunei Darussalam</code>
+		<code value="BG" source="ISO3166" stdvalue="BGR">Bulgaria</code>
+		<code value="BF" source="ISO3166" stdvalue="BFA">Burkina Faso</code>
+		<code value="BI" source="ISO3166" stdvalue="BDI">Burundi</code>
+		<code value="KH" source="ISO3166" stdvalue="KHM">Cambodia</code>
+		<code value="CM" source="ISO3166" stdvalue="CMR">Cameroon</code>
+		<code value="CV" source="ISO3166" stdvalue="CPV">Cape Verde</code>
+		<code value="KY" source="ISO3166" stdvalue="CYM">Cayman Islands</code>
+		<code value="CF" source="ISO3166" stdvalue="CAF">Central African Republic</code>
+		<code value="TD" source="ISO3166" stdvalue="TCD">Chad</code>
+		<code value="CL" source="ISO3166" stdvalue="CHL">Chile</code>
+		<code value="CN" source="ISO3166" stdvalue="CHN">China</code>
+		<code value="CX" source="ISO3166" stdvalue="CXR">Christmas Island</code>
+		<code value="CC" source="ISO3166" stdvalue="CCK">Cocos (Keeling) Islands</code>
+		<code value="CO" source="ISO3166" stdvalue="COL">Colombia</code>
+		<code value="KM" source="ISO3166" stdvalue="COM">Comoros</code>
+		<code value="CG" source="ISO3166" stdvalue="COG">Congo</code>
+		<code value="CD" source="ISO3166" stdvalue="COD">Congo, the Democratic Republic of the</code>
+		<code value="CK" source="ISO3166" stdvalue="COK">Cook Islands</code>
+		<code value="CR" source="ISO3166" stdvalue="CRI">Costa Rica</code>
+		<code value="CI" source="ISO3166" stdvalue="CIV">Côte d'Ivoire</code>
+		<code value="HR" source="ISO3166" stdvalue="HRV">Croatia</code>
+		<code value="CU" source="ISO3166" stdvalue="CUB">Cuba</code>
+		<code value="CW" source="ISO3166" stdvalue="CUW">Curaçao</code>
+		<code value="CY" source="ISO3166" stdvalue="CYP">Cyprus</code>
+		<code value="CZ" source="ISO3166" stdvalue="CZE">Czech Republic</code>
+		<code value="DK" source="ISO3166" stdvalue="DNK">Denmark</code>
+		<code value="DJ" source="ISO3166" stdvalue="DJI">Djibouti</code>
+		<code value="DM" source="ISO3166" stdvalue="DMA">Dominica</code>
+		<code value="DO" source="ISO3166" stdvalue="DOM">Dominican Republic</code>
+		<code value="EC" source="ISO3166" stdvalue="ECU">Ecuador</code>
+		<code value="EG" source="ISO3166" stdvalue="EGY">Egypt</code>
+		<code value="SV" source="ISO3166" stdvalue="SLV">El Salvador</code>
+		<code value="GQ" source="ISO3166" stdvalue="GNQ">Equatorial Guinea</code>
+		<code value="ER" source="ISO3166" stdvalue="ERI">Eritrea</code>
+		<code value="EE" source="ISO3166" stdvalue="EST">Estonia</code>
+		<code value="ET" source="ISO3166" stdvalue="ETH">Ethiopia</code>
+		<code value="FK" source="ISO3166" stdvalue="FLK">Falkland Islands (Malvinas)</code>
+		<code value="FO" source="ISO3166" stdvalue="FRO">Faroe Islands</code>
+		<code value="FJ" source="ISO3166" stdvalue="FJI">Fiji</code>
+		<code value="FI" source="ISO3166" stdvalue="FIN">Finland</code>
+		<code value="FR" source="ISO3166" stdvalue="FRA">France</code>
+		<code value="GF" source="ISO3166" stdvalue="GUF">French Guiana</code>
+		<code value="PF" source="ISO3166" stdvalue="PYF">French Polynesia</code>
+		<code value="TF" source="ISO3166" stdvalue="ATF">French Southern Territories</code>
+		<code value="GA" source="ISO3166" stdvalue="GAB">Gabon</code>
+		<code value="GM" source="ISO3166" stdvalue="GMB">Gambia</code>
+		<code value="GE" source="ISO3166" stdvalue="GEO">Georgia</code>
+		<code value="DE" source="ISO3166" stdvalue="DEU">Germany</code>
+		<code value="GH" source="ISO3166" stdvalue="GHA">Ghana</code>
+		<code value="GI" source="ISO3166" stdvalue="GIB">Gibraltar</code>
+		<code value="GR" source="ISO3166" stdvalue="GRC">Greece</code>
+		<code value="GL" source="ISO3166" stdvalue="GRL">Greenland</code>
+		<code value="GD" source="ISO3166" stdvalue="GRD">Grenada</code>
+		<code value="GP" source="ISO3166" stdvalue="GLP">Guadeloupe</code>
+		<code value="GU" source="ISO3166" stdvalue="GUM">Guam</code>
+		<code value="GT" source="ISO3166" stdvalue="GTM">Guatemala</code>
+		<code value="GG" source="ISO3166" stdvalue="GGY">Guernsey</code>
+		<code value="GN" source="ISO3166" stdvalue="GIN">Guinea</code>
+		<code value="GW" source="ISO3166" stdvalue="GNB">Buinea-Bissau</code>
+		<code value="GY" source="ISO3166" stdvalue="GUY">Guyana</code>
+		<code value="HT" source="ISO3166" stdvalue="HTI">Haiti</code>
+		<code value="HM" source="ISO3166" stdvalue="HMD">Heard Island and McDonald Islands</code>
+		<code value="VA" source="ISO3166" stdvalue="VAT">Holy See (Vatican City State)</code>
+		<code value="HN" source="ISO3166" stdvalue="HND">Honduras</code>
+		<code value="HK" source="ISO3166" stdvalue="HKG">Hong Kong</code>
+		<code value="HU" source="ISO3166" stdvalue="HUN">Hungary</code>
+		<code value="IS" source="ISO3166" stdvalue="ISL">Iceland</code>
+		<code value="IN" source="ISO3166" stdvalue="IND">India</code>
+		<code value="ID" source="ISO3166" stdvalue="IDN">Indonesia</code>
+		<code value="IR" source="ISO3166" stdvalue="IRN">Iran, Islamic Republic of</code>
+		<code value="IQ" source="ISO3166" stdvalue="IRQ">Iraq</code>
+		<code value="IE" source="ISO3166" stdvalue="IRL">Ireland</code>
+		<code value="IM" source="ISO3166" stdvalue="IMN">Isle of Man</code>
+		<code value="IL" source="ISO3166" stdvalue="ISR">Israel</code>
+		<code value="IT" source="ISO3166" stdvalue="ITA">Italy</code>
+		<code value="JM" source="ISO3166" stdvalue="JAM">Jamaica</code>
+		<code value="JP" source="ISO3166" stdvalue="JPN">Japan</code>
+		<code value="JE" source="ISO3166" stdvalue="JEY">Jersey</code>
+		<code value="JO" source="ISO3166" stdvalue="JOR">Jordan</code>
+		<code value="KZ" source="ISO3166" stdvalue="KAZ">Kazakhstan</code>
+		<code value="KE" source="ISO3166" stdvalue="KEN">Kenya</code>
+		<code value="KI" source="ISO3166" stdvalue="KIR">Kiribati</code>
+		<code value="KP" source="ISO3166" stdvalue="PRK">Korea, Democratic People's Republic of</code>
+		<code value="KR" source="ISO3166" stdvalue="KOR">Korea, Republic of</code>
+		<code value="KW" source="ISO3166" stdvalue="KWT">Kuwait</code>
+		<code value="KG" source="ISO3166" stdvalue="KGZ">Kyrgyzstan</code>
+		<code value="LA" source="ISO3166" stdvalue="LAO">Lao People's Democratic Republic</code>
+		<code value="LV" source="ISO3166" stdvalue="LVA">Latvia</code>
+		<code value="LB" source="ISO3166" stdvalue="LBN">Lebanon</code>
+		<code value="LS" source="ISO3166" stdvalue="LSO">Lesotho</code>
+		<code value="LR" source="ISO3166" stdvalue="LBR">Liberia</code>
+		<code value="LY" source="ISO3166" stdvalue="LBY">Libya</code>
+		<code value="LI" source="ISO3166" stdvalue="LIE">Liechtenstein</code>
+		<code value="LT" source="ISO3166" stdvalue="LTU">Lithuania</code>
+		<code value="LU" source="ISO3166" stdvalue="LUX">Luxembourg</code>
+		<code value="MO" source="ISO3166" stdvalue="MAC">Macao</code>
+		<code value="MK" source="ISO3166" stdvalue="MKD">Macedonia, the Former Yugoslav Republic of</code>
+		<code value="MG" source="ISO3166" stdvalue="MDG">Madagascar</code>
+		<code value="MW" source="ISO3166" stdvalue="MWI">Malawi</code>
+		<code value="MY" source="ISO3166" stdvalue="MYS">Malaysia</code>
+		<code value="MV" source="ISO3166" stdvalue="MDV">Maldives</code>
+		<code value="ML" source="ISO3166" stdvalue="MLI">Mali</code>
+		<code value="MT" source="ISO3166" stdvalue="MLT">Malta</code>
+		<code value="MH" source="ISO3166" stdvalue="MHL">Marshall Islands</code>
+		<code value="MQ" source="ISO3166" stdvalue="MTQ">Martinique</code>
+		<code value="MR" source="ISO3166" stdvalue="MRT">Mauritania</code>
+		<code value="MU" source="ISO3166" stdvalue="MUS">Mauritius</code>
+		<code value="YT" source="ISO3166" stdvalue="MYT">Mayotte</code>
+		<code value="MX" source="ISO3166" stdvalue="MEX">Mexico</code>
+		<code value="FM" source="ISO3166" stdvalue="FSM">Micronesia, Federated States of</code>
+		<code value="MD" source="ISO3166" stdvalue="MDA">Moldova, Republic of</code>
+		<code value="MC" source="ISO3166" stdvalue="MCO">Monaco</code>
+		<code value="MN" source="ISO3166" stdvalue="MNG">Mongolia</code>
+		<code value="ME" source="ISO3166" stdvalue="MNE">Montenegro</code>
+		<code value="MS" source="ISO3166" stdvalue="MSR">Montserrat</code>
+		<code value="MA" source="ISO3166" stdvalue="MAR">Morocco</code>
+		<code value="MZ" source="ISO3166" stdvalue="MOZ">Mozambique</code>
+		<code value="MM" source="ISO3166" stdvalue="MMR">Myanmar</code>
+		<code value="NA" source="ISO3166" stdvalue="NAM">Namibia</code>
+		<code value="NR" source="ISO3166" stdvalue="NRU">Nauru</code>
+		<code value="NP" source="ISO3166" stdvalue="NPL">Nepal</code>
+		<code value="NL" source="ISO3166" stdvalue="NLD">Netherlands</code>
+		<code value="NC" source="ISO3166" stdvalue="NCL">New Caledonia</code>
+		<code value="NZ" source="ISO3166" stdvalue="NZL">New Zealand</code>
+		<code value="NI" source="ISO3166" stdvalue="NIC">Nicaragua</code>
+		<code value="NE" source="ISO3166" stdvalue="NER">Niger</code>
+		<code value="NG" source="ISO3166" stdvalue="NGA">Nigeria</code>
+		<code value="NU" source="ISO3166" stdvalue="NIU">Niue</code>
+		<code value="NF" source="ISO3166" stdvalue="NFK">Norfolk Island</code>
+		<code value="MP" source="ISO3166" stdvalue="MNP">Northern Mariana Islands</code>
+		<code value="NO" source="ISO3166" stdvalue="NOR">Norway</code>
+		<code value="OM" source="ISO3166" stdvalue="OMN">Oman</code>
+		<code value="PK" source="ISO3166" stdvalue="PAK">Pakistan</code>
+		<code value="PW" source="ISO3166" stdvalue="PLW">Palau</code>
+		<code value="PS" source="ISO3166" stdvalue="PSE">Palestinian Territory, Occupied</code>
+		<code value="PA" source="ISO3166" stdvalue="PAN">Panama</code>
+		<code value="PG" source="ISO3166" stdvalue="PNG">Papua New Guinea</code>
+		<code value="PY" source="ISO3166" stdvalue="PRY">Paraguay</code>
+		<code value="PE" source="ISO3166" stdvalue="PER">Peru</code>
+		<code value="PH" source="ISO3166" stdvalue="PHL">Philippines</code>
+		<code value="PN" source="ISO3166" stdvalue="PCN">Pitcairn</code>
+		<code value="PL" source="ISO3166" stdvalue="POL">Poland</code>
+		<code value="PT" source="ISO3166" stdvalue="PRT">Portugal</code>
+		<code value="PR" source="ISO3166" stdvalue="PRI">Puerto Rico</code>
+		<code value="QA" source="ISO3166" stdvalue="QAT">Qatar</code>
+		<code value="RE" source="ISO3166" stdvalue="REU">Réunion</code>
+		<code value="RO" source="ISO3166" stdvalue="ROU">Romania</code>
+		<code value="RU" source="ISO3166" stdvalue="RUS">Russian Federation</code>
+		<code value="RW" source="ISO3166" stdvalue="RWA">Rwanda</code>
+		<code value="BL" source="ISO3166" stdvalue="BLM">Saint Barthélemy</code>
+		<code value="SH" source="ISO3166" stdvalue="SHN">Saint Helena, Ascension and Tristan da Cunha</code>
+		<code value="KN" source="ISO3166" stdvalue="KNA">Saint Kitts and Nevis</code>
+		<code value="LC" source="ISO3166" stdvalue="LCA">Saint Lucia</code>
+		<code value="MF" source="ISO3166" stdvalue="MAF">Saint Martin (French Part)</code>
+		<code value="PM" source="ISO3166" stdvalue="SPM">Saint Pierre and Miquelon</code>
+		<code value="VC" source="ISO3166" stdvalue="VCT">Saint Vincent and the Grenadines</code>
+		<code value="WS" source="ISO3166" stdvalue="WSM">Samoa</code>
+		<code value="SM" source="ISO3166" stdvalue="SMR">San Marino</code>
+		<code value="ST" source="ISO3166" stdvalue="STP">Sao Tome and Principe</code>
+		<code value="SA" source="ISO3166" stdvalue="SAU">Saudi Arabia</code>
+		<code value="SN" source="ISO3166" stdvalue="SEN">Senegal</code>
+		<code value="RS" source="ISO3166" stdvalue="SRB">Serbia</code>
+		<code value="SC" source="ISO3166" stdvalue="SYC">Seychelles</code>
+		<code value="SL" source="ISO3166" stdvalue="SLE">Sierra Leone</code>
+		<code value="SG" source="ISO3166" stdvalue="SGP">Singapore</code>
+		<code value="SX" source="ISO3166" stdvalue="SXM">Sint Maarten (Dutch Part)</code>
+		<code value="SK" source="ISO3166" stdvalue="SVK">Slovakia</code>
+		<code value="SI" source="ISO3166" stdvalue="SVN">Slovenia</code>
+		<code value="SB" source="ISO3166" stdvalue="SLB">Solomon Islands</code>
+		<code value="SO" source="ISO3166" stdvalue="SOM">Somalia</code>
+		<code value="ZA" source="ISO3166" stdvalue="ZAF">South Africa</code>
+		<code value="GS" source="ISO3166" stdvalue="SGS">South Georgia and the South Sandwich Islands</code>
+		<code value="SS" source="ISO3166" stdvalue="SSD">South Sudan</code>
+		<code value="ES" source="ISO3166" stdvalue="ESP">Spain</code>
+		<code value="LK" source="ISO3166" stdvalue="LKA">Sri Lanka</code>
+		<code value="SD" source="ISO3166" stdvalue="SDN">Sudan</code>
+		<code value="SR" source="ISO3166" stdvalue="SUR">Suriname</code>
+		<code value="SJ" source="ISO3166" stdvalue="SJM">Svalbard and Jan Mayen</code>
+		<code value="SZ" source="ISO3166" stdvalue="SWZ">Swaziland</code>
+		<code value="SE" source="ISO3166" stdvalue="SWE">Sweden</code>
+		<code value="CH" source="ISO3166" stdvalue="CHE">Switzerland</code>
+		<code value="SY" source="ISO3166" stdvalue="SYR">Syrian Arab Republic</code>
+		<code value="TW" source="ISO3166" stdvalue="TWN">Taiwan, Province of China</code>
+		<code value="TJ" source="ISO3166" stdvalue="TJK">Tajikistan</code>
+		<code value="TZ" source="ISO3166" stdvalue="TZA">Tanzania, United Republic of</code>
+		<code value="TH" source="ISO3166" stdvalue="THA">Thailand</code>
+		<code value="TL" source="ISO3166" stdvalue="TLS">Timor-Leste</code>
+		<code value="TG" source="ISO3166" stdvalue="TGO">Togo</code>
+		<code value="TK" source="ISO3166" stdvalue="TKL">Tokelau</code>
+		<code value="TO" source="ISO3166" stdvalue="TON">Tonga</code>
+		<code value="TT" source="ISO3166" stdvalue="TTO">Trinidad and Tobago</code>
+		<code value="TN" source="ISO3166" stdvalue="TUN">Tunisia</code>
+		<code value="TR" source="ISO3166" stdvalue="TUR">Turkey</code>
+		<code value="TM" source="ISO3166" stdvalue="TKM">Turkmenistan</code>
+		<code value="TC" source="ISO3166" stdvalue="TCA">Turks and Caicos Islands</code>
+		<code value="TV" source="ISO3166" stdvalue="TUV">Tuvalu</code>
+		<code value="UG" source="ISO3166" stdvalue="UGA">Uganda</code>
+		<code value="UA" source="ISO3166" stdvalue="UKR">Ukraine</code>
+		<code value="AE" source="ISO3166" stdvalue="ARE">United Arab Emirates</code>
+		<code value="GB" source="ISO3166" stdvalue="GBR">United Kingdom</code>
+		<code value="US" source="ISO3166" stdvalue="USA">United States</code>
+		<code value="UM" source="ISO3166" stdvalue="UMI">United States Minor Outlying Islands</code>
+		<code value="UY" source="ISO3166" stdvalue="URY">Uruguay</code>
+		<code value="UZ" source="ISO3166" stdvalue="UZB">Uzbekistan</code>
+		<code value="VU" source="ISO3166" stdvalue="VUT">Vanuatu</code>
+		<code value="VE" source="ISO3166" stdvalue="VEN">Venezuela, Bolivarian Republic of</code>
+		<code value="VN" source="ISO3166" stdvalue="VNM">Viet Nam</code>
+		<code value="VG" source="ISO3166" stdvalue="VGB">Virgin Islands, British</code>
+		<code value="VI" source="ISO3166" stdvalue="VIR">Virgin Islands, U.S.</code>
+		<code value="WF" source="ISO3166" stdvalue="WLF">Wallis and Futuna</code>
+		<code value="EH" source="ISO3166" stdvalue="ESH">Western Sahara</code>
+		<code value="YE" source="ISO3166" stdvalue="YEM">Yemen</code>
+		<code value="ZM" source="ISO3166" stdvalue="ZMB">Zambia</code>
+		<code value="ZW" source="ISO3166" stdvalue="ZWE">Zimbabwe</code>
+	</codelist>
+	<codelist id="LanguageCode" source="ArcGIS" xmlns=""><!-- 3-letter bibliographic (B) code is used by the editor, the terminology (T) code is idendified here as a reference for appropriate languages; only identified languages are included for INSPIRE -->
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="aar" source="ISO639" stdvalue="" twoLetter="aa">Afar</code>
+		<code value="abk" source="ISO639" stdvalue="" twoLetter="ab">Abkhazian</code>
+		<code value="ace" source="ISO639" stdvalue="">Achinese</code>
+		<code value="ach" source="ISO639" stdvalue="">Acoli</code>
+		<code value="ada" source="ISO639" stdvalue="">Adangme</code>
+		<code value="ady" source="ISO639" stdvalue="">Adyghe; Adygei</code>
+		<code value="afa" source="ISO639" stdvalue="">Afro-Asiatic languages</code>
+		<code value="afh" source="ISO639" stdvalue="">Afrihili</code>
+		<code value="afr" source="ISO639" stdvalue="" twoLetter="af">Afrikaans</code>
+		<code value="ain" source="ISO639" stdvalue="">Ainu</code>
+		<code value="aka" source="ISO639" stdvalue="" twoLetter="ak">Akan</code>
+		<code value="akk" source="ISO639" stdvalue="">Akkadian</code>
+		<code value="alb" source="ISO639" stdvalue="" tvalue="sqi" twoLetter="sq">Albanian</code>
+		<code value="ale" source="ISO639" stdvalue="">Aleut</code>
+		<code value="alg" source="ISO639" stdvalue="">Algonquian languages</code>
+		<code value="alt" source="ISO639" stdvalue="">Southern Altai</code>
+		<code value="amh" source="ISO639" stdvalue="" twoLetter="am">Amharic</code>
+		<code value="ang" source="ISO639" stdvalue="">English, Old (ca.450-1100)</code>
+		<code value="anp" source="ISO639" stdvalue="">Angika</code>
+		<code value="apa" source="ISO639" stdvalue="">Apache languages</code>
+		<code value="ara" source="ISO639" stdvalue="" twoLetter="ar">Arabic</code>
+		<code value="arc" source="ISO639" stdvalue="">Official Aramaic (700-300 BCE); Imperial Aramaic (700-300 BCE)</code>
+		<code value="arg" source="ISO639" stdvalue="" twoLetter="an">Aragonese</code>
+		<code value="arm" source="ISO639" stdvalue="" tvalue="hye" twoLetter="hy">Armenian</code>
+		<code value="arn" source="ISO639" stdvalue="">Mapudungun; Mapuche</code>
+		<code value="arp" source="ISO639" stdvalue="">Arapaho</code>
+		<code value="art" source="ISO639" stdvalue="">Artificial languages</code>
+		<code value="arw" source="ISO639" stdvalue="">Arawak</code>
+		<code value="asm" source="ISO639" stdvalue="" twoLetter="as">Assamese</code>
+		<code value="ast" source="ISO639" stdvalue="">Asturian; Bable; Leonese; Asturleonese</code>
+		<code value="ath" source="ISO639" stdvalue="">Athapascan languages</code>
+		<code value="aus" source="ISO639" stdvalue="">Australian languages</code>
+		<code value="ava" source="ISO639" stdvalue="" twoLetter="av">Avaric</code>
+		<code value="ave" source="ISO639" stdvalue="" twoLetter="ae">Avestan</code>
+		<code value="awa" source="ISO639" stdvalue="">Awadhi</code>
+		<code value="aym" source="ISO639" stdvalue="" twoLetter="ay">Aymara</code>
+		<code value="aze" source="ISO639" stdvalue="" twoLetter="az">Azerbaijani</code>
+		<code value="bad" source="ISO639" stdvalue="">Banda languages</code>
+		<code value="bai" source="ISO639" stdvalue="">Bamileke languages</code>
+		<code value="bak" source="ISO639" stdvalue="" twoLetter="ba">Bashkir</code>
+		<code value="bal" source="ISO639" stdvalue="">Baluchi</code>
+		<code value="bam" source="ISO639" stdvalue="" twoLetter="bm">Bambara</code>
+		<code value="ban" source="ISO639" stdvalue="">Balinese</code>
+		<code value="baq" source="ISO639" stdvalue="" tvalue="eus" twoLetter="eu">Basque</code>
+		<code value="bas" source="ISO639" stdvalue="">Basa</code>
+		<code value="bat" source="ISO639" stdvalue="">Baltic languages</code>
+		<code value="bej" source="ISO639" stdvalue="">Beja; Bedawiyet</code>
+		<code value="bel" source="ISO639" stdvalue="" twoLetter="be">Belarusian</code>
+		<code value="bem" source="ISO639" stdvalue="">Bemba</code>
+		<code value="ben" source="ISO639" stdvalue="" twoLetter="bn">Bengali</code>
+		<code value="ber" source="ISO639" stdvalue="">Berber languages</code>
+		<code value="bho" source="ISO639" stdvalue="">Bhojpuri</code>
+		<code value="bih" source="ISO639" stdvalue="" twoLetter="bh">Bihari languages</code>
+		<code value="bik" source="ISO639" stdvalue="">Bikol</code>
+		<code value="bin" source="ISO639" stdvalue="">Bini; Edo</code>
+		<code value="bis" source="ISO639" stdvalue="" twoLetter="bi">Bislama</code>
+		<code value="bla" source="ISO639" stdvalue="">Siksika</code>
+		<code value="bnt" source="ISO639" stdvalue="">Bantu (Other)</code>
+		<code value="bos" source="ISO639" stdvalue="" twoLetter="bs">Bosnian</code>
+		<code value="bra" source="ISO639" stdvalue="">Braj</code>
+		<code value="bre" source="ISO639" stdvalue="" twoLetter="br">Breton</code>
+		<code value="btk" source="ISO639" stdvalue="">Batak languages</code>
+		<code value="bua" source="ISO639" stdvalue="">Buriat</code>
+		<code value="bug" source="ISO639" stdvalue="">Buginese</code>
+		<code value="bul" source="ISO639" stdvalue="" twoLetter="bg" inspire="True">Bulgarian</code><!-- included for INSPIRE -->
+		<code value="bur" source="ISO639" stdvalue="" tvalue="mya" twoLetter="my">Burmese</code>
+		<code value="byn" source="ISO639" stdvalue="">Blin; Bilin</code>
+		<code value="cad" source="ISO639" stdvalue="">Caddo</code>
+		<code value="cai" source="ISO639" stdvalue="">Central American Indian languages</code>
+		<code value="car" source="ISO639" stdvalue="">Galibi Carib</code>
+		<code value="cat" source="ISO639" stdvalue="" twoLetter="ca">Catalan; Valencian</code>
+		<code value="cau" source="ISO639" stdvalue="">Caucasian languages</code>
+		<code value="ceb" source="ISO639" stdvalue="">Cebuano</code>
+		<code value="cel" source="ISO639" stdvalue="">Celtic languages</code>
+		<code value="cha" source="ISO639" stdvalue="" twoLetter="ch">Chamorro</code>
+		<code value="chb" source="ISO639" stdvalue="">Chibcha</code>
+		<code value="che" source="ISO639" stdvalue="" twoLetter="ce">Chechen</code>
+		<code value="chg" source="ISO639" stdvalue="">Chagatai</code>
+		<code value="chi" source="ISO639" stdvalue="" tvalue="zho" twoLetter="zh">Chinese</code>
+		<code value="chk" source="ISO639" stdvalue="">Chuukese</code>
+		<code value="chm" source="ISO639" stdvalue="">Mari</code>
+		<code value="chn" source="ISO639" stdvalue="">Chinook jargon</code>
+		<code value="cho" source="ISO639" stdvalue="">Choctaw</code>
+		<code value="chp" source="ISO639" stdvalue="">Chipewyan; Dene Suline</code>
+		<code value="chr" source="ISO639" stdvalue="">Cherokee</code>
+		<code value="chu" source="ISO639" stdvalue="" twoLetter="cu">Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic</code>
+		<code value="chv" source="ISO639" stdvalue="" twoLetter="cv">Chuvash</code>
+		<code value="chy" source="ISO639" stdvalue="">Cheyenne</code>
+		<code value="cmc" source="ISO639" stdvalue="">Chamic languages</code>
+		<code value="cop" source="ISO639" stdvalue="">Coptic</code>
+		<code value="cor" source="ISO639" stdvalue="" twoLetter="kw">Cornish</code>
+		<code value="cos" source="ISO639" stdvalue="" twoLetter="co">Corsican</code>
+		<code value="cpe" source="ISO639" stdvalue="">Creoles and pidgins, English based</code>
+		<code value="cpf" source="ISO639" stdvalue="">Creoles and pidgins, French-based </code>
+		<code value="cpp" source="ISO639" stdvalue="">Creoles and pidgins, Portuguese-based </code>
+		<code value="cre" source="ISO639" stdvalue="" twoLetter="cr">Cree</code>
+		<code value="crh" source="ISO639" stdvalue="">Crimean Tatar; Crimean Turkish</code>
+		<code value="crp" source="ISO639" stdvalue="">Creoles and pidgins </code>
+		<code value="csb" source="ISO639" stdvalue="">Kashubian</code>
+		<code value="cus" source="ISO639" stdvalue="">Cushitic languages</code>
+		<code value="cze" source="ISO639" stdvalue="" tvalue="ces" twoLetter="cs" inspire="True">Czech</code><!-- included for INSPIRE -->
+		<code value="dak" source="ISO639" stdvalue="">Dakota</code>
+		<code value="dan" source="ISO639" stdvalue="" twoLetter="da" inspire="True">Danish</code><!-- included for INSPIRE -->
+		<code value="dar" source="ISO639" stdvalue="">Dargwa</code>
+		<code value="day" source="ISO639" stdvalue="">Land Dayak languages</code>
+		<code value="del" source="ISO639" stdvalue="">Delaware</code>
+		<code value="den" source="ISO639" stdvalue="">Slave (Athapascan)</code>
+		<code value="dgr" source="ISO639" stdvalue="">Dogrib</code>
+		<code value="din" source="ISO639" stdvalue="">Dinka</code>
+		<code value="div" source="ISO639" stdvalue="" twoLetter="dv">Divehi; Dhivehi; Maldivian</code>
+		<code value="doi" source="ISO639" stdvalue="">Dogri</code>
+		<code value="dra" source="ISO639" stdvalue="">Dravidian languages</code>
+		<code value="dsb" source="ISO639" stdvalue="">Lower Sorbian</code>
+		<code value="dua" source="ISO639" stdvalue="">Duala</code>
+		<code value="dum" source="ISO639" stdvalue="">Dutch, Middle (ca.1050-1350)</code>
+		<code value="dut" source="ISO639" stdvalue="" tvalue="nld" twoLetter="nl" inspire="True">Dutch; Flemish</code><!-- included for INSPIRE -->
+		<code value="dyu" source="ISO639" stdvalue="">Dyula</code>
+		<code value="dzo" source="ISO639" stdvalue="" twoLetter="dz">Dzongkha</code>
+		<code value="efi" source="ISO639" stdvalue="">Efik</code>
+		<code value="egy" source="ISO639" stdvalue="">Egyptian (Ancient)</code>
+		<code value="eka" source="ISO639" stdvalue="">Ekajuk</code>
+		<code value="elx" source="ISO639" stdvalue="">Elamite</code>
+		<code value="eng" source="ISO639" stdvalue="" twoLetter="en" inspire="True">English</code><!-- included for INSPIRE -->
+		<code value="enm" source="ISO639" stdvalue="">English, Middle (1100-1500)</code>
+		<code value="epo" source="ISO639" stdvalue="" twoLetter="eo">Esperanto</code>
+		<code value="est" source="ISO639" stdvalue="" twoLetter="et" inspire="True">Estonian</code><!-- included for INSPIRE -->
+		<code value="ewe" source="ISO639" stdvalue="" twoLetter="ee">Ewe</code>
+		<code value="ewo" source="ISO639" stdvalue="">Ewondo</code>
+		<code value="fan" source="ISO639" stdvalue="">Fang</code>
+		<code value="fao" source="ISO639" stdvalue="" twoLetter="fo">Faroese</code>
+		<code value="fat" source="ISO639" stdvalue="">Fanti</code>
+		<code value="fij" source="ISO639" stdvalue="" twoLetter="fj">Fijian</code>
+		<code value="fil" source="ISO639" stdvalue="">Filipino; Pilipino</code>
+		<code value="fin" source="ISO639" stdvalue="" twoLetter="fi" inspire="True">Finnish</code><!-- included for INSPIRE -->
+		<code value="fiu" source="ISO639" stdvalue="">Finno-Ugrian languages</code>
+		<code value="fon" source="ISO639" stdvalue="">Fon</code>
+		<code value="fre" source="ISO639" stdvalue="" tvalue="fra" twoLetter="fr" inspire="True">French</code><!-- included for INSPIRE -->
+		<code value="frm" source="ISO639" stdvalue="">French, Middle (ca.1400-1600)</code>
+		<code value="fro" source="ISO639" stdvalue="">French, Old (842-ca.1400)</code>
+		<code value="frr" source="ISO639" stdvalue="">Northern Frisian</code>
+		<code value="frs" source="ISO639" stdvalue="">Eastern Frisian</code>
+		<code value="fry" source="ISO639" stdvalue="" twoLetter="fy">Western Frisian</code>
+		<code value="ful" source="ISO639" stdvalue="">Fulah</code>
+		<code value="fur" source="ISO639" stdvalue="">Friulian</code>
+		<code value="gaa" source="ISO639" stdvalue="">Ga</code>
+		<code value="gay" source="ISO639" stdvalue="">Gayo</code>
+		<code value="gba" source="ISO639" stdvalue="">Gbaya</code>
+		<code value="gem" source="ISO639" stdvalue="">Germanic languages</code>
+		<code value="geo" source="ISO639" stdvalue="" tvalue="kat" twoLetter="ka">Georgian</code>
+		<code value="ger" source="ISO639" stdvalue="" tvalue="deu" twoLetter="de" inspire="True">German</code><!-- included for INSPIRE -->
+		<code value="gez" source="ISO639" stdvalue="">Geez</code>
+		<code value="gil" source="ISO639" stdvalue="">Gilbertese</code>
+		<code value="gla" source="ISO639" stdvalue="" twoLetter="gd">Gaelic; Scottish Gaelic</code>
+		<code value="gle" source="ISO639" stdvalue="" twoLetter="ga" inspire="True">Irish</code><!-- included for INSPIRE -->
+		<code value="glg" source="ISO639" stdvalue="" twoLetter="gl">Galician</code>
+		<code value="glv" source="ISO639" stdvalue="" twoLetter="gv">Manx</code>
+		<code value="gmh" source="ISO639" stdvalue="">German, Middle High (ca.1050-1500)</code>
+		<code value="goh" source="ISO639" stdvalue="">German, Old High (ca.750-1050)</code>
+		<code value="gon" source="ISO639" stdvalue="">Gondi</code>
+		<code value="gor" source="ISO639" stdvalue="">Gorontalo</code>
+		<code value="got" source="ISO639" stdvalue="">Gothic</code>
+		<code value="grb" source="ISO639" stdvalue="">Grebo</code>
+		<code value="grc" source="ISO639" stdvalue="">Greek, Ancient (to 1453)</code>
+		<code value="gre" source="ISO639" stdvalue="" tvalue="ell" twoLetter="el" inspire="True">Greek, Modern (1453-)</code><!-- included for INSPIRE -->
+		<code value="grn" source="ISO639" stdvalue="" twoLetter="gn">Guarani</code>
+		<code value="gsw" source="ISO639" stdvalue="">Swiss German; Alemannic; Alsatian</code>
+		<code value="guj" source="ISO639" stdvalue="" twoLetter="gu">Gujarati</code>
+		<code value="gwi" source="ISO639" stdvalue="">Gwich'in</code>
+		<code value="hai" source="ISO639" stdvalue="">Haida</code>
+		<code value="hat" source="ISO639" stdvalue="" twoLetter="ht">Haitian; Haitian Creole</code>
+		<code value="hau" source="ISO639" stdvalue="" twoLetter="ha">Hausa</code>
+		<code value="haw" source="ISO639" stdvalue="">Hawaiian</code>
+		<code value="heb" source="ISO639" stdvalue="" twoLetter="he">Hebrew</code>
+		<code value="her" source="ISO639" stdvalue="" twoLetter="hz">Herero</code>
+		<code value="hil" source="ISO639" stdvalue="">Hiligaynon</code>
+		<code value="him" source="ISO639" stdvalue="">Himachali languages; Western Pahari languages</code>
+		<code value="hin" source="ISO639" stdvalue="" twoLetter="hi">Hindi</code>
+		<code value="hit" source="ISO639" stdvalue="">Hittite</code>
+		<code value="hmn" source="ISO639" stdvalue="">Hmong; Mong</code>
+		<code value="hmo" source="ISO639" stdvalue="" twoLetter="ho">Hiri Motu</code>
+		<code value="hrv" source="ISO639" stdvalue="" twoLetter="hr">Croatian</code>
+		<code value="hsb" source="ISO639" stdvalue="">Upper Sorbian</code>
+		<code value="hun" source="ISO639" stdvalue="" twoLetter="hu" inspire="True">Hungarian</code><!-- included for INSPIRE -->
+		<code value="hup" source="ISO639" stdvalue="">Hupa</code>
+		<code value="iba" source="ISO639" stdvalue="">Iban</code>
+		<code value="ibo" source="ISO639" stdvalue="" twoLetter="ig">Igbo</code>
+		<code value="ice" source="ISO639" stdvalue="" tvalue="isl" twoLetter="is">Icelandic</code>
+		<code value="ido" source="ISO639" stdvalue="" twoLetter="io">Ido</code>
+		<code value="iii" source="ISO639" stdvalue="" twoLetter="ii">Sichuan Yi; Nuosu</code>
+		<code value="ijo" source="ISO639" stdvalue="">Ijo languages</code>
+		<code value="iku" source="ISO639" stdvalue="" twoLetter="iu">Inuktitut</code>
+		<code value="ile" source="ISO639" stdvalue="" twoLetter="ie">Interlingue; Occidental</code>
+		<code value="ilo" source="ISO639" stdvalue="">Iloko</code>
+		<code value="ina" source="ISO639" stdvalue="" twoLetter="ia">Interlingua (International Auxiliary Language Association)</code>
+		<code value="inc" source="ISO639" stdvalue="">Indic languages</code>
+		<code value="ind" source="ISO639" stdvalue="" twoLetter="id">Indonesian</code>
+		<code value="ine" source="ISO639" stdvalue="">Indo-European languages</code>
+		<code value="inh" source="ISO639" stdvalue="">Ingush</code>
+		<code value="ipk" source="ISO639" stdvalue="" twoLetter="ik">Inupiaq</code>
+		<code value="ira" source="ISO639" stdvalue="">Iranian languages</code>
+		<code value="iro" source="ISO639" stdvalue="">Iroquoian languages</code>
+		<code value="ita" source="ISO639" stdvalue="" twoLetter="it" inspire="True">Italian</code><!-- included for INSPIRE -->
+		<code value="jav" source="ISO639" stdvalue="" twoLetter="jv">Javanese</code>
+		<code value="jbo" source="ISO639" stdvalue="">Lojban</code>
+		<code value="jpn" source="ISO639" stdvalue="" twoLetter="ja">Japanese</code>
+		<code value="jpr" source="ISO639" stdvalue="">Judeo-Persian</code>
+		<code value="jrb" source="ISO639" stdvalue="">Judeo-Arabic</code>
+		<code value="kaa" source="ISO639" stdvalue="">Kara-Kalpak</code>
+		<code value="kab" source="ISO639" stdvalue="">Kabyle</code>
+		<code value="kac" source="ISO639" stdvalue="">Kachin; Jingpho</code>
+		<code value="kal" source="ISO639" stdvalue="" twoLetter="kl">Kalaallisut; Greenlandic</code>
+		<code value="kam" source="ISO639" stdvalue="">Kamba</code>
+		<code value="kan" source="ISO639" stdvalue="" twoLetter="kn">Kannada</code>
+		<code value="kar" source="ISO639" stdvalue="">Karen languages</code>
+		<code value="kas" source="ISO639" stdvalue="" twoLetter="ks">Kashmiri</code>
+		<code value="kau" source="ISO639" stdvalue="" twoLetter="kr">Kanuri</code>
+		<code value="kaw" source="ISO639" stdvalue="">Kawi</code>
+		<code value="kaz" source="ISO639" stdvalue="" twoLetter="kk">Kazakh</code>
+		<code value="kbd" source="ISO639" stdvalue="">Kabardian</code>
+		<code value="kha" source="ISO639" stdvalue="">Khasi</code>
+		<code value="khi" source="ISO639" stdvalue="">Khoisan languages</code>
+		<code value="khm" source="ISO639" stdvalue="" twoLetter="km">Central Khmer</code>
+		<code value="kho" source="ISO639" stdvalue="">Khotanese; Sakan</code>
+		<code value="kik" source="ISO639" stdvalue="" twoLetter="ki">Kikuyu; Gikuyu</code>
+		<code value="kin" source="ISO639" stdvalue="" twoLetter="rw">Kinyarwanda</code>
+		<code value="kir" source="ISO639" stdvalue="" twoLetter="ky">Kirghiz; Kyrgyz</code>
+		<code value="kmb" source="ISO639" stdvalue="">Kimbundu</code>
+		<code value="kok" source="ISO639" stdvalue="">Konkani</code>
+		<code value="kom" source="ISO639" stdvalue="" twoLetter="kv">Komi</code>
+		<code value="kon" source="ISO639" stdvalue="" twoLetter="kg">Kongo</code>
+		<code value="kor" source="ISO639" stdvalue="" twoLetter="ko">Korean</code>
+		<code value="kos" source="ISO639" stdvalue="">Kosraean</code>
+		<code value="kpe" source="ISO639" stdvalue="">Kpelle</code>
+		<code value="krc" source="ISO639" stdvalue="">Karachay-Balkar</code>
+		<code value="krl" source="ISO639" stdvalue="">Karelian</code>
+		<code value="kro" source="ISO639" stdvalue="">Kru languages</code>
+		<code value="kru" source="ISO639" stdvalue="">Kurukh</code>
+		<code value="kua" source="ISO639" stdvalue="" twoLetter="kj">Kuanyama; Kwanyama</code>
+		<code value="kum" source="ISO639" stdvalue="">Kumyk</code>
+		<code value="kur" source="ISO639" stdvalue="" twoLetter="ku">Kurdish</code>
+		<code value="kut" source="ISO639" stdvalue="">Kutenai</code>
+		<code value="lad" source="ISO639" stdvalue="">Ladino</code>
+		<code value="lah" source="ISO639" stdvalue="">Lahnda</code>
+		<code value="lam" source="ISO639" stdvalue="">Lamba</code>
+		<code value="lao" source="ISO639" stdvalue="" twoLetter="lo">Lao</code>
+		<code value="lat" source="ISO639" stdvalue="" twoLetter="lat">Latin</code>
+		<code value="lav" source="ISO639" stdvalue="" twoLetter="lv" inspire="True">Latvian</code><!-- included for INSPIRE -->
+		<code value="lez" source="ISO639" stdvalue="">Lezghian</code>
+		<code value="lim" source="ISO639" stdvalue="" twoLetter="li">Limburgan; Limburger; Limburgish</code>
+		<code value="lin" source="ISO639" stdvalue="" twoLetter="ln">Lingala</code>
+		<code value="lit" source="ISO639" stdvalue="" twoLetter="lt" inspire="True">Lithuanian</code><!-- included for INSPIRE -->
+		<code value="lol" source="ISO639" stdvalue="">Mongo</code>
+		<code value="loz" source="ISO639" stdvalue="">Lozi</code>
+		<code value="ltz" source="ISO639" stdvalue="" twoLetter="lb">Luxembourgish; Letzeburgesch</code>
+		<code value="lua" source="ISO639" stdvalue="">Luba-Lulua</code>
+		<code value="lub" source="ISO639" stdvalue="" twoLetter="lu">Luba-Katanga</code>
+		<code value="lug" source="ISO639" stdvalue="" twoLetter="lg">Ganda</code>
+		<code value="lui" source="ISO639" stdvalue="">Luiseno</code>
+		<code value="lun" source="ISO639" stdvalue="">Lunda</code>
+		<code value="luo" source="ISO639" stdvalue="">Luo (Kenya and Tanzania)</code>
+		<code value="lus" source="ISO639" stdvalue="">Lushai</code>
+		<code value="mac" source="ISO639" stdvalue="" tvalue="mkd" twoLetter="mk">Macedonian</code>
+		<code value="mad" source="ISO639" stdvalue="">Madurese</code>
+		<code value="mag" source="ISO639" stdvalue="">Magahi</code>
+		<code value="mah" source="ISO639" stdvalue="" twoLetter="mh">Marshallese</code>
+		<code value="mai" source="ISO639" stdvalue="">Maithili</code>
+		<code value="mak" source="ISO639" stdvalue="">Makasar</code>
+		<code value="mal" source="ISO639" stdvalue="" twoLetter="ml">Malayalam</code>
+		<code value="man" source="ISO639" stdvalue="">Mandingo</code>
+		<code value="mao" source="ISO639" stdvalue="" tvalue="mri" twoLetter="mi">Maori</code>
+		<code value="map" source="ISO639" stdvalue="">Austronesian languages</code>
+		<code value="mar" source="ISO639" stdvalue="" twoLetter="mr">Marathi</code>
+		<code value="mas" source="ISO639" stdvalue="">Masai</code>
+		<code value="may" source="ISO639" stdvalue="" tvalue="msa" twoLetter="ms">Malay</code>
+		<code value="mdf" source="ISO639" stdvalue="">Moksha</code>
+		<code value="mdr" source="ISO639" stdvalue="">Mandar</code>
+		<code value="men" source="ISO639" stdvalue="">Mende</code>
+		<code value="mga" source="ISO639" stdvalue="">Irish, Middle (900-1200)</code>
+		<code value="mic" source="ISO639" stdvalue="">Mi'kmaq; Micmac</code>
+		<code value="min" source="ISO639" stdvalue="">Minangkabau</code>
+		<code value="mis" source="ISO639" stdvalue="">Uncoded languages</code>
+		<code value="mkh" source="ISO639" stdvalue="">Mon-Khmer languages</code>
+		<code value="mlg" source="ISO639" stdvalue="" twoLetter="mg">Malagasy</code>
+		<code value="mlt" source="ISO639" stdvalue="" twoLetter="mt" inspire="True">Maltese</code><!-- included for INSPIRE -->
+		<code value="mnc" source="ISO639" stdvalue="">Manchu</code>
+		<code value="mni" source="ISO639" stdvalue="">Manipuri</code>
+		<code value="mno" source="ISO639" stdvalue="">Manobo languages</code>
+		<code value="moh" source="ISO639" stdvalue="">Mohawk</code>
+		<code value="mon" source="ISO639" stdvalue="" twoLetter="mn">Mongolian</code>
+		<code value="mos" source="ISO639" stdvalue="">Mossi</code>
+		<code value="mul" source="ISO639" stdvalue="">Multiple languages</code>
+		<code value="mun" source="ISO639" stdvalue="">Munda languages</code>
+		<code value="mus" source="ISO639" stdvalue="">Creek</code>
+		<code value="mwl" source="ISO639" stdvalue="">Mirandese</code>
+		<code value="mwr" source="ISO639" stdvalue="">Marwari</code>
+		<code value="myn" source="ISO639" stdvalue="">Mayan languages</code>
+		<code value="myv" source="ISO639" stdvalue="">Erzya</code>
+		<code value="nah" source="ISO639" stdvalue="">Nahuatl languages</code>
+		<code value="nai" source="ISO639" stdvalue="">North American Indian languages</code>
+		<code value="nap" source="ISO639" stdvalue="">Neapolitan</code>
+		<code value="nau" source="ISO639" stdvalue="" twoLetter="na">Nauru</code>
+		<code value="nav" source="ISO639" stdvalue="" twoLetter="nv">Navajo; Navaho</code>
+		<code value="nbl" source="ISO639" stdvalue="" twoLetter="nr">Ndebele, South; South Ndebele</code>
+		<code value="nde" source="ISO639" stdvalue="" twoLetter="nd">Ndebele, North; North Ndebele</code>
+		<code value="ndo" source="ISO639" stdvalue="" twoLetter="ng">Ndonga</code>
+		<code value="nds" source="ISO639" stdvalue="">Low German; Low Saxon; German, Low; Saxon, Low</code>
+		<code value="nep" source="ISO639" stdvalue="" twoLetter="ne">Nepali</code>
+		<code value="new" source="ISO639" stdvalue="">Nepal Bhasa; Newari</code>
+		<code value="nia" source="ISO639" stdvalue="">Nias</code>
+		<code value="nic" source="ISO639" stdvalue="">Niger-Kordofanian languages</code>
+		<code value="niu" source="ISO639" stdvalue="">Niuean</code>
+		<code value="nno" source="ISO639" stdvalue="" twoLetter="nn">Norwegian Nynorsk; Nynorsk, Norwegian</code>
+		<code value="nob" source="ISO639" stdvalue="" twoLetter="nb">Bokmål, Norwegian; Norwegian Bokmål</code>
+		<code value="nog" source="ISO639" stdvalue="">Nogai</code>
+		<code value="non" source="ISO639" stdvalue="">Norse, Old</code>
+		<code value="nor" source="ISO639" stdvalue="" twoLetter="no">Norwegian</code>
+		<code value="nqo" source="ISO639" stdvalue="">N'Ko</code>
+		<code value="nso" source="ISO639" stdvalue="">Pedi; Sepedi; Northern Sotho</code>
+		<code value="nub" source="ISO639" stdvalue="">Nubian languages</code>
+		<code value="nwc" source="ISO639" stdvalue="">Classical Newari; Old Newari; Classical Nepal Bhasa</code>
+		<code value="nya" source="ISO639" stdvalue="" twoLetter="ny">Chichewa; Chewa; Nyanja</code>
+		<code value="nym" source="ISO639" stdvalue="">Nyamwezi</code>
+		<code value="nyn" source="ISO639" stdvalue="">Nyankole</code>
+		<code value="nyo" source="ISO639" stdvalue="">Nyoro</code>
+		<code value="nzi" source="ISO639" stdvalue="">Nzima</code>
+		<code value="oci" source="ISO639" stdvalue="" twoLetter="oc">Occitan (post 1500); Provençal</code>
+		<code value="oji" source="ISO639" stdvalue="" twoLetter="oj">Ojibwa</code>
+		<code value="ori" source="ISO639" stdvalue="" twoLetter="or">Oriya</code>
+		<code value="orm" source="ISO639" stdvalue="" twoLetter="om">Oromo</code>
+		<code value="osa" source="ISO639" stdvalue="">Osage</code>
+		<code value="oss" source="ISO639" stdvalue="" twoLetter="os">Ossetian; Ossetic</code>
+		<code value="ota" source="ISO639" stdvalue="">Turkish, Ottoman (1500-1928)</code>
+		<code value="oto" source="ISO639" stdvalue="">Otomian languages</code>
+		<code value="paa" source="ISO639" stdvalue="">Papuan languages</code>
+		<code value="pag" source="ISO639" stdvalue="">Pangasinan</code>
+		<code value="pal" source="ISO639" stdvalue="">Pahlavi</code>
+		<code value="pam" source="ISO639" stdvalue="">Pampanga; Kapampangan</code>
+		<code value="pan" source="ISO639" stdvalue="" twoLetter="pa">Panjabi; Punjabi</code>
+		<code value="pap" source="ISO639" stdvalue="">Papiamento</code>
+		<code value="pau" source="ISO639" stdvalue="">Palauan</code>
+		<code value="peo" source="ISO639" stdvalue="">Persian, Old (ca.600-400 B.C.)</code>
+		<code value="per" source="ISO639" stdvalue="" tvalue="fas" twoLetter="fa">Persian</code>
+		<code value="phi" source="ISO639" stdvalue="">Philippine languages</code>
+		<code value="phn" source="ISO639" stdvalue="">Phoenician</code>
+		<code value="pli" source="ISO639" stdvalue="" twoLetter="pi">Pali</code>
+		<code value="pol" source="ISO639" stdvalue="" twoLetter="pl" inspire="True">Polish</code><!-- included for INSPIRE -->
+		<code value="pon" source="ISO639" stdvalue="">Pohnpeian</code>
+		<code value="por" source="ISO639" stdvalue="" twoLetter="pt" inspire="True">Portuguese</code><!-- included for INSPIRE -->
+		<code value="pra" source="ISO639" stdvalue="">Prakrit languages</code>
+		<code value="pro" source="ISO639" stdvalue="">Provençal, Old (to 1500)</code>
+		<code value="pus" source="ISO639" stdvalue="" twoLetter="ps">Pushto; Pashto</code>
+		<code value="qaa-qtz" source="ISO639" stdvalue="">Reserved for local use</code>
+		<code value="que" source="ISO639" stdvalue="" twoLetter="qu">Quechua</code>
+		<code value="raj" source="ISO639" stdvalue="">Rajasthani</code>
+		<code value="rap" source="ISO639" stdvalue="">Rapanui</code>
+		<code value="rar" source="ISO639" stdvalue="">Rarotongan; Cook Islands Maori</code>
+		<code value="roa" source="ISO639" stdvalue="">Romance languages</code>
+		<code value="roh" source="ISO639" stdvalue="" twoLetter="rm">Romansh</code>
+		<code value="rom" source="ISO639" stdvalue="">Romany</code>
+		<code value="rum" source="ISO639" stdvalue="" tvalue="ron" twoLetter="ro" inspire="True">Romanian; Moldavian; Moldovan</code><!-- included for INSPIRE -->
+		<code value="run" source="ISO639" stdvalue="" twoLetter="rn">Rundi</code>
+		<code value="rup" source="ISO639" stdvalue="">Aromanian; Arumanian; Macedo-Romanian</code>
+		<code value="rus" source="ISO639" stdvalue="" twoLetter="ru">Russian</code>
+		<code value="sad" source="ISO639" stdvalue="">Sandawe</code>
+		<code value="sag" source="ISO639" stdvalue="" twoLetter="sg">Sango</code>
+		<code value="sah" source="ISO639" stdvalue="">Yakut</code>
+		<code value="sai" source="ISO639" stdvalue="">South American Indian (Other)</code>
+		<code value="sal" source="ISO639" stdvalue="">Salishan languages</code>
+		<code value="sam" source="ISO639" stdvalue="">Samaritan Aramaic</code>
+		<code value="san" source="ISO639" stdvalue="" twoLetter="sa">Sanskrit</code>
+		<code value="sas" source="ISO639" stdvalue="">Sasak</code>
+		<code value="sat" source="ISO639" stdvalue="">Santali</code>
+		<code value="scn" source="ISO639" stdvalue="">Sicilian</code>
+		<code value="sco" source="ISO639" stdvalue="">Scots</code>
+		<code value="sel" source="ISO639" stdvalue="">Selkup</code>
+		<code value="sem" source="ISO639" stdvalue="">Semitic languages</code>
+		<code value="sga" source="ISO639" stdvalue="">Irish, Old (to 900)</code>
+		<code value="sgn" source="ISO639" stdvalue="">Sign Languages</code>
+		<code value="shn" source="ISO639" stdvalue="">Shan</code>
+		<code value="sid" source="ISO639" stdvalue="">Sidamo</code>
+		<code value="sin" source="ISO639" stdvalue="" twoLetter="si">Sinhala; Sinhalese</code>
+		<code value="sio" source="ISO639" stdvalue="">Siouan languages</code>
+		<code value="sit" source="ISO639" stdvalue="">Sino-Tibetan languages</code>
+		<code value="sla" source="ISO639" stdvalue="">Slavic languages</code>
+		<code value="slo" source="ISO639" stdvalue="" tvalue="slk" twoLetter="sk" inspire="True">Slovak</code><!-- included for INSPIRE -->
+		<code value="slv" source="ISO639" stdvalue="" twoLetter="sl" inspire="True">Slovenian</code><!-- included for INSPIRE -->
+		<code value="sma" source="ISO639" stdvalue="">Southern Sami</code>
+		<code value="sme" source="ISO639" stdvalue="" twoLetter="se">Northern Sami</code>
+		<code value="smi" source="ISO639" stdvalue="">Sami languages</code>
+		<code value="smj" source="ISO639" stdvalue="">Lule Sami</code>
+		<code value="smn" source="ISO639" stdvalue="">Inari Sami</code>
+		<code value="smo" source="ISO639" stdvalue="" twoLetter="sm">Samoan</code>
+		<code value="sms" source="ISO639" stdvalue="">Skolt Sami</code>
+		<code value="sna" source="ISO639" stdvalue="" twoLetter="sn">Shona</code>
+		<code value="snd" source="ISO639" stdvalue="" twoLetter="sd">Sindhi</code>
+		<code value="snk" source="ISO639" stdvalue="">Soninke</code>
+		<code value="sog" source="ISO639" stdvalue="">Sogdian</code>
+		<code value="som" source="ISO639" stdvalue="" twoLetter="so">Somali</code>
+		<code value="son" source="ISO639" stdvalue="">Songhai languages</code>
+		<code value="sot" source="ISO639" stdvalue="" twoLetter="st">Sotho, Southern</code>
+		<code value="spa" source="ISO639" stdvalue="" twoLetter="es" inspire="True">Spanish; Castilian</code><!-- included for INSPIRE -->
+		<code value="srd" source="ISO639" stdvalue="" twoLetter="sc">Sardinian</code>
+		<code value="srn" source="ISO639" stdvalue="">Sranan Tongo</code>
+		<code value="srp" source="ISO639" stdvalue="" twoLetter="sr">Serbian</code>
+		<code value="srr" source="ISO639" stdvalue="">Serer</code>
+		<code value="ssa" source="ISO639" stdvalue="">Nilo-Saharan languages</code>
+		<code value="ssw" source="ISO639" stdvalue="" twoLetter="ss">Swati</code>
+		<code value="suk" source="ISO639" stdvalue="">Sukuma</code>
+		<code value="sun" source="ISO639" stdvalue="" twoLetter="su">Sundanese</code>
+		<code value="sus" source="ISO639" stdvalue="">Susu</code>
+		<code value="sux" source="ISO639" stdvalue="">Sumerian</code>
+		<code value="swa" source="ISO639" stdvalue="" twoLetter="sw">Swahili</code>
+		<code value="swe" source="ISO639" stdvalue="" twoLetter="sv" inspire="True">Swedish</code><!-- included for INSPIRE -->
+		<code value="syc" source="ISO639" stdvalue="">Classical Syriac</code>
+		<code value="syr" source="ISO639" stdvalue="">Syriac</code>
+		<code value="tah" source="ISO639" stdvalue="" twoLetter="ty">Tahitian</code>
+		<code value="tai" source="ISO639" stdvalue="">Tai languages</code>
+		<code value="tam" source="ISO639" stdvalue="" twoLetter="ta">Tamil</code>
+		<code value="tat" source="ISO639" stdvalue="" twoLetter="tt">Tatar</code>
+		<code value="tel" source="ISO639" stdvalue="" twoLetter="te">Telugu</code>
+		<code value="tem" source="ISO639" stdvalue="">Timne</code>
+		<code value="ter" source="ISO639" stdvalue="">Tereno</code>
+		<code value="tet" source="ISO639" stdvalue="">Tetum</code>
+		<code value="tgk" source="ISO639" stdvalue="" twoLetter="tg">Tajik</code>
+		<code value="tgl" source="ISO639" stdvalue="" twoLetter="tl">Tagalog</code>
+		<code value="tha" source="ISO639" stdvalue="" twoLetter="th">Thai</code>
+		<code value="tib" source="ISO639" stdvalue="" tvalue="bod" twoLetter="bo">Tibetan</code>
+		<code value="tig" source="ISO639" stdvalue="">Tigre</code>
+		<code value="tir" source="ISO639" stdvalue="" twoLetter="ti">Tigrinya</code>
+		<code value="tiv" source="ISO639" stdvalue="">Tiv</code>
+		<code value="tkl" source="ISO639" stdvalue="">Tokelau</code>
+		<code value="tlh" source="ISO639" stdvalue="">Klingon; tlhIngan-Hol</code>
+		<code value="tli" source="ISO639" stdvalue="">Tlingit</code>
+		<code value="tmh" source="ISO639" stdvalue="">Tamashek</code>
+		<code value="tog" source="ISO639" stdvalue="">Tonga (Nyasa)</code>
+		<code value="ton" source="ISO639" stdvalue="" twoLetter="to">Tonga (Tonga Islands)</code>
+		<code value="tpi" source="ISO639" stdvalue="">Tok Pisin</code>
+		<code value="tsi" source="ISO639" stdvalue="">Tsimshian</code>
+		<code value="tsn" source="ISO639" stdvalue="" twoLetter="tn">Tswana</code>
+		<code value="tso" source="ISO639" stdvalue="" twoLetter="ts">Tsonga</code>
+		<code value="tuk" source="ISO639" stdvalue="" twoLetter="tk">Turkmen</code>
+		<code value="tum" source="ISO639" stdvalue="">Tumbuka</code>
+		<code value="tup" source="ISO639" stdvalue="">Tupi languages</code>
+		<code value="tur" source="ISO639" stdvalue="" twoLetter="tr">Turkish</code>
+		<code value="tut" source="ISO639" stdvalue="">Altaic languages</code>
+		<code value="tvl" source="ISO639" stdvalue="">Tuvalu</code>
+		<code value="twi" source="ISO639" stdvalue="" twoLetter="tw">Twi</code>
+		<code value="tyv" source="ISO639" stdvalue="">Tuvinian</code>
+		<code value="udm" source="ISO639" stdvalue="">Udmurt</code>
+		<code value="uga" source="ISO639" stdvalue="">Ugaritic</code>
+		<code value="uig" source="ISO639" stdvalue="" twoLetter="ug">Uighur; Uyghur</code>
+		<code value="ukr" source="ISO639" stdvalue="" twoLetter="uk">Ukrainian</code>
+		<code value="umb" source="ISO639" stdvalue="">Umbundu</code>
+		<code value="und" source="ISO639" stdvalue="">Undetermined</code>
+		<code value="urd" source="ISO639" stdvalue="" twoLetter="ur">Urdu</code>
+		<code value="uzb" source="ISO639" stdvalue="" twoLetter="uz">Uzbek</code>
+		<code value="vai" source="ISO639" stdvalue="">Vai</code>
+		<code value="ven" source="ISO639" stdvalue="" twoLetter="ve">Venda</code>
+		<code value="vie" source="ISO639" stdvalue="" twoLetter="vi">Vietnamese</code>
+		<code value="vol" source="ISO639" stdvalue="" twoLetter="vo">Volapük</code>
+		<code value="vot" source="ISO639" stdvalue="">Votic</code>
+		<code value="wak" source="ISO639" stdvalue="">Wakashan languages</code>
+		<code value="wal" source="ISO639" stdvalue="">Walamo</code>
+		<code value="war" source="ISO639" stdvalue="">Waray</code>
+		<code value="was" source="ISO639" stdvalue="">Washo</code>
+		<code value="wel" source="ISO639" stdvalue="" tvalue="cym" twoLetter="cy">Welsh</code>
+		<code value="wen" source="ISO639" stdvalue="">Sorbian languages</code>
+		<code value="wln" source="ISO639" stdvalue="" twoLetter="wa">Walloon</code>
+		<code value="wol" source="ISO639" stdvalue="" twoLetter="wo">Wolof</code>
+		<code value="xal" source="ISO639" stdvalue="">Kalmyk; Oirat</code>
+		<code value="xho" source="ISO639" stdvalue="" twoLetter="xh">Xhosa</code>
+		<code value="yao" source="ISO639" stdvalue="">Yao</code>
+		<code value="yap" source="ISO639" stdvalue="">Yapese</code>
+		<code value="yid" source="ISO639" stdvalue="" twoLetter="yi">Yiddish</code>
+		<code value="yor" source="ISO639" stdvalue="" twoLetter="yo">Yoruba</code>
+		<code value="ypk" source="ISO639" stdvalue="">Yupik languages</code>
+		<code value="zap" source="ISO639" stdvalue="">Zapotec</code>
+		<code value="zbl" source="ISO639" stdvalue="">Blissymbols; Blissymbolics; Bliss</code>
+		<code value="zen" source="ISO639" stdvalue="">Zenaga</code>
+		<code value="zha" source="ISO639" stdvalue="" twoLetter="za">Zhuang; Chuang</code>
+		<code value="znd" source="ISO639" stdvalue="">Zande languages</code>
+		<code value="zul" source="ISO639" stdvalue="" twoLetter="zu">Zulu</code>
+		<code value="zun" source="ISO639" stdvalue="">Zuni</code>
+		<code value="zxx" source="ISO639" stdvalue="">No linguistic content; Not applicable</code>
+		<code value="zza" source="ISO639" stdvalue="">Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki</code>
+	</codelist>
+	<codelist id="MonetaryUnits" source="ArcGIS" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="XUA" source="ISO4217" stdvalue="">ADB Unit of Account</code>
+		<code value="AFN" source="ISO4217" stdvalue="">Afghani</code>
+		<code value="DZD" source="ISO4217" stdvalue="">Algerian Dinar</code>
+		<code value="ARS" source="ISO4217" stdvalue="">Argentine Peso</code>
+		<code value="AMD" source="ISO4217" stdvalue="">Armenian Dram</code>
+		<code value="AWG" source="ISO4217" stdvalue="">Aruban Guilder</code>
+		<code value="AUD" source="ISO4217" stdvalue="">Australian Dollar</code>
+		<code value="AZN" source="ISO4217" stdvalue="">Azerbaijanian Manat</code>
+		<code value="BSD" source="ISO4217" stdvalue="">Bahamian Dollar</code>
+		<code value="BHD" source="ISO4217" stdvalue="">Bahraini Dinar</code>
+		<code value="THB" source="ISO4217" stdvalue="">Baht</code>
+		<code value="PAB" source="ISO4217" stdvalue="">Balboa</code>
+		<code value="BBD" source="ISO4217" stdvalue="">Barbados Dollar</code>
+		<code value="BYR" source="ISO4217" stdvalue="">Belarussian Ruble</code>
+		<code value="BZD" source="ISO4217" stdvalue="">Belize Dollar</code>
+		<code value="BMD" source="ISO4217" stdvalue="">Bermudian Dollar</code>
+		<code value="VEF" source="ISO4217" stdvalue="">Bolivar Fuerte</code>
+		<code value="BOB" source="ISO4217" stdvalue="">Boliviano</code>
+		<code value="XBA" source="ISO4217" stdvalue="">Bond Markets Unit European Composite Unit EURCO</code>
+		<code value="XBB" source="ISO4217" stdvalue="">Bond Markets Unit European Monetary Unit EMU 6</code>
+		<code value="XBD" source="ISO4217" stdvalue="">Bond Markets Unit European Unit of Account 17 EUA 17</code>
+		<code value="XBC" source="ISO4217" stdvalue="">Bond Markets Unit European Unit of Account 9 EUA 9</code>
+		<code value="BRL" source="ISO4217" stdvalue="">Brazilian Real</code>
+		<code value="BND" source="ISO4217" stdvalue="">Brunei Dollar</code>
+		<code value="BGN" source="ISO4217" stdvalue="">Bulgarian Lev</code>
+		<code value="BIF" source="ISO4217" stdvalue="">Burundi Franc</code>
+		<code value="CAD" source="ISO4217" stdvalue="">Canadian Dollar</code>
+		<code value="CVE" source="ISO4217" stdvalue="">Cape Verde Escudo</code>
+		<code value="KYD" source="ISO4217" stdvalue="">Cayman Islands Dollar</code>
+		<code value="GHS" source="ISO4217" stdvalue="">Cedi</code>
+		<code value="XOF" source="ISO4217" stdvalue="">CFA Franc BCEAO</code>
+		<code value="XAF" source="ISO4217" stdvalue="">CFA Franc BEAC</code>
+		<code value="XPF" source="ISO4217" stdvalue="">CFP Franc</code>
+		<code value="CLP" source="ISO4217" stdvalue="">Chilean Peso</code>
+		<code value="XTS" source="ISO4217" stdvalue="">Codes specifically reserved for testing purposes</code>
+		<code value="COP" source="ISO4217" stdvalue="">Colombian Peso</code>
+		<code value="KMF" source="ISO4217" stdvalue="">Comoro Franc</code>
+		<code value="CDF" source="ISO4217" stdvalue="">Congolese Franc</code>
+		<code value="BAM" source="ISO4217" stdvalue="">Convertible Mark</code>
+		<code value="NIO" source="ISO4217" stdvalue="">Cordoba Oro</code>
+		<code value="CRC" source="ISO4217" stdvalue="">Costa Rican Colon</code>
+		<code value="HRK" source="ISO4217" stdvalue="">Croatian Kuna</code>
+		<code value="CUP" source="ISO4217" stdvalue="">Cuban Peso</code>
+		<code value="CZK" source="ISO4217" stdvalue="">Czech Koruna</code>
+		<code value="GMD" source="ISO4217" stdvalue="">Dalasi</code>
+		<code value="DKK" source="ISO4217" stdvalue="">Danish Krone</code>
+		<code value="MKD" source="ISO4217" stdvalue="">Denar</code>
+		<code value="DJF" source="ISO4217" stdvalue="">Djibouti Franc</code>
+		<code value="STD" source="ISO4217" stdvalue="">Dobra</code>
+		<code value="DOP" source="ISO4217" stdvalue="">Dominican Peso</code>
+		<code value="VND" source="ISO4217" stdvalue="">Dong</code>
+		<code value="XCD" source="ISO4217" stdvalue="">East Caribbean Dollar</code>
+		<code value="EGP" source="ISO4217" stdvalue="">Egyptian Pound</code>
+		<code value="SVC" source="ISO4217" stdvalue="">El Salvador Colon</code>
+		<code value="ETB" source="ISO4217" stdvalue="">Ethiopian Birr</code>
+		<code value="EUR" source="ISO4217" stdvalue="">Euro</code>
+		<code value="FKP" source="ISO4217" stdvalue="">Falkland Islands Pound</code>
+		<code value="FJD" source="ISO4217" stdvalue="">Fiji Dollar</code>
+		<code value="HUF" source="ISO4217" stdvalue="">Forint</code>
+		<code value="GIP" source="ISO4217" stdvalue="">Gibraltar Pound</code>
+		<code value="XAU" source="ISO4217" stdvalue="">Gold</code>
+		<code value="HTG" source="ISO4217" stdvalue="">Gourde</code>
+		<code value="PYG" source="ISO4217" stdvalue="">Guarani</code>
+		<code value="GNF" source="ISO4217" stdvalue="">Guinea Franc</code>
+		<code value="GYD" source="ISO4217" stdvalue="">Guyana Dollar</code>
+		<code value="HKD" source="ISO4217" stdvalue="">Hong Kong Dollar</code>
+		<code value="UAH" source="ISO4217" stdvalue="">Hryvnia</code>
+		<code value="ISK" source="ISO4217" stdvalue="">Iceland Krona</code>
+		<code value="INR" source="ISO4217" stdvalue="">Indian Rupee</code>
+		<code value="IRR" source="ISO4217" stdvalue="">Iranian Rial</code>
+		<code value="IQD" source="ISO4217" stdvalue="">Iraqi Dinar</code>
+		<code value="JMD" source="ISO4217" stdvalue="">Jamaican Dollar</code>
+		<code value="JOD" source="ISO4217" stdvalue="">Jordanian Dinar</code>
+		<code value="KES" source="ISO4217" stdvalue="">Kenyan Shilling</code>
+		<code value="PGK" source="ISO4217" stdvalue="">Kina</code>
+		<code value="LAK" source="ISO4217" stdvalue="">Kip</code>
+		<code value="KWD" source="ISO4217" stdvalue="">Kuwaiti Dinar</code>
+		<code value="MWK" source="ISO4217" stdvalue="">Kwacha</code>
+		<code value="AOA" source="ISO4217" stdvalue="">Kwanza</code>
+		<code value="MMK" source="ISO4217" stdvalue="">Kyat</code>
+		<code value="GEL" source="ISO4217" stdvalue="">Lari</code>
+		<code value="LVL" source="ISO4217" stdvalue="">Latvian Lats</code>
+		<code value="LBP" source="ISO4217" stdvalue="">Lebanese Pound</code>
+		<code value="ALL" source="ISO4217" stdvalue="">Lek</code>
+		<code value="HNL" source="ISO4217" stdvalue="">Lempira</code>
+		<code value="SLL" source="ISO4217" stdvalue="">Leone</code>
+		<code value="RON" source="ISO4217" stdvalue="">Leu</code>
+		<code value="LRD" source="ISO4217" stdvalue="">Liberian Dollar</code>
+		<code value="LYD" source="ISO4217" stdvalue="">Libyan Dinar</code>
+		<code value="SZL" source="ISO4217" stdvalue="">Lilangeni</code>
+		<code value="LTL" source="ISO4217" stdvalue="">Lithuanian Litas</code>
+		<code value="LSL" source="ISO4217" stdvalue="">Loti</code>
+		<code value="MGA" source="ISO4217" stdvalue="">Malagasy Ariary</code>
+		<code value="MYR" source="ISO4217" stdvalue="">Malaysian Ringgit</code>
+		<code value="MUR" source="ISO4217" stdvalue="">Mauritius Rupee</code>
+		<code value="MZN" source="ISO4217" stdvalue="">Metical</code>
+		<code value="MXN" source="ISO4217" stdvalue="">Mexican Peso</code>
+		<code value="MXV" source="ISO4217" stdvalue="">Mexican Unidad de Inversion UDI</code>
+		<code value="MDL" source="ISO4217" stdvalue="">Moldovan Leu</code>
+		<code value="MAD" source="ISO4217" stdvalue="">Moroccan Dirham</code>
+		<code value="BOV" source="ISO4217" stdvalue="">Mvdol</code>
+		<code value="NGN" source="ISO4217" stdvalue="">Naira</code>
+		<code value="ERN" source="ISO4217" stdvalue="">Nakfa</code>
+		<code value="NAD" source="ISO4217" stdvalue="">Namibia Dollar</code>
+		<code value="NPR" source="ISO4217" stdvalue="">Nepalese Rupee</code>
+		<code value="ANG" source="ISO4217" stdvalue="">Netherlands Antillean Guilder</code>
+		<code value="ILS" source="ISO4217" stdvalue="">Israeli Sheqel</code>
+		<code value="TMT" source="ISO4217" stdvalue="">New Manat</code>
+		<code value="TWD" source="ISO4217" stdvalue="">New Taiwan Dollar</code>
+		<code value="NZD" source="ISO4217" stdvalue="">New Zealand Dollar</code>
+		<code value="BTN" source="ISO4217" stdvalue="">Ngultrum</code>
+		<code value="KPW" source="ISO4217" stdvalue="">North Korean Won</code>
+		<code value="NOK" source="ISO4217" stdvalue="">Norwegian Krone</code>
+		<code value="PEN" source="ISO4217" stdvalue="">Nuevo Sol</code>
+		<code value="MRO" source="ISO4217" stdvalue="">Ouguiya</code>
+		<code value="TOP" source="ISO4217" stdvalue="">Paanga</code>
+		<code value="PKR" source="ISO4217" stdvalue="">Pakistan Rupee</code>
+		<code value="XPD" source="ISO4217" stdvalue="">Palladium</code>
+		<code value="MOP" source="ISO4217" stdvalue="">Pataca</code>
+		<code value="CUC" source="ISO4217" stdvalue="">Peso Convertible</code>
+		<code value="UYU" source="ISO4217" stdvalue="">Peso Uruguayo</code>
+		<code value="PHP" source="ISO4217" stdvalue="">Philippine Peso</code>
+		<code value="XPT" source="ISO4217" stdvalue="">Platinum</code>
+		<code value="GBP" source="ISO4217" stdvalue="">Pound Sterling</code>
+		<code value="BWP" source="ISO4217" stdvalue="">Pula</code>
+		<code value="QAR" source="ISO4217" stdvalue="">Qatari Rial</code>
+		<code value="GTQ" source="ISO4217" stdvalue="">Quetzal</code>
+		<code value="ZAR" source="ISO4217" stdvalue="">Rand</code>
+		<code value="OMR" source="ISO4217" stdvalue="">Rial Omani</code>
+		<code value="KHR" source="ISO4217" stdvalue="">Riel</code>
+		<code value="MVR" source="ISO4217" stdvalue="">Rufiyaa</code>
+		<code value="IDR" source="ISO4217" stdvalue="">Rupiah</code>
+		<code value="RUB" source="ISO4217" stdvalue="">Russian Ruble</code>
+		<code value="RWF" source="ISO4217" stdvalue="">Rwanda Franc</code>
+		<code value="SHP" source="ISO4217" stdvalue="">Saint Helena Pound</code>
+		<code value="SAR" source="ISO4217" stdvalue="">Saudi Riyal</code>
+		<code value="XDR" source="ISO4217" stdvalue="">SDR Special Drawing Right</code>
+		<code value="RSD" source="ISO4217" stdvalue="">Serbian Dinar</code>
+		<code value="SCR" source="ISO4217" stdvalue="">Seychelles Rupee</code>
+		<code value="XAG" source="ISO4217" stdvalue="">Silver</code>
+		<code value="SGD" source="ISO4217" stdvalue="">Singapore Dollar</code>
+		<code value="SBD" source="ISO4217" stdvalue="">Solomon Islands Dollar</code>
+		<code value="KGS" source="ISO4217" stdvalue="">Som</code>
+		<code value="SOS" source="ISO4217" stdvalue="">Somali Shilling</code>
+		<code value="TJS" source="ISO4217" stdvalue="">Somoni</code>
+		<code value="ZAR" source="ISO4217" stdvalue="">South African Rand</code>
+		<code value="LKR" source="ISO4217" stdvalue="">Sri Lanka Rupee</code>
+		<code value="XSU" source="ISO4217" stdvalue="">Sucre</code>
+		<code value="SDG" source="ISO4217" stdvalue="">Sudanese Pound</code>
+		<code value="SRD" source="ISO4217" stdvalue="">Surinam Dollar</code>
+		<code value="SEK" source="ISO4217" stdvalue="">Swedish Krona</code>
+		<code value="CHF" source="ISO4217" stdvalue="">Swiss Franc</code>
+		<code value="SYP" source="ISO4217" stdvalue="">Syrian Pound</code>
+		<code value="BDT" source="ISO4217" stdvalue="">Taka</code>
+		<code value="WST" source="ISO4217" stdvalue="">Tala</code>
+		<code value="TZS" source="ISO4217" stdvalue="">Tanzanian Shilling</code>
+		<code value="KZT" source="ISO4217" stdvalue="">Tenge</code>
+		<code value="XXX" source="ISO4217" stdvalue="">The codes assigned for transactions where no currency is involved</code>
+		<code value="TTD" source="ISO4217" stdvalue="">Trinidad and Tobago Dollar</code>
+		<code value="MNT" source="ISO4217" stdvalue="">Tugrik</code>
+		<code value="TND" source="ISO4217" stdvalue="">Tunisian Dinar</code>
+		<code value="TRY" source="ISO4217" stdvalue="">Turkish Lira</code>
+		<code value="AED" source="ISO4217" stdvalue="">UAE Dirham</code>
+		<code value="UGX" source="ISO4217" stdvalue="">Uganda Shilling</code>
+		<code value="XFU" source="ISO4217" stdvalue="">UIC Franc</code>
+		<code value="COU" source="ISO4217" stdvalue="">Unidad de Valor Real</code>
+		<code value="CLF" source="ISO4217" stdvalue="">Unidades de fomento</code>
+		<code value="UYI" source="ISO4217" stdvalue="">Uruguay Peso en Unidades Indexadas URUIURUI</code>
+		<code value="USD" source="ISO4217" stdvalue="">US Dollar</code>
+		<code value="USN" source="ISO4217" stdvalue="">US Dollar Next day</code>
+		<code value="USS" source="ISO4217" stdvalue="">US Dollar Same day</code>
+		<code value="UZS" source="ISO4217" stdvalue="">Uzbekistan Sum</code>
+		<code value="VUV" source="ISO4217" stdvalue="">Vatu</code>
+		<code value="CHE" source="ISO4217" stdvalue="">WIR Euro</code>
+		<code value="CHW" source="ISO4217" stdvalue="">WIR Franc</code>
+		<code value="KRW" source="ISO4217" stdvalue="">Won</code>
+		<code value="YER" source="ISO4217" stdvalue="">Yemeni Rial</code>
+		<code value="JPY" source="ISO4217" stdvalue="">Yen</code>
+		<code value="CNY" source="ISO4217" stdvalue="">Yuan Renminbi</code>
+		<code value="ZMK" source="ISO4217" stdvalue="">Zambian Kwacha</code>
+		<code value="ZWL" source="ISO4217" stdvalue="">Zimbabwe Dollar</code>
+		<code value="PLN" source="ISO4217" stdvalue="">Zloty</code>
+	</codelist>
+	<codelist id="UCUM_Length" source="ArcGIS" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="[fth_i]" source="UCUM" stdvalue="">depth of water: fathom [fth_i]</code>
+		<code value="[hd_i]" source="UCUM" stdvalue="">height of horses: hand [hd_i]</code>
+		<code value="Ao" source="UCUM" stdvalue="">length: Ångström Ao</code>
+		<code value="AU" source="UCUM" stdvalue="">length: astronomic unit AU</code>
+		<code value="[cicero]" source="UCUM" stdvalue="">length: cicero (Didot's pica) [cicero]</code>
+		<code value="[didot]" source="UCUM" stdvalue="">length: didot (Didot's point) [didot]</code>
+		<code value="[fth_us]" source="UCUM" stdvalue="">length: fathom [fth_us]</code>
+		<code value="[fth_br]" source="UCUM" stdvalue="">length: fathom [fth_br]</code>
+		<code value="[ft_i]" source="UCUM" stdvalue="">length: foot [ft_i]</code>
+		<code value="[ft_us]" source="UCUM" stdvalue="">length: foot [ft_us]</code>
+		<code value="[ft_br]" source="UCUM" stdvalue="">length: foot [ft_br]</code>
+		<code value="[fur_us]" source="UCUM" stdvalue="">length: furlong [fur_us]</code>
+		<code value="[ch_br]" source="UCUM" stdvalue="">length: Gunter's chain [ch_br]</code>
+		<code value="[ch_us]" source="UCUM" stdvalue="">length: Gunter's chain (Surveyor's chain) [ch_us]</code>
+		<code value="[in_i]" source="UCUM" stdvalue="">length: inch [in_i]</code>
+		<code value="[in_us]" source="UCUM" stdvalue="">length: inch [in_us]</code>
+		<code value="[in_br]" source="UCUM" stdvalue="">length: inch [in_br]</code>
+		<code value="[ly]" source="UCUM" stdvalue="">length: light-year [ly]</code>
+		<code value="[ligne]" source="UCUM" stdvalue="">length: ligne (French line) [ligne]</code>
+		<code value="[lne]" source="UCUM" stdvalue="">length: line [lne]</code>
+		<code value="[lk_us]" source="UCUM" stdvalue="">length: link for Gunter's chain [lk_us]</code>
+		<code value="[lk_br]" source="UCUM" stdvalue="">length: link for Gunter's chain [lk_br]</code>
+		<code value="[rlk_us]" source="UCUM" stdvalue="">length: link for Ramden's chain [rlk_us]</code>
+		<code value="um" source="UCUM" stdvalue="">length: micrometer (µm) um</code>
+		<code value="mm" source="UCUM" stdvalue="">length: millimeter mm</code>
+		<code value="cm" source="UCUM" stdvalue="">length: centimeter cm</code>
+		<code value="m" source="UCUM" stdvalue="">length: meter m</code>
+		<code value="km" source="UCUM" stdvalue="">length: kilometer km</code>
+		<code value="[mil_i]" source="UCUM" stdvalue="">length: mil [mil_i]</code>
+		<code value="[mil_us]" source="UCUM" stdvalue="">length: mil [mil_us]</code>
+		<code value="[mi_us]" source="UCUM" stdvalue="">length: mile [mi_us]</code>
+		<code value="[mi_br]" source="UCUM" stdvalue="">length: mile [mi_br]</code>
+		<code value="[nmi_i]" source="UCUM" stdvalue="">length: nautical mile [nmi_i]</code>
+		<code value="[nmi_br]" source="UCUM" stdvalue="">length: nautical mile [nmi_br]</code>
+		<code value="[pc_br]" source="UCUM" stdvalue="">length: pace [pc_br]</code>
+		<code value="pc" source="UCUM" stdvalue="">length: parsec pc</code>
+		<code value="[pca]" source="UCUM" stdvalue="">length: pica [pca]</code>
+		<code value="[pied]" source="UCUM" stdvalue="">length: pied (French foot) [pied]</code>
+		<code value="[pnt]" source="UCUM" stdvalue="">length: point [pnt]</code>
+		<code value="[pouce]" source="UCUM" stdvalue="">length: pouce (French inch) [pouce]</code>
+		<code value="[pca_pr]" source="UCUM" stdvalue="">length: Printer's pica [pca_pr]</code>
+		<code value="[pnt_pr]" source="UCUM" stdvalue="">length: Printer's point [pnt_pr]</code>
+		<code value="[rch_us]" source="UCUM" stdvalue="">length: Ramden's chain (Engineer's chain) [rch_us]</code>
+		<code value="[rd_us]" source="UCUM" stdvalue="">length: rod [rd_us]</code>
+		<code value="[rd_br]" source="UCUM" stdvalue="">length: rod [rd_br]</code>
+		<code value="[smoot]" source="UCUM" stdvalue="">length: Smoot [smoot]</code>
+		<code value="[mi_i]" source="UCUM" stdvalue="">length: statute mile [mi_i]</code>
+		<code value="[yd_i]" source="UCUM" stdvalue="">length: yard [yd_i]</code>
+		<code value="[yd_us]" source="UCUM" stdvalue="">length: yard [yd_us]</code>
+		<code value="[yd_br]" source="UCUM" stdvalue="">length: yard [yd_br]</code>
+	</codelist>
+	<codelist id="UCUM" source="ArcGIS" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="[k]" source="UCUM" stdvalue="" type="constant">(unclassified): Boltzmann constant [k]</code>
+		<code value="[G]" source="UCUM" stdvalue="" type="constant">(unclassified): Newtonian constant of gravitation [G]</code>
+		<code value="Gal" source="UCUM" stdvalue="" type="acceleration">acceleration: Gal Gal</code>
+		<code value="[g]" source="UCUM" stdvalue="" type="acceleration">acceleration: standard acceleration of free fall [g]</code>
+		<code value="[pH]" source="UCUM" stdvalue="" type="acidity">acidity: pH [pH]</code>
+		<code value="[h]" source="UCUM" stdvalue="" type="action">action: Planck constant [h]</code>
+		<code value="b" source="UCUM" stdvalue="" type="action">action area: barn b</code>
+		<code value="[CFU]" source="UCUM" stdvalue="" type="amount">amount of a proliferating organism: colony forming units [CFU]</code>
+		<code value="[FFU]" source="UCUM" stdvalue="" type="amount">amount of an infectious agent: immunofocus forming units [FFU]</code>
+		<code value="[PFU]" source="UCUM" stdvalue="" type="amount">amount of an infectious agent: plaque forming units [PFU]</code>
+		<code value="bit_s" source="UCUM" stdvalue="" type="amount">amount of information: bit bit_s</code>
+		<code value="bit" source="UCUM" stdvalue="" type="amount">amount of information: bit bit</code>
+		<code value="By" source="UCUM" stdvalue="" type="amount">amount of information: byte By</code>
+		<code value="eq" source="UCUM" stdvalue="" type="amount">amount of substance: equivalents eq</code>
+		<code value="mol" source="UCUM" stdvalue="" type="amount">amount of substance: mole mol</code>
+		<code value="osm" source="UCUM" stdvalue="" type="amount">amount of substance (dissolved particles): osmole osm</code>
+		<code value="[arb'U]" source="UCUM" stdvalue="" type="arbitrary">arbitrary: arbitary unit [arb'U]</code>
+		<code value="[iU]" source="UCUM" stdvalue="" type="arbitrary">arbitrary: international unit [iU]</code>
+		<code value="[USP'U]" source="UCUM" stdvalue="" type="arbitrary">arbitrary: United States Pharmacopeia unit [USP'U]</code>
+		<code value="[knk'U]" source="UCUM" stdvalue="" type="arbitrary">arbitrary biologic activity: Kunkel unit [knk'U]</code>
+		<code value="[mclg'U]" source="UCUM" stdvalue="" type="arbitrary">arbitrary biologic activity: Mac Lagan unit [mclg'U]</code>
+		<code value="[acr_us]" source="UCUM" stdvalue="" type="area">area: acre [acr_us]</code>
+		<code value="[acr_br]" source="UCUM" stdvalue="" type="area">area: acre [acr_br]</code>
+		<code value="ar" source="UCUM" stdvalue="" type="area">area: are ar</code>
+		<code value="har" source="UCUM" stdvalue="" type="area">area: hectare har</code>
+		<code value="[cml_i]" source="UCUM" stdvalue="" type="area">area: circular mil [cml_i]</code>
+		<code value="[sct]" source="UCUM" stdvalue="" type="area">area: section [sct]</code>
+		<code value="[sft_i]" source="UCUM" stdvalue="" type="area">area: square foot [sft_i]</code>
+		<code value="[sin_i]" source="UCUM" stdvalue="" type="area">area: square inch [sin_i]</code>
+		<code value="[smi_us]" source="UCUM" stdvalue="" type="area">area: square mile [smi_us]</code>
+		<code value="[srd_us]" source="UCUM" stdvalue="" type="area">area: square rod [srd_us]</code>
+		<code value="[syd_i]" source="UCUM" stdvalue="" type="area">area: square yard [syd_i]</code>
+		<code value="[twp]" source="UCUM" stdvalue="" type="area">area: township [twp]</code>
+		<code value="[CCID_50]" source="UCUM" stdvalue="" type="biologic">biologic activity (infectivity) of an infectious agent preparation: 50% cell culture infectious dose [CCID_50]</code>
+		<code value="[TCID_50]" source="UCUM" stdvalue="" type="biologic">biologic activity (infectivity) of an infectious agent preparation: 50% tissue culture infectious dose [TCID_50]</code>
+		<code value="[todd'U]" source="UCUM" stdvalue="" type="biologic">biologic activity antistreptolysin O: Todd unit [todd'U]</code>
+		<code value="[dye'U]" source="UCUM" stdvalue="" type="biologic">biologic activity of amylase: Dye unit [dye'U]</code>
+		<code value="[smgy'U]" source="UCUM" stdvalue="" type="biologic">biologic activity of amylase: Somogyi unit [smgy'U]</code>
+		<code value="[APL'U]" source="UCUM" stdvalue="" type="biologic">biologic activity of anticardiolipin IgA: APL unit [APL'U]</code>
+		<code value="[GPL'U]" source="UCUM" stdvalue="" type="biologic">biologic activity of anticardiolipin IgG: GPL unit [GPL'U]</code>
+		<code value="[MPL'U]" source="UCUM" stdvalue="" type="biologic">biologic activity of anticardiolipin IgM: MPL unit [MPL'U]</code>
+		<code value="[beth'U]" source="UCUM" stdvalue="" type="biologic">biologic activity of factor VIII inhibitor: Bethesda unit [beth'U]</code>
+		<code value="[bdsk'U]" source="UCUM" stdvalue="" type="biologic">biologic activity of phosphatase: Bodansky unit [bdsk'U]</code>
+		<code value="[ka'U]" source="UCUM" stdvalue="" type="biologic">biologic activity of phosphatase: King-Armstrong unit [ka'U]</code>
+		<code value="[tb'U]" source="UCUM" stdvalue="" type="biologic">biologic activity of tuberculin: tuberculin unit [tb'U]</code>
+		<code value="Lmb" source="UCUM" stdvalue="" type="luminary">brightness: Lambert Lmb</code>
+		<code value="kat" source="UCUM" stdvalue="" type="catalytic">catalytic activity: katal kat</code>
+		<code value="U" source="UCUM" stdvalue="" type="catalytic">catalytic activity: Unit U</code>
+		<code value="[fth_i]" source="UCUM" stdvalue="" type="distance">depth of water: fathom [fth_i]</code>
+		<code value="REM" source="UCUM" stdvalue="" type="dose">dose equivalent: radiation equivalent man REM</code>
+		<code value="Sv" source="UCUM" stdvalue="" type="dose">dose equivalent: Sievert Sv</code>
+		<code value="[bu_us]" source="UCUM" stdvalue="" type="volume">dry volume: bushel [bu_us]</code>
+		<code value="[dpt_us]" source="UCUM" stdvalue="" type="volume">dry volume: dry pint [dpt_us]</code>
+		<code value="[dqt_us]" source="UCUM" stdvalue="" type="volume">dry volume: dry quart [dqt_us]</code>
+		<code value="[gal_wi]" source="UCUM" stdvalue="" type="volume">dry volume: historical winchester gallon [gal_wi]</code>
+		<code value="[pk_us]" source="UCUM" stdvalue="" type="volume">dry volume: peck [pk_us]</code>
+		<code value="P" source="UCUM" stdvalue="" type="viscosity">dynamic viscosity: Poise P</code>
+		<code value="F" source="UCUM" stdvalue="" type="electric">electric capacitance: Farad F</code>
+		<code value="C" source="UCUM" stdvalue="" type="electric">electric charge: Coulomb C</code>
+		<code value="[e]" source="UCUM" stdvalue="" type="electric">electric charge: elementary charge [e]</code>
+		<code value="mho" source="UCUM" stdvalue="" type="electric">electric conductance: mho mho</code>
+		<code value="S" source="UCUM" stdvalue="" type="electric">electric conductance: Siemens S</code>
+		<code value="A" source="UCUM" stdvalue="" type="electric">electric current: Ampre A</code>
+		<code value="Bi" source="UCUM" stdvalue="" type="electric">electric current: Biot Bi</code>
+		<code value="[eps_0]" source="UCUM" stdvalue="" type="electric">electric permittivity: permittivity of vacuum [eps_0]</code>
+		<code value="V" source="UCUM" stdvalue="" type="electric">electric potential: Volt V</code>
+		<code value="B[uV]" source="UCUM" stdvalue="" type="electric">electric potential level: bel microvolt B[uV]</code>
+		<code value="B[mV]" source="UCUM" stdvalue="" type="electric">electric potential level: bel millivolt B[mV]</code>
+		<code value="B[V]" source="UCUM" stdvalue="" type="electric">electric potential level: bel volt B[V]</code>
+		<code value="Ohm" source="UCUM" stdvalue="" type="electric">electric resistance: Ohm Ohm</code>
+		<code value="[Btu]" source="UCUM" stdvalue="" type="energy">energy: British thermal unit [Btu]</code>
+		<code value="[Btu_39]" source="UCUM" stdvalue="" type="energy">energy: British thermal unit at 39°F [Btu_39]</code>
+		<code value="[Btu_59]" source="UCUM" stdvalue="" type="energy">energy: British thermal unit at 59°F [Btu_59]</code>
+		<code value="[Btu_60]" source="UCUM" stdvalue="" type="energy">energy: British thermal unit at 60°F [Btu_60]</code>
+		<code value="cal" source="UCUM" stdvalue="" type="energy">energy: calorie cal</code>
+		<code value="cal_[15]" source="UCUM" stdvalue="" type="energy">energy: calorie at 15°C cal_[15]</code>
+		<code value="cal_[20]" source="UCUM" stdvalue="" type="energy">energy: calorie at 20°C cal_[20]</code>
+		<code value="eV" source="UCUM" stdvalue="" type="energy">energy: electronvolt eV</code>
+		<code value="erg" source="UCUM" stdvalue="" type="energy">energy: erg erg</code>
+		<code value="[Btu_IT]" source="UCUM" stdvalue="" type="energy">energy: international table British thermal unit [Btu_IT]</code>
+		<code value="cal_IT" source="UCUM" stdvalue="" type="energy">energy: international table calorie cal_IT</code>
+		<code value="J" source="UCUM" stdvalue="" type="energy">energy: Joule J</code>
+		<code value="[Btu_m]" source="UCUM" stdvalue="" type="energy">energy: mean British thermal unit [Btu_m]</code>
+		<code value="cal_m" source="UCUM" stdvalue="" type="energy">energy: mean calorie cal_m</code>
+		<code value="[Cal]" source="UCUM" stdvalue="" type="energy">energy: nutrition label Calories [Cal]</code>
+		<code value="[Btu_th]" source="UCUM" stdvalue="" type="energy">energy: thermochemical British thermal unit [Btu_th]</code>
+		<code value="cal_th" source="UCUM" stdvalue="" type="energy">energy: thermochemical calorie cal_th</code>
+		<code value="Gy" source="UCUM" stdvalue="" type="energy">energy dose: Gray Gy</code>
+		<code value="RAD" source="UCUM" stdvalue="" type="energy">energy dose: radiation absorbed dose RAD</code>
+		<code value="[PRU]" source="UCUM" stdvalue="" type="energy">fluid resistance: peripheral vascular resistance unit [PRU]</code>
+		<code value="[bbl_us]" source="UCUM" stdvalue="" type="energy">fluid volume: barrel [bbl_us]</code>
+		<code value="[crd_us]" source="UCUM" stdvalue="" type="energy">fluid volume: cord [crd_us]</code>
+		<code value="[fdr_us]" source="UCUM" stdvalue="" type="energy">fluid volume: fluid dram [fdr_us]</code>
+		<code value="[foz_us]" source="UCUM" stdvalue="" type="volume">fluid volume: fluid ounce [foz_us]</code>
+		<code value="[gil_us]" source="UCUM" stdvalue="" type="volume">fluid volume: gill [gil_us]</code>
+		<code value="[min_us]" source="UCUM" stdvalue="" type="volume">fluid volume: minim [min_us]</code>
+		<code value="[pt_us]" source="UCUM" stdvalue="" type="volume">fluid volume: pint [pt_us]</code>
+		<code value="[qt_us]" source="UCUM" stdvalue="" type="volume">fluid volume: quart [qt_us]</code>
+		<code value="[gal_us]" source="UCUM" stdvalue="" type="volume">fluid volume: Queen Anne's wine gallon [gal_us]</code>
+		<code value="Mx" source="UCUM" stdvalue="" type="magnetic">flux of magnetic induction: Maxwell Mx</code>
+		<code value="dyn" source="UCUM" stdvalue="" type="force">force: dyne dyn</code>
+		<code value="gf" source="UCUM" stdvalue="" type="force">force: gram-force gf</code>
+		<code value="N" source="UCUM" stdvalue="" type="force">force: Newton N</code>
+		<code value="[lbf_av]" source="UCUM" stdvalue="" type="force">force: pound force [lbf_av]</code>
+		<code value="[ppb]" source="UCUM" stdvalue="" type="fraction">fraction: parts per billion [ppb]</code>
+		<code value="[ppm]" source="UCUM" stdvalue="" type="fraction">fraction: parts per million [ppm]</code>
+		<code value="[ppth]" source="UCUM" stdvalue="" type="fraction">fraction: parts per thousand [ppth]</code>
+		<code value="[pptr]" source="UCUM" stdvalue="" type="fraction">fraction: parts per trillion [pptr]</code>
+		<code value="%" source="UCUM" stdvalue="" type="fraction">fraction: percent %</code>
+		<code value="Hz" source="UCUM" stdvalue="" type="frequency">frequency: Hertz Hz</code>
+		<code value="[Ch]" source="UCUM" stdvalue="" type="gauge">gauge of catheters: Charrire (french) [Ch]</code>
+		<code value="[hd_i]" source="UCUM" stdvalue="" type="distance">height of horses: hand [hd_i]</code>
+		<code value="[hp_C]" source="UCUM" stdvalue="" type="potency">homeopathic potency: homeopathic potency of centesimal series [hp_C]</code>
+		<code value="[hp_X]" source="UCUM" stdvalue="" type="potency">homeopathic potency: homeopathic potency of decimal series [hp_X]</code>
+		<code value="lx" source="UCUM" stdvalue="" type="luminary">illuminance: lux lx</code>
+		<code value="ph" source="UCUM" stdvalue="" type="luminary">illuminance: phot ph</code>
+		<code value="H" source="UCUM" stdvalue="" type="luminary">inductance: Henry H</code>
+		<code value="R" source="UCUM" stdvalue="" type="dose">ion dose: Roentgen R</code>
+		<code value="St" source="UCUM" stdvalue="" type="viscosity">kinematic viscosity: Stokes St</code>
+		<code value="Ao" source="UCUM" stdvalue="" type="distance">length: Ångström Ao</code>
+		<code value="AU" source="UCUM" stdvalue="" type="distance">length: astronomic unit AU</code>
+		<code value="[cicero]" source="UCUM" stdvalue="" type="distance">length: cicero (Didot's pica) [cicero]</code>
+		<code value="[didot]" source="UCUM" stdvalue="" type="distance">length: didot (Didot's point) [didot]</code>
+		<code value="[fth_us]" source="UCUM" stdvalue="" type="distance">length: fathom [fth_us]</code>
+		<code value="[fth_br]" source="UCUM" stdvalue="" type="distance">length: fathom [fth_br]</code>
+		<code value="[ft_i]" source="UCUM" stdvalue="" type="distance">length: foot [ft_i]</code>
+		<code value="[ft_us]" source="UCUM" stdvalue="" type="distance">length: foot [ft_us]</code>
+		<code value="[ft_br]" source="UCUM" stdvalue="" type="distance">length: foot [ft_br]</code>
+		<code value="[fur_us]" source="UCUM" stdvalue="" type="distance">length: furlong [fur_us]</code>
+		<code value="[ch_br]" source="UCUM" stdvalue="" type="distance">length: Gunter's chain [ch_br]</code>
+		<code value="[ch_us]" source="UCUM" stdvalue="" type="distance">length: Gunter's chain (Surveyor's chain) [ch_us]</code>
+		<code value="[in_i]" source="UCUM" stdvalue="" type="distance">length: inch [in_i]</code>
+		<code value="[in_us]" source="UCUM" stdvalue="" type="distance">length: inch [in_us]</code>
+		<code value="[in_br]" source="UCUM" stdvalue="" type="distance">length: inch [in_br]</code>
+		<code value="[ly]" source="UCUM" stdvalue="" type="distance">length: light-year [ly]</code>
+		<code value="[ligne]" source="UCUM" stdvalue="" type="distance">length: ligne (French line) [ligne]</code>
+		<code value="[lne]" source="UCUM" stdvalue="" type="distance">length: line [lne]</code>
+		<code value="[lk_us]" source="UCUM" stdvalue="" type="distance">length: link for Gunter's chain [lk_us]</code>
+		<code value="[lk_br]" source="UCUM" stdvalue="" type="distance">length: link for Gunter's chain [lk_br]</code>
+		<code value="[rlk_us]" source="UCUM" stdvalue="" type="distance">length: link for Ramden's chain [rlk_us]</code>
+		<code value="um" source="UCUM" stdvalue="" type="distance">length: micrometer (µm) um</code>
+		<code value="mm" source="UCUM" stdvalue="" type="distance">length: millimeter mm</code>
+		<code value="cm" source="UCUM" stdvalue="" type="distance">length: centimeter cm</code>
+		<code value="m" source="UCUM" stdvalue="" type="distance">length: meter m</code>
+		<code value="km" source="UCUM" stdvalue="" type="distance">length: kilometer km</code>
+		<code value="[mil_i]" source="UCUM" stdvalue="" type="distance">length: mil [mil_i]</code>
+		<code value="[mil_us]" source="UCUM" stdvalue="" type="distance">length: mil [mil_us]</code>
+		<code value="[mi_us]" source="UCUM" stdvalue="" type="distance">length: mile [mi_us]</code>
+		<code value="[mi_br]" source="UCUM" stdvalue="" type="distance">length: mile [mi_br]</code>
+		<code value="[nmi_i]" source="UCUM" stdvalue="" type="distance">length: nautical mile [nmi_i]</code>
+		<code value="[nmi_br]" source="UCUM" stdvalue="" type="distance">length: nautical mile [nmi_br]</code>
+		<code value="[pc_br]" source="UCUM" stdvalue="" type="distance">length: pace [pc_br]</code>
+		<code value="pc" source="UCUM" stdvalue="" type="distance">length: parsec pc</code>
+		<code value="[pca]" source="UCUM" stdvalue="" type="distance">length: pica [pca]</code>
+		<code value="[pied]" source="UCUM" stdvalue="" type="distance">length: pied (French foot) [pied]</code>
+		<code value="[pnt]" source="UCUM" stdvalue="" type="distance">length: point [pnt]</code>
+		<code value="[pouce]" source="UCUM" stdvalue="" type="distance">length: pouce (French inch) [pouce]</code>
+		<code value="[pca_pr]" source="UCUM" stdvalue="" type="distance">length: Printer's pica [pca_pr]</code>
+		<code value="[pnt_pr]" source="UCUM" stdvalue="" type="distance">length: Printer's point [pnt_pr]</code>
+		<code value="[rch_us]" source="UCUM" stdvalue="" type="distance">length: Ramden's chain (Engineer's chain) [rch_us]</code>
+		<code value="[rd_us]" source="UCUM" stdvalue="" type="distance">length: rod [rd_us]</code>
+		<code value="[rd_br]" source="UCUM" stdvalue="" type="distance">length: rod [rd_br]</code>
+		<code value="[smoot]" source="UCUM" stdvalue="" type="distance">length: Smoot [smoot]</code>
+		<code value="[mi_i]" source="UCUM" stdvalue="" type="distance">length: statute mile [mi_i]</code>
+		<code value="[yd_i]" source="UCUM" stdvalue="" type="distance">length: yard [yd_i]</code>
+		<code value="[yd_us]" source="UCUM" stdvalue="" type="distance">length: yard [yd_us]</code>
+		<code value="[yd_br]" source="UCUM" stdvalue="" type="distance">length: yard [yd_br]</code>
+		<code value="B" source="UCUM" stdvalue="" type="level">level: bel B</code>
+		<code value="Np" source="UCUM" stdvalue="" type="level">level: neper Np</code>
+		<code value="Ky" source="UCUM" stdvalue="" type="number">lineic number: Kayser Ky</code>
+		<code value="[mesh_i]" source="UCUM" stdvalue="" type="number">lineic number: mesh [mesh_i]</code>
+		<code value="sb" source="UCUM" stdvalue="" type="luminary">lum. intensity density: stilb sb</code>
+		<code value="lm" source="UCUM" stdvalue="" type="luminary">luminous flux: lumen lm</code>
+		<code value="cd" source="UCUM" stdvalue="" type="luminary">luminous intensity: candela cd</code>
+		<code value="Wb" source="UCUM" stdvalue="" type="magnetic">magentic flux: Weber Wb</code>
+		<code value="Oe" source="UCUM" stdvalue="" type="magnetic">magnetic field intensity: Oersted Oe</code>
+		<code value="G" source="UCUM" stdvalue="" type="magnetic">magnetic flux density: Gauss G</code>
+		<code value="T" source="UCUM" stdvalue="" type="magnetic">magnetic flux density: Tesla T</code>
+		<code value="[mu_0]" source="UCUM" stdvalue="" type="magnetic">magnetic permeability: permeability of vacuum [mu_0]</code>
+		<code value="Gb" source="UCUM" stdvalue="" type="magnetic">magnetic tension: Gilbert Gb</code>
+		<code value="[dr_av]" source="UCUM" stdvalue="" type="mass">mass: dram [dr_av]</code>
+		<code value="[dr_ap]" source="UCUM" stdvalue="" type="mass">mass: dram (drachm) [dr_ap]</code>
+		<code value="[m_e]" source="UCUM" stdvalue="" type="mass">mass: electron mass [m_e]</code>
+		<code value="[gr]" source="UCUM" stdvalue="" type="mass">mass: grain [gr]</code>
+		<code value="ug" source="UCUM" stdvalue="" type="mass">mass: microgram (µg) ug</code>
+		<code value="mg" source="UCUM" stdvalue="" type="mass">mass: milligram mg</code>
+		<code value="g" source="UCUM" stdvalue="" type="mass">mass: gram g</code>
+		<code value="kg" source="UCUM" stdvalue="" type="mass">mass: kilogram kg</code>
+		<code value="[lcwt_av]" source="UCUM" stdvalue="" type="mass">mass: long hunderdweight (British hundredweight) [lcwt_av]</code>
+		<code value="[ltom_av]" source="UCUM" stdvalue="" type="mass">mass: long ton (British ton) [lton_av]</code>
+		<code value="[car_m]" source="UCUM" stdvalue="" type="mass">mass: metric carat [car_m]</code>
+		<code value="[oz_av]" source="UCUM" stdvalue="" type="mass">mass: ounce [oz_av]</code>
+		<code value="[oz_tr]" source="UCUM" stdvalue="" type="mass">mass: ounce [oz_tr]</code>
+		<code value="[oz_ap]" source="UCUM" stdvalue="" type="mass">mass: ounce [oz_ap]</code>
+		<code value="[pwt_tr]" source="UCUM" stdvalue="" type="mass">mass: pennyweight [pwt_tr]</code>
+		<code value="[lb_av]" source="UCUM" stdvalue="" type="mass">mass: pound [lb_av]</code>
+		<code value="[lb_tr]" source="UCUM" stdvalue="" type="mass">mass: pound [lb_tr]</code>
+		<code value="[lb_ap]" source="UCUM" stdvalue="" type="mass">mass: pound [lb_ap]</code>
+		<code value="[m_p]" source="UCUM" stdvalue="" type="mass">mass: proton mass [m_p]</code>
+		<code value="[sc_ap]" source="UCUM" stdvalue="" type="mass">mass: scruple [sc_ap]</code>
+		<code value="[scwt_av]" source="UCUM" stdvalue="" type="mass">mass: short hundredweight (U.S. hundredweight) [scwt_av]</code>
+		<code value="[ston_av]" source="UCUM" stdvalue="" type="mass">mass: short ton (U.S. ton) [ston_av]</code>
+		<code value="[stone_av]" source="UCUM" stdvalue="" type="mass">mass: stone (British stone) [stone_av]</code>
+		<code value="t" source="UCUM" stdvalue="" type="mass">mass: tonne t</code>
+		<code value="u" source="UCUM" stdvalue="" type="mass">mass: unified atomic mass unit u</code>
+		<code value="g%" source="UCUM" stdvalue="" type="mass">mass concentration: gram percent g%</code>
+		<code value="[car_Au]" source="UCUM" stdvalue="" type="mass">mass fraction: carat of gold alloys [car_Au]</code>
+		<code value="[MET]" source="UCUM" stdvalue="" type="mass">metabolic cost of physical activity: metabolic equivalent [MET]</code>
+		<code value="[pi]" source="UCUM" stdvalue="" type="mass">number: the number pi [pi]</code>
+		<code value="10*" source="UCUM" stdvalue="" type="mass">number: the number ten for arbitrary powers 10*</code>
+		<code value="10^" source="UCUM" stdvalue="" type="mass">number: the number ten for arbitrary powers 10^</code>
+		<code value="circ" source="UCUM" stdvalue="" type="angle">plane angle: circle circ</code>
+		<code value="deg" source="UCUM" stdvalue="" type="angle">plane angle: degree deg</code>
+		<code value="gon" source="UCUM" stdvalue="" type="angle">plane angle: gon (grade) gon</code>
+		<code value="&apos;" source="UCUM" stdvalue="" type="angle">plane angle: minute &apos;</code>
+		<code value="rad" source="UCUM" stdvalue="" type="angle">plane angle: radian rad</code>
+		<code value="&quot;" source="UCUM" stdvalue="" type="angle">plane angle: second &quot;</code>
+		<code value="[HP]" source="UCUM" stdvalue="" type="power">power: horsepower [HP]</code>
+		<code value="W" source="UCUM" stdvalue="" type="power">power: Watt W</code>
+		<code value="B[kW]" source="UCUM" stdvalue="" type="power">power level: bel kilowatt B[kW]</code>
+		<code value="B[W]" source="UCUM" stdvalue="" type="power">power level: bel watt B[W]</code>
+		<code value="bar" source="UCUM" stdvalue="" type="pressure">pressure: bar bar</code>
+		<code value="[in_i'Hg]" source="UCUM" stdvalue="" type="pressure">pressure: inch of mercury column [in_i'Hg]</code>
+		<code value="[in_i'H2O]" source="UCUM" stdvalue="" type="pressure">pressure: inch of water column [in_i'H2O]</code>
+		<code value="m[Hg]" source="UCUM" stdvalue="" type="pressure">pressure: meter of mercury column m[Hg]</code>
+		<code value="m[H2O]" source="UCUM" stdvalue="" type="pressure">pressure: meter of water column m[H2O]</code>
+		<code value="Pa" source="UCUM" stdvalue="" type="pressure">pressure: Pascal Pa</code>
+		<code value="[psi]" source="UCUM" stdvalue="" type="pressure">pressure: pound per sqare inch [psi]</code>
+		<code value="atm" source="UCUM" stdvalue="" type="pressure">pressure: standard atmosphere atm</code>
+		<code value="att" source="UCUM" stdvalue="" type="pressure">pressure: technical atmosphere att</code>
+		<code value="B[SPL]" source="UCUM" stdvalue="" type="pressure">pressure level: bel sound pressure B[SPL]</code>
+		<code value="Bq" source="UCUM" stdvalue="" type="radioactivity">radioactivity: Becquerel Bq</code>
+		<code value="Ci" source="UCUM" stdvalue="" type="radioactivity">radioactivity: Curie Ci</code>
+		<code value="[diop]" source="UCUM" stdvalue="" type="refraction">refraction of a lens: diopter [diop]</code>
+		<code value="[p'diop]" source="UCUM" stdvalue="" type="refraction">refraction of a prism: prism diopter [p'diop]</code>
+		<code value="[S]" source="UCUM" stdvalue="" type="sedimentation">sedimentation coefficient: Svedberg unit [S]</code>
+		<code value="Bd" source="UCUM" stdvalue="" type="transmission">signal transmission rate: baud Bd</code>
+		<code value="%[slope]" source="UCUM" stdvalue="" type="angle">slope: percent of slope %[slope]</code>
+		<code value="sph" source="UCUM" stdvalue="" type="angle">solid angle: spere sph</code>
+		<code value="sr" source="UCUM" stdvalue="" type="angle">solid angle: steradian sr</code>
+		<code value="Cel" source="UCUM" stdvalue="" type="temperature">temperature: degree Celsius Cel</code>
+		<code value="[degF]" source="UCUM" stdvalue="" type="temperature">temperature: degree Fahrenheit [degF]</code>
+		<code value="K" source="UCUM" stdvalue="" type="temperature">temperature: Kelvin K</code>
+		<code value="d" source="UCUM" stdvalue="" type="time">time: day d</code>
+		<code value="h" source="UCUM" stdvalue="" type="time">time: hour h</code>
+		<code value="mo_g" source="UCUM" stdvalue="" type="time">time: mean Gregorian month mo_g</code>
+		<code value="a_g" source="UCUM" stdvalue="" type="time">time: mean Gregorian year a_g</code>
+		<code value="mo_j" source="UCUM" stdvalue="" type="time">time: mean Julian month mo_j</code>
+		<code value="a_j" source="UCUM" stdvalue="" type="time">time: mean Julian year a_j</code>
+		<code value="min" source="UCUM" stdvalue="" type="time">time: minute min</code>
+		<code value="mo" source="UCUM" stdvalue="" type="time">time: month mo</code>
+		<code value="s" source="UCUM" stdvalue="" type="time">time: second s</code>
+		<code value="mo_s" source="UCUM" stdvalue="" type="time">time: synodal month mo_s</code>
+		<code value="a_t" source="UCUM" stdvalue="" type="time">time: tropical year a_t</code>
+		<code value="wk" source="UCUM" stdvalue="" type="time">time: week wk</code>
+		<code value="a" source="UCUM" stdvalue="" type="time">time: year a</code>
+		<code value="[kn_i]" source="UCUM" stdvalue="" type="velocity">velocity: knot [kn_i]</code>
+		<code value="[kn_br]" source="UCUM" stdvalue="" type="velocity">velocity: knot [kn_br]</code>
+		<code value="[c]" source="UCUM" stdvalue="" type="velocity">velocity: velocity of light [c]</code>
+		<code value="[HPF]" source="UCUM" stdvalue="" type="viewArea">view area in microscope: high power field [HPF]</code>
+		<code value="[LPF]" source="UCUM" stdvalue="" type="viewArea">view area in microscope: low power field [LPF]</code>
+		<code value="[bf_i]" source="UCUM" stdvalue="" type="volume">volume: board foot [bf_i]</code>
+		<code value="[bu_br]" source="UCUM" stdvalue="" type="volume">volume: bushel [bu_br]</code>
+		<code value="[cr_i]" source="UCUM" stdvalue="" type="volume">volume: cord [cr_i]</code>
+		<code value="[cft_i]" source="UCUM" stdvalue="" type="volume">volume: cubic foot [cft_i]</code>
+		<code value="[cin_i]" source="UCUM" stdvalue="" type="volume">volume: cubic inch [cin_i]</code>
+		<code value="[cyd_i]" source="UCUM" stdvalue="" type="volume">volume: cubic yard [cyd_i]</code>
+		<code value="[cup_us]" source="UCUM" stdvalue="" type="volume">volume: cup [cup_us]</code>
+		<code value="[drp]" source="UCUM" stdvalue="" type="volume">volume: drop [drp]</code>
+		<code value="[fdr_br]" source="UCUM" stdvalue="" type="volume">volume: fluid dram [fdr_br]</code>
+		<code value="[foz_br]" source="UCUM" stdvalue="" type="volume">volume: fluid ounce [foz_br]</code>
+		<code value="[gal_br]" source="UCUM" stdvalue="" type="volume">volume: gallon [gal_br]</code>
+		<code value="[gil_br]" source="UCUM" stdvalue="" type="volume">volume: gill [gil_br]</code>
+		<code value="l" source="UCUM" stdvalue="" type="volume">volume: liter l</code>
+		<code value="L" source="UCUM" stdvalue="" type="volume">volume: liter l</code>
+		<code value="[min_br]" source="UCUM" stdvalue="" type="volume">volume: minim [min_br]</code>
+		<code value="[pk_br]" source="UCUM" stdvalue="" type="volume">volume: peck [pk_br]</code>
+		<code value="[pt_br]" source="UCUM" stdvalue="" type="volume">volume: pint [pt_br]</code>
+		<code value="[qt_br]" source="UCUM" stdvalue="" type="volume">volume: quart [qt_br]</code>
+		<code value="st" source="UCUM" stdvalue="" type="volume">volume: stere st</code>
+		<code value="[tbs_us]" source="UCUM" stdvalue="" type="volume">volume: tablespoon [tbs_us]</code>
+		<code value="[tsp_us]" source="UCUM" stdvalue="" type="volume">volume: teaspoon [tsp_us]</code>
+		<code value="[hnsf'U]" source="UCUM" stdvalue="" type="xRay">x-ray attenuation: Hounsfield unit [hnsf'U]</code>
+	</codelist>
+	
+	<!-- the following codelists and enumerations are not supported for editing at this time in ArcGIS; this documents ArcGIS metadata format specification for recording this information -->
+	
+	<!-- content defined in ISO 19115 -->
+	<codelist id="DCPList" source="ISO19119" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19119" stdvalue="XML">XML</code>
+		<code value="002" source="ISO19119" stdvalue="CORBA">CORBA</code>
+		<code value="003" source="ISO19119" stdvalue="JAVA">JAVA</code>
+		<code value="004" source="ISO19119" stdvalue="COM">COM</code>
+		<code value="005" source="ISO19119" stdvalue="SQL">SQL</code>
+		<code value="006" source="ISO19119" stdvalue="WebServices">Web Services</code>
+	</codelist>
+	<codelist id="SV_ParameterDirection" source="ISO19119" xmlns="">
+		<code value="" source="ArcGIS">Empty</code>
+		<code value="001" source="ISO19119" stdvalue="in">in</code>
+		<code value="002" source="ISO19119" stdvalue="out">out</code>
+		<code value="003" source="ISO19119" stdvalue="in/out">in/out</code>
+	</codelist>
+	<!-- MD_DatatypeCode AND MD_ObligationCode: ArcGIS metadata doesn't support documenting extension elements in the editor - information should be added on export by custom exporter associated with custom metadata style, if appropriate -->
+	<codelist id="MD_DatatypeCode" source="ISO19115" xmlns="">
+		<code value="001" source="ISO19115" stdvalue="class">Class</code>
+		<code value="002" source="ISO19115" stdvalue="codelist">Codelist</code>
+		<code value="003" source="ISO19115" stdvalue="enumeration">Enumeration</code>
+		<code value="004" source="ISO19115" stdvalue="codelistElement">Codelist Element</code>
+		<code value="005" source="ISO19115" stdvalue="abstractClass">Abstract Class</code>
+		<code value="006" source="ISO19115" stdvalue="aggregateClass">Aggregate Class</code>
+		<code value="007" source="ISO19115" stdvalue="specifiedClass">Specified Class</code>
+		<code value="008" source="ISO19115" stdvalue="datatypeClass">Datatype Class</code>
+		<code value="009" source="ISO19115" stdvalue="interfaceClass">Interface Class</code>
+		<code value="010" source="ISO19115" stdvalue="unionClass">Union Class</code>
+		<code value="011" source="ISO19115" stdvalue="metaClass">Meta-class</code>
+		<code value="012" source="ISO19115" stdvalue="typeClass">Type Class</code>
+		<code value="013" source="ISO19115" stdvalue="characterString">Character String</code>
+		<code value="014" source="ISO19115" stdvalue="integer">Integer</code>
+		<code value="015" source="ISO19115" stdvalue="association">Association</code>
+	</codelist>
+	<!-- MD_ObligationCode: ISO 19115 defines this class as an enumeration - it can't be extended -->
+	<codelist id="MD_ObligationCode" source="ISO19115" xmlns="">
+		<code value="001" source="ISO19115" stdvalue="mandatory">Mandatory</code>
+		<code value="002" source="ISO19115" stdvalue="optional">Optional</code>
+		<code value="003" source="ISO19115" stdvalue="conditional">Conditional></code>
+	</codelist>
+
+	<!-- ArcGIS geometry type: could be used as an alternative to the ISO 19115 geometry type codelist when editing metadata - this content is already synchronized for datasets, but could be useful when manually describing resources that can't be synchronized -->
+	<codelist id="GeometryTypeCode" source="ArcGIS" xmlns="">
+		<code value="0" source="ArcGIS" stdvalue="">Null</code>
+		<code value="1" source="ArcGIS" stdvalue="">Point</code>
+		<code value="2" source="ArcGIS" stdvalue="">Multipoint</code>
+		<code value="3" source="ArcGIS" stdvalue="">Polyline</code>
+		<code value="4" source="ArcGIS" stdvalue="">Polygon</code>
+		<code value="5" source="ArcGIS" stdvalue="">Envelope</code>
+		<code value="6" source="ArcGIS" stdvalue="">Path</code>
+		<code value="7" source="ArcGIS" stdvalue="">Any</code>
+		<code value="9" source="ArcGIS" stdvalue="">Multipatch</code>
+		<code value="11" source="ArcGIS" stdvalue="">Ring</code>
+		<code value="13" source="ArcGIS" stdvalue="">Line</code>
+		<code value="14" source="ArcGIS" stdvalue="">Circular Arc</code>
+		<code value="15" source="ArcGIS" stdvalue="">Bezier 3 Curve</code>
+		<code value="16" source="ArcGIS" stdvalue="">Elliptical Arc</code>
+		<code value="17" source="ArcGIS" stdvalue="">Bag</code>
+		<code value="18" source="ArcGIS" stdvalue="">Triangle Strip</code>
+		<code value="19" source="ArcGIS" stdvalue="">Triangle Fan</code>
+		<code value="20" source="ArcGIS" stdvalue="">Ray</code>
+		<code value="21" source="ArcGIS" stdvalue="">Sphere</code>
+		<code value="22" source="ArcGIS" stdvalue="">Triangles</code>
+	</codelist>
+
+</codelists>

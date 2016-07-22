@@ -32,7 +32,7 @@ using System.Windows.Markup;
 using System.Collections;
 using System.Reflection;
 
-using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace CustomMetadataEditor.Pages
+using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace EPAMetadataEditor.Pages
 {
   /// <summary>
   /// Interaction logic for ItemInfo.xaml

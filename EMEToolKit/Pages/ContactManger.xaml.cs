@@ -32,7 +32,7 @@ using ESRI.ArcGIS.Metadata.Editor.Properties;
 using System.Xml;
 using System.Security.Cryptography;
 
-using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace CustomMetadataEditor.Pages
+using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace EPAMetadataEditor.Pages
 {
   /// <summary>
   /// Interaction logic for ContactManger.xaml

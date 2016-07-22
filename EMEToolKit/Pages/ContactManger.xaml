@@ -1,8 +1,9 @@
-﻿<corepages:EditorPage x:Name="thisPage" x:Class="CustomMetadataEditor.Pages.ContactManager"    xmlns:corepages="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Pages;assembly=ESRI.ArcGIS.MetadataEditor" 
+﻿<corepages:EditorPage x:Name="thisPage" x:Class="EPAMetadataEditor.Pages.ContactManager"
+    xmlns:corepages="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Pages;assembly=ESRI.ArcGIS.MetadataEditor" 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:r="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
-    xmlns:p="clr-namespace:CustomMetadataEditor.Pages"
+    xmlns:p="clr-namespace:EPAMetadataEditor.Pages"
     xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
     Loaded="LoadContacts">
   <Grid Style="{DynamicResource EditorFrontPageStyle}">

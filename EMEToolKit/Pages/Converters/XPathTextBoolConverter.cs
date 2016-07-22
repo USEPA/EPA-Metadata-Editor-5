@@ -17,7 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Data;
 
-using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace CustomMetadataEditor.Pages
+using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace EPAMetadataEditor.Pages
 {
   public class XPathTextBoolConverter : IValueConverter
   {

@@ -30,7 +30,7 @@ using System.ComponentModel;
 using System.Globalization;
 using ESRI.ArcGIS.Metadata.Editor.Validation;
 
-using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace CustomMetadataEditor.Pages
+using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace EPAMetadataEditor.Pages
 {
   /// <summary>
   /// Interaction logic for Contact.xaml

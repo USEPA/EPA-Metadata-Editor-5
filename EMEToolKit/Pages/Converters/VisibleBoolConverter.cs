@@ -18,7 +18,7 @@ using System.Text;
 using System.Windows.Data;
 using System.Windows;
 
-using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace CustomMetadataEditor.Pages
+using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace EPAMetadataEditor.Pages
 {
   [ValueConversion(typeof(Visibility), typeof(string))]
   public class VisibleBoolConverter : IValueConverter

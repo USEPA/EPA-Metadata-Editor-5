@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codelists>
+	<!-- CI_DateTypeCode: dates are stored in elements specific to their type; codelists aren't used -->
+  <codelist id="EPA_Keywords" source="ISO19115" xmlns="">
+      <code value="001">Agriculture</code>
+      <code value="002">Air</code>
+      <code value="003">Biology</code>
+      <code value="004">Cleanup</code>
+      <code value="005">Climate</code>
+      <code value="006">Compliance</code>
+      <code value="007">Conservation</code>
+      <code value="008">Contaminant</code>
+      <code value="009">Disaster</code>
+      <code value="010">Drinking Water</code>
+      <code value="011">Ecology</code>
+      <code value="012">Ecosystem</code>
+      <code value="013">Emergency</code>
+      <code value="014">Energy</code>
+      <code value="015">Environment</code>
+      <code value="016">Estuary</code>
+      <code value="017">Exposure</code>
+      <code value="018">Facilities</code>
+      <code value="019">Ground Water</code>
+      <code value="020">Hazards</code>
+      <code value="021">Health</code>
+      <code value="022">Human</code>
+      <code value="023">Impact</code>
+      <code value="024">Indicator</code>
+      <code value="025">Indoor Air</code>
+      <code value="026">Inspections</code>
+      <code value="027">Land</code>
+      <code value="028">Management</code>
+      <code value="029">Marine</code>
+      <code value="030">Modeling</code>
+      <code value="031">Monitoring</code>
+      <code value="032">Natural Resources</code>
+      <code value="033">Permits</code>
+      <code value="034">Pesticides</code>
+      <code value="035">Quality</code>
+      <code value="036">Radiation</code>
+      <code value="037">Recreation</code>
+      <code value="038">Regulatory</code>
+      <code value="039">Remediation</code>
+      <code value="040">Response</code>
+      <code value="041">Risk</code>
+      <code value="042">Sites</code>
+      <code value="043">Spills</code>
+      <code value="044">Surface Water</code>
+      <code value="045">Toxics</code>
+      <code value="046">Transportation</code>
+      <code value="047">Waste</code>
+      <code value="048">Water</code>
+  </codelist>
+</codelists>
