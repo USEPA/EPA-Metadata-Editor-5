@@ -22,7 +22,7 @@ namespace EPAMetadataEditor.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace EPAMetadataEditor.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EPAMetadataEditor.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace EPAMetadataEditor.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace EPAMetadataEditor.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ISO Keywords.
         /// </summary>
-        internal static string LBL_EME_ISOK {
+        public static string LBL_EME_ISOK {
             get {
                 return ResourceManager.GetString("LBL_EME_ISOK", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace EPAMetadataEditor.Properties {
         /// <summary>
         ///   Looks up a localized string similar to EME Topics &amp; Keywords.
         /// </summary>
-        internal static string LBL_EME_KEYWORDS_SIDEBAR {
+        public static string LBL_EME_KEYWORDS_SIDEBAR {
             get {
                 return ResourceManager.GetString("LBL_EME_KEYWORDS_SIDEBAR", resourceCulture);
             }
@@ -81,16 +81,16 @@ namespace EPAMetadataEditor.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Place Keywords.
         /// </summary>
-        internal static string LBL_EME_PLACEK {
+        public static string LBL_EME_PLACEK {
             get {
                 return ResourceManager.GetString("LBL_EME_PLACEK", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EME Test Page.
+        ///   Looks up a localized string similar to EME Demo Page.
         /// </summary>
-        internal static string LBL_EME_SIDEBAR {
+        public static string LBL_EME_SIDEBAR {
             get {
                 return ResourceManager.GetString("LBL_EME_SIDEBAR", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace EPAMetadataEditor.Properties {
         /// <summary>
         ///   Looks up a localized string similar to EPA Keywords.
         /// </summary>
-        internal static string LBL_EME_THEMEK {
+        public static string LBL_EME_THEMEK {
             get {
                 return ResourceManager.GetString("LBL_EME_THEMEK", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace EPAMetadataEditor.Properties {
         /// <summary>
         ///   Looks up a localized string similar to User Keywords.
         /// </summary>
-        internal static string LBL_EME_USERK {
+        public static string LBL_EME_USERK {
             get {
                 return ResourceManager.GetString("LBL_EME_USERK", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace EPAMetadataEditor.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Custom Tool Tip.
         /// </summary>
-        internal static string LBL_EPA_TIP {
+        public static string LBL_EPA_TIP {
             get {
                 return ResourceManager.GetString("LBL_EPA_TIP", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace EPAMetadataEditor.Properties {
         /// <summary>
         ///   Looks up a localized string similar to U.S. Environmental Protection Agency.
         /// </summary>
-        internal static string LBL_EPA_TITLE {
+        public static string LBL_EPA_TITLE {
             get {
                 return ResourceManager.GetString("LBL_EPA_TITLE", resourceCulture);
             }
@@ -135,9 +135,27 @@ namespace EPAMetadataEditor.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ESRI Topics &amp; Keywords.
         /// </summary>
-        internal static string LBL_ESRI_KEYWORDS {
+        public static string LBL_ESRI_KEYWORDS {
             get {
                 return ResourceManager.GetString("LBL_ESRI_KEYWORDS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EME Test Page.
+        /// </summary>
+        public static string LBL_TEST_SIDEBAR {
+            get {
+                return ResourceManager.GetString("LBL_TEST_SIDEBAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EPA EditorPage Test.
+        /// </summary>
+        public static string LBL_TEST_TITLE {
+            get {
+                return ResourceManager.GetString("LBL_TEST_TITLE", resourceCulture);
             }
         }
     }

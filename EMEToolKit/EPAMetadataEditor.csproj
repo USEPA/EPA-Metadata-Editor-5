@@ -119,6 +119,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EPATestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\KeywordsBAK.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -776,6 +780,9 @@
     <Compile Include="Pages\EPAMetadataTest.xaml.cs">
       <DependentUpon>EPAMetadataTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\EPATestPage.xaml.cs">
+      <DependentUpon>EPATestPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\KeywordsBAK.xaml.cs">
       <DependentUpon>KeywordsBAK.xaml</DependentUpon>
     </Compile>
@@ -1249,7 +1256,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

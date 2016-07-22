@@ -127,7 +127,7 @@
     <value>Place Keywords</value>
   </data>
   <data name="LBL_EME_SIDEBAR" xml:space="preserve">
-    <value>EME Test Page</value>
+    <value>EME Demo Page</value>
   </data>
   <data name="LBL_EME_THEMEK" xml:space="preserve">
     <value>EPA Keywords</value>
@@ -143,5 +143,11 @@
   </data>
   <data name="LBL_ESRI_KEYWORDS" xml:space="preserve">
     <value>ESRI Topics &amp; Keywords</value>
+  </data>
+  <data name="LBL_TEST_SIDEBAR" xml:space="preserve">
+    <value>EME Test Page</value>
+  </data>
+  <data name="LBL_TEST_TITLE" xml:space="preserve">
+    <value>EPA EditorPage Test</value>
   </data>
 </root>

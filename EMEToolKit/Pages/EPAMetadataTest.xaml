@@ -6,7 +6,6 @@
              xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
              xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
              xmlns:pages="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Pages;assembly=ESRI.ArcGIS.MetadataEditor"
-             xmlns:appcode="clr-namespace:EPAMetadataEditor.AppCode"
              Loaded="FillXml">
     <UserControl.Resources>
         <XmlDataProvider x:Key="XmlRecord" XPath="/"
