@@ -132,6 +132,9 @@
   <data name="LBL_EME_THEMEK" xml:space="preserve">
     <value>EPA Keywords</value>
   </data>
+  <data name="LBL_EME_THEMEK_TIP" xml:space="preserve">
+    <value>U.S. Environmental Protection Agency Theme Keywords</value>
+  </data>
   <data name="LBL_EME_USERK" xml:space="preserve">
     <value>User Keywords</value>
   </data>
@@ -144,8 +147,20 @@
   <data name="LBL_ESRI_KEYWORDS" xml:space="preserve">
     <value>ESRI Topics &amp; Keywords</value>
   </data>
+  <data name="LBL_TEST_POSITION" xml:space="preserve">
+    <value>Tracking Position:</value>
+  </data>
+  <data name="LBL_TEST_POSITION_TIP" xml:space="preserve">
+    <value>Internal workflow tracking position</value>
+  </data>
   <data name="LBL_TEST_SIDEBAR" xml:space="preserve">
     <value>EME Test Page</value>
+  </data>
+  <data name="LBL_TEST_STATUS" xml:space="preserve">
+    <value>Tracking Status:</value>
+  </data>
+  <data name="LBL_TEST_STATUS_TIP" xml:space="preserve">
+    <value>Internal workflow tracking status</value>
   </data>
   <data name="LBL_TEST_TITLE" xml:space="preserve">
     <value>EPA EditorPage Test</value>

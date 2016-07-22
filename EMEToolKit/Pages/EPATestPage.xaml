@@ -1,12 +1,82 @@
-﻿<UserControl x:Class="EPAMetadataEditor.Pages.EPATestPage"
+﻿<pages:EditorPage x:Class="EPAMetadataEditor.Pages.EPATestPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:r="clr-namespace:EPAMetadataEditor.Properties"
              xmlns:local="clr-namespace:EPAMetadataEditor.Pages"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+             xmlns:pages="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Pages;assembly=ESRI.ArcGIS.MetadataEditor"
+             Loaded="FillXml">
+    <UserControl.Resources>
+        <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous= "False" IsInitialLoadEnabled= "True">
+            <x:XData>
+                <ANY xmlns="">
+                    <metadata>
+                        <dataIdInfo>
+                            <themeKeys>
+                                <keyword></keyword>
+                            </themeKeys>
+                        </dataIdInfo>
+                        <myData>
+                            <trackingPosition>0000</trackingPosition>
+                            <trackingStatus>editing</trackingStatus>
+                        </myData>
+                    </metadata>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
+
+        <XmlDataProvider x:Key="EPAThemeKeywords" XPath="/" IsAsynchronous= "False" IsInitialLoadEnabled= "True">
+            <x:XData>
+                <ANY xmlns="">
+                    <KeywordsEPA>
+                        <themekey>Agriculture</themekey>
+                        <themekey>Air</themekey>
+                        <themekey>Biology</themekey>
+                        <themekey>Cleanup</themekey>
+                        <themekey>Ufology</themekey>
+                    </KeywordsEPA>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
+
+    </UserControl.Resources>
+
+    <Grid Style="{DynamicResource EditorFrontPageStyle}">
+        <StackPanel>
+            <!-- page title -->
+            <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.LBL_TEST_TITLE}"/>
+
+            <!-- custom metadata elements -->
+            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo/themeKeys}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+
+                            <!-- tracking position -->
+                            <DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
+                                <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_TEST_POSITION}"/>
+                                <TextBox ToolTip="{x:Static r:Resources.LBL_TEST_POSITION_TIP}" Style="{DynamicResource EditorTextBoxStyle}" Text="{Binding XPath=trackingPosition, Mode=TwoWay}"/>
+                            </DockPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate >
+            </ListBox>
+
+            <!-- tracking status -->
+            <DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
+                <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_EME_THEMEK}"/>
+                <ComboBox ToolTip="{x:Static r:Resources.LBL_EME_THEMEK_TIP}" 
+                         Loaded="PostProcessComboBoxValues" 
+                         SelectionChanged="ComboBoxSyncSelectionChanged" 
+                         Style="{DynamicResource EditorHComboBoxStyle}" 
+                         IsEditable="False" 
+                         ItemsSource="{Binding Source={StaticResource EPAThemeKeywords}, XPath=//themekey}" DisplayMemberPath="." SelectedValuePath=".">
+                    <ComboBox.SelectedValue>
+                        <Binding XPath="keyword" Mode="TwoWay"/>
+                    </ComboBox.SelectedValue>
+                </ComboBox>
+            </DockPanel>
+        </StackPanel>
     </Grid>
-</UserControl>
+</pages:EditorPage>

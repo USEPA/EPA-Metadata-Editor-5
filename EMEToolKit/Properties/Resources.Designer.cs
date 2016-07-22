@@ -106,6 +106,15 @@ namespace EPAMetadataEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to U.S. Environmental Protection Agency Theme Keywords.
+        /// </summary>
+        public static string LBL_EME_THEMEK_TIP {
+            get {
+                return ResourceManager.GetString("LBL_EME_THEMEK_TIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User Keywords.
         /// </summary>
         public static string LBL_EME_USERK {
@@ -142,11 +151,47 @@ namespace EPAMetadataEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tracking Position:.
+        /// </summary>
+        public static string LBL_TEST_POSITION {
+            get {
+                return ResourceManager.GetString("LBL_TEST_POSITION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Internal workflow tracking position.
+        /// </summary>
+        public static string LBL_TEST_POSITION_TIP {
+            get {
+                return ResourceManager.GetString("LBL_TEST_POSITION_TIP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to EME Test Page.
         /// </summary>
         public static string LBL_TEST_SIDEBAR {
             get {
                 return ResourceManager.GetString("LBL_TEST_SIDEBAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tracking Status:.
+        /// </summary>
+        public static string LBL_TEST_STATUS {
+            get {
+                return ResourceManager.GetString("LBL_TEST_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Internal workflow tracking status.
+        /// </summary>
+        public static string LBL_TEST_STATUS_TIP {
+            get {
+                return ResourceManager.GetString("LBL_TEST_STATUS_TIP", resourceCulture);
             }
         }
         
