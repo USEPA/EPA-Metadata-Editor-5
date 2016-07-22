@@ -766,6 +766,8 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ESRI.ArcGIS.MetadataEditor" />
+    <Compile Include="AppCode\utildemo.cs" />
+    <Compile Include="AppCode\Utils1.cs" />
     <Compile Include="Pages\CI_PresentationForm.xaml.cs">
       <DependentUpon>CI_PresentationForm.xaml</DependentUpon>
     </Compile>
@@ -1241,9 +1243,7 @@
     <Resource Include="Codelists\KeywordsEPA.xml" />
     <Resource Include="Codelists\KeywordsPlace.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AppCode\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Demo\MetadataSample.xml" />
   </ItemGroup>

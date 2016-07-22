@@ -4,12 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:p="clr-namespace:EPAMetadataEditor.Pages"
     xmlns:r="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
+    xmlns:rr="clr-namespace:EPAMetadataEditor.Properties"
     xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
     xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
     Loaded="FillXml">
 
-  <UserControl.Resources>
-    <!-- 
+    <UserControl.Resources>
+        <!-- 
     <!ENTITY % DataIdent '(idCitation, idAbs, idPurp?, idCredit*, idStatus*, idPoC*, resMaint*, graphOver*, dsFormat*, 
           discKeys*, otherKeys*, placeKeys*, searchKeys*, stratKeys*, tempKeys*, themeKeys*, idSpecUse*, resConst*, aggrInfo*, spatRpType*, dataScale*, dataLang+, dataChar*, tpCat*, envirDesc?, dataExt*, suppInfo?)'>
     <!ENTITY % Keywords '(keyword+, keyTyp?, thesaName?, thesaLang?)'> 
@@ -23,563 +24,313 @@
     <!ELEMENT themeKeys %Keywords;>    
     -->
 
-    <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <metadata>
-            <Esri>
-              <DataProperties>
-                <itemProps>
-                  <imsContentType export="False"/>
-                </itemProps>
-              </DataProperties>
-            </Esri>
-            <dataIdInfo>
-              <tpCatBag>
-                <TopicCatCd_001 value="False"/>
-                <TopicCatCd_002 value="False"/>
-                <TopicCatCd_003 value="False"/>
-                <TopicCatCd_004 value="False"/>
-                <TopicCatCd_005 value="False"/>
-                <TopicCatCd_006 value="False"/>
-                <TopicCatCd_007 value="False"/>
-                <TopicCatCd_008 value="False"/>
-                <TopicCatCd_009 value="False"/>
-                <TopicCatCd_010 value="False"/>
-                <TopicCatCd_011 value="False"/>
-                <TopicCatCd_012 value="False"/>
-                <TopicCatCd_013 value="False"/>
-                <TopicCatCd_014 value="False"/>
-                <TopicCatCd_015 value="False"/>
-                <TopicCatCd_016 value="False"/>
-                <TopicCatCd_017 value="False"/>
-                <TopicCatCd_018 value="False"/>
-                <TopicCatCd_019 value="False"/>
-              </tpCatBag>              
-              <!-- TODO: other keywords -->
-            </dataIdInfo>
-          </metadata>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+        <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <metadata>
+                        <Esri>
+                            <DataProperties>
+                                <itemProps>
+                                    <imsContentType export="False"/>
+                                </itemProps>
+                            </DataProperties>
+                        </Esri>
+                        <dataIdInfo>
+                            <tpCatBag>
+                                <TopicCatCd_001 value="False"/>
+                                <TopicCatCd_002 value="False"/>
+                                <TopicCatCd_003 value="False"/>
+                                <TopicCatCd_004 value="False"/>
+                                <TopicCatCd_005 value="False"/>
+                                <TopicCatCd_006 value="False"/>
+                                <TopicCatCd_007 value="False"/>
+                                <TopicCatCd_008 value="False"/>
+                                <TopicCatCd_009 value="False"/>
+                                <TopicCatCd_010 value="False"/>
+                                <TopicCatCd_011 value="False"/>
+                                <TopicCatCd_012 value="False"/>
+                                <TopicCatCd_013 value="False"/>
+                                <TopicCatCd_014 value="False"/>
+                                <TopicCatCd_015 value="False"/>
+                                <TopicCatCd_016 value="False"/>
+                                <TopicCatCd_017 value="False"/>
+                                <TopicCatCd_018 value="False"/>
+                                <TopicCatCd_019 value="False"/>
+                            </tpCatBag>
 
-    <XmlDataProvider x:Key="XmlRecord_OtherKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <otherKeys editorExpand="True" editorAppend="True"/>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+                            <!-- TODO: other keywords -->
+                        </dataIdInfo>
+                    </metadata>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <XmlDataProvider x:Key="XmlRecord_ThemeKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <themeKeys editorExpand="True" editorAppend="True"/>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+        <XmlDataProvider x:Key="XmlRecord_OtherKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <otherKeys editorExpand="True" editorAppend="True"/>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <XmlDataProvider x:Key="XmlRecord_PlaceKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <placeKeys editorExpand="True" editorAppend="True"/>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+        <XmlDataProvider x:Key="XmlRecord_ThemeKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <themeKeys editorExpand="True" editorAppend="True"/>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <XmlDataProvider x:Key="XmlRecord_TempKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <tempKeys editorExpand="True" editorAppend="True"/>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+        <XmlDataProvider x:Key="XmlRecord_PlaceKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <placeKeys editorExpand="True" editorAppend="True"/>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <XmlDataProvider x:Key="XmlRecord_DisKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <discKeys editorExpand="True" editorAppend="True"/>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+        <XmlDataProvider x:Key="XmlRecord_TempKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <tempKeys editorExpand="True" editorAppend="True"/>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <XmlDataProvider x:Key="XmlRecord_StratKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <stratKeys editorExpand="True" editorAppend="True"/>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+        <XmlDataProvider x:Key="XmlRecord_DisKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <discKeys editorExpand="True" editorAppend="True"/>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <XmlDataProvider x:Key="XmlRecord_SearchKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <searchKeys editorExpand="True" editorAppend="True"/>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+        <XmlDataProvider x:Key="XmlRecord_StratKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <stratKeys editorExpand="True" editorAppend="True"/>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <XmlDataProvider x:Key="XmlRecord_ProductKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <productKeys editorExpand="True" editorAppend="True"/>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+        <XmlDataProvider x:Key="XmlRecord_SearchKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <searchKeys editorExpand="True" editorAppend="True"/>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <XmlDataProvider x:Key="XmlRecord_SubTopicKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <subTopicCatKeys editorExpand="True" editorAppend="True"/>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+        <XmlDataProvider x:Key="XmlRecord_ProductKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <productKeys editorExpand="True" editorAppend="True"/>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <e:Codelists x:Key="IMS_ContentType" CodelistName="IMS_ContentType"/>
-    
-    <!-- validation issues  -->
-    <v:MetadataIssueInfo x:Key="topics" Message="{x:Static r:Issues.topics_REQ}" />
-    <v:MetadataIssueInfo x:Key="themeKeywords" Name="themeKeywords" Message="{x:Static r:Issues.themeKeywords_REQ}" />
-    <v:MetadataIssueInfo x:Key="placeKeywords" Name="placeKeywords" Message="{x:Static r:Issues.placeKeywords_REQ}" />
-    <v:MetadataIssueInfo x:Key="temporalKeywords" Name="temporalKeywords" Message="{x:Static r:Issues.temporalKeywords_REQ}" />
-    <v:MetadataIssueInfo x:Key="disciplineKeywords" Name="disciplineKeywords" Message="{x:Static r:Issues.disciplineKeywords_REQ}" />
-    <v:MetadataIssueInfo x:Key="stratumKeywords" Name="stratumKeywords" Message="{x:Static r:Issues.stratumKeywords_REQ}" />
-    <v:MetadataIssueInfo x:Key="otherKeywords" Name="otherKeywords" Message="{x:Static r:Issues.otherKeywords_REQ}" />
-    <v:MetadataIssueInfo x:Key="productKeywords" Name="productKeywords" Message="{x:Static r:Issues.productKeywords_REQ}" />
+        <XmlDataProvider x:Key="XmlRecord_SubTopicKey" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <subTopicCatKeys editorExpand="True" editorAppend="True"/>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <v:MetadataIssueInfo x:Key="party" Message="{x:Static r:Issues.party_REQ}" />
-    <v:MetadataIssueInfo x:Key="partyFgdc" Message="{x:Static r:Issues.partyFgdc_FGDC_REQ}" />
-    <v:MetadataIssueInfo x:Key="role" Message="{x:Static r:Issues.role_REQ}" />
-    <v:MetadataIssueInfo x:Key="linkage" Message="{x:Static r:Issues.linkage_REQ}" />
-    <v:MetadataIssueInfo x:Key="protocol" Message="{x:Static r:Issues.protocol_REQ}" />
-    <v:MetadataIssueInfo x:Key="rpCntInfo_NAP_REQ" Message="{x:Static r:Issues.rpCntInfo_NAP_REQ}" />
-    <v:MetadataIssueInfo x:Key="tagTopicKeyword" Message="{x:Static r:Issues.tagTopicKeyword_REQ}" />
-    <v:MetadataIssueInfo x:Key="voiceNum" Message="{x:Static r:Issues.voiceNum_FGDC_REQ}" />
+        <XmlDataProvider x:Key="EPA_Keywords"
+                        Source="..\Codelists\Codelists_ArcGIS.xml"
+                        XPath=".//codelist[@id='EPA_Keywords']/code"
+                        IsAsynchronous="False"
+                        IsInitialLoadEnabled="True">
+        </XmlDataProvider>
 
-    <v:MetadataIssueInfo x:Key="cntAddress" Message="{x:Static r:Issues.cntAddress_FGDC_REQ}" />
-    <v:MetadataIssueInfo x:Key="addressType" Message="{x:Static r:Issues.addressType_REQ}" />
-    <v:MetadataIssueInfo x:Key="adminArea" Message="{x:Static r:Issues.adminArea_REQ}" />
-    <v:MetadataIssueInfo x:Key="adminArea_FGDC" Name="adminArea_FGDC" Message="{x:Static r:Issues.adminArea_FGDC_REQ}" />
-    <v:MetadataIssueInfo x:Key="city" Message="{x:Static r:Issues.city_REQ}" />
-    <v:MetadataIssueInfo x:Key="postCode" Message="{x:Static r:Issues.postCode_REQ}" />
-    
-    <!-- id and citation -->
-    <v:MetadataIssueInfo x:Key="resTitle" Message="{x:Static r:Issues.resTitle_REQ}" />
-    <v:MetadataIssueInfo x:Key="dates" Message="{x:Static r:Issues.dates_REQ}" />
-    <v:MetadataIssueInfo x:Key="identCode" Message="{x:Static r:Issues.identCode_REQ}" />
+        <e:Codelists x:Key="IMS_ContentType" CodelistName="IMS_ContentType"/>
 
-  </UserControl.Resources>
+        <!-- validation issues  -->
+        <v:MetadataIssueInfo x:Key="topics" Message="{x:Static r:Issues.topics_REQ}" />
+        <v:MetadataIssueInfo x:Key="themeKeywords" Name="themeKeywords" Message="{x:Static r:Issues.themeKeywords_REQ}" />
+        <v:MetadataIssueInfo x:Key="placeKeywords" Name="placeKeywords" Message="{x:Static r:Issues.placeKeywords_REQ}" />
+        <v:MetadataIssueInfo x:Key="temporalKeywords" Name="temporalKeywords" Message="{x:Static r:Issues.temporalKeywords_REQ}" />
+        <v:MetadataIssueInfo x:Key="disciplineKeywords" Name="disciplineKeywords" Message="{x:Static r:Issues.disciplineKeywords_REQ}" />
+        <v:MetadataIssueInfo x:Key="stratumKeywords" Name="stratumKeywords" Message="{x:Static r:Issues.stratumKeywords_REQ}" />
+        <v:MetadataIssueInfo x:Key="otherKeywords" Name="otherKeywords" Message="{x:Static r:Issues.otherKeywords_REQ}" />
+        <v:MetadataIssueInfo x:Key="productKeywords" Name="productKeywords" Message="{x:Static r:Issues.productKeywords_REQ}" />
 
-  <Grid Style="{DynamicResource EditorFrontPageStyle}">
-    <StackPanel>
-      <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo[1]}">
-        <ListBox.ItemTemplate>
-          <DataTemplate>
-            <StackPanel>
-              <!-- page title -->
-              <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.SEC_KEYWORDS}"/>
-              <Border Style="{DynamicResource EditorBorder2Style}">
-                <StackPanel>
-                  <!-- topics -->
-                  <Label Style="{DynamicResource EditorVLabelNoIdentStyle}" 
-                      ToolTip="{x:Static r:Definitions.MD_DataIdentification_topicCategory}"
-                      v:Nav.AnchorName="topics,tpCatBag"
-                      Content="{x:Static r:Resources.LBL_DESC_TOPICS}" />
-                  <StackPanel Orientation="Horizontal">
-                    <StackPanel Style="{DynamicResource EditorCheckboxPanel}">
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_001}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_001/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_002}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_002/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_003}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_003/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_004}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_004/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_005}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_005/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_006}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_006/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_007}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_007/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_008}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_008/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_009}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_009/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_010}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_010/@value}" v:Nav.Check="True"/>
-                    </StackPanel>
-                    <StackPanel Style="{DynamicResource EditorCheckboxPanel}">
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_011}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_011/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_012}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_012/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_013}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_013/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_014}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_014/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_015}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_015/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_016}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_016/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_017}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_017/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_018}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_018/@value}" v:Nav.Check="True"/>
-                      <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_019}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_019/@value}" v:Nav.Check="True"/>
-                    </StackPanel>
-                  </StackPanel>
+        <v:MetadataIssueInfo x:Key="party" Message="{x:Static r:Issues.party_REQ}" />
+        <v:MetadataIssueInfo x:Key="partyFgdc" Message="{x:Static r:Issues.partyFgdc_FGDC_REQ}" />
+        <v:MetadataIssueInfo x:Key="role" Message="{x:Static r:Issues.role_REQ}" />
+        <v:MetadataIssueInfo x:Key="linkage" Message="{x:Static r:Issues.linkage_REQ}" />
+        <v:MetadataIssueInfo x:Key="protocol" Message="{x:Static r:Issues.protocol_REQ}" />
+        <v:MetadataIssueInfo x:Key="rpCntInfo_NAP_REQ" Message="{x:Static r:Issues.rpCntInfo_NAP_REQ}" />
+        <v:MetadataIssueInfo x:Key="tagTopicKeyword" Message="{x:Static r:Issues.tagTopicKeyword_REQ}" />
+        <v:MetadataIssueInfo x:Key="voiceNum" Message="{x:Static r:Issues.voiceNum_FGDC_REQ}" />
 
-                </StackPanel>
-              </Border>              
-              
-              <!-- content type -->
-              <Border Style="{DynamicResource EditorBorder2Style}">
-                <DockPanel LastChildFill="True">
-                  <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" 
-                      Content="{x:Static r:Resources.LBL_IMS_CONTENT_TYPE}"/>
-                  <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" DockPanel.Dock="Right"
-                      e:MetadataStyle.OnlyProfiles="FGDC"
-                      ToolTip="{x:Static r:Definitions.ESRI_exportContentTypeToFGDC}"
-                      Content="{x:Static r:Resources.LBL_IMS_CONTENT_TYPE_EXPORT}" 
-                      IsChecked="{Binding XPath=/metadata/Esri/DataProperties/itemProps/imsContentType/@export}"/>
-                  <ComboBox DockPanel.Dock="Right" Loaded="PostProcessComboBoxValues" 
-                      corepages:EditorPage.SourceXPath="/metadata/Esri/DataProperties/itemProps/imsContentType" 
-                      Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
-                      ToolTip="{x:Static r:Definitions.ESRI_geoportalContentType}"
-                      ItemsSource="{Binding Source={StaticResource IMS_ContentType}, Path=List}"
-                      DisplayMemberPath="."
-                      SelectedValuePath="@value">
-                    <ComboBox.SelectedValue>
-                      <e:MetadataElementSync XPath="/metadata/Esri/DataProperties/itemProps/imsContentType"/>
-                    </ComboBox.SelectedValue>
-                  </ComboBox>
-                </DockPanel>
-              </Border>
+        <v:MetadataIssueInfo x:Key="cntAddress" Message="{x:Static r:Issues.cntAddress_FGDC_REQ}" />
+        <v:MetadataIssueInfo x:Key="addressType" Message="{x:Static r:Issues.addressType_REQ}" />
+        <v:MetadataIssueInfo x:Key="adminArea" Message="{x:Static r:Issues.adminArea_REQ}" />
+        <v:MetadataIssueInfo x:Key="adminArea_FGDC" Name="adminArea_FGDC" Message="{x:Static r:Issues.adminArea_FGDC_REQ}" />
+        <v:MetadataIssueInfo x:Key="city" Message="{x:Static r:Issues.city_REQ}" />
+        <v:MetadataIssueInfo x:Key="postCode" Message="{x:Static r:Issues.postCode_REQ}" />
 
-              <!-- theme keys -->
-              <Border Style="{DynamicResource EditorBorder2Style}">
-                <StackPanel>
-                  <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=themeKeys}">
-                    <ListBox.ItemsPanel>
-                      <ItemsPanelTemplate>
-                        <StackPanel/>
-                      </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                      <DataTemplate>
-                        <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-                          <Expander.Header>
-                            <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                              RelativeSource={RelativeSource FindAncestor,
-                              AncestorType={x:Type ContentPresenter}},
-                              Mode=OneWayToSource}" LastChildFill="True">
-                              <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
-                                <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                              </Button>
-                              <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THEMEKEY}"/>
-                            </DockPanel>
-                          </Expander.Header>
-                          <StackPanel Style="{DynamicResource ExpanderBodyStyle}">
-                            <p:MD_Keywords ToolTip="{x:Static r:Definitions.MD_Keywords_theme}"/>
-                            <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
-                          </StackPanel>
-                        </Expander>
-                      </DataTemplate>
-                    </ListBox.ItemTemplate>
-                  </ListBox>
-                  <!-- ADD theme keywords -->
-                  <Button Tag="ThemeKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                      <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                      <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_THEME}"/>
-                    </StackPanel>
-                  </Button>
-                </StackPanel>
-              </Border>
+        <!-- id and citation -->
+        <v:MetadataIssueInfo x:Key="resTitle" Message="{x:Static r:Issues.resTitle_REQ}" />
+        <v:MetadataIssueInfo x:Key="dates" Message="{x:Static r:Issues.dates_REQ}" />
+        <v:MetadataIssueInfo x:Key="identCode" Message="{x:Static r:Issues.identCode_REQ}" />
 
-              <!-- place keywords -->
-              <Border Style="{DynamicResource EditorBorder2Style}">
-                <StackPanel>
-                  <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=placeKeys}">
-                    <ListBox.ItemsPanel>
-                      <ItemsPanelTemplate>
-                        <StackPanel/>
-                      </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                      <DataTemplate>
-                        <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-                          <Expander.Header>
-                            <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                              RelativeSource={RelativeSource FindAncestor,
-                              AncestorType={x:Type ContentPresenter}},
-                              Mode=OneWayToSource}" LastChildFill="True">
-                              <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
-                                <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                              </Button>
-                              <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_PLACEKEY}"/>
-                            </DockPanel>
-                          </Expander.Header>
-                          <StackPanel>
-                            <p:MD_Keywords ToolTip="{x:Static r:Definitions.MD_Keywords_place}"/>
-                            <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
+    </UserControl.Resources>
+
+    <Grid Style="{DynamicResource EditorFrontPageStyle}">
+        <StackPanel>
+            <!-- org title -->
+            <Label Style="{DynamicResource EditorPageTitle}" Content="U.S. Environmental Protection Agency"/>
+            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo[1]}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <!-- page title -->
+                            <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.SEC_KEYWORDS}"/>
+
+                            <!-- EPA Theme Keywords-->
+                            <Border Style="{DynamicResource EditorBorder2Style}">
+                                <TabControl>
+                                    <TabItem Header="ISO Keywords">
+                                        <TabItem.DataContext>
+                                            <XmlDataProvider x:Name="ISOData"
+                                                             Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsISO.xml"
+                                                             XPath="emeData/KeywordsISO"
+                                                             IsInitialLoadEnabled="True"/>
+                                        </TabItem.DataContext>
+                                        <ListBox x:Name="lbKeywordsISO" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                                            <ListBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <UniformGrid Columns="3"/>
+                                                </ItemsPanelTemplate>
+                                            </ListBox.ItemsPanel>
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Margin="0,2">
+                                                        <CheckBox Content="{Binding XPath=themekey}" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </TabItem>
+                                    <TabItem Header="EPA Keywords">
+                                        <TabItem.DataContext>
+                                            <XmlDataProvider x:Name="EPAData"
+                                                             Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsEPA.xml"
+                                                             XPath="emeData/KeywordsEPA"
+                                                             IsInitialLoadEnabled="True"/>
+                                        </TabItem.DataContext>
+                                        <ListBox x:Name="lbKeywordsEPA" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                                            <ListBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <UniformGrid Columns="3"/>
+                                                </ItemsPanelTemplate>
+                                            </ListBox.ItemsPanel>
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Margin="0,2">
+                                                        <CheckBox Content="{Binding XPath=themekey}" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </TabItem>
+                                    <TabItem Header="User Keywords">
+                                        <TabItem.DataContext>
+                                            <XmlDataProvider x:Name="UserData"
+                                                             Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsUser.xml"
+                                                             XPath="emeData/KeywordsUser"
+                                                             IsInitialLoadEnabled="True"/>
+                                        </TabItem.DataContext>
+                                        <ListBox x:Name="lbKeywordsUser" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                                            <ListBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <UniformGrid Columns="3"/>
+                                                </ItemsPanelTemplate>
+                                            </ListBox.ItemsPanel>
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Margin="0,2">
+                                                        <CheckBox Content="{Binding XPath=themekey}" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </TabItem>
+                                    <TabItem Header="Place Keywords">
+                                        <TabItem.DataContext>
+                                            <XmlDataProvider x:Name="PlaceData"
+                                                             Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsPlace.xml"
+                                                             XPath="emeData/KeywordsPlace"
+                                                             IsInitialLoadEnabled="True"/>
+                                        </TabItem.DataContext>
+                                        <ListBox x:Name="lbKeywordsPlace" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                                            <ListBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <UniformGrid Columns="3"/>
+                                                </ItemsPanelTemplate>
+                                            </ListBox.ItemsPanel>
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Margin="0,2">
+                                                        <CheckBox Content="{Binding XPath=placekey}" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </TabItem>
+
+                                </TabControl>
                             </Border>
-                          </StackPanel>
-                        </Expander>
-                      </DataTemplate>
-                    </ListBox.ItemTemplate>
-                  </ListBox>
-                  <!-- ADD place keywords -->
-                  <Button Tag="PlaceKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                      <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                      <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_PLACE}"/>
-                    </StackPanel>
-                  </Button>
-                </StackPanel>
-              </Border>
 
-              <!-- temporal keywords -->
-              <Border Style="{DynamicResource EditorBorder2Style}">
-                <StackPanel>
-                  <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=tempKeys}">
-                    <ListBox.ItemsPanel>
-                      <ItemsPanelTemplate>
-                        <StackPanel/>
-                      </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                      <DataTemplate>
-                        <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-                          <Expander.Header>
-                            <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                              RelativeSource={RelativeSource FindAncestor,
-                              AncestorType={x:Type ContentPresenter}},
-                              Mode=OneWayToSource}" LastChildFill="True">
-                              <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
-                                <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                              </Button>
-                              <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_TEMPKEY}"/>
-                            </DockPanel>
-                          </Expander.Header>
-                          <StackPanel>
-                            <p:MD_Keywords ToolTip="{x:Static r:Definitions.MD_Keywords_temporal}"/>
-                            <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
+                            <!-- theme keys -->
+                            <Border Style="{DynamicResource EditorBorder2Style}">
+                                <StackPanel>
+                                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=themeKeys}">
+                                        <ListBox.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel/>
+                                            </ItemsPanelTemplate>
+                                        </ListBox.ItemsPanel>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                                    <Expander.Header>
+                                                        <DockPanel HorizontalAlignment="{Binding HorizontalAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Mode=OneWayToSource}" LastChildFill="True">
+                                                            <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
+                                                                <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
+                                                            </Button>
+                                                            <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THEMEKEY}"/>
+                                                        </DockPanel>
+                                                    </Expander.Header>
+                                                    <StackPanel Style="{DynamicResource ExpanderBodyStyle}">
+                                                        <p:MD_Keywords ToolTip="{x:Static r:Definitions.MD_Keywords_theme}"/>
+                                                        <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                                    </StackPanel>
+                                                </Expander>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                    <!-- ADD theme keywords -->
+                                    <Button Tag="ThemeKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
+                                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                            <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
+                                            <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_THEME}"/>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
                             </Border>
-                          </StackPanel>
-                        </Expander>
-                      </DataTemplate>
-                    </ListBox.ItemTemplate>
-                  </ListBox>
-                  <!-- ADD temporal keywords -->
-                  <Button Tag="TempKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                      <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                      <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_TEMP}"/>
-                    </StackPanel>
-                  </Button>
-                </StackPanel>
-              </Border>
 
-              <!-- discipline keywords -->
-              <Border Style="{DynamicResource EditorBorder2Style}" e:MetadataStyle.OnlyProfiles="ISO19139,NAP,INSPIRE">
-                <StackPanel>
-                  <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=discKeys}">
-                    <ListBox.ItemsPanel>
-                      <ItemsPanelTemplate>
-                        <StackPanel/>
-                      </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                      <DataTemplate>
-                        <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-                          <Expander.Header>
-                            <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                              RelativeSource={RelativeSource FindAncestor,
-                              AncestorType={x:Type ContentPresenter}},
-                              Mode=OneWayToSource}" LastChildFill="True">
-                              <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
-                                <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                              </Button>
-                              <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_DISKEY}"/>
-                            </DockPanel>
-                          </Expander.Header>
-                          <StackPanel>
-                            <p:MD_Keywords ToolTip="{x:Static r:Definitions.MD_Keywords_discipline}"/>
-                            <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
-                            </Border>
-                          </StackPanel>
-                        </Expander>
-                      </DataTemplate>
-                    </ListBox.ItemTemplate>
-                  </ListBox>
-                  <!-- ADD discipline keywords -->
-                  <Button Tag="DisKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                      <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                      <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_DIS}"/>
-                    </StackPanel>
-                  </Button>
-                </StackPanel>
-              </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
-              <!-- stratum keywords -->
-              <Border Style="{DynamicResource EditorBorder2Style}">
-                <StackPanel>
-                  <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=stratKeys}">
-                    <ListBox.ItemsPanel>
-                      <ItemsPanelTemplate>
-                        <StackPanel/>
-                      </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                      <DataTemplate>
-                        <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-                          <Expander.Header>
-                            <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                              RelativeSource={RelativeSource FindAncestor,
-                              AncestorType={x:Type ContentPresenter}},
-                              Mode=OneWayToSource}" LastChildFill="True">
-                              <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
-                                <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                              </Button>
-                              <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_STRATKEY}"/>
-                            </DockPanel>
-                          </Expander.Header>
-                          <StackPanel>
-                            <p:MD_Keywords ToolTip="{x:Static r:Definitions.MD_Keywords_stratum}"/>
-                            <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
-                            </Border>
-                          </StackPanel>
-                        </Expander>
-                      </DataTemplate>
-                    </ListBox.ItemTemplate>
-                  </ListBox>
-                  <!-- ADD statum keywords -->
-                  <Button Tag="StratKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                      <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                      <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_STRAT}"/>
-                    </StackPanel>
-                  </Button>
-                </StackPanel>
-              </Border>
+            <!-- validate after all anchors are loaded -->
+            <v:PageValidateControl/>
 
-              <!-- other keywords -->
-              <Border Style="{DynamicResource EditorBorder2Style}" e:MetadataStyle.OnlyProfiles="ISO19139,NAP,INSPIRE">
-                <StackPanel>
-                  <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=otherKeys}">
-                    <ListBox.ItemsPanel>
-                      <ItemsPanelTemplate>
-                        <StackPanel/>
-                      </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                      <DataTemplate>
-                        <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-                          <Expander.Header>
-                            <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                              RelativeSource={RelativeSource FindAncestor,
-                              AncestorType={x:Type ContentPresenter}},
-                              Mode=OneWayToSource}" LastChildFill="True">
-                              <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
-                                <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                              </Button>
-                              <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_OTHERKEY}"/>
-                            </DockPanel>
-                          </Expander.Header>
-                          <StackPanel>
-                            <p:MD_Keywords ToolTip="{x:Static r:Definitions.MD_Keywords_other}"/>
-                            <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
-                            </Border>
-                          </StackPanel>
-                        </Expander>
-                      </DataTemplate>
-                    </ListBox.ItemTemplate>
-                  </ListBox>
-                  <!-- ADD other keywords -->
-                  <Button Tag="OtherKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                      <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                      <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_OTHER}"/>
-                    </StackPanel>
-                  </Button>
-                </StackPanel>
-              </Border>
-
-              <!-- product keys -->
-              <Border Style="{DynamicResource EditorBorder2Style}" e:MetadataStyle.OnlyProfiles="NAP" >
-                <StackPanel>
-                  <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=productKeys}">
-                    <ListBox.ItemsPanel>
-                      <ItemsPanelTemplate>
-                        <StackPanel/>
-                      </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                      <DataTemplate>
-                        <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-                          <Expander.Header>
-                            <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                              RelativeSource={RelativeSource FindAncestor,
-                              AncestorType={x:Type ContentPresenter}},
-                              Mode=OneWayToSource}" LastChildFill="True">
-                              <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
-                                <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                              </Button>
-                              <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_PRODUCTKEY}"/>
-                            </DockPanel>
-                          </Expander.Header>
-                          <StackPanel>
-                            <p:MD_Keywords ToolTip="{x:Static r:Definitions.MD_Keywords_NAP_product}"/>
-                            <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
-                            </Border>
-                          </StackPanel>
-                        </Expander>
-                      </DataTemplate>
-                    </ListBox.ItemTemplate>
-                  </ListBox>
-                  <!-- ADD product keywords -->
-                  <Button Tag="ProductKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                      <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                      <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_PRODUCT}"/>
-                    </StackPanel>
-                  </Button>
-                </StackPanel>
-              </Border>
-
-              <!-- sub topic keys -->
-              <Border Style="{DynamicResource EditorBorder2Style}" e:MetadataStyle.OnlyProfiles="NAP" >
-                <StackPanel>
-                  <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=subTopicCatKeys}">
-                    <ListBox.ItemsPanel>
-                      <ItemsPanelTemplate>
-                        <StackPanel/>
-                      </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                      <DataTemplate>
-                        <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-                          <Expander.Header>
-                            <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                              RelativeSource={RelativeSource FindAncestor,
-                              AncestorType={x:Type ContentPresenter}},
-                              Mode=OneWayToSource}" LastChildFill="True">
-                              <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
-                                <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                              </Button>
-                              <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_SUBTOPICKEY}"/>
-                            </DockPanel>
-                          </Expander.Header>
-                          <StackPanel>
-                            <p:MD_Keywords ToolTip="{x:Static r:Definitions.MD_Keywords_NAP_subtopic}"/>
-                            <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
-                            </Border>
-                          </StackPanel>
-                        </Expander>
-                      </DataTemplate>
-                    </ListBox.ItemTemplate>
-                  </ListBox>
-                  <!-- ADD product keywords -->
-                  <Button Tag="SubTopicKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                      <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                      <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_SUBTOPIC}"/>
-                    </StackPanel>
-                  </Button>
-                </StackPanel>
-              </Border>
-            </StackPanel>
-          </DataTemplate>
-        </ListBox.ItemTemplate>
-      </ListBox>
-
-      <!-- validate after all anchors are loaded -->
-      <v:PageValidateControl/>
-
-    </StackPanel>
-  </Grid>
+        </StackPanel>
+    </Grid>
 </corepages:EditorPage>
