@@ -40,6 +40,20 @@
             </x:XData>
         </XmlDataProvider>
 
+        <XmlDataProvider x:Key="OrgStatusCodes" XPath="/" IsAsynchronous= "False" IsInitialLoadEnabled= "True">
+            <x:XData>
+                <ANY xmlns="">
+                    <statuscodes>
+                        <status>editing</status>
+                        <status>complete</status>
+                        <status>reviewed</status>
+                        <status>published</status>
+                        <status>rejected</status>
+                    </statuscodes>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
+
     </UserControl.Resources>
 
     <Grid Style="{DynamicResource EditorFrontPageStyle}">
@@ -48,7 +62,7 @@
             <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.LBL_TEST_TITLE}"/>
 
             <!-- custom metadata elements -->
-            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo/themeKeys}">
+            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/myData}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -58,25 +72,56 @@
                                 <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_TEST_POSITION}"/>
                                 <TextBox ToolTip="{x:Static r:Resources.LBL_TEST_POSITION_TIP}" Style="{DynamicResource EditorTextBoxStyle}" Text="{Binding XPath=trackingPosition, Mode=TwoWay}"/>
                             </DockPanel>
+
+                            <!-- tracking status -->
+                            <DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
+                                <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_TEST_STATUS}"/>
+                                <ComboBox ToolTip="{x:Static r:Resources.LBL_TEST_STATUS_TIP}" 
+                                          Loaded="PostProcessComboBoxValues" 
+                                          SelectionChanged="ComboBoxSyncSelectionChanged" 
+                                          Style="{DynamicResource EditorHComboBoxStyle}" 
+                                          IsEditable="False" 
+                                          ItemsSource="{Binding Source={StaticResource OrgStatusCodes}, XPath=//status}" 
+                                          DisplayMemberPath="." 
+                                          SelectedValuePath=".">
+                                    <ComboBox.SelectedValue>
+                                        <Binding XPath="trackingStatus" Mode="TwoWay"/>
+                                    </ComboBox.SelectedValue>
+                                </ComboBox>
+                            </DockPanel>
+                            
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate >
             </ListBox>
 
-            <!-- tracking status -->
-            <DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
-                <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_EME_THEMEK}"/>
-                <ComboBox ToolTip="{x:Static r:Resources.LBL_EME_THEMEK_TIP}" 
-                         Loaded="PostProcessComboBoxValues" 
-                         SelectionChanged="ComboBoxSyncSelectionChanged" 
-                         Style="{DynamicResource EditorHComboBoxStyle}" 
-                         IsEditable="False" 
-                         ItemsSource="{Binding Source={StaticResource EPAThemeKeywords}, XPath=//themekey}" DisplayMemberPath="." SelectedValuePath=".">
-                    <ComboBox.SelectedValue>
-                        <Binding XPath="keyword" Mode="TwoWay"/>
-                    </ComboBox.SelectedValue>
-                </ComboBox>
-            </DockPanel>
+
+
+            <!-- EPA Keyword Test -->
+            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo/themeKeys}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+
+                            <DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
+                                <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_EME_THEMEK}"/>
+                                <ComboBox ToolTip="{x:Static r:Resources.LBL_EME_THEMEK_TIP}" 
+                                          Loaded="PostProcessComboBoxValues" 
+                                          SelectionChanged="ComboBoxSyncSelectionChanged" 
+                                          Style="{DynamicResource EditorHComboBoxStyle}" 
+                                          IsEditable="False" 
+                                          ItemsSource="{Binding Source={StaticResource EPAThemeKeywords}, XPath=//themekey}" DisplayMemberPath="." SelectedValuePath=".">
+                                    <ComboBox.SelectedValue>
+                                        <Binding XPath="keyword" Mode="TwoWay"/>
+                                    </ComboBox.SelectedValue>
+                                </ComboBox>
+                            </DockPanel>
+
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate >
+            </ListBox>
+
         </StackPanel>
     </Grid>
 </pages:EditorPage>
