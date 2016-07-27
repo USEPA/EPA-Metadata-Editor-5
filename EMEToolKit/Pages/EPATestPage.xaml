@@ -54,6 +54,10 @@
             </x:XData>
         </XmlDataProvider>
 
+        <DataTemplate x:Key="keywordItemCheckBox">
+            <CheckBox Content="{Binding}"/>
+        </DataTemplate>
+
     </UserControl.Resources>
 
     <Grid Style="{DynamicResource EditorFrontPageStyle}">
@@ -95,8 +99,6 @@
                 </ListBox.ItemTemplate >
             </ListBox>
 
-
-
             <!-- EPA Keyword Test -->
             <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo/themeKeys}">
                 <ListBox.ItemTemplate>
@@ -116,6 +118,14 @@
                                     </ComboBox.SelectedValue>
                                 </ComboBox>
                             </DockPanel>
+
+                            <ListBox x:Name="KeywordCheckBox" Margin="0,0,0,20" Height="280" DockPanel.Dock="Left"
+                                     ItemsSource="{Binding Source={StaticResource EPAThemeKeywords}, XPath=//themekey}"
+                                     ItemTemplate="{StaticResource keywordItemCheckBox}"
+                                     IsSynchronizedWithCurrentItem="True"
+                                     Visibility="Visible" 
+                                     SelectionMode="Multiple">
+                            </ListBox>
 
                         </StackPanel>
                     </DataTemplate>
