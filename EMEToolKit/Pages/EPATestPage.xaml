@@ -16,6 +16,9 @@
                             <themeKeys>
                                 <keyword></keyword>
                             </themeKeys>
+                            <myData2>
+                                <keywordjp></keywordjp>
+                            </myData2>
                         </dataIdInfo>
                         <myData>
                             <trackingPosition>0000</trackingPosition>
@@ -54,6 +57,10 @@
             </x:XData>
         </XmlDataProvider>
 
+        <DataTemplate x:Key="keywordItemTemplate">
+            <TextBlock Text="{Binding}"/>
+        </DataTemplate>
+
         <DataTemplate x:Key="keywordItemCheckBox">
             <CheckBox Content="{Binding}"/>
         </DataTemplate>
@@ -70,7 +77,9 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-
+                            <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
+                                <Label VerticalAlignment="Center" Foreground="White">Sample from ArcGIS Metadata Toolkit PDF</Label>
+                            </Border>
                             <!-- tracking position -->
                             <DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
                                 <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_TEST_POSITION}"/>
@@ -93,18 +102,20 @@
                                     </ComboBox.SelectedValue>
                                 </ComboBox>
                             </DockPanel>
-                            
+
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate >
             </ListBox>
 
             <!-- EPA Keyword Test -->
-            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo/themeKeys}">
+            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo/myData2}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-
+                            <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
+                                <Label VerticalAlignment="Center" Foreground="White">Following the pattern from the above PDF</Label>
+                            </Border>
                             <DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
                                 <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_EME_THEMEK}"/>
                                 <ComboBox ToolTip="{x:Static r:Resources.LBL_EME_THEMEK_TIP}" 
@@ -112,9 +123,11 @@
                                           SelectionChanged="ComboBoxSyncSelectionChanged" 
                                           Style="{DynamicResource EditorHComboBoxStyle}" 
                                           IsEditable="False" 
-                                          ItemsSource="{Binding Source={StaticResource EPAThemeKeywords}, XPath=//themekey}" DisplayMemberPath="." SelectedValuePath=".">
+                                          ItemsSource="{Binding Source={StaticResource EPAThemeKeywords}, XPath=//themekey}"
+                                          DisplayMemberPath="."
+                                          SelectedValuePath=".">
                                     <ComboBox.SelectedValue>
-                                        <Binding XPath="keyword" Mode="TwoWay"/>
+                                        <Binding XPath="keywordjp" Mode="TwoWay"/>
                                     </ComboBox.SelectedValue>
                                 </ComboBox>
                             </DockPanel>
