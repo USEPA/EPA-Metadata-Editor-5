@@ -22,37 +22,30 @@ namespace EPAMetadataEditor.Pages
     /// </summary>
     public partial class EPATestPage : EditorPage
     {
-        private ArrayList myDataList = null;
         string currentItemText;
-        int currentItemIndex;
+        string currentItemTextB;
 
         public EPATestPage()
         {
             InitializeComponent();
         }
 
+        public List<Control> AllChildren(DependencyObject parent)
+        {
+            var _List = new List<Control> { };
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var _Child = VisualTreeHelper.GetChild(parent, i);
+                if (_Child is Control)
+                    _List.Add(_Child as Control);
+                _List.AddRange(AllChildren(_Child));
+            }
+            return _List;
+        }
+
         public override string SidebarLabel
         {
-            get {return Properties.Resources.LBL_TEST_SIDEBAR;}
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            // Get data from somewhere and fill in my local ArrayList
-            myDataList = LoadListBoxData();
-            // Bind ArrayList with the ListBox
-            LeftListBox.ItemsSource = myDataList;
-        }
-
-        private ArrayList LoadListBoxData()
-        {
-            ArrayList itemsList = new ArrayList();
-            itemsList.Add("Agriculture");
-            itemsList.Add("Air");
-            itemsList.Add("Biology");
-            itemsList.Add("Cleanup");
-            itemsList.Add("Ufology");
-            return itemsList;
+            get { return Properties.Resources.LBL_TEST_SIDEBAR; }
         }
 
         private void chbKeyword_Checked(object sender, RoutedEventArgs e)
@@ -60,145 +53,62 @@ namespace EPAMetadataEditor.Pages
             // Find the right item and it's value and index
             CheckBox cbx = (CheckBox)sender;
             currentItemText = cbx.Content.ToString();
-            RightListBox.Items.Add(currentItemText);
-            // Need to loop through the items?
-            //testTBox.Text = RightListBox.Items.ToString();
-            testTBox.Text += currentItemText+System.Environment.NewLine;
+            currentItemTextB = cbx.Content.ToString() + System.Environment.NewLine;
+            KeywordListBox.Items.Add(currentItemText);
+
+            var _ListBox = lbKeywordsEPA as ListBox;
+            foreach (var _ListboxItem in _ListBox.Items)
+            {
+                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListboxItem);
+                var _Children = AllChildren(_Container);
+                var _Name = "tbxKeywords";
+                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
+                _Control.Text += currentItemTextB;
+            }
+
+
+
+            KeywordTextBox.Text += currentItemTextB;
 
             // Refresh data binding
-            ApplyDataBinding();
+            // ApplyDataBinding();
         }
-
 
         private void chbKeyword_Unchecked(object sender, RoutedEventArgs e)
         {
-            // Find the right item and it's value and index
             CheckBox cbx = (CheckBox)sender;
-            currentItemText = cbx.Content.ToString()+ System.Environment.NewLine;
-            //RightListBox.Items.Remove(currentItemText);
-            string s = testTBox.Text;
-            s.Replace(currentItemText, "");
-            testTBox.Text = "";
-            //testTBox.Text = s;
-            
-            // Refresh data binding
-            ApplyDataBinding();
-        }
+            currentItemText = cbx.Content.ToString();
+            KeywordListBox.Items.Remove(currentItemText);
 
-        private void chbKeyword001_Checked(object sender, RoutedEventArgs e)
-        {
-            // Find the right item and it's value and index
-            currentItemText = chbKeyword001.Content.ToString();
+            currentItemTextB = cbx.Content.ToString() + System.Environment.NewLine;
+            string s = KeywordTextBox.Text;
 
-            RightListBox.Items.Add(currentItemText);
+            //string sr = s.Replace(currentItemTextB, "");
+            //KeywordTextBox.Text = sr;
+            KeywordTextBox.Text = s.Replace(currentItemTextB, "");
 
-            // Refresh data binding
-            ApplyDataBinding();
-        }
-        private void chbKeyword001_Unchecked(object sender, RoutedEventArgs e)
-        {
-            // Find the right item and it's value and index
-            currentItemText = chbKeyword001.Content.ToString();
-
-            RightListBox.Items.Remove(currentItemText);
+            var _ListBox = lbKeywordsEPA as ListBox;
+            foreach (var _ListboxItem in _ListBox.Items)
+            {
+                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListboxItem);
+                var _Children = AllChildren(_Container);
+                var _Name = "tbxKeywords";
+                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
+                _Control.Text = s.Replace(currentItemTextB, "");
+            }
 
             // Refresh data binding
-            ApplyDataBinding();
-        }
-
-        private void chbKeyword002_Checked(object sender, RoutedEventArgs e)
-        {
-            // Find the right item and it's value and index
-            currentItemText = chbKeyword002.Content.ToString();
-
-            RightListBox.Items.Add(currentItemText);
-
-            // Refresh data binding
-            ApplyDataBinding();
-        }
-        private void chbKeyword002_Unchecked(object sender, RoutedEventArgs e)
-        {
-            // Find the right item and it's value and index
-            currentItemText = chbKeyword002.Content.ToString();
-
-            RightListBox.Items.Remove(currentItemText);
-
-            // Refresh data binding
-            ApplyDataBinding();
-        }
-
-        private void chbKeyword003_Checked(object sender, RoutedEventArgs e)
-        {
-            // Find the right item and it's value and index
-            currentItemText = chbKeyword003.Content.ToString();
-
-            RightListBox.Items.Add(currentItemText);
-
-            // Refresh data binding
-            ApplyDataBinding();
-        }
-        private void chbKeyword003_Unchecked(object sender, RoutedEventArgs e)
-        {
-            // Find the right item and it's value and index
-            currentItemText = chbKeyword003.Content.ToString();
-
-            RightListBox.Items.Remove(currentItemText);
-
-            // Refresh data binding
-            ApplyDataBinding();
-        }
-
-        private void chbKeyword004_Checked(object sender, RoutedEventArgs e)
-        {
-            // Find the right item and it's value and index
-            currentItemText = chbKeyword004.Content.ToString();
-
-            RightListBox.Items.Add(currentItemText);
-
-            // Refresh data binding
-            ApplyDataBinding();
-        }
-        private void chbKeyword004_Unchecked(object sender, RoutedEventArgs e)
-        {
-            // Find the right item and it's value and index
-            currentItemText = chbKeyword004.Content.ToString();
-
-            RightListBox.Items.Remove(currentItemText);
-
-            // Refresh data binding
-            ApplyDataBinding();
-        }
-
-        private void chbKeyword005_Checked(object sender, RoutedEventArgs e)
-        {
-            // Find the right item and it's value and index
-            currentItemText = chbKeyword005.Content.ToString();
-
-            RightListBox.Items.Add(currentItemText);
-
-            // Refresh data binding
-            ApplyDataBinding();
-        }
-        private void chbKeyword005_Unchecked(object sender, RoutedEventArgs e)
-        {
-            // Find the right item and it's value and index
-            currentItemText = chbKeyword005.Content.ToString();
-
-            RightListBox.Items.Remove(currentItemText);
-
-            // Refresh data binding
-            ApplyDataBinding();
+            // ApplyDataBinding();            
         }
 
         /// <summary>
         /// Refreshes data binding
         /// </summary>
-        private void ApplyDataBinding()
-        {
-            LeftListBox.ItemsSource = null;
-            // Bind ArrayList with the ListBox
-            LeftListBox.ItemsSource = myDataList;
-        }
-
-    }
+        //private void ApplyDataBinding()
+        //{
+        //    lbKeywordsEPA.ItemsSource = null;
+        //
+        //    lbKeywordsEPA.ItemsSource = "{Binding XPath=/metadata/dataIdInfo/themeKeys}";
+        //}
+}
 }
