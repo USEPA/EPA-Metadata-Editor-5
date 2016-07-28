@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
              xmlns:r="clr-namespace:EPAMetadataEditor.Properties"
              xmlns:local="clr-namespace:EPAMetadataEditor.Pages"
              xmlns:pages="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Pages;assembly=ESRI.ArcGIS.MetadataEditor"
@@ -62,7 +63,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="keywordItemCheckBox">
-            <CheckBox Content="{Binding}"/>
+            <CheckBox x:Name="chbKeyword000" Content="{Binding}" Checked="chbKeyword_Checked" Unchecked="chbKeyword_Unchecked" Loaded="Window_Loaded"/>
         </DataTemplate>
 
     </UserControl.Resources>
@@ -132,7 +133,7 @@
                                 </ComboBox>
                             </DockPanel>
 
-                            <ListBox x:Name="KeywordCheckBox" Margin="0,0,0,20" Height="280" DockPanel.Dock="Left"
+                            <ListBox x:Name="KeywordCheckBox" Margin="0,0,0,20" DockPanel.Dock="Left"
                                      ItemsSource="{Binding Source={StaticResource EPAThemeKeywords}, XPath=//themekey}"
                                      ItemTemplate="{StaticResource keywordItemCheckBox}"
                                      IsSynchronizedWithCurrentItem="True"
@@ -144,6 +145,47 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate >
             </ListBox>
+            
+            <!-- EPA Checkbox Test -->
+            <StackPanel Loaded="Window_Loaded">
+                <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
+                    <Label VerticalAlignment="Center" Foreground="White">Checkbox Test</Label>
+                </Border>
+                <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                    <StackPanel Width="216">
+                        <CheckBox x:Name="chbKeyword001" Content="Agriculture" Checked="chbKeyword_Checked" Unchecked="chbKeyword_Unchecked"/>
+                        <CheckBox x:Name="chbKeyword002" Content="Air" Checked="chbKeyword_Checked" Unchecked="chbKeyword_Unchecked"/>
+                        <CheckBox x:Name="chbKeyword003" Content="Biology" Checked="chbKeyword_Checked" Unchecked="chbKeyword_Unchecked"/>
+                        <CheckBox x:Name="chbKeyword004" Content="Cleanup" Checked="chbKeyword_Checked" Unchecked="chbKeyword_Unchecked"/>
+                        <CheckBox x:Name="chbKeyword005" Content="Ufology" Checked="chbKeyword_Checked" Unchecked="chbKeyword_Unchecked"/>
+                    </StackPanel>
+                    <ListBox Name="LeftListBox" Visibility="Hidden"/>
+                    <Border Style="{DynamicResource EditorBorder2Style}">
+                        <ListBox Name="RightListBox" Width="216" Margin="0,10,0,0"/>
+                    </Border>
+                    <Border Style="{DynamicResource EditorBorder2Style}">
+                        <TextBox Name="testTBox" Width="216" Margin="0,10,0,0"/>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+
+            <ListBox x:Name="lbKeywordsEPA" 
+                 ItemsSource = "{Binding XPath=/metadata/dataIdInfo/themeKeys}"
+                 SelectionMode="Multiple">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
+                                <Label VerticalAlignment="Center" Foreground="White">MetadataBinding TextBox</Label>
+                            </Border>
+                            <Border Style="{DynamicResource EditorBorder2Style}">
+                                <TextBox x:Name="tbxKeywords" Style="{DynamicResource EditorTextAreaResizeStyle}" Text="{e:MetadataBinding XPath=bag}"/>
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
 
         </StackPanel>
     </Grid>
