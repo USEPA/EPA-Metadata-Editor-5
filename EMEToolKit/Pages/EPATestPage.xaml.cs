@@ -50,65 +50,58 @@ namespace EPAMetadataEditor.Pages
 
         private void chbKeyword_Checked(object sender, RoutedEventArgs e)
         {
-            // Find the right item and it's value and index
             CheckBox cbx = (CheckBox)sender;
-            currentItemText = cbx.Content.ToString();
             currentItemTextB = cbx.Content.ToString() + System.Environment.NewLine;
-            KeywordListBox.Items.Add(currentItemText);
-
-            var _ListBox = lbKeywordsEPA as ListBox;
-            foreach (var _ListboxItem in _ListBox.Items)
-            {
-                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListboxItem);
-                var _Children = AllChildren(_Container);
-                var _Name = "tbxKeywords";
-                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                _Control.Text += currentItemTextB;
-            }
-
-
 
             KeywordTextBox.Text += currentItemTextB;
 
-            // Refresh data binding
-            // ApplyDataBinding();
+            List<string> strList = KeywordTextBox.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).ToList();
+            strList.Sort();
+            strList = strList.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+            KeywordTextBox.Text = "";
+            foreach (string s in strList)
+            {
+                KeywordTextBox.Text += s + System.Environment.NewLine;
+            }
+
+            var liBox = lbKeywordsEPA as ListBox;
+            foreach (var lbItem in liBox.Items)
+            {
+                var lbCont = liBox.ItemContainerGenerator.ContainerFromItem(lbItem);
+                var lbChildren = AllChildren(lbCont);
+                var lbName = "tbxKeywords";
+                var lbCtrl = (TextBox)lbChildren.First(c => c.Name == lbName);
+                lbCtrl.Text = "";
+                foreach (string s in strList)
+                {
+                    lbCtrl.Text += s + System.Environment.NewLine;
+                }
+                // lbCtrl.CaretIndex = lbCtrl.Text.Length;
+                // lbCtrl.SetValue(IsFocusedProperty, true);
+            }
+            // lbKeywordsEPA.SetValue(IsFocusedProperty, true);
         }
 
         private void chbKeyword_Unchecked(object sender, RoutedEventArgs e)
         {
             CheckBox cbx = (CheckBox)sender;
-            currentItemText = cbx.Content.ToString();
-            KeywordListBox.Items.Remove(currentItemText);
-
             currentItemTextB = cbx.Content.ToString() + System.Environment.NewLine;
-            string s = KeywordTextBox.Text;
 
-            //string sr = s.Replace(currentItemTextB, "");
-            //KeywordTextBox.Text = sr;
-            KeywordTextBox.Text = s.Replace(currentItemTextB, "");
+            KeywordTextBox.Text = KeywordTextBox.Text.Replace(currentItemTextB, "");
 
-            var _ListBox = lbKeywordsEPA as ListBox;
-            foreach (var _ListboxItem in _ListBox.Items)
+            var liBox = lbKeywordsEPA as ListBox;
+            foreach (var lbItem in liBox.Items)
             {
-                var _Container = _ListBox.ItemContainerGenerator.ContainerFromItem(_ListboxItem);
-                var _Children = AllChildren(_Container);
-                var _Name = "tbxKeywords";
-                var _Control = (TextBox)_Children.First(c => c.Name == _Name);
-                _Control.Text = s.Replace(currentItemTextB, "");
+                var lbCont = liBox.ItemContainerGenerator.ContainerFromItem(lbItem);
+                var lbChildren = AllChildren(lbCont);
+                var lbName = "tbxKeywords";
+                var lbCtrl = (TextBox)lbChildren.First(c => c.Name == lbName);
+                lbCtrl.Text = KeywordTextBox.Text.Replace(currentItemTextB, "");
+                // lbCtrl.CaretIndex = lbCtrl.Text.Length;
+                // lbCtrl.SetValue(IsFocusedProperty, true);
             }
-
-            // Refresh data binding
-            // ApplyDataBinding();            
+            // lbKeywordsEPA.SetValue(IsFocusedProperty, true);
         }
 
-        /// <summary>
-        /// Refreshes data binding
-        /// </summary>
-        //private void ApplyDataBinding()
-        //{
-        //    lbKeywordsEPA.ItemsSource = null;
-        //
-        //    lbKeywordsEPA.ItemsSource = "{Binding XPath=/metadata/dataIdInfo/themeKeys}";
-        //}
-}
+    }
 }
