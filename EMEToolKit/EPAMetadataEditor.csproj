@@ -770,6 +770,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ESRI.ArcGIS.MetadataEditor" />
+    <Compile Include="AppCode\EMEUtils.cs" />
     <Compile Include="AppCode\utildemo.cs" />
     <Compile Include="AppCode\Utils1.cs" />
     <Compile Include="Pages\CI_PresentationForm.xaml.cs">

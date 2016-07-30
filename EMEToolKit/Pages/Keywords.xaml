@@ -200,20 +200,23 @@
                                                              XPath="emeData/KeywordsISO"
                                                              IsInitialLoadEnabled="True"/>
                                         </TabItem.DataContext>
-                                        <ListBox x:Name="lbKeywordsISO" ItemsSource = "{Binding}" SelectionMode="Multiple">
-                                            <ListBox.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <UniformGrid Columns="3"/>
-                                                </ItemsPanelTemplate>
-                                            </ListBox.ItemsPanel>
-                                            <ListBox.ItemTemplate>
-                                                <DataTemplate>
-                                                    <StackPanel Margin="0,2">
-                                                        <CheckBox Content="{Binding XPath=themekey}" />
-                                                    </StackPanel>
-                                                </DataTemplate>
-                                            </ListBox.ItemTemplate>
-                                        </ListBox>
+                                        <StackPanel>
+                                            <ListBox x:Name="lbEPAISOK" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                                                <ListBox.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <UniformGrid Columns="3"/>
+                                                    </ItemsPanelTemplate>
+                                                </ListBox.ItemsPanel>
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Margin="0,2">
+                                                            <CheckBox Content="{Binding XPath=themekey}" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                            <TextBox Name="tboxEPAISOK" Visibility="Visible"/>
+                                        </StackPanel>
                                     </TabItem>
                                     <TabItem Header="EPA Keywords">
                                         <TabItem.DataContext>
@@ -222,20 +225,23 @@
                                                              XPath="emeData/KeywordsEPA"
                                                              IsInitialLoadEnabled="True"/>
                                         </TabItem.DataContext>
-                                        <ListBox x:Name="lbKeywordsEPA" ItemsSource = "{Binding}" SelectionMode="Multiple">
-                                            <ListBox.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <UniformGrid Columns="3"/>
-                                                </ItemsPanelTemplate>
-                                            </ListBox.ItemsPanel>
-                                            <ListBox.ItemTemplate>
-                                                <DataTemplate>
-                                                    <StackPanel Margin="0,2">
-                                                        <CheckBox Content="{Binding XPath=themekey}" />
-                                                    </StackPanel>
-                                                </DataTemplate>
-                                            </ListBox.ItemTemplate>
-                                        </ListBox>
+                                        <StackPanel>
+                                            <ListBox x:Name="lbEPAThemeK" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                                                <ListBox.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <UniformGrid Columns="3"/>
+                                                    </ItemsPanelTemplate>
+                                                </ListBox.ItemsPanel>
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Margin="0,2">
+                                                            <CheckBox Content="{Binding XPath=themekey}" Checked="chbxXMLkey_Checked" Unchecked="chbxXMLkey_Unchecked"/>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                            <TextBox Name="tboxEPAThemeK" Visibility="Visible"/>
+                                        </StackPanel>
                                     </TabItem>
                                     <TabItem Header="User Keywords">
                                         <TabItem.DataContext>
@@ -244,20 +250,23 @@
                                                              XPath="emeData/KeywordsUser"
                                                              IsInitialLoadEnabled="True"/>
                                         </TabItem.DataContext>
-                                        <ListBox x:Name="lbKeywordsUser" ItemsSource = "{Binding}" SelectionMode="Multiple">
-                                            <ListBox.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <UniformGrid Columns="3"/>
-                                                </ItemsPanelTemplate>
-                                            </ListBox.ItemsPanel>
-                                            <ListBox.ItemTemplate>
-                                                <DataTemplate>
-                                                    <StackPanel Margin="0,2">
-                                                        <CheckBox Content="{Binding XPath=themekey}" />
-                                                    </StackPanel>
-                                                </DataTemplate>
-                                            </ListBox.ItemTemplate>
-                                        </ListBox>
+                                        <StackPanel>
+                                            <ListBox x:Name="lbEPAUserK" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                                                <ListBox.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <UniformGrid Columns="3"/>
+                                                    </ItemsPanelTemplate>
+                                                </ListBox.ItemsPanel>
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Margin="0,2">
+                                                            <CheckBox Content="{Binding XPath=themekey}" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                            <TextBox Name="tboxEPAUserK" Visibility="Visible"/>
+                                        </StackPanel>
                                     </TabItem>
                                     <TabItem Header="Place Keywords">
                                         <TabItem.DataContext>
@@ -266,25 +275,28 @@
                                                              XPath="emeData/KeywordsPlace"
                                                              IsInitialLoadEnabled="True"/>
                                         </TabItem.DataContext>
-                                        <ListBox x:Name="lbKeywordsPlace" ItemsSource = "{Binding}" SelectionMode="Multiple">
-                                            <ListBox.ItemsPanel>
-                                                <ItemsPanelTemplate>
-                                                    <UniformGrid Columns="3"/>
-                                                </ItemsPanelTemplate>
-                                            </ListBox.ItemsPanel>
-                                            <ListBox.ItemTemplate>
-                                                <DataTemplate>
-                                                    <StackPanel Margin="0,2">
-                                                        <CheckBox Content="{Binding XPath=placekey}" />
-                                                    </StackPanel>
-                                                </DataTemplate>
-                                            </ListBox.ItemTemplate>
-                                        </ListBox>
+                                        <StackPanel>
+                                            <ListBox x:Name="lbEPAPlaceK" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                                                <ListBox.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <UniformGrid Columns="3"/>
+                                                    </ItemsPanelTemplate>
+                                                </ListBox.ItemsPanel>
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel Margin="0,2">
+                                                            <CheckBox Content="{Binding XPath=placekey}" />
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListBox>
+                                            <TextBox Name="tboxEPAPlaceK" Visibility="Visible"/>
+                                        </StackPanel>
                                     </TabItem>
 
                                 </TabControl>
                             </Border>
-
+                            <TextBox Name="testboxEPAThemeK" Text="Test" Visibility="Visible"/>
                             <!-- theme keys -->
                             <Border Style="{DynamicResource EditorBorder2Style}">
                                 <StackPanel>
