@@ -164,15 +164,15 @@ namespace EPAMetadataEditor.Pages
             currentItemText = xmlStr;
             currentItemTextNewLine = xmlStr + System.Environment.NewLine;
 
-            tbxEPAPlaceK.Text += currentItemTextNewLine;
+            tbxEpaPlaceK.Text += currentItemTextNewLine;
 
-            List<string> strList = tbxEPAPlaceK.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).ToList();
+            List<string> strList = tbxEpaPlaceK.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).ToList();
             strList.Sort();
             strList = strList.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
-            tbxEPAPlaceK.Text = "";
+            tbxEpaPlaceK.Text = "";
             foreach (string s in strList)
             {
-                tbxEPAPlaceK.Text += s + System.Environment.NewLine;
+                tbxEpaPlaceK.Text += s + System.Environment.NewLine;
             }
 
             var liBox = lbxMDEpaPlaceK as ListBox;
@@ -200,7 +200,7 @@ namespace EPAMetadataEditor.Pages
             currentItemText = xmlStr;
             currentItemTextNewLine = xmlStr + System.Environment.NewLine;
 
-            tbxEPAPlaceK.Text = tbxEPAPlaceK.Text.Replace(currentItemTextNewLine, "");
+            tbxEpaPlaceK.Text = tbxEpaPlaceK.Text.Replace(currentItemTextNewLine, "");
 
             var liBox = lbxMDEpaPlaceK as ListBox;
             foreach (var lbItem in liBox.Items)
@@ -209,7 +209,7 @@ namespace EPAMetadataEditor.Pages
                 var lbChildren = AllChildren(lbCont);
                 var lbName = "tbxMDEpaPlaceK";
                 var lbCtrl = (TextBox)lbChildren.First(c => c.Name == lbName);
-                lbCtrl.Text = tbxEPAPlaceK.Text.Replace(currentItemTextNewLine, "");
+                lbCtrl.Text = tbxEpaPlaceK.Text.Replace(currentItemTextNewLine, "");
             }
         }
 
@@ -239,6 +239,21 @@ namespace EPAMetadataEditor.Pages
                 //    lbCtrl.Text += s + System.Environment.NewLine;
                 //}
             }
+        }
+
+        private void btnLoadMetadataThemeK_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnClearEpaThemeK_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLoadDefaults_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

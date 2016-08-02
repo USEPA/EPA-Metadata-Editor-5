@@ -243,7 +243,11 @@
                                     </StackPanel>
                                 </TabItem>
                             </TabControl>
-
+                            <StackPanel Orientation="Horizontal">
+                                <Button Name="btnLoadMetadataThemeK" Height="20" Margin="10" Click="btnLoadMetadataThemeK_Click" Content="Load Metadata"/>
+                                <Button Name="btnClearEpaThemeK" Height="20" Margin="10" Click="btnClearEpaThemeK_Click" Content="Clear Selection"/>
+                                <Button Name="btnLoadDefaults" Height="20" Margin="10" Click="btnLoadDefaults_Click" Content="Load Defaults"/>
+                            </StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate >
@@ -254,10 +258,12 @@
                 <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
                     <Label VerticalAlignment="Center" Foreground="White">Checkbox Test</Label>
                 </Border>
+                <Label Content="testEpaThemeK"/>
                 <TextBox Name="testEpaThemeK"/>
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                     <StackPanel>
                         <Label>EPA Theme Keywords</Label>
+                        <Label>lbxMDEpaThemeK</Label>
                         <ListBox x:Name="lbxMDEpaThemeK" 
                              ItemsSource = "{Binding XPath=/metadata/dataIdInfo/themeKeys}"
                              SelectionMode="Multiple">
@@ -272,6 +278,7 @@
                     </StackPanel>
                     <StackPanel>
                         <Label>EPA Place Keywords</Label>
+                        <Label>lbxMDEpaPlaceK</Label>
                         <ListBox x:Name="lbxMDEpaPlaceK" 
                              ItemsSource = "{Binding XPath=/metadata/dataIdInfo/placeKeys}"
                              SelectionMode="Multiple">
@@ -285,11 +292,23 @@
                         </ListBox>
                     </StackPanel>
                 </StackPanel>
-                <StackPanel Height="0" Width="0" Margin="0">
-                    <TextBox Name="tbxEPAISOK" Height="0" Width="0" Visibility="Visible"/>
-                    <TextBox Name="tbxEpaThemeK" Height="0" Width="0" Visibility="Visible"/>
-                    <TextBox Name="tbxEPAPlaceK" Height="0" Width="0" Visibility="Visible"/>
-                    <TextBox Name="tbxEPAUserK" Height="0" Width="0" Visibility="Visible"/>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <Label Content="tbxEpaISOK" Width="112"/>
+                        <TextBox Name="tbxEpaISOK" Width="112"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="tbxEpaThemeK" Width="112"/>
+                        <TextBox Name="tbxEpaThemeK" Width="112"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="tbxEpaPlaceK" Width="112"/>
+                        <TextBox Name="tbxEpaPlaceK" Width="112"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Content="tbxEpaUserK" Width="112"/>
+                        <TextBox Name="tbxEpaUserK" Width="112"/>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
