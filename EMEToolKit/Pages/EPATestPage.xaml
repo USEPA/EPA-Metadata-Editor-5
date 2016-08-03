@@ -24,51 +24,10 @@
                                 <keywordjp></keywordjp>
                             </myData2>
                         </dataIdInfo>
-                        <myData>
-                            <trackingPosition>0000</trackingPosition>
-                            <trackingStatus>editing</trackingStatus>
-                        </myData>
                     </metadata>
                 </ANY>
             </x:XData>
         </XmlDataProvider>
-
-        <XmlDataProvider x:Key="EPAThemeKeywords" XPath="/" IsAsynchronous= "False" IsInitialLoadEnabled= "True">
-            <x:XData>
-                <ANY xmlns="">
-                    <KeywordsEPA>
-                        <themekey>Agriculture</themekey>
-                        <themekey>Air</themekey>
-                        <themekey>Biology</themekey>
-                        <themekey>Cleanup</themekey>
-                        <themekey>Ufology</themekey>
-                    </KeywordsEPA>
-                </ANY>
-            </x:XData>
-        </XmlDataProvider>
-
-        <XmlDataProvider x:Key="OrgStatusCodes" XPath="/" IsAsynchronous= "False" IsInitialLoadEnabled= "True">
-            <x:XData>
-                <ANY xmlns="">
-                    <statuscodes>
-                        <status>editing</status>
-                        <status>complete</status>
-                        <status>reviewed</status>
-                        <status>published</status>
-                        <status>rejected</status>
-                    </statuscodes>
-                </ANY>
-            </x:XData>
-        </XmlDataProvider>
-
-        <DataTemplate x:Key="keywordItemTemplate">
-            <TextBlock Text="{Binding}"/>
-        </DataTemplate>
-
-        <DataTemplate x:Key="keywordItemCheckBox">
-            <CheckBox x:Name="chbKeyword" Content="{Binding}" Checked="chbKeyword_Checked" Unchecked="chbKeyword_Unchecked"/>
-        </DataTemplate>
-
     </UserControl.Resources>
 
     <Grid Style="{DynamicResource EditorFrontPageStyle}">
@@ -76,77 +35,11 @@
             <!-- page title -->
             <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.LBL_TEST_TITLE}"/>
 
-            <!-- custom metadata elements --><!--
-            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/myData}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
-                                <Label VerticalAlignment="Center" Foreground="White">Sample from ArcGIS Metadata Toolkit PDF</Label>
-                            </Border>
-                            --><!-- tracking position --><!--
-                            <DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
-                                <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_TEST_POSITION}"/>
-                                <TextBox ToolTip="{x:Static r:Resources.LBL_TEST_POSITION_TIP}" Style="{DynamicResource EditorTextBoxStyle}" Text="{Binding XPath=trackingPosition, Mode=TwoWay}"/>
-                            </DockPanel>
-
-                            --><!-- tracking status --><!--
-                            <DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
-                                <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_TEST_STATUS}"/>
-                                <ComboBox ToolTip="{x:Static r:Resources.LBL_TEST_STATUS_TIP}" 
-                                          Loaded="PostProcessComboBoxValues" 
-                                          SelectionChanged="ComboBoxSyncSelectionChanged" 
-                                          Style="{DynamicResource EditorHComboBoxStyle}" 
-                                          IsEditable="False" 
-                                          ItemsSource="{Binding Source={StaticResource OrgStatusCodes}, XPath=//status}" 
-                                          DisplayMemberPath="." 
-                                          SelectedValuePath=".">
-                                    <ComboBox.SelectedValue>
-                                        <Binding XPath="trackingStatus" Mode="TwoWay"/>
-                                    </ComboBox.SelectedValue>
-                                </ComboBox>
-                            </DockPanel>
-
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate >
-            </ListBox>-->
-
             <!-- EPA Keyword Test -->
-            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo/myData2}">
+            <!--<ListBox Name="lbxMaster" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo/myData2}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <!--<Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
-                                <Label VerticalAlignment="Center" Foreground="White">Following the pattern from the above PDF</Label>
-                            </Border>
-                            <DockPanel LastChildFill="True" HorizontalAlignment="Stretch">
-                                <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_EME_THEMEK}"/>
-                                <ComboBox ToolTip="{x:Static r:Resources.LBL_EME_THEMEK_TIP}" 
-                                          Loaded="PostProcessComboBoxValues" 
-                                          SelectionChanged="ComboBoxSyncSelectionChanged" 
-                                          Style="{DynamicResource EditorHComboBoxStyle}" 
-                                          IsEditable="False" 
-                                          ItemsSource="{Binding Source={StaticResource EPAThemeKeywords}, XPath=//themekey}"
-                                          DisplayMemberPath="."
-                                          SelectedValuePath=".">
-                                    <ComboBox.SelectedValue>
-                                        <Binding XPath="keywordjp" Mode="TwoWay"/>
-                                    </ComboBox.SelectedValue>
-                                </ComboBox>
-                            </DockPanel>
-
-                            <ListBox x:Name="KeywordCheckBox" Margin="0,0,0,20" DockPanel.Dock="Left"
-                                     ItemsSource="{Binding Source={StaticResource EPAThemeKeywords}, XPath=//themekey}"
-                                     ItemTemplate="{StaticResource keywordItemCheckBox}"
-                                     IsSynchronizedWithCurrentItem="True"
-                                     Visibility="Visible" 
-                                     SelectionMode="Multiple">
-                                <ListBox.SelectedValue>
-                                    <Binding XPath="keywordjp" Mode="TwoWay"/>
-                                </ListBox.SelectedValue>
-                            </ListBox>-->
-
                             <TabControl>
                                 <TabItem Header="ISO Keywords">
                                     <TabItem.DataContext>
@@ -179,20 +72,27 @@
                                                              XPath="emeData/KeywordsEPA"
                                                              IsInitialLoadEnabled="True"/>
                                     </TabItem.DataContext>
-                                    <ListBox x:Name="lbxEpaThemeK" ItemsSource = "{Binding}" SelectionMode="Multiple">
-                                        <ListBox.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <UniformGrid Columns="3"/>
-                                            </ItemsPanelTemplate>
-                                        </ListBox.ItemsPanel>
-                                        <ListBox.ItemTemplate>
-                                            <DataTemplate>
-                                                <StackPanel Margin="0,2">
-                                                    <CheckBox Content="{Binding XPath=themekey}" Checked="chbxXMLkey_Checked" Unchecked="chbxXMLkey_Unchecked"/>
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </ListBox.ItemTemplate>
-                                    </ListBox>
+                                    <StackPanel>
+                                        <ListBox Name="lbxEpaThemeK" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                                            <ListBox.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <UniformGrid Columns="3"/>
+                                                </ItemsPanelTemplate>
+                                            </ListBox.ItemsPanel>
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Margin="0,2">
+                                                        <CheckBox Name="chbxEPAThemekey" Content="{Binding XPath=themekey}" Checked="chbxXMLkey_Checked" Unchecked="chbxXMLkey_Unchecked"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Name="btnLoadMetadataThemeK" Content="Load Metadata" Height="20" Margin="5" Click="btnLoadMetadataThemeK_Click"/>
+                                            <Button Name="btnClearEpaThemeK" Content="Clear Selection" Height="20" Margin="5" Click="btnClearEpaThemeK_Click"/>
+                                            <Button Name="btnLoadDefaults" Content="Load Defaults" Height="20" Margin="5" Click="btnLoadDefaults_Click"/>
+                                        </StackPanel>
+                                    </StackPanel>
                                 </TabItem>
                                 <TabItem Header="User Keywords">
                                     <TabItem.DataContext>
@@ -216,6 +116,7 @@
                                                 </DataTemplate>
                                             </ListBox.ItemTemplate>
                                         </ListBox>
+                                        
                                     </StackPanel>
                                 </TabItem>
                                 <TabItem Header="Place Keywords">
@@ -243,16 +144,117 @@
                                     </StackPanel>
                                 </TabItem>
                             </TabControl>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Name="btnLoadMetadataThemeK" Height="20" Margin="10" Click="btnLoadMetadataThemeK_Click" Content="Load Metadata"/>
-                                <Button Name="btnClearEpaThemeK" Height="20" Margin="10" Click="btnClearEpaThemeK_Click" Content="Clear Selection"/>
-                                <Button Name="btnLoadDefaults" Height="20" Margin="10" Click="btnLoadDefaults_Click" Content="Load Defaults"/>
-                            </StackPanel>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate >
-            </ListBox>
-            
+            </ListBox>-->
+            <StackPanel>
+                <TabControl>
+                    <TabItem Header="ISO Keywords">
+                        <TabItem.DataContext>
+                            <XmlDataProvider x:Name="ISOData"
+                                                             Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsISO.xml"
+                                                             XPath="emeData/KeywordsISO"
+                                                             IsInitialLoadEnabled="True"/>
+                        </TabItem.DataContext>
+                        <StackPanel>
+                            <ListBox x:Name="lbEPAISOK" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <UniformGrid Columns="3"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Margin="0,2">
+                                            <CheckBox Content="{Binding XPath=themekey}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="EPA Keywords">
+                        <TabItem.DataContext>
+                            <XmlDataProvider x:Name="EPAData"
+                                                             Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsEPA.xml"
+                                                             XPath="emeData/KeywordsEPA"
+                                                             IsInitialLoadEnabled="True"/>
+                        </TabItem.DataContext>
+                        <StackPanel>
+                            <ListBox Name="lbxEpaThemeK" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <UniformGrid Columns="3"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Margin="0,2">
+                                            <CheckBox Name="chbxEPAThemekey" Content="{Binding XPath=themekey}" Checked="chbxXMLkey_Checked" Unchecked="chbxXMLkey_Unchecked"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Name="btnLoadMetadataThemeK" Content="Load Metadata" Height="20" Margin="5" Click="btnLoadMetadataThemeK_Click"/>
+                                <Button Name="btnClearEpaThemeK" Content="Clear Selection" Height="20" Margin="5" Click="btnClearEpaThemeK_Click"/>
+                                <Button Name="btnLoadDefaults" Content="Load Defaults" Height="20" Margin="5" Click="btnLoadDefaults_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="User Keywords">
+                        <TabItem.DataContext>
+                            <XmlDataProvider x:Name="UserData"
+                                                             Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsUser.xml"
+                                                             XPath="emeData/KeywordsUser"
+                                                             IsInitialLoadEnabled="True"/>
+                        </TabItem.DataContext>
+                        <StackPanel>
+                            <ListBox x:Name="lbEPAUserK" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <UniformGrid Columns="3"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Margin="0,2">
+                                            <CheckBox Content="{Binding XPath=themekey}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Place Keywords">
+                        <TabItem.DataContext>
+                            <XmlDataProvider x:Name="PlaceData"
+                                                             Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsPlace.xml"
+                                                             XPath="emeData/KeywordsPlace"
+                                                             IsInitialLoadEnabled="True"/>
+                        </TabItem.DataContext>
+                        <StackPanel>
+                            <ListBox x:Name="lbEPAPlaceK" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <UniformGrid Columns="3"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Margin="0,2">
+                                            <CheckBox Content="{Binding XPath=placekey}" Checked="chbxXMLPlace_Checked" Unchecked="chbxXMLPlace_Unchecked"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
+            </StackPanel>
+
             <!-- EPA Checkbox Test -->
             <StackPanel>
                 <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
