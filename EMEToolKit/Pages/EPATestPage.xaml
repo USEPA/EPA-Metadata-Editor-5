@@ -173,7 +173,7 @@
                         </ListBox>
                     </StackPanel>
                 </TabItem>-->
-                <TabItem Header="EPA Keywords">
+                <TabItem Header="EPA Keywords" Loaded="lbxMDEpaThemeK_Loaded">
                     <TabItem.DataContext>
                         <XmlDataProvider x:Name="EPAData"
                                                              Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsEPA.xml"
@@ -196,9 +196,9 @@
                             </ListBox.ItemTemplate>
                         </ListBox>
                         <StackPanel Orientation="Horizontal">
-                            <Button Name="btnLoadMetadataThemeK" Content="Load Metadata" Height="20" Margin="5" Click="btnLoadMetadataThemeK_Click"/>
+                            <Button Name="btnLoadDefaults" Content="EPA Defaults" Height="20" Margin="5" Click="btnLoadDefaults_Click"/>
                             <Button Name="btnClearEpaThemeK" Content="Clear Selection" Height="20" Margin="5" Click="btnClearEpaThemeK_Click"/>
-                            <Button Name="btnLoadDefaults" Content="Load Defaults" Height="20" Margin="5" Click="btnLoadDefaults_Click"/>
+                            <!--<Button Name="btnLoadMetadataThemeK" Content="Load Metadata" Height="20" Margin="5" Click="btnLoadMetadataThemeK_Click"/>-->
                         </StackPanel>
                     </StackPanel>
                 </TabItem>
@@ -227,6 +227,7 @@
 
                     </StackPanel>
                 </TabItem>-->
+                <!--<TabItem Header="Place Keywords" Loaded="lbxMDEpaPlaceK_Loaded">-->
                 <TabItem Header="Place Keywords">
                     <TabItem.DataContext>
                         <XmlDataProvider x:Name="PlaceData"
@@ -235,7 +236,7 @@
                                                              IsInitialLoadEnabled="True"/>
                     </TabItem.DataContext>
                     <StackPanel>
-                        <ListBox x:Name="lbEPAPlaceK" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                        <ListBox x:Name="lbEpaPlaceK" ItemsSource = "{Binding}" SelectionMode="Multiple">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="3"/>
@@ -244,21 +245,27 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Margin="0,2">
-                                        <CheckBox Content="{Binding XPath=placekey}" Checked="chbxXMLPlace_Checked" Unchecked="chbxXMLPlace_Unchecked"/>
+                                        <CheckBox Name="chbxEpaPlacekey" Content="{Binding XPath=placekey}" Checked="chbxXMLPlace_Checked" Unchecked="chbxXMLPlace_Unchecked"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="btnLoadDefaultPlaceK" Content="EPA Defaults" Height="20" Margin="5" Click="btnLoadDefaultPlaceK_Click"/>
+                            <Button Name="btnClearEpaPlaceK" Content="Clear Selection" Height="20" Margin="5" Click="btnClearEpaPlaceK_Click"/>
+                            <Button Name="btnLoadMetadataPlaceK" Content="Load Metadata" Height="20" Margin="5" Click="btnLoadMetadataPlaceK_Click"/>
+                        </StackPanel>
                     </StackPanel>
                 </TabItem>
             </TabControl>
             
             <!-- EPA Checkbox Test -->
             <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
-                <Label VerticalAlignment="Center" Foreground="White">Checkbox Test</Label>
+                <Label VerticalAlignment="Center" Foreground="White">Metadata Test</Label>
             </Border>
-            <Label Content="testEpaThemeK"/>
-            <TextBox Name="testEpaThemeK"/>
+            <!--<Label Content="testEpaThemeK"/>
+            --><!--<TextBox Name="testEpaThemeK" Loaded="lbxMDEpaThemeK_Loaded"/>--><!--
+            <TextBox Name="testEpaThemeK"/>-->
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <StackPanel>
                     <Label>EPA Theme Keywords</Label>
@@ -291,7 +298,7 @@
                     </ListBox>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Visibility="Hidden">
                 <StackPanel>
                     <Label Content="tbxEpaISOK" Width="112"/>
                     <TextBox Name="tbxEpaISOK" Width="112"/>
