@@ -173,7 +173,7 @@
                         </ListBox>
                     </StackPanel>
                 </TabItem>-->
-                <TabItem Header="EPA Keywords" Loaded="lbxMDEpaThemeK_Loaded">
+                <!--<TabItem Header="EPA Keywords">
                     <TabItem.DataContext>
                         <XmlDataProvider x:Name="EPAData"
                                                              Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsEPA.xml"
@@ -181,7 +181,7 @@
                                                              IsInitialLoadEnabled="True"/>
                     </TabItem.DataContext>
                     <StackPanel>
-                        <ListBox Name="lbxEpaThemeK" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                        <ListBox Name="lbxEpaThemeK" ItemsSource = "{Binding}" SelectionMode="Multiple" Loaded="lbxMDEpaThemeK_Loaded">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="3"/>
@@ -198,10 +198,10 @@
                         <StackPanel Orientation="Horizontal">
                             <Button Name="btnLoadDefaults" Content="EPA Defaults" Height="20" Margin="5" Click="btnLoadDefaults_Click"/>
                             <Button Name="btnClearEpaThemeK" Content="Clear Selection" Height="20" Margin="5" Click="btnClearEpaThemeK_Click"/>
-                            <!--<Button Name="btnLoadMetadataThemeK" Content="Load Metadata" Height="20" Margin="5" Click="btnLoadMetadataThemeK_Click"/>-->
+                            --><!--<Button Name="btnLoadMetadataThemeK" Content="Load Metadata" Height="20" Margin="5" Click="btnLoadMetadataThemeK_Click"/>--><!--
                         </StackPanel>
                     </StackPanel>
-                </TabItem>
+                </TabItem>-->
                 <!--<TabItem Header="User Keywords">
                     <TabItem.DataContext>
                         <XmlDataProvider x:Name="UserData"
@@ -228,7 +228,7 @@
                     </StackPanel>
                 </TabItem>-->
                 <!--<TabItem Header="Place Keywords" Loaded="lbxMDEpaPlaceK_Loaded">-->
-                <TabItem Header="Place Keywords">
+                <TabItem Header="Place Keywords" >
                     <TabItem.DataContext>
                         <XmlDataProvider x:Name="PlaceData"
                                                              Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsPlace.xml"
@@ -236,7 +236,7 @@
                                                              IsInitialLoadEnabled="True"/>
                     </TabItem.DataContext>
                     <StackPanel>
-                        <ListBox x:Name="lbEpaPlaceK" ItemsSource = "{Binding}" SelectionMode="Multiple">
+                        <ListBox x:Name="lbEpaPlaceK" ItemsSource = "{Binding}" SelectionMode="Multiple" Loaded="lbxMDEpaPlaceK_Loaded">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="3"/>

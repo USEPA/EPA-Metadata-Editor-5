@@ -157,169 +157,142 @@ namespace EPAMetadataEditor.Pages
             }
         }
 
-        private void lbxMDEpaThemeK_Loaded(object sender, RoutedEventArgs e)
-        {
-            List<string> MDKeywords = new List<string>();
-            var lbxExist = lbxMDEpaThemeK as ListBox;
-            foreach (var lbxExistItem in lbxExist.Items)
-            {
-                var lbxExistCont = lbxExist.ItemContainerGenerator.ContainerFromItem(lbxExistItem);
-                var lbxExistChildren = AllChildren(lbxExistCont);
-                var lbxExistName = "tbxMDEpaThemeK";
-                var lbxExistCtrl = (TextBox)lbxExistChildren.First(c => c.Name == lbxExistName);
-                string ExistingKey = (string)lbxExistCtrl.Text;
-                MDKeywords.Add(ExistingKey.Trim());
-            }
-            MDKeywords = MDKeywords.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
-            MDKeywords.Sort();
+        ////private void lbxMDEpaThemeK_Loaded(object sender, RoutedEventArgs e)
+        ////{
+        ////    List<string> MDKeywords = new List<string>();
+        ////    var lbxExist = lbxMDEpaThemeK as ListBox;
+        ////    foreach (var lbxExistItem in lbxExist.Items)
+        ////    {
+        ////        var lbxExistCont = lbxExist.ItemContainerGenerator.ContainerFromItem(lbxExistItem);
+        ////        var lbxExistChildren = AllChildren(lbxExistCont);
+        ////        var lbxExistName = "tbxMDEpaThemeK";
+        ////        var lbxExistCtrl = (TextBox)lbxExistChildren.First(c => c.Name == lbxExistName);
+        ////        string ExistingKey = (string)lbxExistCtrl.Text;
+        ////        MDKeywords.Add(ExistingKey.Trim());
+        ////    }
+        ////    MDKeywords = MDKeywords.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+        ////    MDKeywords.Sort();
 
-            //testEpaThemeK.Text = "";
-            //foreach (string s in MDKeywords)
-            //{
-            //    testEpaThemeK.Text += s + System.Environment.NewLine;
-            //}
-            //testEpaThemeK.Text += System.Environment.NewLine;
+        ////    //var liBox = lbxEpaThemeK as ListBox;
+        ////    //foreach (var liBoxItem in liBox.Items)
+        ////    //{
+        ////    //    var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
+        ////    //    var liBoxChildren = AllChildren(liBoxCont);
+        ////    //    var liBoxName = "chbxEPAThemekey";
+        ////    //    var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
+        ////    //    System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
+        ////    //    string searchKeyword = xmlTest.InnerText.Trim();
 
-            var liBox = lbxEpaThemeK as ListBox;
-            foreach (var liBoxItem in liBox.Items)
-            {
-                var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
-                var liBoxChildren = AllChildren(liBoxCont);
-                var liBoxName = "chbxEPAThemekey";
-                var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
-                System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
-                string searchKeyword = xmlTest.InnerText.Trim();
+        ////    //    if (MDKeywords.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+        ////    //    {
+        ////    //        liBoxCtrl.IsChecked = true;
+        ////    //    }
+        ////    //    else
+        ////    //    {
+        ////    //        liBoxCtrl.IsChecked = false;
+        ////    //    }
+        ////    //}
+        ////}
 
-                if (MDKeywords.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
-                {
-                    liBoxCtrl.IsChecked = true;
-                }
-                else
-                {
-                    liBoxCtrl.IsChecked = false;
-                }
-            }
+        ////private void btnLoadMetadataThemeK_Click(object sender, RoutedEventArgs e)
+        ////{
+        ////    List<string> MDKeywords = new List<string>();
+        ////    var lbxExist = lbxMDEpaThemeK as ListBox;
+        ////    foreach (var lbxExistItem in lbxExist.Items)
+        ////    {
+        ////        var lbxExistCont = lbxExist.ItemContainerGenerator.ContainerFromItem(lbxExistItem);
+        ////        var lbxExistChildren = AllChildren(lbxExistCont);
+        ////        var lbxExistName = "tbxMDEpaThemeK";
+        ////        var lbxExistCtrl = (TextBox)lbxExistChildren.First(c => c.Name == lbxExistName);
+        ////        string ExistingKey = (string)lbxExistCtrl.Text;
+        ////        MDKeywords.Add(ExistingKey.Trim());
+        ////    }
+        ////    MDKeywords = MDKeywords.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+        ////    MDKeywords.Sort();
 
-        //    List<string> MDKeywords = new List<string>();
-        //    var lbxExist = lbxMDEpaThemeK as ListBox;
-        //    foreach (var lbxExistItem in lbxExist.Items)
-        //    {
-        //        var lbxExistCont = lbxExist.ItemContainerGenerator.ContainerFromItem(lbxExistItem);
-        //        var lbxExistChildren = AllChildren(lbxExistCont);
-        //        var lbxExistName = "tbxMDEpaThemeK";
-        //        var lbxExistCtrl = (TextBox)lbxExistChildren.First(c => c.Name == lbxExistName);
-        //        string ExistingKey = (string)lbxExistCtrl.Text;
-        //        MDKeywords.Add(ExistingKey.Trim());
-        //    }
-        //    MDKeywords = MDKeywords.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
-        //    MDKeywords.Sort();
+        ////    //testEpaThemeK.Text = "";
+        ////    //testEpaThemeK.Text = MDKeywords.Count + System.Environment.NewLine;
+        ////    //foreach (string s in MDKeywords)
+        ////    //{
+        ////    //    testEpaThemeK.Text += s + System.Environment.NewLine;
+        ////    //}
+        ////    //testEpaThemeK.Text += System.Environment.NewLine;
 
-        //    testEpaThemeK.Text = MDKeywords.Count + System.Environment.NewLine;
-        //    foreach (string s in MDKeywords)
-        //    {
-        //        testEpaThemeK.Text += s + System.Environment.NewLine;
-        //    }
-        }
+        ////    var liBox = lbxEpaThemeK as ListBox;
+        ////    foreach (var liBoxItem in liBox.Items)
+        ////    {
+        ////        var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
+        ////        var liBoxChildren = AllChildren(liBoxCont);
+        ////        var liBoxName = "chbxEPAThemekey";
+        ////        var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
+        ////        System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
+        ////        string searchKeyword = xmlTest.InnerText.Trim();
 
-        private void btnLoadMetadataThemeK_Click(object sender, RoutedEventArgs e)
-        {
-            List<string> MDKeywords = new List<string>();
-            var lbxExist = lbxMDEpaThemeK as ListBox;
-            foreach (var lbxExistItem in lbxExist.Items)
-            {
-                var lbxExistCont = lbxExist.ItemContainerGenerator.ContainerFromItem(lbxExistItem);
-                var lbxExistChildren = AllChildren(lbxExistCont);
-                var lbxExistName = "tbxMDEpaThemeK";
-                var lbxExistCtrl = (TextBox)lbxExistChildren.First(c => c.Name == lbxExistName);
-                string ExistingKey = (string)lbxExistCtrl.Text;
-                MDKeywords.Add(ExistingKey.Trim());
-            }
-            MDKeywords = MDKeywords.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
-            MDKeywords.Sort();
+        ////        //liBoxCtrl.IsChecked = true;
+        ////        //List<string> testStr = MDKeywords.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
 
-            //testEpaThemeK.Text = "";
-            //testEpaThemeK.Text = MDKeywords.Count + System.Environment.NewLine;
-            //foreach (string s in MDKeywords)
-            //{
-            //    testEpaThemeK.Text += s + System.Environment.NewLine;
-            //}
-            //testEpaThemeK.Text += System.Environment.NewLine;
+        ////        if (MDKeywords.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+        ////        //if (MDKeywords.Contains(searchKeyword))
+        ////        {
+        ////            liBoxCtrl.IsChecked = true;
+        ////        //    testEpaThemeK.Text += searchKeyword + " true" + System.Environment.NewLine;
+        ////        }
+        ////        else
+        ////        {
+        ////            liBoxCtrl.IsChecked = false;
+        ////        //    testEpaThemeK.Text += searchKeyword + " false" + System.Environment.NewLine;
+        ////        }
 
-            var liBox = lbxEpaThemeK as ListBox;
-            foreach (var liBoxItem in liBox.Items)
-            {
-                var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
-                var liBoxChildren = AllChildren(liBoxCont);
-                var liBoxName = "chbxEPAThemekey";
-                var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
-                System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
-                string searchKeyword = xmlTest.InnerText.Trim();
+        ////        //if (MDKeywords.Contains(searchKeyword))
+        ////        //{
+        ////        //    liBoxCtrl.IsChecked = true;
+        ////        //    testEpaThemeK.Text += searchKeyword + " true" + System.Environment.NewLine;
+        ////        //}
+        ////        //else
+        ////        //{
+        ////        //    liBoxCtrl.IsChecked = false;
+        ////        //    testEpaThemeK.Text += searchKeyword + " false" + System.Environment.NewLine;
+        ////        //}
+        ////    }
 
-                //liBoxCtrl.IsChecked = true;
-                //List<string> testStr = MDKeywords.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+        ////    //testEpaThemeK.Text = "";
+        ////    //foreach (string s in MDKeywords)
+        ////    //{
+        ////    //    testEpaThemeK.Text += s + System.Environment.NewLine;
+        ////    //}
 
-                if (MDKeywords.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
-                //if (MDKeywords.Contains(searchKeyword))
-                {
-                    liBoxCtrl.IsChecked = true;
-                //    testEpaThemeK.Text += searchKeyword + " true" + System.Environment.NewLine;
-                }
-                else
-                {
-                    liBoxCtrl.IsChecked = false;
-                //    testEpaThemeK.Text += searchKeyword + " false" + System.Environment.NewLine;
-                }
+        ////}
 
-                //if (MDKeywords.Contains(searchKeyword))
-                //{
-                //    liBoxCtrl.IsChecked = true;
-                //    testEpaThemeK.Text += searchKeyword + " true" + System.Environment.NewLine;
-                //}
-                //else
-                //{
-                //    liBoxCtrl.IsChecked = false;
-                //    testEpaThemeK.Text += searchKeyword + " false" + System.Environment.NewLine;
-                //}
-            }
+        ////private void btnClearEpaThemeK_Click(object sender, RoutedEventArgs e)
+        ////{
+        ////    //testEpaThemeK.Text = "";
+        ////    var liBox = lbxEpaThemeK as ListBox;
+        ////    foreach (var liBoxItem in liBox.Items)
+        ////    {
+        ////        var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
+        ////        var liBoxChildren = AllChildren(liBoxCont);
+        ////        var liBoxName = "chbxEPAThemekey";
+        ////        var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
+        ////        liBoxCtrl.IsChecked = false;
+        ////    }
+        ////}
 
-            //testEpaThemeK.Text = "";
-            //foreach (string s in MDKeywords)
-            //{
-            //    testEpaThemeK.Text += s + System.Environment.NewLine;
-            //}
-
-        }
-
-        private void btnClearEpaThemeK_Click(object sender, RoutedEventArgs e)
-        {
-            //testEpaThemeK.Text = "";
-            var liBox = lbxEpaThemeK as ListBox;
-            foreach (var liBoxItem in liBox.Items)
-            {
-                var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
-                var liBoxChildren = AllChildren(liBoxCont);
-                var liBoxName = "chbxEPAThemekey";
-                var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
-                liBoxCtrl.IsChecked = false;
-            }
-        }
-
-        private void btnLoadDefaults_Click(object sender, RoutedEventArgs e)
-        {
-            var liBox = lbxEpaThemeK as ListBox;
-            foreach (var liBoxItem in liBox.Items)
-            {
-                var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
-                var liBoxChildren = AllChildren(liBoxCont);
-                var liBoxName = "chbxEPAThemekey";
-                var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
-                System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
-                if (xmlTest.NextSibling.InnerText.Contains("true"))
-                { liBoxCtrl.IsChecked = true; }
-                else
-                { liBoxCtrl.IsChecked = false; }
-            }
-        }
+        ////private void btnLoadDefaults_Click(object sender, RoutedEventArgs e)
+        ////{
+        ////    var liBox = lbxEpaThemeK as ListBox;
+        ////    foreach (var liBoxItem in liBox.Items)
+        ////    {
+        ////        var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
+        ////        var liBoxChildren = AllChildren(liBoxCont);
+        ////        var liBoxName = "chbxEPAThemekey";
+        ////        var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
+        ////        System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
+        ////        if (xmlTest.NextSibling.InnerText.Contains("true"))
+        ////        { liBoxCtrl.IsChecked = true; }
+        ////        else
+        ////        { liBoxCtrl.IsChecked = false; }
+        ////    }
+        ////}
 
         private void lbxMDEpaPlaceK_Loaded(object sender, RoutedEventArgs e)
         {
