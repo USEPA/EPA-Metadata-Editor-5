@@ -119,6 +119,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EPATestKeywords.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EPATestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -780,6 +784,9 @@
     <Compile Include="Pages\Converters\VisibleNullConverter.cs" />
     <Compile Include="Pages\EPAMetadataTest.xaml.cs">
       <DependentUpon>EPAMetadataTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EPATestKeywords.xaml.cs">
+      <DependentUpon>EPATestKeywords.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EPATestPage.xaml.cs">
       <DependentUpon>EPATestPage.xaml</DependentUpon>
