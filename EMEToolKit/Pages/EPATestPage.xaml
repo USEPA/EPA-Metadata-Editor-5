@@ -386,7 +386,7 @@
                     </Grid>
                 </StackPanel>
             </Border>
-            <Border Style="{DynamicResource EditorBorder2Style}">
+            <!--<Border Style="{DynamicResource EditorBorder2Style}">
                 <StackPanel>
                     <Label Style="{DynamicResource EditorVLabelNoIdentStyle}" Content="ISO Keywords"/>
                     <StackPanel Style="{DynamicResource EditorCheckboxPanel}">
@@ -404,7 +404,7 @@
                         </ListBox>
                     </StackPanel>
                 </StackPanel>
-            </Border>
+            </Border>-->
             <Border Style="{DynamicResource EditorBorder2Style}">
                 <StackPanel>
                     <Label Style="{DynamicResource EditorVLabelNoIdentStyle}" Content="EPA Keywords"/>

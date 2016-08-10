@@ -50,44 +50,87 @@
                          IsInitialLoadEnabled="True"/>
     </UserControl.Resources>
     <StackPanel>
-        <ListBox Margin="10,20" x:Name="lbxEpaISOK" ItemsSource = "{Binding}" SelectionMode="Multiple" DataContext="{DynamicResource ISOData}">
-            <ListBox.ItemsPanel>
+        <Label>ListView: ISO Keywords</Label>
+        <ListView Margin="10,20" x:Name="lbxEpaISOK" ItemsSource = "{Binding}" SelectionMode="Multiple" DataContext="{DynamicResource ISOData}">
+            <ListView.Template>
+                <ControlTemplate>
+                    <ItemsPresenter />
+                </ControlTemplate>
+            </ListView.Template>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Focusable" Value="False"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="3"/>
                 </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
                 <DataTemplate>
                     <CheckBox Name="chbxEpaISOK" Content="{Binding XPath=themekey}"/>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox Margin="10,20" x:Name="lbxEpaThemeK" ItemsSource = "{Binding}" SelectionMode="Multiple" DataContext="{DynamicResource EPAData}">
-            <ListBox.ItemsPanel>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label>ListView: EPA Theme Keywords</Label>
+        <ListView Margin="10,20" x:Name="lbxEpaThemeK" ItemsSource = "{Binding}" SelectionMode="Multiple" DataContext="{DynamicResource EPAData}" Loaded="lbxMDEpaThemeK_Loaded">
+            <ListView.Template>
+                <ControlTemplate>
+                    <ItemsPresenter />
+                </ControlTemplate>
+            </ListView.Template>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Focusable" Value="False"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="3"/>
                 </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
                 <DataTemplate>
                     <CheckBox Name="chbxEpaThemekey" Content="{Binding XPath=themekey}" Checked="chbxXMLkey_Checked" Unchecked="chbxXMLkey_Unchecked"/>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <ListBox Margin="10,20" x:Name="lbxEpaUserK" ItemsSource = "{Binding}" SelectionMode="Multiple" DataContext="{DynamicResource UserData}">
-            <ListBox.ItemsPanel>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label>ListView: EPA User Keywords</Label>
+        <ListView Margin="10,20" x:Name="lbxEpaUserK" ItemsSource = "{Binding}" SelectionMode="Multiple" DataContext="{DynamicResource UserData}">
+            <ListView.Template>
+                <ControlTemplate>
+                    <ItemsPresenter />
+                </ControlTemplate>
+            </ListView.Template>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Focusable" Value="False"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="3"/>
                 </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
                 <DataTemplate>
                     <CheckBox Content="{Binding XPath=themekey}"/>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </ListView.ItemTemplate>
+        </ListView>
         <Label>ListView: EPA Place Keywords</Label>
         <ListView Margin="10,20" x:Name="lbxEpaPlaceK" ItemsSource = "{Binding}" SelectionMode="Multiple" DataContext="{DynamicResource PlaceData}">
+            <ListView.Template>
+                <ControlTemplate>
+                    <ItemsPresenter />
+                </ControlTemplate>
+            </ListView.Template>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Focusable" Value="False"/>
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="3"/>
