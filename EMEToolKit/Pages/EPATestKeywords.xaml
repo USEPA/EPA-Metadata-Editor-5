@@ -120,7 +120,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Label>ListView: EPA Place Keywords</Label>
-        <ListView Margin="10,20" x:Name="lbxEpaPlaceK" ItemsSource = "{Binding}" SelectionMode="Multiple" DataContext="{DynamicResource PlaceData}">
+        <ListView Margin="10,20" x:Name="lbxEpaPlaceK" ItemsSource = "{Binding}" SelectionMode="Multiple" DataContext="{DynamicResource PlaceData}" Loaded="lbxMDEpaPlaceK_Loaded">
             <ListView.Template>
                 <ControlTemplate>
                     <ItemsPresenter />

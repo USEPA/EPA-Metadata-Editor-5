@@ -165,7 +165,7 @@
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
                                                     <StackPanel Margin="0,2">
-                                                        <CheckBox Name="chbxEPAThemekey" Content="{Binding XPath=themekey}" Checked="chbxXMLkey_Checked" Unchecked="chbxXMLkey_Unchecked"/>
+                                                        <CheckBox Name="chbxEpaThemekey" Content="{Binding XPath=themekey}" Checked="chbxXMLkey_Checked" Unchecked="chbxXMLkey_Unchecked"/>
                                                     </StackPanel>
                                                 </DataTemplate>
                                             </ListBox.ItemTemplate>
@@ -276,7 +276,7 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Margin="0,2">
-                                        <CheckBox Name="chbxEPAThemekey" Content="{Binding XPath=themekey}" Checked="chbxXMLkey_Checked" Unchecked="chbxXMLkey_Unchecked"/>
+                                        <CheckBox Name="chbxEpaThemekey" Content="{Binding XPath=themekey}" Checked="chbxXMLkey_Checked" Unchecked="chbxXMLkey_Unchecked"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
@@ -409,7 +409,7 @@
                 <StackPanel>
                     <Label Style="{DynamicResource EditorVLabelNoIdentStyle}" Content="EPA Keywords"/>
                     <StackPanel Style="{DynamicResource EditorCheckboxPanel}">
-                        <ListBox Name="lbxEpaThemeK" ItemsSource = "{Binding}" SelectionMode="Multiple" DataContext="{DynamicResource EPAData}">
+                        <ListBox Name="lbxEpaThemeK" ItemsSource = "{Binding}" SelectionMode="Multiple" DataContext="{DynamicResource EPAData}" Loaded="lbxMDEpaThemeK_Loaded">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="3"/>
@@ -417,19 +417,19 @@
                             </ListBox.ItemsPanel>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Name="chbxEPAThemekey" Content="{Binding XPath=themekey}" Checked="chbxXMLkey_Checked" Unchecked="chbxXMLkey_Unchecked"/>
+                                    <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Name="chbxEpaThemekey" Content="{Binding XPath=themekey}" Checked="chbxXMLkey_Checked" Unchecked="chbxXMLkey_Unchecked"/>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button Name="btnLoadDefaults" Content="EPA Defaults" Height="20" Margin="5"/>
-                        <Button Name="btnClearEpaThemeK" Content="Clear Selection" Height="20" Margin="5"/>
-                        <Button Name="btnLoadMetadataThemeK" Content="Load Metadata" Height="20" Margin="5"/>
+                        <Button Name="btnLoadDefaultThemeK" Content="EPA Defaults" Click="btnLoadDefaultThemeK_Click" Height="20" Margin="5"/>
+                        <Button Name="btnClearEpaThemeK" Content="Clear Selection" Click="btnClearEpaThemeK_Click" Height="20" Margin="5"/>
+                        <Button Name="btnLoadMetadataThemeK" Content="Load Metadata" Click="btnLoadMetadataThemeK_Click" Height="20" Margin="5"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
-            <Border Style="{DynamicResource EditorBorder2Style}">
+            <!--<Border Style="{DynamicResource EditorBorder2Style}">
                 <StackPanel>
                     <Label Style="{DynamicResource EditorVLabelNoIdentStyle}" Content="User Keywords"/>
                     <StackPanel Style="{DynamicResource EditorCheckboxPanel}">
@@ -447,12 +447,12 @@
                         </ListBox>
                     </StackPanel>
                 </StackPanel>
-            </Border>
+            </Border>-->
             <Border Style="{DynamicResource EditorBorder2Style}">
                 <StackPanel>
                     <Label Style="{DynamicResource EditorVLabelNoIdentStyle}" Content="Place Keywords"/>
                     <StackPanel Style="{DynamicResource EditorCheckboxPanel}">
-                        <ListBox x:Name="lbEpaPlaceK" ItemsSource = "{Binding}" SelectionMode="Multiple" DataContext="{DynamicResource PlaceData}">
+                        <ListBox x:Name="lbEpaPlaceK" ItemsSource = "{Binding}" SelectionMode="Multiple" DataContext="{DynamicResource PlaceData}" Loaded="lbxMDEpaPlaceK_Loaded">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <UniformGrid Columns="3"/>
@@ -466,9 +466,9 @@
                         </ListBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Button Name="btnLoadDefaultPlaceK" Content="EPA Defaults" Height="20" Margin="5"/>
-                        <Button Name="btnClearEpaPlaceK" Content="Clear Selection" Height="20" Margin="5"/>
-                        <Button Name="btnLoadMetadataPlaceK" Content="Load Metadata" Height="20" Margin="5"/>
+                        <Button Name="btnLoadDefaultPlaceK" Content="EPA Defaults" Click="btnLoadDefaultPlaceK_Click" Height="20" Margin="5"/>
+                        <Button Name="btnClearEpaPlaceK" Content="Clear Selection" Click="btnClearEpaPlaceK_Click" Height="20" Margin="5"/>
+                        <Button Name="btnLoadMetadataPlaceK" Content="Load Metadata" Click="btnLoadMetadataPlaceK_Click" Height="20" Margin="5"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
