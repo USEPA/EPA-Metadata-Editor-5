@@ -147,6 +147,14 @@
 
     <Grid Style="{DynamicResource EditorFrontPageStyle}">
         <StackPanel>
+            <TextBox Name="testFocus" Text="[ Top of page ]" BorderThickness="0" FontSize="0.1" Height="0" Width="0" HorizontalAlignment="Center">
+                <TextBox.Background>
+                    <SolidColorBrush Opacity="0"/>
+                </TextBox.Background>
+                <TextBox.Foreground>
+                    <SolidColorBrush Opacity="0"/>
+                </TextBox.Foreground>
+            </TextBox>
             <!-- org title -->
             <Label Style="{DynamicResource EditorPageTitle}" Content="U.S. Environmental Protection Agency"/>
             <!--<ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo[1]}">
@@ -379,23 +387,116 @@
                 <StackPanel>
                     <Label>EPA Keywords</Label>
                     <ListView x:Name="lbxEpaThemeK"
+                              DataContext="{DynamicResource EPAData}"
+                              ItemsSource = "{Binding}"
                               Template="{StaticResource ListBoxNoScroll}"
                               ItemsPanel="{StaticResource ThreeColumnList}"
                               ItemContainerStyle="{StaticResource ChbxListItem}"
-                              ItemsSource = "{Binding}"
                               SelectionMode="Multiple"
-                              DataContext="{DynamicResource EPAData}"
-                              Loaded="lbxMDEpaThemeK_Loaded"
-                              Margin="10,20">
+                              Loaded="lbxEpaTK_Loaded"
+                              Margin="10,20,10,0">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <CheckBox Name="chbxEpaThemekey" Content="{Binding XPath=themekey}" Checked="chbxXMLkey_Checked" Unchecked="chbxXMLkey_Unchecked"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Name="btnLoadDefaultThemeK" Content="Defaults" Click="btnLoadDefaultThemeK_Click" Height="20"  HorizontalAlignment="Right" Margin="5"/>
-                        <Button Name="btnClearThemeK" Content="Clear" Click="btnClearThemeK_Click" Height="20" HorizontalAlignment="Right" Margin="5"/>
+                    <StackPanel>
+                        <Label VerticalAlignment="Center" Content="lbxMDEpaThemeK" Height="0" Width="0"/>
+                        <Label VerticalAlignment="Center" Content="[ tbxMDEpaThemeK ]" Height="0" Width="0"/>
+                        <ListBox x:Name="lbxMDEpaThemeK">
+                            <ListBox.ItemsSource>
+                                <Binding XPath="/metadata/dataIdInfo/themeKeys[thesaName/resTitle[contains(. , 'EPA GIS Keyword Thesaurus')]]"/>
+                            </ListBox.ItemsSource>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBox x:Name="tbxMDEpaThemeK" Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button Name="btnLoadDefaultThemeK" Content="Defaults" Click="btnLoadDefaultThemeK_Click" Height="20"  HorizontalAlignment="Right" Margin="5,0"/>
+                            <Button Name="btnClearThemeK" Content="Clear" Click="btnClearThemeK_Click" Height="20" HorizontalAlignment="Right" Margin="5,0"/>
+                        </StackPanel>
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <!-- thesaurus citation -->
+                            <ListBox Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                <ListBox.ItemsSource>
+                                    <Binding XPath="/metadata/dataIdInfo/themeKeys[thesaName/resTitle[contains(. , 'EPA GIS Keyword Thesaurus')]]/thesaName"/>
+                                </ListBox.ItemsSource>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Expander ToolTip="{x:Static r:Definitions.MD_Keywords_thesaurusName}" Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                            <Expander.Header>
+                                                <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
+                                                       RelativeSource={RelativeSource FindAncestor,
+                                                       AncestorType={x:Type ContentPresenter}},
+                                                       Mode=OneWayToSource}" LastChildFill="True">
+                                                    <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THESCITE}"/>
+                                                </DockPanel>
+                                            </Expander.Header>
+                                            <Border Style="{DynamicResource EditorBorderSubStyle}">
+                                                <p:CI_Citation/>
+                                            </Border>
+                                        </Expander>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                            <!-- NAP style only -->
+                            <e:MetadataStyle Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Only="NAP">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!-- thesaurus language code -->
+                                    <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_DESC_THELANG}"/>
+                                    <ListBox Grid.Row="0" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                        <ListBox.ItemsSource>
+                                            <Binding XPath="/metadata/dataIdInfo/themeKeys[thesaName/resTitle[contains(. , 'EPA GIS Keyword Thesaurus')]]/thesaLang"/>
+                                        </ListBox.ItemsSource>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <p:LanguageCode ToolTip=""/>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+
+                                    <!-- thesaurus country code -->
+                                    <Label Grid.Row="1" Grid.Column="0" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_DESC_THECOUNTRY}"/>
+                                    <ListBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                        <ListBox.ItemsSource>
+                                            <Binding XPath="/metadata/dataIdInfo/themeKeys[thesaName/resTitle[contains(. , 'EPA GIS Keyword Thesaurus')]]/thesaLang"/>
+                                        </ListBox.ItemsSource>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <p:CountryCode/>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </Grid>
+                            </e:MetadataStyle>
+                        </Grid>
+                        
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -403,24 +504,127 @@
             <Border Style="{DynamicResource EditorBorder2Style}">
                 <StackPanel>
                     <Label>Place Keywords</Label>
-                    <ListView x:Name="lbxEpaPlaceK" 
+                    <ListView x:Name="lbxEpaPlaceK"
+                              DataContext="{DynamicResource PlaceData}"
+                              ItemsSource = "{Binding}"
                               Template="{StaticResource ListBoxNoScroll}"
                               ItemsPanel="{StaticResource ThreeColumnList}"
                               ItemContainerStyle="{StaticResource ChbxListItem}"
-                              ItemsSource = "{Binding}"
                               SelectionMode="Multiple"
-                              DataContext="{DynamicResource PlaceData}"
-                              Loaded="lbxMDEpaPlaceK_Loaded"
-                              Margin="10,20">
+                              Loaded="lbxPlaceK_Loaded"
+                              Margin="10,20,10,0">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <CheckBox Name="chbxEpaPlacekey" Content="{Binding XPath=placekey}" Checked="chbxXMLPlace_Checked" Unchecked="chbxXMLPlace_Unchecked"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Name="btnLoadDefaultPlaceK" Content="Defaults" Click="btnLoadDefaultPlaceK_Click" Height="20"  HorizontalAlignment="Right" Margin="5"></Button>
-                        <Button Name="btnClearPlaceK" Content="Clear" Click="btnClearPlaceK_Click" Height="20" HorizontalAlignment="Right" Margin="5"/>
+
+                    <StackPanel>
+                        <Label VerticalAlignment="Center" Content="lbxMDEpaPlaceK" Height="0" Width="0"/>
+                        <Label VerticalAlignment="Center" Content="[ tbxMDEpaPlaceK ]" Height="0" Width="0"/>
+                        <ListBox x:Name="lbxMDEpaPlaceK" ItemsSource = "{Binding XPath=/metadata/dataIdInfo/placeKeys}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBox x:Name="tbxMDEpaPlaceK" Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <!-- ADD thesaurus -->
+                            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=self::*[not(following-sibling::thesaName)]}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Tag="thesaName" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
+                                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                                <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
+                                                <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_ADD_THESAURUS}"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <Button Name="btnLoadDefaultPlaceK" Content="Defaults" Click="btnLoadDefaultPlaceK_Click" Height="20"  HorizontalAlignment="Right" Margin="5,0"></Button>
+                            <Button Name="btnClearPlaceK" Content="Clear" Click="btnClearPlaceK_Click" Height="20" HorizontalAlignment="Right" Margin="5,0"/>
+                        </StackPanel>
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <!-- thesaurus citation -->
+                            <ListBox Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                <ListBox.ItemsSource>
+                                    <Binding XPath="/metadata/dataIdInfo/placeKeys/thesaName"/>
+                                </ListBox.ItemsSource>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Expander ToolTip="{x:Static r:Definitions.MD_Keywords_thesaurusName}" Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                            <Expander.Header>
+                                                <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
+                                                       RelativeSource={RelativeSource FindAncestor,
+                                                       AncestorType={x:Type ContentPresenter}},
+                                                       Mode=OneWayToSource}" LastChildFill="True">
+                                                    <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THESCITE}"/>
+                                                </DockPanel>
+                                            </Expander.Header>
+                                            <Border Style="{DynamicResource EditorBorderSubStyle}">
+                                                <p:CI_Citation/>
+                                            </Border>
+                                        </Expander>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                            <!-- NAP style only -->
+                            <e:MetadataStyle Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Only="NAP">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!-- thesaurus language code -->
+                                    <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_DESC_THELANG}"/>
+                                    <ListBox Grid.Row="0" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                        <ListBox.ItemsSource>
+                                            <Binding XPath="/metadata/dataIdInfo/placeKeys/thesaLang"/>
+                                        </ListBox.ItemsSource>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <p:LanguageCode ToolTip=""/>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+
+                                    <!-- thesaurus country code -->
+                                    <Label Grid.Row="1" Grid.Column="0" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_DESC_THECOUNTRY}"/>
+                                    <ListBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                        <ListBox.ItemsSource>
+                                            <Binding XPath="/metadata/dataIdInfo/placeKeys/thesaLang"/>
+                                        </ListBox.ItemsSource>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <p:CountryCode/>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </Grid>
+                            </e:MetadataStyle>
+                        </Grid>
+                        
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -429,24 +633,121 @@
                 <StackPanel>
                     <Label>User Keywords</Label>
                     <ListView x:Name="lbxEpaUserK"
+                              DataContext="{DynamicResource UserData}"
+                              ItemsSource = "{Binding}"
                               Template="{StaticResource ListBoxNoScroll}"
                               ItemsPanel="{StaticResource ThreeColumnList}"
                               ItemContainerStyle="{StaticResource ChbxListItem}"
-                              ItemsSource = "{Binding}"
                               SelectionMode="Multiple"
-                              DataContext="{DynamicResource UserData}"
-                              Loaded="lbxEpaUserK_Loaded"
-                              Margin="10,20">
+                              Loaded="lbxUserK_Loaded"
+                              Margin="10,20,10,0">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <CheckBox Name="chbxEpaUserkey" Content="{Binding XPath=themekey}" Checked="chbxEpaUserkey_Checked" Unchecked="chbxEpaUserkey_Unchecked"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
+
+                    <StackPanel>
+                        <Label VerticalAlignment="Center" Content="lbxMDUserThemeK" Height="0" Width="0"/>
+                        <Label VerticalAlignment="Center" Content="[ tbxMDUserThemeK ]" Height="0" Width="0"/>
+                        <ListBox x:Name="lbxMDUserThemeK">
+                            <ListBox.ItemsSource>
+                                <Binding XPath="/metadata/dataIdInfo/themeKeys[thesaName/resTitle[contains(. , 'User')]]"/>
+                            </ListBox.ItemsSource>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBox x:Name="tbxMDUserThemeK" Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button Name="btnLoadDefaultUserK" Content="Defaults" Click="btnLoadDefaultUserK_Click" Height="20"  HorizontalAlignment="Right" Margin="5,0"></Button>
+                            <Button Name="btnClearUserK" Content="Clear" Click="btnClearUserK_Click" Height="20" HorizontalAlignment="Right" Margin="5,0"/>
+                        </StackPanel>
+                        
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <!-- thesaurus citation -->
+                            <ListBox Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                <ListBox.ItemsSource>
+                                    <Binding XPath="/metadata/dataIdInfo/themeKeys[thesaName/resTitle[contains(. , 'User')]]/thesaName"/>
+                                </ListBox.ItemsSource>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Expander ToolTip="{x:Static r:Definitions.MD_Keywords_thesaurusName}" Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                            <Expander.Header>
+                                                <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
+                                                       RelativeSource={RelativeSource FindAncestor,
+                                                       AncestorType={x:Type ContentPresenter}},
+                                                       Mode=OneWayToSource}" LastChildFill="True">
+                                                    <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THESCITE}"/>
+                                                </DockPanel>
+                                            </Expander.Header>
+                                            <Border Style="{DynamicResource EditorBorderSubStyle}">
+                                                <p:CI_Citation/>
+                                            </Border>
+                                        </Expander>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                            <!-- NAP style only -->
+                            <e:MetadataStyle Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Only="NAP">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!-- thesaurus language code -->
+                                    <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_DESC_THELANG}"/>
+                                    <ListBox Grid.Row="0" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                        <ListBox.ItemsSource>
+                                            <Binding XPath="/metadata/dataIdInfo/themeKeys[thesaName/resTitle[contains(. , 'User')]]/thesaLang"/>
+                                        </ListBox.ItemsSource>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <p:LanguageCode ToolTip=""/>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+
+                                    <!-- thesaurus country code -->
+                                    <Label Grid.Row="1" Grid.Column="0" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_DESC_THECOUNTRY}"/>
+                                    <ListBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                        <ListBox.ItemsSource>
+                                            <Binding XPath="/metadata/dataIdInfo/themeKeys[thesaName/resTitle[contains(. , 'User')]]/thesaLang"/>
+                                        </ListBox.ItemsSource>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <p:CountryCode/>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                </Grid>
+                            </e:MetadataStyle>
+                        </Grid>
+                        
+                    </StackPanel>
                 </StackPanel>
             </Border>
 
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+            <!--<StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                 <StackPanel>
                     <Label>EPA Keywords</Label>
                     <Label>lbxMDEpaThemeK</Label>
@@ -486,25 +787,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </StackPanel>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Visibility="Visible">
-                <StackPanel>
-                    <Label Content="tbxEpaISOK" Width="112"/>
-                    <TextBox Name="tbxEpaISOK" Width="112"/>
-                </StackPanel>
-                <StackPanel>
-                    <Label Content="tbxEpaThemeK" Width="112"/>
-                    <TextBox Name="tbxEpaThemeK" Width="112"/>
-                </StackPanel>
-                <StackPanel>
-                    <Label Content="tbxEpaPlaceK" Width="112"/>
-                    <TextBox Name="tbxEpaPlaceK" Width="112"/>
-                </StackPanel>
-                <StackPanel>
-                    <Label Content="tbxEpaUserK" Width="112"/>
-                    <TextBox Name="tbxEpaUserK" Width="112"/>
-                </StackPanel>
-            </StackPanel>
+            </StackPanel>-->
             <!-- validate after all anchors are loaded -->
             <v:PageValidateControl/>
 

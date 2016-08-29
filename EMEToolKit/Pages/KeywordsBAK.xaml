@@ -269,6 +269,7 @@
                       </DataTemplate>
                     </ListBox.ItemTemplate>
                   </ListBox>
+                    
                   <!-- ADD theme keywords -->
                   <Button Tag="ThemeKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
                     <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
