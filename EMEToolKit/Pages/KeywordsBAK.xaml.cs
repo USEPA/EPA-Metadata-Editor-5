@@ -39,7 +39,8 @@ using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; name
 
     public override string SidebarLabel
     {
-      get { return Properties.Resources.LBL_ESRI_KEYWORDS; }
+      //get { return Properties.Resources.LBL_ESRI_KEYWORDS; }
+      get { return "ESRI: Topics & Keywords"; }
     }
   }
 }

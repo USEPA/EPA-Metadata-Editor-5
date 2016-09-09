@@ -56,6 +56,43 @@
                                 <TopicCatCd_018 value="False"/>
                                 <TopicCatCd_019 value="False"/>
                             </tpCatBag>
+                            <themeKeys>
+                                <thesaName>
+                                    <resTitle>User</resTitle>
+                                    <resAltTitle>User Keywords</resAltTitle>
+                                    <collTitle></collTitle>
+                                    <date>
+                                        <createDate>2016-08-31T00:00:00</createDate>
+                                    </date>
+                                </thesaName>
+                                <thesaLang>
+                                    <languageCode value="eng"/>
+                                    <countryCode value="US"/>
+                                </thesaLang>
+                                <keyword></keyword>
+                            </themeKeys>
+                            <themeKeys>
+                                <thesaName>
+                                    <resTitle>EPA GIS Keyword Thesaurus</resTitle>
+                                    <resAltTitle>EPA Keywords</resAltTitle>
+                                    <collTitle></collTitle>
+                                    <date>
+                                        <createDate>2016-08-31T00:00:00</createDate>
+                                    </date>
+                                </thesaName>
+                                <thesaLang>
+                                    <languageCode value="eng"/>
+                                    <countryCode value="US"/>
+                                </thesaLang>
+                                <keyword></keyword>
+                            </themeKeys>
+                            <placeKeys>
+                                <thesaLang>
+                                    <languageCode value="eng"/>
+                                    <countryCode value="US"/>
+                                </thesaLang>
+                                <keyword></keyword>
+                            </placeKeys>
                             <!-- TODO: other keywords -->
                         </dataIdInfo>
                     </metadata>
@@ -172,12 +209,17 @@
 
     <Grid Style="{DynamicResource EditorFrontPageStyle}">
         <StackPanel>
-            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo[1]}">
+            <ListBox x:Name="lbxKeywordEditorPage" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo[1]}" Loaded="lbxKeywordEditorPage_Loaded">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
                             <!-- page title -->
-                            <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.SEC_KEYWORDS}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.SEC_KEYWORDS}"/>
+                                <Label Style="{DynamicResource EditorPageTitle}" Content=" (Using Nested Pages)"/>
+                            </StackPanel>
+
+                            <!-- keyword section -->
                             <Border Style="{DynamicResource EditorBorder2Style}">
                                 <StackPanel>
                                     <!-- topics -->
@@ -185,7 +227,6 @@
                                            ToolTip="{x:Static r:Definitions.MD_DataIdentification_topicCategory}"
                                            v:Nav.AnchorName="topics,tpCatBag"
                                            Content="{x:Static r:Resources.LBL_DESC_TOPICS}" />
-                                    <Label>ISO Keywords</Label>
                                     <StackPanel Orientation="Horizontal">
                                         <StackPanel Style="{DynamicResource EditorCheckboxPanel}">
                                             <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_001}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_001/@value}" v:Nav.Check="True"/>
@@ -211,7 +252,6 @@
                                             <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_019}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_019/@value}" v:Nav.Check="True"/>
                                         </StackPanel>
                                     </StackPanel>
-
                                 </StackPanel>
                             </Border>
 
@@ -244,7 +284,7 @@
                                 <StackPanel>
                                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
                                         <ListBox.ItemsSource>
-                                            <Binding XPath="/metadata/dataIdInfo/themeKeys[thesaName/resTitle[contains(. , 'EPA GIS Keyword Thesaurus')]]"/>
+                                            <Binding XPath="themeKeys[thesaName/resTitle[contains(. , 'EPA GIS Keyword Thesaurus')]]"/>
                                         </ListBox.ItemsSource>
                                         <ListBox.ItemsPanel>
                                             <ItemsPanelTemplate>
@@ -259,9 +299,6 @@
                                                                    RelativeSource={RelativeSource FindAncestor,
                                                                    AncestorType={x:Type ContentPresenter}},
                                                                    Mode=OneWayToSource}" LastChildFill="True">
-                                                            <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
-                                                                <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                                                            </Button>
                                                             <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="EPA Keywords"/>
                                                         </DockPanel>
                                                     </Expander.Header>
@@ -273,14 +310,6 @@
                                             </DataTemplate>
                                         </ListBox.ItemTemplate>
                                     </ListBox>
-
-                                    <!-- ADD theme keywords -->
-                                    <Button Tag="ThemeKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                                            <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                                            <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="New EPA Keywords"/>
-                                        </StackPanel>
-                                    </Button>
                                 </StackPanel>
                             </Border>
 
@@ -301,28 +330,17 @@
                                                                    RelativeSource={RelativeSource FindAncestor,
                                                                    AncestorType={x:Type ContentPresenter}},
                                                                    Mode=OneWayToSource}" LastChildFill="True">
-                                                            <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
-                                                                <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                                                            </Button>
-                                                            <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_PLACEKEY}"/>
+                                                            <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Place Keywords"/>
                                                         </DockPanel>
                                                     </Expander.Header>
-                                                    <StackPanel>
+                                                    <StackPanel Style="{DynamicResource ExpanderBodyStyle}">
                                                         <p:MD_KeywordsPlace ToolTip="{x:Static r:Definitions.MD_Keywords_place}"/>
-                                                        <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
-                                                        </Border>
+                                                        <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
                                                     </StackPanel>
                                                 </Expander>
                                             </DataTemplate>
                                         </ListBox.ItemTemplate>
                                     </ListBox>
-                                    <!-- ADD place keywords -->
-                                    <Button Tag="PlaceKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                                            <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                                            <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_PLACE}"/>
-                                        </StackPanel>
-                                    </Button>
                                 </StackPanel>
                             </Border>
 
@@ -331,7 +349,7 @@
                                 <StackPanel>
                                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
                                         <ListBox.ItemsSource>
-                                            <Binding XPath="/metadata/dataIdInfo/themeKeys[thesaName/resTitle[contains(. , 'User')]]"/>
+                                            <Binding XPath="themeKeys[thesaName/resTitle[contains(. , 'User')]]"/>
                                         </ListBox.ItemsSource>
                                         <ListBox.ItemsPanel>
                                             <ItemsPanelTemplate>
@@ -340,6 +358,10 @@
                                         </ListBox.ItemsPanel>
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
+                                                <!--<StackPanel Style="{DynamicResource ExpanderBodyStyle}">
+                                                    <p:MD_KeywordsUser ToolTip="{x:Static r:Definitions.MD_Keywords_theme}"/>
+                                                    <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                                </StackPanel>-->
                                                 <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                     <Expander.Header>
                                                         <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
@@ -360,19 +382,59 @@
                                             </DataTemplate>
                                         </ListBox.ItemTemplate>
                                     </ListBox>
+                                    <!-- ADD theme keywords -->
+                                    <!--<Button x:Name="btnAddThemeKeyUser" Tag="ThemeKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
+                                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                            <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
+                                            <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_THEME}"/>
+                                        </StackPanel>
+                                    </Button>-->
 
-                                    <!-- ADD user keywords -->
+                                    <!-- TEST theme keys -->
+                                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                        <ListBox.ItemsSource>
+                                            <Binding XPath="themeKeys[not(thesaName/resTitle) or thesaName/resTitle[not(contains(. , 'User')) and not(contains(. , 'EPA GIS Keyword Thesaurus'))]]"/>
+                                        </ListBox.ItemsSource>
+                                        <ListBox.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel/>
+                                            </ItemsPanelTemplate>
+                                        </ListBox.ItemsPanel>
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                                    <Expander.Header>
+                                                        <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
+                                                                   RelativeSource={RelativeSource FindAncestor,
+                                                                   AncestorType={x:Type ContentPresenter}},
+                                                                   Mode=OneWayToSource}" LastChildFill="True">
+                                                            <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
+                                                                <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
+                                                            </Button>
+                                                            <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THEMEKEY}"/>
+                                                        </DockPanel>
+                                                    </Expander.Header>
+                                                    <StackPanel Style="{DynamicResource ExpanderBodyStyle}">
+                                                        <p:MD_Keywords ToolTip="{x:Static r:Definitions.MD_Keywords_theme}"/>
+                                                    </StackPanel>
+                                                </Expander>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                    <!-- ADD theme keywords -->
                                     <Button Tag="ThemeKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
                                         <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                             <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                                            <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="New User Keywords"/>
+                                            <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_THEME}"/>
                                         </StackPanel>
                                     </Button>
                                 </StackPanel>
                             </Border>
 
+                            
+
                             <!-- temporal keywords -->
-                            <Border Style="{DynamicResource EditorBorder2Style}">
+                            <!--<Border Style="{DynamicResource EditorBorder2Style}">
                                 <StackPanel>
                                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=tempKeys}">
                                         <ListBox.ItemsPanel>
@@ -403,7 +465,7 @@
                                             </DataTemplate>
                                         </ListBox.ItemTemplate>
                                     </ListBox>
-                                    <!-- ADD temporal keywords -->
+                                    --><!-- ADD temporal keywords --><!--
                                     <Button Tag="TempKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
                                         <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                             <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
@@ -411,10 +473,10 @@
                                         </StackPanel>
                                     </Button>
                                 </StackPanel>
-                            </Border>
+                            </Border>-->
 
                             <!-- discipline keywords -->
-                            <Border Style="{DynamicResource EditorBorder2Style}" e:MetadataStyle.OnlyProfiles="ISO19139,NAP,INSPIRE">
+                            <!--<Border Style="{DynamicResource EditorBorder2Style}" e:MetadataStyle.OnlyProfiles="ISO19139,NAP,INSPIRE">
                                 <StackPanel>
                                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=discKeys}">
                                         <ListBox.ItemsPanel>
@@ -445,7 +507,7 @@
                                             </DataTemplate>
                                         </ListBox.ItemTemplate>
                                     </ListBox>
-                                    <!-- ADD discipline keywords -->
+                                    --><!-- ADD discipline keywords --><!--
                                     <Button Tag="DisKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
                                         <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                             <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
@@ -453,10 +515,10 @@
                                         </StackPanel>
                                     </Button>
                                 </StackPanel>
-                            </Border>
+                            </Border>-->
 
                             <!-- stratum keywords -->
-                            <Border Style="{DynamicResource EditorBorder2Style}">
+                            <!--<Border Style="{DynamicResource EditorBorder2Style}">
                                 <StackPanel>
                                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=stratKeys}">
                                         <ListBox.ItemsPanel>
@@ -487,7 +549,7 @@
                                             </DataTemplate>
                                         </ListBox.ItemTemplate>
                                     </ListBox>
-                                    <!-- ADD statum keywords -->
+                                    --><!-- ADD statum keywords --><!--
                                     <Button Tag="StratKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
                                         <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                             <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
@@ -495,10 +557,10 @@
                                         </StackPanel>
                                     </Button>
                                 </StackPanel>
-                            </Border>
+                            </Border>-->
 
                             <!-- other keywords -->
-                            <Border Style="{DynamicResource EditorBorder2Style}" e:MetadataStyle.OnlyProfiles="ISO19139,NAP,INSPIRE">
+                            <!--<Border Style="{DynamicResource EditorBorder2Style}" e:MetadataStyle.OnlyProfiles="ISO19139,NAP,INSPIRE">
                                 <StackPanel>
                                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=otherKeys}">
                                         <ListBox.ItemsPanel>
@@ -529,7 +591,7 @@
                                             </DataTemplate>
                                         </ListBox.ItemTemplate>
                                     </ListBox>
-                                    <!-- ADD other keywords -->
+                                    --><!-- ADD other keywords --><!--
                                     <Button Tag="OtherKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
                                         <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                             <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
@@ -537,10 +599,10 @@
                                         </StackPanel>
                                     </Button>
                                 </StackPanel>
-                            </Border>
+                            </Border>-->
 
                             <!-- product keys -->
-                            <Border Style="{DynamicResource EditorBorder2Style}" e:MetadataStyle.OnlyProfiles="NAP" >
+                            <!--<Border Style="{DynamicResource EditorBorder2Style}" e:MetadataStyle.OnlyProfiles="NAP" >
                                 <StackPanel>
                                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=productKeys}">
                                         <ListBox.ItemsPanel>
@@ -571,7 +633,7 @@
                                             </DataTemplate>
                                         </ListBox.ItemTemplate>
                                     </ListBox>
-                                    <!-- ADD product keywords -->
+                                    --><!-- ADD product keywords --><!--
                                     <Button Tag="ProductKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
                                         <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                             <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
@@ -579,10 +641,10 @@
                                         </StackPanel>
                                     </Button>
                                 </StackPanel>
-                            </Border>
+                            </Border>-->
 
                             <!-- sub topic keys -->
-                            <Border Style="{DynamicResource EditorBorder2Style}" e:MetadataStyle.OnlyProfiles="NAP" >
+                            <!--<Border Style="{DynamicResource EditorBorder2Style}" e:MetadataStyle.OnlyProfiles="NAP" >
                                 <StackPanel>
                                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=subTopicCatKeys}">
                                         <ListBox.ItemsPanel>
@@ -613,7 +675,7 @@
                                             </DataTemplate>
                                         </ListBox.ItemTemplate>
                                     </ListBox>
-                                    <!-- ADD product keywords -->
+                                    --><!-- ADD product keywords --><!--
                                     <Button Tag="SubTopicKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
                                         <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                             <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
@@ -621,7 +683,7 @@
                                         </StackPanel>
                                     </Button>
                                 </StackPanel>
-                            </Border>
+                            </Border>-->
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

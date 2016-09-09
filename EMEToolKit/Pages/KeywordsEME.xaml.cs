@@ -34,6 +34,12 @@ namespace EPAMetadataEditor.Pages
     /// </summary>
     public partial class KeywordsEME : EditorPage
     {
+        private int _countThemeK;
+        private int _countEpaThemeK;
+        private int _countEpaPlaceK;
+        private int _countEpaUserK;
+        private string _labelEpaThemeK;
+
         public KeywordsEME()
         {
             InitializeComponent();
@@ -41,7 +47,35 @@ namespace EPAMetadataEditor.Pages
 
         public override string SidebarLabel
         {
-            get { return ESRI.ArcGIS.Metadata.Editor.Properties.Resources.CFG_LBL_KEYWORDS; }
+            //get { return ESRI.ArcGIS.Metadata.Editor.Properties.Resources.CFG_LBL_KEYWORDS; }
+            get { return "TEST: Topics & Keywords"; }
+        }
+
+        public List<Control> AllChildren(DependencyObject parent)
+        {
+            var _List = new List<Control> { };
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var _Child = VisualTreeHelper.GetChild(parent, i);
+                if (_Child is Control)
+                    _List.Add(_Child as Control);
+                _List.AddRange(AllChildren(_Child));
+            }
+            return _List;
+        }
+
+        private void lbxKeywordEditorPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            //ListBox liBox = (ListBox)lbxKeywordEditorPage;
+            //foreach (var lbItem in liBox.Items)
+            //{
+            //    var lbCont = liBox.ItemContainerGenerator.ContainerFromItem(lbItem);
+            //    var lbChildren = AllChildren(lbCont);
+            //    var lbName = "tbxMDEpaThemeK";
+            //    var lbCtrl = (TextBox)lbChildren.First(c => c.Name == lbName);
+            //    lbCtrl.Text = "";
+            //}
+            //_labelEpaThemeK = _countEpaThemeK.ToString();
         }
     }
 }

@@ -109,6 +109,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\CI_CitationEPA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\CI_PresentationForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -119,7 +123,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EPATestCitation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\EPATestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EPA_ThemeKeys.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -795,6 +807,9 @@
   <ItemGroup>
     <Reference Include="ESRI.ArcGIS.MetadataEditor" />
     <Compile Include="AppCode\Utils1.cs" />
+    <Compile Include="Pages\CI_CitationEPA.xaml.cs">
+      <DependentUpon>CI_CitationEPA.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CI_PresentationForm.xaml.cs">
       <DependentUpon>CI_PresentationForm.xaml</DependentUpon>
     </Compile>
@@ -803,8 +818,14 @@
     <Compile Include="Pages\EPAMetadataTest.xaml.cs">
       <DependentUpon>EPAMetadataTest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\EPATestCitation.xaml.cs">
+      <DependentUpon>EPATestCitation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EPATestPage.xaml.cs">
       <DependentUpon>EPATestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EPA_ThemeKeys.xaml.cs">
+      <DependentUpon>EPA_ThemeKeys.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\KeywordsBAK.xaml.cs">
       <DependentUpon>KeywordsBAK.xaml</DependentUpon>
