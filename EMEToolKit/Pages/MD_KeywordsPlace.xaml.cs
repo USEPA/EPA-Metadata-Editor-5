@@ -183,5 +183,10 @@ namespace EPAMetadataEditor.Pages
                 }
             }
         }
+
+        private void tbxMDEpaPlaceK_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

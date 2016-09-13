@@ -152,17 +152,17 @@ namespace EPAMetadataEditor.Pages
 
         private void EditorPage_Loaded(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("EPA Keyword EditorPage - EditorPage.Load event");
+            //MessageBox.Show("EPA Keyword EditorPage - EditorPage.Load event");
         }
 
         private void lbxEpaThemeK_Loaded(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("EPA Keyword Checkboxes - lbxEpaThemeK.Load event");
+            //MessageBox.Show("EPA Keyword Checkboxes - lbxEpaThemeK.Load event");
         }
 
         private void tbxMetadataEpaK_Loaded(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("EPA Keyword Metadata - tbxMetadataEpaK.Load event");
+            //MessageBox.Show("EPA Keyword Metadata - tbxMetadataEpaK.Load event");
             List<string> listMdEpaK = new List<string>();
 
             //Existing metadata keywords

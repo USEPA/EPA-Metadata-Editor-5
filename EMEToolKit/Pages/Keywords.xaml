@@ -265,11 +265,10 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <TextBox x:Name="tbxMetadataEpaK"
-                                                 Style="{DynamicResource EditorTextAreaResizeStyle}"
-                                                 v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
-                                                 Text="{e:MetadataBinding XPath=bag}"/>
-                                    <TextBox x:Name="tbxMDThesaName" Text="{e:MetadataElementSync XPath=thesaName/resTitle}"/>
+                                    <TextBox x:Name="tbxMetadataEpaK" Style="{DynamicResource EditorTextAreaResizeStyle}"
+                                             v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
+                                             Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
+                                    <TextBox x:Name="tbxMDThesaName" Text="{e:MetadataElementSync XPath=thesaName/resTitle}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -322,11 +321,10 @@
                             <DataTemplate>
                                 <StackPanel>
                                     <!--<TextBox x:Name="tbxMetadataPlaceK" Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>-->
-                                    <TextBox x:Name="tbxMetadataPlaceK" 
-                                             Style="{DynamicResource EditorTextAreaResizeStyle}"
+                                    <TextBox x:Name="tbxMetadataPlaceK" Style="{DynamicResource EditorTextAreaResizeStyle}"
                                              v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
-                                             Text="{e:MetadataBinding XPath=bag}"/>
-                                    <TextBox x:Name="tbxMDThesaName" Text="{e:MetadataElementSync XPath=thesaName/resTitle}"/>
+                                             Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
+                                    <TextBox x:Name="tbxMDThesaName" Text="{e:MetadataElementSync XPath=thesaName/resTitle}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -383,11 +381,10 @@
                             <DataTemplate>
                                 <StackPanel>
                                     <!--<TextBox x:Name="tbxMetadataUserK" Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>-->
-                                    <TextBox x:Name="tbxMetadataUserK"
-                                             Style="{DynamicResource EditorTextAreaResizeStyle}"
+                                    <TextBox x:Name="tbxMetadataUserK" Style="{DynamicResource EditorTextAreaResizeStyle}"
                                              v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
-                                             Text="{e:MetadataBinding XPath=bag}"/>
-                                    <TextBox x:Name="tbxMDUserThesa" Text="{e:MetadataElementSync XPath=thesaName/resTitle}"/>
+                                             Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
+                                    <TextBox x:Name="tbxMDUserThesa" Text="{e:MetadataElementSync XPath=thesaName/resTitle}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

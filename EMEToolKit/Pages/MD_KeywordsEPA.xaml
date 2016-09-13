@@ -103,7 +103,6 @@
             <!-- keywords -->
             <controls:Resizer>
                 <StackPanel>
-                    
                     <!--EPA Keyword List from: EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsEPA.xml-->
                     <ListView x:Name="lbxEpaThemeK"
                               DataContext="{DynamicResource EPAData}"
@@ -142,11 +141,10 @@
                     </StackPanel>
                     
                     <!--Metadata Keywords-->
-                    <TextBox x:Name="tbxMDEpaThemeK"
-                             Style="{DynamicResource EditorTextAreaResizeStyle}"
-                             v:Nav.AnchorName="bag,bag"
-                             v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
-                             Text="{e:MetadataBinding XPath=bag}"/>
+                    <TextBox x:Name="tbxMDEpaThemeK" Style="{DynamicResource EditorTextAreaResizeStyle}"
+                             v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
+                             Text="{e:MetadataBinding XPath=bag}"
+                             Loaded="tbxMDEpaThemeK_Loaded"/>
                 </StackPanel>
             </controls:Resizer>
         </Border>

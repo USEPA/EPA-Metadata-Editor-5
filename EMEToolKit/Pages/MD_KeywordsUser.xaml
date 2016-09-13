@@ -74,24 +74,9 @@
             </x:XData>
         </XmlDataProvider>
 
-        <XmlDataProvider x:Key="ISOData"
-                         Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsISO.xml"
-                         XPath="emeData/KeywordsISO"
-                         IsInitialLoadEnabled="True"/>
-
-        <XmlDataProvider x:Key="EPAData"
-                         Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsEPA.xml"
-                         XPath="emeData/KeywordsEPA"
-                         IsInitialLoadEnabled="True"/>
-
         <XmlDataProvider x:Key="UserData"
                          Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsUser.xml"
                          XPath="emeData/KeywordsUser"
-                         IsInitialLoadEnabled="True"/>
-
-        <XmlDataProvider x:Key="PlaceData"
-                         Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsPlace.xml"
-                         XPath="emeData/KeywordsPlace"
                          IsInitialLoadEnabled="True"/>
 
         <DataTemplate x:Key="keywordItemCheckBox">
@@ -118,6 +103,7 @@
             <!-- keywords -->
             <controls:Resizer>
                 <StackPanel>
+                    <!--User Keyword List from: EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsUser.xml-->
                     <ListView x:Name="lbxEpaUserK"
                               DataContext="{DynamicResource UserData}"
                               ItemsSource = "{Binding}"
@@ -155,10 +141,8 @@
                     </StackPanel>
 
                     <!--Metadata Keywords-->
-                    <TextBox x:Name="tbxMDEpaUserK"
-                             Style="{DynamicResource EditorTextAreaResizeStyle}"
-                             v:Nav.AnchorName="bag,bag"
-                             v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
+                    <TextBox x:Name="tbxMDEpaUserK" Style="{DynamicResource EditorTextAreaResizeStyle}"
+                             v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
                              Text="{e:MetadataBinding XPath=bag}"
                              Loaded="tbxMDEpaUserK_Loaded"/>
                 </StackPanel>
