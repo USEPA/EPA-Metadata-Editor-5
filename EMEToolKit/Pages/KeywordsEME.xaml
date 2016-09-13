@@ -209,6 +209,7 @@
 
     <Grid Style="{DynamicResource EditorFrontPageStyle}">
         <StackPanel>
+            <Image Source="../Icons/epa_logo_horizontal_black.png" RenderOptions.BitmapScalingMode="Fant" MaxHeight="40" HorizontalAlignment="Left" Margin="10"/>
             <ListBox x:Name="lbxKeywordEditorPage" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo[1]}" Loaded="lbxKeywordEditorPage_Loaded">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -219,7 +220,7 @@
                                 <Label Style="{DynamicResource EditorPageTitle}" Content=" (Using Nested Pages)"/>
                             </StackPanel>
 
-                            <!-- keyword section -->
+                            <!-- iso keyword section -->
                             <Border Style="{DynamicResource EditorBorder2Style}">
                                 <StackPanel>
                                     <!-- topics -->
@@ -279,7 +280,7 @@
                                 </DockPanel>
                             </Border>
 
-                            <!-- theme keys -->
+                            <!-- epa keywords -->
                             <Border Style="{DynamicResource EditorBorder2Style}">
                                 <StackPanel>
                                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
@@ -344,7 +345,7 @@
                                 </StackPanel>
                             </Border>
 
-                            <!-- user keys -->
+                            <!-- user keywords -->
                             <Border Style="{DynamicResource EditorBorder2Style}">
                                 <StackPanel>
                                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
@@ -430,8 +431,6 @@
                                     </Button>
                                 </StackPanel>
                             </Border>
-
-                            
 
                             <!-- temporal keywords -->
                             <!--<Border Style="{DynamicResource EditorBorder2Style}">

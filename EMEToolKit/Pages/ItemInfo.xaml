@@ -195,7 +195,9 @@
   <Grid Style="{DynamicResource EditorFrontPageStyle}">
 
     <StackPanel>
-
+      <!-- org title -->
+      <Image Source="../Icons/epa_logo_horizontal_black.png" RenderOptions.BitmapScalingMode="Fant" MaxHeight="40" HorizontalAlignment="Left" Margin="10"/>
+        
       <!-- section title -->
       <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.SEC_ITEMINFO}"/>
 

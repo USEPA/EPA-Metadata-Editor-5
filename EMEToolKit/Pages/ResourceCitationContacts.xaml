@@ -52,6 +52,9 @@
 
   <Grid Style="{DynamicResource EditorFrontPageStyle}">
     <StackPanel>
+      <!-- org title -->
+      <Image Source="../Icons/epa_logo_horizontal_black.png" RenderOptions.BitmapScalingMode="Fant" MaxHeight="40" HorizontalAlignment="Left" Margin="10"/>
+      
       <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo/idCitation}">
         <ListBox.ItemTemplate>
           <DataTemplate>

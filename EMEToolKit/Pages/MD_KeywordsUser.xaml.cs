@@ -197,12 +197,12 @@ namespace EPAMetadataEditor.Pages
 
         private void tbxMDEpaUserK_Loaded(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("User Metadata - tbxMDEpaUserK.Load event");
+            //MessageBox.Show("User Metadata - tbxMDEpaUserK.Load event");
         }
 
         private void lbxEpaUserK_Loaded(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("User CheckBoxes - lbxEpaUserK.Load event");
+            //MessageBox.Show("User CheckBoxes - lbxEpaUserK.Load event");
         }
     }
 }

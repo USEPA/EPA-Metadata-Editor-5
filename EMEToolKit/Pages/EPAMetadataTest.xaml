@@ -40,6 +40,8 @@
     </UserControl.Resources>
     
     <StackPanel>
+        <!-- org title -->
+        <Image Source="../Icons/epa_logo_horizontal_black.png" RenderOptions.BitmapScalingMode="Fant" MaxHeight="40" HorizontalAlignment="Left" Margin="10"/>
         <Label Style="{DynamicResource EditorPageTitle}" Content="EPA MetadataEditor Test"/>
         
         <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">

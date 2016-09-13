@@ -184,9 +184,11 @@
         
     </UserControl.Resources>
     
-    <!-- Clone of MD_KeywordsEPA -->
+    <!-- Started with copy of MD_KeywordsEPA -->
     <StackPanel>
-
+        <!-- org title -->
+        <Image Source="../Icons/epa_logo_horizontal_black.png" RenderOptions.BitmapScalingMode="Fant" MaxHeight="40" HorizontalAlignment="Left" Margin="10"/>
+        
         <Border Style="{DynamicResource EditorBorderSubStyle}">
             <!-- keywords -->
             <StackPanel>
@@ -202,7 +204,8 @@
                               ItemsPanel="{StaticResource ThreeColumnList}"
                               ItemContainerStyle="{StaticResource ChbxListItem}"
                               SelectionMode="Multiple"
-                              Margin="10,0,0,0">
+                              Margin="10,0,0,0"
+                          Loaded="lbxEpaThemeK_Loaded">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <CheckBox Name="chbxEpaThemekey" Content="{Binding XPath=themekey}" Checked="chbxEpaThemekey_Checked" Unchecked="chbxEpaThemekey_Unchecked"/>
@@ -232,76 +235,78 @@
                 </StackPanel>
 
                 <!--Metadata Keywords-->
-                <TextBox x:Name="tbxMDEpaThemeK"
-                             Style="{DynamicResource EditorTextAreaResizeStyle}"
-                             v:Nav.AnchorName="bag,bag"
-                             v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
-                             Text="{e:MetadataBinding XPath=bag}"/>
-            </StackPanel>
-        </Border>
+                <TextBox x:Name="tbxMetadataEpaK"
+                         Style="{DynamicResource EditorTextAreaResizeStyle}"
+                         v:Nav.AnchorName="bag,bag"
+                         v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
+                         Text="{e:MetadataBinding XPath=bag}"
+                         Loaded="tbxMetadataEpaK_Loaded"/>
 
-        <!-- NAP style only -->
-        <e:MetadataStyle Only="NAP">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+                <!-- NAP style only -->
+                <e:MetadataStyle Only="NAP">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                <!-- thesaurus language code -->
-                <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_DESC_THELANG}"/>
-                <ListBox Grid.Row="0" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=thesaLang}">
+                        <!-- thesaurus language code -->
+                        <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_DESC_THELANG}"/>
+                        <ListBox Grid.Row="0" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=thesaLang}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <p:LanguageCode ToolTip=""/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                        <!-- thesaurus country code -->
+                        <Label Grid.Row="1" Grid.Column="0" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_DESC_THECOUNTRY}"/>
+                        <ListBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=thesaLang}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <p:CountryCode/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </e:MetadataStyle>
+
+                <!-- thesaurus citation -->
+                <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=thesaName}">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <p:LanguageCode ToolTip=""/>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-
-                <!-- thesaurus country code -->
-                <Label Grid.Row="1" Grid.Column="0" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_DESC_THECOUNTRY}"/>
-                <ListBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=thesaLang}">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <p:CountryCode/>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </Grid>
-        </e:MetadataStyle>
-
-        <!-- thesaurus citation -->
-        <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=thesaName}">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel/>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Expander ToolTip="{x:Static r:Definitions.MD_Keywords_thesaurusName}" Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-                        <Expander.Header>
-                            <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
+                            <Expander ToolTip="{x:Static r:Definitions.MD_Keywords_thesaurusName}" Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                <Expander.Header>
+                                    <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
                                        RelativeSource={RelativeSource FindAncestor,
                                        AncestorType={x:Type ContentPresenter}},
                                        Mode=OneWayToSource}" LastChildFill="True">
-                                <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
-                                    <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                                </Button>
-                                <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THESCITE}"/>
-                            </DockPanel>
-                        </Expander.Header>
-                        <Border Style="{DynamicResource EditorBorderSubStyle}">
-                            <p:CI_CitationEPA/>
-                        </Border>
-                    </Expander>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                                        <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
+                                            <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
+                                        </Button>
+                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THESCITE}"/>
+                                    </DockPanel>
+                                </Expander.Header>
+                                <Border Style="{DynamicResource EditorBorderSubStyle}">
+                                    <p:CI_CitationEPA/>
+                                </Border>
+                            </Expander>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                
+            </StackPanel>
+        </Border>
 
         <!-- validate after all anchors are loaded -->
         <v:PageValidateControl/>

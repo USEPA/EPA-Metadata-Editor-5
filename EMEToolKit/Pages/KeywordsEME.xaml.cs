@@ -47,8 +47,8 @@ namespace EPAMetadataEditor.Pages
 
         public override string SidebarLabel
         {
-            //get { return ESRI.ArcGIS.Metadata.Editor.Properties.Resources.CFG_LBL_KEYWORDS; }
-            get { return "TEST: Topics & Keywords"; }
+            get { return ESRI.ArcGIS.Metadata.Editor.Properties.Resources.CFG_LBL_KEYWORDS; }
+            //get { return "TEST: Topics & Keywords"; }
         }
 
         public List<Control> AllChildren(DependencyObject parent)

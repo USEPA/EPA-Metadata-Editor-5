@@ -186,8 +186,10 @@
                 </TextBox.Foreground>
             </TextBox>
             <!-- org title -->
-            <Label Style="{DynamicResource EditorPageTitle}" Content="U.S. Environmental Protection Agency"/>
+            <Image Source="../Icons/epa_logo_horizontal_black.png" RenderOptions.BitmapScalingMode="Fant" MaxHeight="40" HorizontalAlignment="Left" Margin="10"/>
 
+            <!-- page title-->
+            <Label>TEST Single Page</Label>
             <!-- topics -->
             
             <!-- ISO Keywords -->

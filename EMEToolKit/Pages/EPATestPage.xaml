@@ -214,7 +214,19 @@
     <Grid Style="{DynamicResource EditorFrontPageStyle}">
         <StackPanel>
             <!-- org title -->
-            <TextBox Name="testFocus" Text="[ Top of page ]" BorderThickness="0" FontSize="0.1" Height="0" Width="0" HorizontalAlignment="Center">
+            <!-- org title -->
+            <Image Source="../Icons/epa_logo_horizontal_black.png" RenderOptions.BitmapScalingMode="Fant" MaxHeight="40" HorizontalAlignment="Left" Margin="10"/>
+            
+            <!--<TextBox Name="testFocus" Text="[ Top of page ]" BorderThickness="0" FontSize="0.1" Height="0" Width="0" HorizontalAlignment="Center">
+                <TextBox.Background>
+                    <SolidColorBrush Opacity="0"/>
+                </TextBox.Background>
+                <TextBox.Foreground>
+                    <SolidColorBrush Opacity="0"/>
+                </TextBox.Foreground>
+            </TextBox>-->
+
+            <TextBox Name="testFocus" Text="[ Top of page ]" BorderThickness="0" FontSize="10" Height="Auto" Width="Auto" HorizontalAlignment="Center">
                 <TextBox.Background>
                     <SolidColorBrush Opacity="0"/>
                 </TextBox.Background>
@@ -222,6 +234,7 @@
                     <SolidColorBrush Opacity="0"/>
                 </TextBox.Foreground>
             </TextBox>
+            
             <Label Style="{DynamicResource EditorPageTitle}" Content="EME Test Page"/>
 
             <StackPanel Orientation="Horizontal" Margin="0,10,0,0">

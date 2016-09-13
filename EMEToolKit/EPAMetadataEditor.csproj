@@ -123,10 +123,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\EPATestCitation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\EPATestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -818,9 +814,6 @@
     <Compile Include="Pages\EPAMetadataTest.xaml.cs">
       <DependentUpon>EPAMetadataTest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\EPATestCitation.xaml.cs">
-      <DependentUpon>EPATestCitation.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\EPATestPage.xaml.cs">
       <DependentUpon>EPATestPage.xaml</DependentUpon>
     </Compile>
@@ -1312,7 +1305,9 @@
     <Resource Include="Codelists\KeywordsEPA.xml" />
     <Resource Include="Codelists\KeywordsPlace.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Icons\epa_logo_horizontal_black.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Demo\MetadataSample.xml" />
   </ItemGroup>
