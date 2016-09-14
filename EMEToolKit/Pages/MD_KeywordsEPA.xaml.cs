@@ -54,6 +54,73 @@ namespace EPAMetadataEditor.Pages
             return _List;
         }
 
+        public static class FocusExtension
+        {
+            public static readonly DependencyProperty IsFocusedProperty =
+                DependencyProperty.RegisterAttached("IsFocused", typeof(bool?), typeof(FocusExtension), new FrameworkPropertyMetadata(IsFocusedChanged));
+
+            public static bool? GetIsFocused(DependencyObject element)
+            {
+                if (element == null)
+                {
+                    throw new ArgumentNullException("element");
+                }
+
+                return (bool?)element.GetValue(IsFocusedProperty);
+            }
+
+            public static void SetIsFocused(DependencyObject element, bool? value)
+            {
+                if (element == null)
+                {
+                    throw new ArgumentNullException("element");
+                }
+
+                element.SetValue(IsFocusedProperty, value);
+            }
+
+            private static void IsFocusedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+            {
+                var fe = (FrameworkElement)d;
+
+                if (e.OldValue == null)
+                {
+                    fe.GotFocus += FrameworkElement_GotFocus;
+                    fe.LostFocus += FrameworkElement_LostFocus;
+                }
+
+                if (!fe.IsVisible)
+                {
+                    fe.IsVisibleChanged += new DependencyPropertyChangedEventHandler(fe_IsVisibleChanged);
+                }
+
+                if ((bool)e.NewValue)
+                {
+                    fe.Focus();
+                }
+            }
+
+            private static void fe_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+            {
+                var fe = (FrameworkElement)sender;
+                if (fe.IsVisible && (bool)((FrameworkElement)sender).GetValue(IsFocusedProperty))
+                {
+                    fe.IsVisibleChanged -= fe_IsVisibleChanged;
+                    fe.Focus();
+                }
+            }
+
+            private static void FrameworkElement_GotFocus(object sender, RoutedEventArgs e)
+            {
+                ((FrameworkElement)sender).SetValue(IsFocusedProperty, true);
+            }
+
+            private static void FrameworkElement_LostFocus(object sender, RoutedEventArgs e)
+            {
+                ((FrameworkElement)sender).SetValue(IsFocusedProperty, false);
+            }
+        }
+
         private void keywordTest()
         {
             //string[] strMDKeywords = tbxMDEpaThemeK.Text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
@@ -72,47 +139,11 @@ namespace EPAMetadataEditor.Pages
             //    var liBoxName = "chbxEpaThemekey";
             //    var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
             //    System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
+
+            //    liBoxCtrl.IsChecked = _listThemeK.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
+
             //    string searchKeyword = xmlTest.InnerText.Trim();
-
-            //    if (_listThemeK.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
-
-            //    {
-            //        liBoxCtrl.IsChecked = true;
-            //    }
-            //    else
-            //    {
-            //        liBoxCtrl.IsChecked = false;
-            //    }
-            //}
-        }
-
-        private void lbxEpaThemeK_Loaded(object sender, RoutedEventArgs e)
-        {
-            //List<string> MDKeywords = new List<string>();
-            //if (tbxMDEpaThemeK.Text.Any())
-            //{
-            //    string[] strMDKeywords = tbxMDEpaThemeK.Text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
-            //    foreach (string s in strMDKeywords)
-            //    {
-            //        MDKeywords.Add(s.Trim());
-            //    }
-            //}
-
-            //MDKeywords = MDKeywords.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
-            //MDKeywords.Sort();
-
-            //ListBox liBox = (ListBox)lbxEpaThemeK;
-            //foreach (var liBoxItem in liBox.Items)
-            //{
-            //    var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
-            //    var liBoxChildren = AllChildren(liBoxCont);
-            //    var liBoxName = "chbxEpaThemekey";
-            //    var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
-            //    System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
-            //    string searchKeyword = xmlTest.InnerText.Trim();
-
-            //    if (MDKeywords.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
-
+            //    if (_listThemeK.Exists(s => s.Equals(xmlTest.InnerText.Trim())))
             //    {
             //        liBoxCtrl.IsChecked = true;
             //    }
@@ -136,7 +167,7 @@ namespace EPAMetadataEditor.Pages
             foreach (string s in _listThemeK)
             {
                 tbxMDEpaThemeK.Text += s + System.Environment.NewLine;
-                tbxMDEpaThemeK.Focus();
+                //tbxMDEpaThemeK.Focus();
             }
             tbxMDEpaThemeK.Focus();
         }
@@ -152,7 +183,7 @@ namespace EPAMetadataEditor.Pages
             foreach (string s in _listThemeK)
             {
                 tbxMDEpaThemeK.Text += s + System.Environment.NewLine;
-                tbxMDEpaThemeK.Focus();
+                //tbxMDEpaThemeK.Focus();
             }
             tbxMDEpaThemeK.Focus();
         }
@@ -208,9 +239,12 @@ namespace EPAMetadataEditor.Pages
             //    var liBoxName = "chbxEpaThemekey";
             //    var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
             //    System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
+
+            //    liBoxCtrl.IsChecked = MDKeywords.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
+
             //    string searchKeyword = xmlTest.InnerText.Trim();
 
-            //    if (MDKeywords.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+            //    if (MDKeywords.Exists(s => s.Equals(xmlTest.InnerText.Trim())))
 
             //    {
             //        liBoxCtrl.IsChecked = true;
@@ -245,23 +279,104 @@ namespace EPAMetadataEditor.Pages
                 var liBoxName = "chbxEpaThemekey";
                 var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
                 System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
-                string searchKeyword = xmlTest.InnerText.Trim();
 
-                if (MDKeywords.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+                liBoxCtrl.IsChecked = MDKeywords.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
+            }
+        }
 
+        private void lbxEpaThemeK_Loaded(object sender, RoutedEventArgs e)
+        {
+            //MessageBox triggers properly everything else crashes if not visible
+            //MessageBox.Show("EPA Keywords ListBox" + "\n" + "lbxEpaThemeK.Loaded" + "\n" + "IsEnabled = " + lbxEpaThemeK.IsEnabled.ToString() + "\n" + "IsVisible = " + lbxEpaThemeK.IsVisible.ToString());
+            if (lbxEpaThemeK.IsVisible==true)
+            {
+                MessageBox.Show("Loaded Visible");
+                List<string> MDKeywords = new List<string>();
+                if (tbxMDEpaThemeK.Text.Any())
                 {
-                    liBoxCtrl.IsChecked = true;
+                    string[] strMDKeywords = tbxMDEpaThemeK.Text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string s in strMDKeywords)
+                    {
+                        MDKeywords.Add(s.Trim());
+                    }
                 }
-                else
+
+                MDKeywords = MDKeywords.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+                MDKeywords.Sort();
+
+                ListBox liBox = (ListBox)lbxEpaThemeK;
+                foreach (var liBoxItem in liBox.Items)
                 {
-                    liBoxCtrl.IsChecked = false;
+                    var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
+                    var liBoxChildren = AllChildren(liBoxCont);
+                    var liBoxName = "chbxEpaThemekey";
+                    var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
+                    System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
+
+                    liBoxCtrl.IsChecked = MDKeywords.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
                 }
             }
+            else { MessageBox.Show("Load Not Visible"); }
         }
 
         private void tbxMDEpaThemeK_Loaded(object sender, RoutedEventArgs e)
         {
+            //MessageBox triggers properly everything else crashes if not visible
+            MessageBox.Show("EPA Keywords Metadata" + "\n" + "tbxMDEpaThemeK.Loaded" + "\n" + "IsEnabled = " + tbxMDEpaThemeK.IsEnabled.ToString() + "\n" + "IsVisible = " + tbxMDEpaThemeK.IsVisible.ToString());
+        }
 
+        private void tbxMDEpaThemeK_GotFocus(object sender, RoutedEventArgs e)
+        {
+            //MessageBox triggers properly
+            //MessageBox.Show("EPA Keywords" + "\n" + "lbxEpaThemeK.GotFocus");
+            List<string> MDKeywords = new List<string>();
+            if (tbxMDEpaThemeK.Text.Any())
+            {
+                string[] strMDKeywords = tbxMDEpaThemeK.Text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string s in strMDKeywords)
+                {
+                    MDKeywords.Add(s.Trim());
+                }
+            }
+
+            MDKeywords = MDKeywords.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+            MDKeywords.Sort();
+
+            ListBox liBox = (ListBox)lbxEpaThemeK;
+            foreach (var liBoxItem in liBox.Items)
+            {
+                var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
+                var liBoxChildren = AllChildren(liBoxCont);
+                var liBoxName = "chbxEpaThemekey";
+                var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
+                System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
+
+                liBoxCtrl.IsChecked = MDKeywords.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
+            }
+        }
+
+        private void lbxEpaThemeK_Initialized(object sender, EventArgs e)
+        {
+            //MessageBox crashes ArcMap
+            //MessageBox.Show("EPA Keywords" + "\n" + "lbxEpaThemeK.Initialized");
+        }
+
+        private void lbxEpaThemeK_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            //MessageBox crashes ArcMap
+            //MessageBox.Show("EPA Keywords" + "\n" + "lbxEpaThemeK.IsVisibleChanged");
+
+            //This also crashes ArcMap
+            //if (lbxEpaThemeK.IsVisible)
+            //{
+            //    MessageBox.Show("lbxEpaThemeK Enabled");
+            //}
+
+        }
+
+        private void StackPanel_Loaded(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("EPA Keywords" + "\n" + "StackPanel.Loaded");
         }
     }
 }

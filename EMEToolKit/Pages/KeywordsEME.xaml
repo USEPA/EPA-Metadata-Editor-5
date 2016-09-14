@@ -217,7 +217,7 @@
                             <!-- page title -->
                             <StackPanel Orientation="Horizontal">
                                 <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.SEC_KEYWORDS}"/>
-                                <Label Style="{DynamicResource EditorPageTitle}" Content=" (Using Nested Pages)"/>
+                                <Label Style="{DynamicResource EditorPageTitle}" Content=" (Using Nested UserControls)"/>
                             </StackPanel>
 
                             <!-- iso keyword section -->
@@ -294,7 +294,7 @@
                                         </ListBox.ItemsPanel>
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
-                                                <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                                <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}" Collapsed="Expander_Collapsed" Expanded="Expander_Expanded">
                                                     <Expander.Header>
                                                         <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
                                                                    RelativeSource={RelativeSource FindAncestor,

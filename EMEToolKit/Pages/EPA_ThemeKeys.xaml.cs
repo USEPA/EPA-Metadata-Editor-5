@@ -106,17 +106,7 @@ namespace EPAMetadataEditor.Pages
                 var liBoxName = "chbxEpaThemekey";
                 var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
                 System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
-                string searchKeyword = xmlTest.InnerText.Trim();
-
-                if (listMdEpaK.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
-
-                {
-                    liBoxCtrl.IsChecked = true;
-                }
-                else
-                {
-                    liBoxCtrl.IsChecked = false;
-                }
+                liBoxCtrl.IsChecked = listMdEpaK.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
             }
         }
 
@@ -186,17 +176,7 @@ namespace EPAMetadataEditor.Pages
                 var liBoxName = "chbxEpaThemekey";
                 var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
                 System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
-                string searchKeyword = xmlTest.InnerText.Trim();
-
-                if (listMdEpaK.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
-
-                {
-                    liBoxCtrl.IsChecked = true;
-                }
-                else
-                {
-                    liBoxCtrl.IsChecked = false;
-                }
+                liBoxCtrl.IsChecked = listMdEpaK.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
             }
         }
     }

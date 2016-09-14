@@ -258,7 +258,7 @@
 
                     <!--Metadata Theme Keywords-->
                     <!--Hidden ListBox - This is how we read and write to the metadata-->
-                    <ListBox x:Name="lbxMetadataEpaK">
+                    <!--<ListBox x:Name="lbxMetadataEpaK">
                         <ListBox.ItemsSource>
                             <Binding XPath="themeKeys[thesaName/resTitle[contains(. , 'EPA GIS Keyword Thesaurus')]]"/>
                         </ListBox.ItemsSource>
@@ -272,7 +272,7 @@
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
-                    </ListBox>
+                    </ListBox>-->
 
                     <!--<StackPanel>
                         <StackPanel.DataContext>
@@ -286,6 +286,23 @@
                     </StackPanel>-->
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <!--Metadata Theme Keywords-->
+                        <!--Hidden ListBox - This is how we read and write to the metadata-->
+                        <ListBox x:Name="lbxMetadataEpaK">
+                            <ListBox.ItemsSource>
+                                <Binding XPath="themeKeys[thesaName/resTitle[contains(. , 'EPA GIS Keyword Thesaurus')]]"/>
+                            </ListBox.ItemsSource>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBox x:Name="tbxMetadataEpaK"
+                                             v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
+                                             Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
+                                        <TextBox x:Name="tbxMDThesaName" Text="{e:MetadataElementSync XPath=thesaName/resTitle}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                         <Button Name="btnLoadDefaultThemeK" Content="Defaults" Click="btnLoadDefaultThemeK_Click" Height="20"  HorizontalAlignment="Right" Margin="5,0"/>
                         <Button Name="btnClearThemeK" Content="Clear" Click="btnClearThemeK_Click" Height="20" HorizontalAlignment="Right" Margin="5,0"/>
                     </StackPanel>
@@ -316,11 +333,11 @@
                     
                     <!--Metadata Place Keywords-->
                     <!--Hidden ListBox - This is how we read and write to the metadata-->
-                    <ListBox x:Name="lbxMetadataPlaceK" ItemsSource = "{Binding XPath=placeKeys}">
+                    <!--<ListBox x:Name="lbxMetadataPlaceK" ItemsSource = "{Binding XPath=placeKeys}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <!--<TextBox x:Name="tbxMetadataPlaceK" Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>-->
+                                    --><!--<TextBox x:Name="tbxMetadataPlaceK" Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>--><!--
                                     <TextBox x:Name="tbxMetadataPlaceK" Style="{DynamicResource EditorTextAreaResizeStyle}"
                                              v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
                                              Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
@@ -328,7 +345,7 @@
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
-                    </ListBox>
+                    </ListBox>-->
                     
                     <!--<StackPanel>
                         <StackPanel.DataContext>
@@ -343,6 +360,21 @@
                     </StackPanel>-->
                     
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <!--Metadata Place Keywords-->
+                        <!--Hidden ListBox - This is how we read and write to the metadata-->
+                        <ListBox x:Name="lbxMetadataPlaceK" ItemsSource = "{Binding XPath=placeKeys}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <!--<TextBox x:Name="tbxMetadataPlaceK" Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>-->
+                                        <TextBox x:Name="tbxMetadataPlaceK"
+                                             v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
+                                             Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
+                                        <TextBox x:Name="tbxMDThesaName" Text="{e:MetadataElementSync XPath=thesaName/resTitle}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                         <Button Name="btnLoadDefaultPlaceK" Content="Defaults" Click="btnLoadDefaultPlaceK_Click" Height="20"  HorizontalAlignment="Right" Margin="5,0"></Button>
                         <Button Name="btnClearPlaceK" Content="Clear" Click="btnClearPlaceK_Click" Height="20" HorizontalAlignment="Right" Margin="5,0"/>
                     </StackPanel>
@@ -373,14 +405,14 @@
                     
                     <!--Metadata User Keywords-->
                     <!--Hidden ListBox - This is how we read and write to the metadata-->
-                    <ListBox x:Name="lbxMetadataUserK">
+                    <!--<ListBox x:Name="lbxMetadataUserK">
                         <ListBox.ItemsSource>
                             <Binding XPath="themeKeys[thesaName/resTitle[contains(. , 'User')]]"/>
                         </ListBox.ItemsSource>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <!--<TextBox x:Name="tbxMetadataUserK" Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>-->
+                                    --><!--<TextBox x:Name="tbxMetadataUserK" Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>--><!--
                                     <TextBox x:Name="tbxMetadataUserK" Style="{DynamicResource EditorTextAreaResizeStyle}"
                                              v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
                                              Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
@@ -388,7 +420,7 @@
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
-                    </ListBox>
+                    </ListBox>-->
 
                     <!--<StackPanel>
                         <StackPanel.DataContext>
@@ -402,6 +434,24 @@
                     </StackPanel>-->
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <!--Metadata User Keywords-->
+                        <!--Hidden ListBox - This is how we read and write to the metadata-->
+                        <ListBox x:Name="lbxMetadataUserK">
+                            <ListBox.ItemsSource>
+                                <Binding XPath="themeKeys[thesaName/resTitle[contains(. , 'User')]]"/>
+                            </ListBox.ItemsSource>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <!--<TextBox x:Name="tbxMetadataUserK" Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>-->
+                                        <TextBox x:Name="tbxMetadataUserK"
+                                             v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
+                                             Text="{e:MetadataBinding XPath=bag}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
+                                        <TextBox x:Name="tbxMDUserThesa" Text="{e:MetadataElementSync XPath=thesaName/resTitle}" BorderThickness="0" FontSize="4" Height="0" Width="0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                         <Button Name="btnLoadDefaultUserK" Content="Defaults" Click="btnLoadDefaultUserK_Click" Height="20"  HorizontalAlignment="Right" Margin="5,0"></Button>
                         <Button Name="btnClearUserK" Content="Clear" Click="btnClearUserK_Click" Height="20" HorizontalAlignment="Right" Margin="5,0"/>
                     </StackPanel>

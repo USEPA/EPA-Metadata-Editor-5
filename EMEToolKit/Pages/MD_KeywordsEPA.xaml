@@ -91,8 +91,25 @@
             <UniformGrid Columns="3"/>
         </ItemsPanelTemplate>
 
+        <!--<Style x:Key="ChbxListItem" TargetType="{x:Type ListViewItem}">
+            <Setter Property="Focusable" Value="False"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsFocused}" Value="True">
+                    <Setter Property="FocusManager.FocusedElement" Value="{Binding RelativeSource={RelativeSource Self}}" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>-->
+
         <Style x:Key="ChbxListItem" TargetType="{x:Type ListViewItem}">
             <Setter Property="Focusable" Value="False"/>
+        </Style>
+
+        <Style x:Key="SelectedListViewStyle" TargetType="{x:Type ListView}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsFocused}" Value="True">
+                    <Setter Property="FocusManager.FocusedElement" Value="{Binding RelativeSource={RelativeSource Self}}" />
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
 
     </UserControl.Resources>
@@ -102,16 +119,20 @@
         <Border Style="{DynamicResource EditorBorderSubStyle}">
             <!-- keywords -->
             <controls:Resizer>
-                <StackPanel>
+                <StackPanel Loaded="StackPanel_Loaded">
                     <!--EPA Keyword List from: EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsEPA.xml-->
                     <ListView x:Name="lbxEpaThemeK"
+                              VirtualizingPanel.IsVirtualizing="False"
                               DataContext="{DynamicResource EPAData}"
                               ItemsSource = "{Binding}"
                               Template="{StaticResource ListBoxNoScroll}"
                               ItemsPanel="{StaticResource ThreeColumnList}"
                               ItemContainerStyle="{StaticResource ChbxListItem}"
                               SelectionMode="Multiple"
-                              Margin="10,0,0,0">
+                              Margin="10,0,0,0"
+                              Initialized="lbxEpaThemeK_Initialized"
+                              IsVisibleChanged="lbxEpaThemeK_IsVisibleChanged"
+                              Loaded="lbxEpaThemeK_Loaded">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <CheckBox Name="chbxEpaThemekey" Content="{Binding XPath=themekey}" Checked="chbxEpaThemekey_Checked" Unchecked="chbxEpaThemekey_Unchecked"/>
@@ -144,6 +165,7 @@
                     <TextBox x:Name="tbxMDEpaThemeK" Style="{DynamicResource EditorTextAreaResizeStyle}"
                              v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
                              Text="{e:MetadataBinding XPath=bag}"
+                             GotFocus="tbxMDEpaThemeK_GotFocus"
                              Loaded="tbxMDEpaThemeK_Loaded"/>
                 </StackPanel>
             </controls:Resizer>

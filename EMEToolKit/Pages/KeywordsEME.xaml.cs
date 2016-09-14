@@ -77,5 +77,15 @@ namespace EPAMetadataEditor.Pages
             //}
             //_labelEpaThemeK = _countEpaThemeK.ToString();
         }
+
+        private void Expander_Expanded(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show("Expander.Expanded");
+        }
+
+        private void Expander_Collapsed(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show("Expander.Collapsed");
+        }
     }
 }

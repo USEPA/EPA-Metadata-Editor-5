@@ -74,17 +74,8 @@ namespace EPAMetadataEditor.Pages
                 var liBoxName = "chbxEpaThemekey";
                 var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
                 System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
-                string searchKeyword = xmlTest.InnerText.Trim();
 
-                if (listMdEpaK.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
-
-                {
-                    liBoxCtrl.IsChecked = true;
-                }
-                else
-                {
-                    liBoxCtrl.IsChecked = false;
-                }
+                liBoxCtrl.IsChecked = listMdEpaK.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
             }
             #region // This logic for TextBox Metadata
             //List<string> listMdEpaK = new List<string>();
@@ -109,7 +100,7 @@ namespace EPAMetadataEditor.Pages
             //    System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
             //    string searchKeyword = xmlTest.InnerText.Trim();
 
-            //    if (listMdEpaK.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+            //    if (listMdEpaK.Exists(s => s.Equals(xmlTest.InnerText.Trim())))
 
             //    {
             //        liBoxCtrl.IsChecked = true;
@@ -141,9 +132,11 @@ namespace EPAMetadataEditor.Pages
         //        var liBoxName = "chbxEpaThemekey";
         //        var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
         //        System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
+        //        liBoxCtrl.IsChecked = listMdEpaK.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
+
         //        string searchKeyword = xmlTest.InnerText.Trim();
 
-        //        if (listMdUserK.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+        //        if (listMdUserK.Exists(s => s.Equals(xmlTest.InnerText.Trim())))
 
         //        {
         //            liBoxCtrl.IsChecked = true;
@@ -174,9 +167,11 @@ namespace EPAMetadataEditor.Pages
         //        var liBoxName = "chbxEpaPlacekey";
         //        var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
         //        System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
+        //        liBoxCtrl.IsChecked = listMdPlaceK.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
+
         //        string searchKeyword = xmlTest.InnerText.Trim();
 
-        //        if (listMdPlaceK.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+        //        if (listMdPlaceK.Exists(s => s.Equals(xmlTest.InnerText.Trim())))
 
         //        {
         //            liBoxCtrl.IsChecked = true;
@@ -207,9 +202,11 @@ namespace EPAMetadataEditor.Pages
         //        var liBoxName = "chbxEpaUserkey";
         //        var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
         //        System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
+        //        liBoxCtrl.IsChecked = listMdUserK.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
+
         //        string searchKeyword = xmlTest.InnerText.Trim();
 
-        //        if (listMdUserK.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+        //        if (listMdUserK.Exists(s => s.Equals(xmlTest.InnerText.Trim())))
 
         //        {
         //            liBoxCtrl.IsChecked = true;
@@ -254,9 +251,11 @@ namespace EPAMetadataEditor.Pages
         //        var liBoxName = "chbxEpaThemekey";
         //        var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
         //        System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
+        //        liBoxCtrl.IsChecked = listMdEpaK.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
+
         //        string searchKeyword = xmlTest.InnerText.Trim();
 
-        //        if (listMdEpaK.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+        //        if (listMdEpaK.Exists(s => s.Equals(xmlTest.InnerText.Trim())))
 
         //        {
         //            liBoxCtrl.IsChecked = true;
@@ -299,17 +298,7 @@ namespace EPAMetadataEditor.Pages
                 var liBoxName = "chbxEpaPlacekey";
                 var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
                 System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
-                string searchKeyword = xmlTest.InnerText.Trim();
-
-                if (listMdPlaceK.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
-
-                {
-                    liBoxCtrl.IsChecked = true;
-                }
-                else
-                {
-                    liBoxCtrl.IsChecked = false;
-                }
+                liBoxCtrl.IsChecked = listMdPlaceK.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
             }
         }
 
@@ -344,17 +333,7 @@ namespace EPAMetadataEditor.Pages
                 var liBoxName = "chbxUserKey";
                 var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
                 System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
-                string searchKeyword = xmlTest.InnerText.Trim();
-
-                if (listMdUserK.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
-
-                {
-                    liBoxCtrl.IsChecked = true;
-                }
-                else
-                {
-                    liBoxCtrl.IsChecked = false;
-                }
+                liBoxCtrl.IsChecked = listMdUserK.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
             }
             topOfPage.Focus();
         }
@@ -396,8 +375,9 @@ namespace EPAMetadataEditor.Pages
                 foreach (string s in _listThemeK)
                 {
                     lbCtrl.Text += s + System.Environment.NewLine;
-                    lbCtrl.Focus();
+                    //lbCtrl.Focus();
                 }
+                lbCtrl.Focus();
             }
             #endregion
         }
@@ -432,8 +412,8 @@ namespace EPAMetadataEditor.Pages
                 foreach (string s in _listThemeK)
                 {
                     lbCtrl.Text += s + System.Environment.NewLine;
-                    lbCtrl.Focus();
-                    cbx.Focus();
+                    //lbCtrl.Focus();
+                    //cbx.Focus();
                 }
                 lbCtrl.Focus();
             }
@@ -474,8 +454,9 @@ namespace EPAMetadataEditor.Pages
                 foreach (string s in _listPlaceK)
                 {
                     lbCtrl.Text += s + System.Environment.NewLine;
-                    lbCtrl.Focus();
+                    //lbCtrl.Focus();
                 }
+                lbCtrl.Focus();
             }
         }
         private void chbxPlaceKey_Unchecked(object sender, RoutedEventArgs e)
@@ -509,8 +490,8 @@ namespace EPAMetadataEditor.Pages
                 foreach (string s in _listPlaceK)
                 {
                     lbCtrl.Text += s + System.Environment.NewLine;
-                    lbCtrl.Focus();
-                    cbx.Focus();
+                    //lbCtrl.Focus();
+                    //cbx.Focus();
                 }
                 lbCtrl.Focus();
             }
@@ -551,8 +532,9 @@ namespace EPAMetadataEditor.Pages
                 foreach (string s in _listUserK)
                 {
                     lbCtrl.Text += s + System.Environment.NewLine;
-                    lbCtrl.Focus();
+                    //lbCtrl.Focus();
                 }
+                lbCtrl.Focus();
             }
         }
         private void chbxUserKey_Unchecked(object sender, RoutedEventArgs e)
@@ -586,8 +568,8 @@ namespace EPAMetadataEditor.Pages
                 foreach (string s in _listUserK)
                 {
                     lbCtrl.Text += s + System.Environment.NewLine;
-                    lbCtrl.Focus();
-                    cbx.Focus();
+                    //lbCtrl.Focus();
+                    //cbx.Focus();
                 }
                 lbCtrl.Focus();
             }
@@ -812,9 +794,11 @@ namespace EPAMetadataEditor.Pages
         //        var liBoxName = "chbxEpaThemekey";
         //        var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
         //        System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
+        //        liBoxCtrl.IsChecked = listMdEpaK.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
+
         //        string searchKeyword = xmlTest.InnerText.Trim();
 
-        //        if (listMdEpaK.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+        //        if (listMdEpaK.Exists(s => s.Equals(xmlTest.InnerText.Trim())))
 
         //        {
         //            liBoxCtrl.IsChecked = true;
@@ -850,9 +834,11 @@ namespace EPAMetadataEditor.Pages
         //        var liBoxName = "chbxEpaPlacekey";
         //        var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
         //        System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
+        //        liBoxCtrl.IsChecked = listMdPlaceK.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
+
         //        string searchKeyword = xmlTest.InnerText.Trim();
 
-        //        if (listMdPlaceK.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+        //        if (listMdPlaceK.Exists(s => s.Equals(xmlTest.InnerText.Trim())))
 
         //        {
         //            liBoxCtrl.IsChecked = true;
@@ -1005,9 +991,11 @@ namespace EPAMetadataEditor.Pages
         //        var liBoxName = "chbxUserKey";
         //        var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
         //        System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
+        //        liBoxCtrl.IsChecked = listMdUserK.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
+
         //        string searchKeyword = xmlTest.InnerText.Trim();
 
-        //        if (listMdUserK.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+        //        if (listMdUserK.Exists(s => s.Equals(xmlTest.InnerText.Trim())))
 
         //        {
         //            liBoxCtrl.IsChecked = true;
