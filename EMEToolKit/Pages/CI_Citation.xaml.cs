@@ -61,5 +61,46 @@ using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; name
     {
       InitializeComponent();
     }
-  }
+
+        public List<Control> AllChildren(DependencyObject parent)
+        {
+            var _List = new List<Control> { };
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var _Child = VisualTreeHelper.GetChild(parent, i);
+                if (_Child is Control)
+                    _List.Add(_Child as Control);
+                _List.AddRange(AllChildren(_Child));
+            }
+            return _List;
+        }
+
+        private void btnThesanameEPA_Click(object sender, RoutedEventArgs e)
+        {
+            ListBox liBox = (ListBox)lbxCitation;
+            foreach (var liBoxItem in liBox.Items)
+            {
+                var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
+                var liBoxChildren = AllChildren(liBoxCont);
+                var liBoxName = "tbxResTitle";
+                var liBoxCtrl = (TextBox)liBoxChildren.First(c => c.Name == liBoxName);
+                liBoxCtrl.Text = "EPA GIS Keyword Thesaurus";
+                liBoxCtrl.Focus();
+            }
+        }
+
+        private void btnThesanameUser_Click(object sender, RoutedEventArgs e)
+        {
+            ListBox liBox = (ListBox)lbxCitation;
+            foreach (var liBoxItem in liBox.Items)
+            {
+                var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
+                var liBoxChildren = AllChildren(liBoxCont);
+                var liBoxName = "tbxResTitle";
+                var liBoxCtrl = (TextBox)liBoxChildren.First(c => c.Name == liBoxName);
+                liBoxCtrl.Text = "User";
+                liBoxCtrl.Focus();
+            }
+        }
+    }
 }

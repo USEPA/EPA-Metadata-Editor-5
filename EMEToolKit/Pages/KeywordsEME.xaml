@@ -9,7 +9,7 @@
     Loaded="FillXml">
 
     <UserControl.Resources>
-        <!-- 
+    <!-- 
     <!ENTITY % DataIdent '(idCitation, idAbs, idPurp?, idCredit*, idStatus*, idPoC*, resMaint*, graphOver*, dsFormat*, 
           discKeys*, otherKeys*, placeKeys*, searchKeys*, stratKeys*, tempKeys*, themeKeys*, idSpecUse*, resConst*, aggrInfo*, spatRpType*, dataScale*, dataLang+, dataChar*, tpCat*, envirDesc?, dataExt*, suppInfo?)'>
     <!ENTITY % Keywords '(keyword+, keyTyp?, thesaName?, thesaLang?)'> 
@@ -56,36 +56,6 @@
                                 <TopicCatCd_018 value="False"/>
                                 <TopicCatCd_019 value="False"/>
                             </tpCatBag>
-                            <themeKeys>
-                                <thesaName>
-                                    <resTitle>User</resTitle>
-                                    <resAltTitle>User Keywords</resAltTitle>
-                                    <collTitle></collTitle>
-                                    <date>
-                                        <createDate>2016-08-31T00:00:00</createDate>
-                                    </date>
-                                </thesaName>
-                                <thesaLang>
-                                    <languageCode value="eng"/>
-                                    <countryCode value="US"/>
-                                </thesaLang>
-                                <keyword></keyword>
-                            </themeKeys>
-                            <themeKeys>
-                                <thesaName>
-                                    <resTitle>EPA GIS Keyword Thesaurus</resTitle>
-                                    <resAltTitle>EPA Keywords</resAltTitle>
-                                    <collTitle></collTitle>
-                                    <date>
-                                        <createDate>2016-08-31T00:00:00</createDate>
-                                    </date>
-                                </thesaName>
-                                <thesaLang>
-                                    <languageCode value="eng"/>
-                                    <countryCode value="US"/>
-                                </thesaLang>
-                                <keyword></keyword>
-                            </themeKeys>
                             <placeKeys>
                                 <thesaLang>
                                     <languageCode value="eng"/>
@@ -210,7 +180,7 @@
     <Grid Style="{DynamicResource EditorFrontPageStyle}">
         <StackPanel>
             <Image Source="../Icons/epa_logo_horizontal_black.png" RenderOptions.BitmapScalingMode="Fant" MaxHeight="40" HorizontalAlignment="Left" Margin="10"/>
-            <ListBox x:Name="lbxKeywordEditorPage" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo[1]}" Loaded="lbxKeywordEditorPage_Loaded">
+            <ListBox x:Name="lbxKeywordEditorPage" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo[1]}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -281,20 +251,20 @@
                             </Border>
 
                             <!-- epa keywords -->
-                            <Border Style="{DynamicResource EditorBorder2Style}">
-                                <StackPanel>
-                                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
-                                        <ListBox.ItemsSource>
-                                            <Binding XPath="themeKeys[thesaName/resTitle[contains(. , 'EPA GIS Keyword Thesaurus')]]"/>
-                                        </ListBox.ItemsSource>
-                                        <ListBox.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <StackPanel/>
-                                            </ItemsPanelTemplate>
-                                        </ListBox.ItemsPanel>
-                                        <ListBox.ItemTemplate>
-                                            <DataTemplate>
-                                                <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}" Collapsed="Expander_Collapsed" Expanded="Expander_Expanded">
+                            <StackPanel>
+                                <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                    <ListBox.ItemsSource>
+                                        <Binding XPath="themeKeys[thesaName/resTitle[contains(. , 'EPA GIS Keyword Thesaurus')]]"/>
+                                    </ListBox.ItemsSource>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Style="{DynamicResource EditorBorder2Style}">
+                                                <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                     <Expander.Header>
                                                         <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
                                                                    RelativeSource={RelativeSource FindAncestor,
@@ -308,23 +278,39 @@
                                                         <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
                                                     </StackPanel>
                                                 </Expander>
-                                            </DataTemplate>
-                                        </ListBox.ItemTemplate>
-                                    </ListBox>
-                                </StackPanel>
-                            </Border>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                                <!--<Border Style="{DynamicResource EditorBorder2Style}">
+                                    <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                        <Expander.Header>
+                                            <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
+                                                                   RelativeSource={RelativeSource FindAncestor,
+                                                                   AncestorType={x:Type ContentPresenter}},
+                                                                   Mode=OneWayToSource}" LastChildFill="True">
+                                                <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="EPA Keywords"/>
+                                            </DockPanel>
+                                        </Expander.Header>
+                                        <StackPanel Style="{DynamicResource ExpanderBodyStyle}">
+                                            <p:MD_KeywordsTEST ToolTip="{x:Static r:Definitions.MD_Keywords_theme}"/>
+                                            <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                        </StackPanel>
+                                    </Expander>
+                                </Border>-->
+                            </StackPanel>
 
                             <!-- place keywords -->
-                            <Border Style="{DynamicResource EditorBorder2Style}">
-                                <StackPanel>
-                                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=placeKeys}">
-                                        <ListBox.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <StackPanel/>
-                                            </ItemsPanelTemplate>
-                                        </ListBox.ItemsPanel>
-                                        <ListBox.ItemTemplate>
-                                            <DataTemplate>
+                            <StackPanel>
+                                <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=placeKeys}">
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Style="{DynamicResource EditorBorder2Style}">
                                                 <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                     <Expander.Header>
                                                         <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
@@ -339,11 +325,11 @@
                                                         <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
                                                     </StackPanel>
                                                 </Expander>
-                                            </DataTemplate>
-                                        </ListBox.ItemTemplate>
-                                    </ListBox>
-                                </StackPanel>
-                            </Border>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
 
                             <!-- user keywords -->
                             <Border Style="{DynamicResource EditorBorder2Style}">
@@ -359,10 +345,6 @@
                                         </ListBox.ItemsPanel>
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
-                                                <!--<StackPanel Style="{DynamicResource ExpanderBodyStyle}">
-                                                    <p:MD_KeywordsUser ToolTip="{x:Static r:Definitions.MD_Keywords_theme}"/>
-                                                    <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
-                                                </StackPanel>-->
                                                 <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                     <Expander.Header>
                                                         <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
@@ -391,7 +373,7 @@
                                         </StackPanel>
                                     </Button>-->
 
-                                    <!-- TEST theme keys -->
+                                    <!-- theme keys -->
                                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
                                         <ListBox.ItemsSource>
                                             <Binding XPath="themeKeys[not(thesaName/resTitle) or thesaName/resTitle[not(contains(. , 'User')) and not(contains(. , 'EPA GIS Keyword Thesaurus'))]]"/>
@@ -422,6 +404,7 @@
                                             </DataTemplate>
                                         </ListBox.ItemTemplate>
                                     </ListBox>
+                                    
                                     <!-- ADD theme keywords -->
                                     <Button Tag="ThemeKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
                                         <StackPanel VerticalAlignment="Center" Orientation="Horizontal">

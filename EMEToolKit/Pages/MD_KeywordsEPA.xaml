@@ -45,22 +45,11 @@
 	    value (AF | AX | AL | DZ | AS | AD | AO | AI | AQ | AG | AR | AM | AW | AU | AT | AZ | BS | BH | BD | BB | BY | BE | BZ | BJ | BM | BT | BO | BA | BW | BV | BR | IO | BN | BG | BF | BI | KH | CM | CA | CV | KY | CF | TD | CL | CN | CX | CC | CO | KM | CG | CD | CK | CR | CI | HR | CU | CY | CZ | DK | DJ | DM | DO | EC | EG | SV | GQ | ER | EE | ET | FK | FO | FJ | FI | FR | GF | PF | TF | GA | GM | GE | DE | GH | GI | GR | GL | GD | GP | GU | GT | GG | GN | GW | GY | HT | HM | VA | HN | HK | HU | IS | IN | ID | IR | IQ | IE | IM | IL | IT | JM | JP | JE | JO | KZ | KE | KI | KP | KR | KW | KG | LA | LV | LB | LS | LR | LY | LI | LT | LU | MO | MK | MG | MW | MY | MV | ML | MT | MH | MQ | MR | MU | YT | MX | FM | MD | MC | MN | ME | MS | MA | MZ | MM | NA | NR | NP | NL | AN | NC | NZ | NI | NE | NG | NU | NF | MP | NO | OM | PK | PW | PS | PA | PG | PY | PE | PH | PN | PL | PT | PR | QA | RE | RO | RU | RW | BL | SH | KN | LC | MF | PM | VC | WS | SM | ST | SA | SN | RS | SC | SL | SG | SK | SI | SB | SO | ZA | GS | ES | LK | SD | SR | SJ | SZ | SE | CH | SY | TW | TJ | TZ | TH | TL | TG | TK | TO | TT | TN | TR | TM | TC | TV | UG | UA | AE | GB | US | UM | UY | UZ | VU | VE | VN | VG | VI | WF | EH | YE | ZM | ZW ) "US">
     -->
 
-        <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+        <XmlDataProvider x:Key="XmlRecord" XPath="/metadata/dataIdInfo/themeKeys[thesaName/resTitle[contains(. , 'EPA GIS Keyword Thesaurus')]]" IsAsynchronous="False" IsInitialLoadEnabled="True">
             <x:XData>
                 <ANY xmlns="" editorExpand="False">
                     <bag/>
-                    <thesaName editorExpand="" editorFillOnly="True">
-                        <resTitle>EPA GIS Keyword Thesaurus</resTitle>
-                        <resAltTitle>EPA Keywords</resAltTitle>
-                        <collTitle></collTitle>
-                        <date>
-                            <createDate>2016-08-31T00:00:00</createDate>
-                        </date>
-                    </thesaName>
-                    <thesaLang>
-                        <languageCode value="eng"/>
-                        <countryCode value="US"/>
-                    </thesaLang>
+                    <thesaName editorExpand="" editorFillOnly="True"/>
                 </ANY>
             </x:XData>
         </XmlDataProvider>
@@ -91,25 +80,8 @@
             <UniformGrid Columns="3"/>
         </ItemsPanelTemplate>
 
-        <!--<Style x:Key="ChbxListItem" TargetType="{x:Type ListViewItem}">
-            <Setter Property="Focusable" Value="False"/>
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding IsFocused}" Value="True">
-                    <Setter Property="FocusManager.FocusedElement" Value="{Binding RelativeSource={RelativeSource Self}}" />
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>-->
-
         <Style x:Key="ChbxListItem" TargetType="{x:Type ListViewItem}">
             <Setter Property="Focusable" Value="False"/>
-        </Style>
-
-        <Style x:Key="SelectedListViewStyle" TargetType="{x:Type ListView}">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding IsFocused}" Value="True">
-                    <Setter Property="FocusManager.FocusedElement" Value="{Binding RelativeSource={RelativeSource Self}}" />
-                </DataTrigger>
-            </Style.Triggers>
         </Style>
 
     </UserControl.Resources>
@@ -117,9 +89,9 @@
     <StackPanel>
 
         <Border Style="{DynamicResource EditorBorderSubStyle}">
-            <!-- keywords -->
+            <!-- EPA keywords -->
             <controls:Resizer>
-                <StackPanel Loaded="StackPanel_Loaded">
+                <StackPanel>
                     <!--EPA Keyword List from: EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsEPA.xml-->
                     <ListView x:Name="lbxEpaThemeK"
                               VirtualizingPanel.IsVirtualizing="False"
@@ -129,10 +101,7 @@
                               ItemsPanel="{StaticResource ThreeColumnList}"
                               ItemContainerStyle="{StaticResource ChbxListItem}"
                               SelectionMode="Multiple"
-                              Margin="10,0,0,0"
-                              Initialized="lbxEpaThemeK_Initialized"
-                              IsVisibleChanged="lbxEpaThemeK_IsVisibleChanged"
-                              Loaded="lbxEpaThemeK_Loaded">
+                              Margin="10,0,0,0">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <CheckBox Name="chbxEpaThemekey" Content="{Binding XPath=themekey}" Checked="chbxEpaThemekey_Checked" Unchecked="chbxEpaThemekey_Unchecked"/>
@@ -164,9 +133,7 @@
                     <!--Metadata Keywords-->
                     <TextBox x:Name="tbxMDEpaThemeK" Style="{DynamicResource EditorTextAreaResizeStyle}"
                              v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
-                             Text="{e:MetadataBinding XPath=bag}"
-                             GotFocus="tbxMDEpaThemeK_GotFocus"
-                             Loaded="tbxMDEpaThemeK_Loaded"/>
+                             Text="{e:MetadataBinding XPath=bag}" Loaded="tbxMDEpaThemeK_Loaded"/>
                 </StackPanel>
             </controls:Resizer>
         </Border>
@@ -220,9 +187,9 @@
                                        RelativeSource={RelativeSource FindAncestor,
                                        AncestorType={x:Type ContentPresenter}},
                                        Mode=OneWayToSource}" LastChildFill="True">
-                                <!--<Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
+                                <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
                                     <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                                </Button>-->
+                                </Button>
                                 <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THESCITE}"/>
                             </DockPanel>
                         </Expander.Header>
@@ -241,7 +208,7 @@
                     <Button Tag="thesaName" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
                         <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                             <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                            <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_ADD_THESAURUS}"/>
+                            <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Add EPA Thesaurus"/>
                         </StackPanel>
                     </Button>
                 </DataTemplate>
