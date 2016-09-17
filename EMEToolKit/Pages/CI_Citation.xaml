@@ -140,10 +140,6 @@
                                                    Mode=OneWayToSource}" LastChildFill="True">
                                             <Label Style="{DynamicResource EditorHExpanderSimpleLabel}" Content="{x:Static r:Resources.LBL_CITATION_TITLES}"/>
                                             <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{Binding XPath=resTitle, Mode=TwoWay}"/>
-                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                                <Button Name="btnThesanameEPA" Click="btnThesanameEPA_Click" Style="{DynamicResource DeleteButton}">EPA Keywords</Button>
-                                                <Button Name="btnThesanameUser" Click="btnThesanameUser_Click" Style="{DynamicResource DeleteButton}">User Keywords</Button>
-                                            </StackPanel>
                                         </DockPanel>
                                     </Expander.Header>
 
@@ -167,7 +163,7 @@
 
                                         <!-- alternative title -->
                                         <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0" Content="{x:Static r:Resources.LBL_ALTERNATE_TITLE}"/>
-                                        <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="1" Grid.Column="1"
+                                        <TextBox x:Name="tbxAltTitle" Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="1" Grid.Column="1"
                         ToolTip="{x:Static r:Definitions.CI_Citation_alternateTitle}" Text="{e:MetadataBinding XPath=resAltTitle}" SourceUpdated="DefaultValueChanged" />
 
                                         <!-- collective title -->

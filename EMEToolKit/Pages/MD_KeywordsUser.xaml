@@ -84,6 +84,13 @@
             <Setter Property="Focusable" Value="False"/>
         </Style>
 
+        <Style x:Key="TbxHidden" TargetType="{x:Type TextBox}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="0.125"/>
+            <Setter Property="Height" Value="0"/>
+            <Setter Property="Width" Value="0"/>
+        </Style>
+
     </UserControl.Resources>
 
     <StackPanel>
@@ -100,7 +107,7 @@
                               ItemsPanel="{StaticResource ThreeColumnList}"
                               ItemContainerStyle="{StaticResource ChbxListItem}"
                               SelectionMode="Multiple"
-                              Margin="10,0,0,0">
+                              Margin="10,0,0,0" Loaded="tbxMDEpaUserK_Loaded">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <CheckBox Name="chbxEpaUserkey" Content="{Binding XPath=themekey}" Checked="chbxEpaUserkey_Checked" Unchecked="chbxEpaUserkey_Unchecked"/>
@@ -108,12 +115,16 @@
                         </ListView.ItemTemplate>
                     </ListView>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
-                        <Button Name="btnLoadMDUserK" Click="btnLoadMDUserK_Click" Style="{DynamicResource AddButton}">
+                        <!--Metadata Keywords-->
+                        <TextBox x:Name="tbxMDEpaUserK" Text="{e:MetadataBinding XPath=bag}" Style="{DynamicResource TbxHidden}"
+                                 v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"/>
+
+                        <!--<Button Name="btnLoadMDUserK" Click="btnLoadMDUserK_Click" Style="{DynamicResource AddButton}">
                             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                 <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
                                 <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Load Existing"/>
                             </StackPanel>
-                        </Button>
+                        </Button>-->
                         <Button Name="btnLoadDefaultThemeK" Click="btnLoadDefaultUserK_Click" Style="{DynamicResource AddButton}">
                             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                 <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
@@ -127,12 +138,6 @@
                             </StackPanel>
                         </Button>
                     </StackPanel>
-
-                    <!--Metadata Keywords-->
-                    <TextBox x:Name="tbxMDEpaUserK" Style="{DynamicResource EditorTextAreaResizeStyle}"
-                             v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
-                             Text="{e:MetadataBinding XPath=bag}"
-                             Loaded="tbxMDEpaUserK_Loaded"/>
                 </StackPanel>
             </controls:Resizer>
         </Border>

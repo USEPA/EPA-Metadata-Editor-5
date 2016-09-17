@@ -113,6 +113,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\CI_CitationSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\CI_PresentationForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -809,6 +813,9 @@
     <Compile Include="AppCode\Utils1.cs" />
     <Compile Include="Pages\CI_CitationEPA.xaml.cs">
       <DependentUpon>CI_CitationEPA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CI_CitationSelect.xaml.cs">
+      <DependentUpon>CI_CitationSelect.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\CI_PresentationForm.xaml.cs">
       <DependentUpon>CI_PresentationForm.xaml</DependentUpon>

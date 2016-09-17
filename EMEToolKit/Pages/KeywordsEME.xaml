@@ -332,19 +332,19 @@
                             </StackPanel>
 
                             <!-- user keywords -->
-                            <Border Style="{DynamicResource EditorBorder2Style}">
-                                <StackPanel>
-                                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
-                                        <ListBox.ItemsSource>
-                                            <Binding XPath="themeKeys[thesaName/resTitle[contains(. , 'User')]]"/>
-                                        </ListBox.ItemsSource>
-                                        <ListBox.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <StackPanel/>
-                                            </ItemsPanelTemplate>
-                                        </ListBox.ItemsPanel>
-                                        <ListBox.ItemTemplate>
-                                            <DataTemplate>
+                            <StackPanel>
+                                <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                    <ListBox.ItemsSource>
+                                        <Binding XPath="themeKeys[thesaName/resTitle[contains(. , 'User')]]"/>
+                                    </ListBox.ItemsSource>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Style="{DynamicResource EditorBorder2Style}">
                                                 <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                     <Expander.Header>
                                                         <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
@@ -362,29 +362,25 @@
                                                         <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
                                                     </StackPanel>
                                                 </Expander>
-                                            </DataTemplate>
-                                        </ListBox.ItemTemplate>
-                                    </ListBox>
-                                    <!-- ADD theme keywords -->
-                                    <!--<Button x:Name="btnAddThemeKeyUser" Tag="ThemeKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                                            <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                                            <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_THEME}"/>
-                                        </StackPanel>
-                                    </Button>-->
-
-                                    <!-- theme keys -->
-                                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
-                                        <ListBox.ItemsSource>
-                                            <Binding XPath="themeKeys[not(thesaName/resTitle) or thesaName/resTitle[not(contains(. , 'User')) and not(contains(. , 'EPA GIS Keyword Thesaurus'))]]"/>
-                                        </ListBox.ItemsSource>
-                                        <ListBox.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <StackPanel/>
-                                            </ItemsPanelTemplate>
-                                        </ListBox.ItemsPanel>
-                                        <ListBox.ItemTemplate>
-                                            <DataTemplate>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
+                            <!-- theme keys -->
+                            <StackPanel>
+                                <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                    <ListBox.ItemsSource>
+                                        <Binding XPath="themeKeys[not(thesaName/resTitle) or thesaName/resTitle[not(contains(. , 'User')) and not(contains(. , 'EPA GIS Keyword Thesaurus'))]]"/>
+                                    </ListBox.ItemsSource>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Style="{DynamicResource EditorBorder2Style}">
                                                 <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                     <Expander.Header>
                                                         <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
@@ -401,19 +397,19 @@
                                                         <p:MD_Keywords ToolTip="{x:Static r:Definitions.MD_Keywords_theme}"/>
                                                     </StackPanel>
                                                 </Expander>
-                                            </DataTemplate>
-                                        </ListBox.ItemTemplate>
-                                    </ListBox>
-                                    
-                                    <!-- ADD theme keywords -->
-                                    <Button Tag="ThemeKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                                            <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                                            <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_THEME}"/>
-                                        </StackPanel>
-                                    </Button>
-                                </StackPanel>
-                            </Border>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+
+                                <!-- ADD theme keywords -->
+                                <Button Tag="ThemeKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
+                                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                        <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
+                                        <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_THEME}"/>
+                                    </StackPanel>
+                                </Button>
+                            </StackPanel>
 
                             <!-- temporal keywords -->
                             <!--<Border Style="{DynamicResource EditorBorder2Style}">

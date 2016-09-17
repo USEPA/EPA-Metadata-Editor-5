@@ -67,17 +67,68 @@
         </ANY>
       </x:XData>
     </XmlDataProvider>
-  </UserControl.Resources>
+
+    <Style x:Key="TbxHidden" TargetType="{x:Type TextBox}">
+      <Setter Property="BorderThickness" Value="0"/>
+      <Setter Property="FontSize" Value="0.125"/>
+      <Setter Property="Height" Value="0"/>
+      <Setter Property="Width" Value="0"/>
+    </Style>
+      
+    </UserControl.Resources>
 
   <StackPanel>
 
     <Border Style="{DynamicResource EditorBorderSubStyle}">
-      <!-- keywords -->
-      <controls:Resizer>
-        <TextBox Style="{DynamicResource EditorTextAreaResizeStyle}"
+            <StackPanel>
+                <!-- ADD thesaurus -->
+                <StackPanel Orientation="Horizontal">
+                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=self::*[not(following-sibling::thesaName)]}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Button Name="btnAddThesaEPA" Tag="thesaName" Click="btnAddThesaEPA_Click" Style="{DynamicResource AddButton}">
+                                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                        <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
+                                        <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Add Keyword Thesaurus"/>
+                                    </StackPanel>
+                                </Button>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+                <!-- thesaurus citation selection -->
+                <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=thesaName}">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Expander ToolTip="{x:Static r:Definitions.MD_Keywords_thesaurusName}" Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                <Expander.Header>
+                                    <DockPanel HorizontalAlignment="{Binding HorizontalAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Mode=OneWayToSource}" LastChildFill="True">
+                                        <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
+                                            <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
+                                        </Button>
+                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THESCITE}"/>
+                                    </DockPanel>
+                                </Expander.Header>
+                                <Border Style="{DynamicResource EditorBorderSubStyle}">
+                                    <p:CI_CitationSelect/>
+                                </Border>
+                            </Expander>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <!-- keywords -->
+                <controls:Resizer>
+                    <TextBox Style="{DynamicResource EditorTextAreaResizeStyle}"
             v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
             Text="{e:MetadataBinding XPath=bag}"/>
-      </controls:Resizer>
+                </controls:Resizer>
+            </StackPanel>
     </Border>
     
     <!-- NAP style only -->
@@ -115,7 +166,7 @@
     </e:MetadataStyle>
 
     <!-- thesaurus citation -->
-    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=thesaName}">
+    <ListBox x:Name="lbxThesaCitation" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=thesaName}">
       <ListBox.ItemsPanel>
         <ItemsPanelTemplate>
           <StackPanel/>
@@ -144,7 +195,7 @@
     </ListBox>
 
     <!-- ADD thesaurus -->
-    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=self::*[not(following-sibling::thesaName)]}">
+    <!--<ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=self::*[not(following-sibling::thesaName)]}">
       <ListBox.ItemTemplate>
         <DataTemplate>
           <Button Tag="thesaName" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
@@ -155,7 +206,7 @@
           </Button>
         </DataTemplate>
       </ListBox.ItemTemplate>
-    </ListBox>
+    </ListBox>-->
 
     <!-- validate after all anchors are loaded -->
     <v:PageValidateControl/>
