@@ -1199,6 +1199,7 @@
     <Compile Include="Themes\Generic.xaml.cs">
       <DependentUpon>Generic.xaml</DependentUpon>
     </Compile>
+    <None Include="Config\EPA Metadata Specification NAP ISO19915 2003.cfg" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

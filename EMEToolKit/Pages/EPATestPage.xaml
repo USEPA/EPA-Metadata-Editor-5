@@ -136,7 +136,7 @@
         </XmlDataProvider>
 
         <XmlDataProvider x:Key="XmlTestData"
-                         Source="D:\GDB\SHP\rcl_bnnr.shp.xml"
+                         Source="D:\GDB\SHP\Test_007.shp.xml"
                          XPath="/"
                          IsInitialLoadEnabled="True"/>
 
@@ -283,7 +283,7 @@
                                     <Label Grid.Column="0" Grid.Row="4" Content="XPath=."/>
                                     <TextBox Grid.Column="1" Grid.Row="4" Name="testNode" Text="{Binding XPath=.}"/>
                                     <Label Grid.Column="0" Grid.Row="1" Content="XPath=bag"/>
-                                    <TextBox Grid.Column="1" Grid.Row="1" Name="testKeyword" Text="{Binding XPath=bag}"/>
+                                    <TextBox Grid.Column="1" Grid.Row="1" Name="testKeyword" Text="{e:MetadataBinding XPath=bag}"/>
                                     <Label Grid.Column="0" Grid.Row="2" Content="XPath=./thesaLang/languageCode/@value"/>
                                     <TextBox Grid.Column="1" Grid.Row="2" Name="testLang" Text="{Binding XPath=./thesaLang/languageCode/@value}"/>
                                     <Label Grid.Column="0" Grid.Row="3" Content="XPath=./thesaName/date"/>

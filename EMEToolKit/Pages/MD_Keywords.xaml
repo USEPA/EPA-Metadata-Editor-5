@@ -81,7 +81,7 @@
 
     <Border Style="{DynamicResource EditorBorderSubStyle}">
             <StackPanel>
-                <!-- ADD thesaurus -->
+                <!-- CHOOSE thesaurus -->
                 <StackPanel Orientation="Horizontal">
                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=self::*[not(following-sibling::thesaName)]}">
                         <ListBox.ItemTemplate>
@@ -108,10 +108,10 @@
                             <Expander ToolTip="{x:Static r:Definitions.MD_Keywords_thesaurusName}" Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                 <Expander.Header>
                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Mode=OneWayToSource}" LastChildFill="True">
-                                        <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
+                                        <!--<Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
                                             <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                                        </Button>
-                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THESCITE}"/>
+                                        </Button>-->
+                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Select Keyword Thesaurus"/>
                                     </DockPanel>
                                 </Expander.Header>
                                 <Border Style="{DynamicResource EditorBorderSubStyle}">
@@ -174,7 +174,8 @@
       </ListBox.ItemsPanel>
       <ListBox.ItemTemplate>
         <DataTemplate>
-          <Expander ToolTip="{x:Static r:Definitions.MD_Keywords_thesaurusName}" Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+          <!--<Expander ToolTip="{x:Static r:Definitions.MD_Keywords_thesaurusName}" Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">-->
+          <Expander ToolTip="{x:Static r:Definitions.MD_Keywords_thesaurusName}" Style="{DynamicResource EditorExpander2Style}">
             <Expander.Header>
               <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
                   RelativeSource={RelativeSource FindAncestor,
