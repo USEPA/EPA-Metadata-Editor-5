@@ -58,7 +58,7 @@
         <XmlDataProvider x:Key="XmlRecord_thesaName" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
             <x:XData>
                 <ANY xmlns="">
-                    <thesaName editorExpand="True"/>
+                    <thesaName editorExpand="False"/>
                 </ANY>
             </x:XData>
         </XmlDataProvider>

@@ -73,7 +73,7 @@ namespace EPAMetadataEditor.Pages
                 System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
                 string searchKeyword = xmlTest.InnerText.Trim();
 
-                if (MDKeywords.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+                if (MDKeywords.Exists(s => s.Equals(xmlTest.InnerText.Trim())))
 
                 {
                     liBoxCtrl.IsChecked = true;
@@ -132,7 +132,7 @@ namespace EPAMetadataEditor.Pages
                 //    lbCtrl.Focus();
                 //}
 
-                if (MDKeywords.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+                if (MDKeywords.Exists(s => s.Equals(xmlTest.InnerText.Trim())))
 
                 {
                     liBoxCtrl.IsChecked = true;
@@ -170,7 +170,7 @@ namespace EPAMetadataEditor.Pages
                 System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
                 string searchKeyword = xmlTest.InnerText.Trim();
 
-                if (MDKeywords.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+                if (MDKeywords.Exists(s => s.Equals(xmlTest.InnerText.Trim())))
 
                 {
                     liBoxCtrl.IsChecked = true;
@@ -208,7 +208,7 @@ namespace EPAMetadataEditor.Pages
                 System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
                 string searchKeyword = xmlTest.InnerText.Trim();
 
-                if (MDKeywords.Exists(s => s.Contains(xmlTest.InnerText.Trim())))
+                if (MDKeywords.Exists(s => s.Equals(xmlTest.InnerText.Trim())))
 
                 {
                     liBoxCtrl.IsChecked = true;
