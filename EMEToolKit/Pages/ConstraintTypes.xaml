@@ -8,8 +8,8 @@
     xmlns:toolkit="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit"
     Loaded="FillXml">
 
-  <UserControl.Resources>
-    <!--
+    <UserControl.Resources>
+        <!--
     
     <!ELEMENT mdConst %ConstsTypes;>
     <!ENTITY % ConstsTypes '(Consts | LegConsts | SecConsts)'>
@@ -41,99 +41,135 @@
     <!ELEMENT classSys (#PCDATA)>
     <!ELEMENT handDesc (#PCDATA)>    
     -->
-    
-  </UserControl.Resources>
 
-  <Grid>
-    <StackPanel>
+    </UserControl.Resources>
 
-      <!-- general constraints -->
-      <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=Consts}">
-        <ListBox.ItemsPanel>
-          <ItemsPanelTemplate>
-            <StackPanel/>
-          </ItemsPanelTemplate>
-        </ListBox.ItemsPanel>
-        <ListBox.ItemTemplate>
-          <DataTemplate>
-            <Border Style="{DynamicResource EditorBorder2Style}">
-              <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-                <Expander.Header>
-                  <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
+    <Grid>
+        <StackPanel>
+
+            <!-- general constraints -->
+            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=Consts}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{DynamicResource EditorBorder2Style}">
+                            <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                <Expander.Header>
+                                    <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
                         RelativeSource={RelativeSource FindAncestor,
                         AncestorType={x:Type ContentPresenter}},
                         Mode=OneWayToSource}" LastChildFill="True">
-                    <Button DockPanel.Dock="Right" Click="DeleteItem" Tag="deleteParent" Style="{DynamicResource DeleteButton}">
-                      <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                    </Button>
-                    <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static prop:Resources.LBL_CONSTS_GENERAL}"/>
-                  </DockPanel>
-                </Expander.Header>
-                <pages:MD_Constraints/>
-              </Expander>
-            </Border>
-          </DataTemplate>
-        </ListBox.ItemTemplate>
-      </ListBox>
+                                        <Button DockPanel.Dock="Right" Click="DeleteItem" Tag="deleteParent" Style="{DynamicResource DeleteButton}">
+                                            <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
+                                        </Button>
+                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static prop:Resources.LBL_CONSTS_GENERAL}"/>
+                                    </DockPanel>
+                                </Expander.Header>
+                                <pages:MD_Constraints/>
+                            </Expander>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
 
-      <!-- legal contstraints -->
-      <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=LegConsts}">
-        <ListBox.ItemsPanel>
-          <ItemsPanelTemplate>
-            <StackPanel/>
-          </ItemsPanelTemplate>
-        </ListBox.ItemsPanel>
-        <ListBox.ItemTemplate>
-          <DataTemplate>
-            <Border Style="{DynamicResource EditorBorder2Style}">
-              <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-                <Expander.Header>
-                  <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
+            <!-- legal contstraints -->
+            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                <ListBox.ItemsSource>
+                    <Binding XPath="LegConsts[not(useLimit) or useLimit[not(contains(. , 'FederalRegister.gov System of Records Notice'))]]"/>
+                </ListBox.ItemsSource>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{DynamicResource EditorBorder2Style}">
+                            <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                <Expander.Header>
+                                    <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
                         RelativeSource={RelativeSource FindAncestor,
                         AncestorType={x:Type ContentPresenter}},
                         Mode=OneWayToSource}" LastChildFill="True">
-                    <Button DockPanel.Dock="Right" Click="DeleteItem" Tag="deleteParent" Style="{DynamicResource DeleteButton}">
-                      <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                    </Button>
-                    <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static prop:Resources.LBL_CONSTS_LEGAL}"/>
-                  </DockPanel>
-                </Expander.Header>
-                <pages:MD_LegalConstraints/>
-              </Expander>
-            </Border>
-          </DataTemplate>
-        </ListBox.ItemTemplate>
-      </ListBox>
+                                        <Button DockPanel.Dock="Right" Click="DeleteItem" Tag="deleteParent" Style="{DynamicResource DeleteButton}">
+                                            <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
+                                        </Button>
+                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static prop:Resources.LBL_CONSTS_LEGAL}"/>
+                                    </DockPanel>
+                                </Expander.Header>
+                                <pages:MD_LegalConstraintsEME/>
+                            </Expander>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
 
-      <!-- security contstraints -->
-      <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=SecConsts}">
-        <ListBox.ItemsPanel>
-          <ItemsPanelTemplate>
-            <StackPanel/>
-          </ItemsPanelTemplate>
-        </ListBox.ItemsPanel>
-        <ListBox.ItemTemplate>
-          <DataTemplate>
-            <Border Style="{DynamicResource EditorBorder2Style}">
-              <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-                <Expander.Header>
-                  <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
+            <!-- legal contstraints SOR-->
+            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                <ListBox.ItemsSource>
+                    <Binding XPath="LegConsts[useLimit[contains(. , 'FederalRegister.gov System of Records Notice')]]"/>
+                </ListBox.ItemsSource>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{DynamicResource EditorBorder2Style}">
+                            <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                <Expander.Header>
+                                    <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
                         RelativeSource={RelativeSource FindAncestor,
                         AncestorType={x:Type ContentPresenter}},
                         Mode=OneWayToSource}" LastChildFill="True">
-                    <Button DockPanel.Dock="Right" Click="DeleteItem" Tag="deleteParent" Style="{DynamicResource DeleteButton}">
-                      <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                    </Button>
-                    <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static prop:Resources.LBL_CONSTS_SECURITY}"/>
-                  </DockPanel>
-                </Expander.Header>
-                <pages:MD_SecurityConstraints/>
-              </Expander>
-            </Border>
-          </DataTemplate>
-        </ListBox.ItemTemplate>
-      </ListBox>
-    </StackPanel>
-  </Grid>
+                                        <Button DockPanel.Dock="Right" Click="DeleteItem" Tag="deleteParent" Style="{DynamicResource DeleteButton}">
+                                            <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
+                                        </Button>
+                                        <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static prop:Resources.LBL_CONSTS_LEGAL}"/>-->
+                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="System of Records Notice"/>
+                                    </DockPanel>
+                                </Expander.Header>
+                                <pages:MD_LegalConstraintsSOR/>
+                            </Expander>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <!-- security contstraints -->
+            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=SecConsts}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{DynamicResource EditorBorder2Style}">
+                            <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                <Expander.Header>
+                                    <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
+                        RelativeSource={RelativeSource FindAncestor,
+                        AncestorType={x:Type ContentPresenter}},
+                        Mode=OneWayToSource}" LastChildFill="True">
+                                        <Button DockPanel.Dock="Right" Click="DeleteItem" Tag="deleteParent" Style="{DynamicResource DeleteButton}">
+                                            <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
+                                        </Button>
+                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static prop:Resources.LBL_CONSTS_SECURITY}"/>
+                                    </DockPanel>
+                                </Expander.Header>
+                                <pages:MD_SecurityConstraintsEME/>
+                            </Expander>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+    </Grid>
 </corepages:EditorPage>

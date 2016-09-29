@@ -159,6 +159,10 @@
                          Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsPlace.xml"
                          XPath="emeData/KeywordsPlace"
                          IsInitialLoadEnabled="True"/>
+        <XmlDataProvider x:Key="EPASecConsts"
+                         Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\SecurityConstraints.xml"
+                         XPath="emeData/SecurityConstraints"
+                         IsInitialLoadEnabled="True"/>
 
         <DataTemplate x:Key="keywordItemCheckBox">
             <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{Binding XPath=themekey}"/>
@@ -177,37 +181,6 @@
         </Style>
 
         <e:Codelists x:Key="IMS_ContentType" CodelistName="IMS_ContentType"/>
-
-        <!-- validation issues  -->
-        <v:MetadataIssueInfo x:Key="topics" Message="{x:Static r:Issues.topics_REQ}" />
-        <v:MetadataIssueInfo x:Key="themeKeywords" Name="themeKeywords" Message="{x:Static r:Issues.themeKeywords_REQ}" />
-        <v:MetadataIssueInfo x:Key="placeKeywords" Name="placeKeywords" Message="{x:Static r:Issues.placeKeywords_REQ}" />
-        <v:MetadataIssueInfo x:Key="temporalKeywords" Name="temporalKeywords" Message="{x:Static r:Issues.temporalKeywords_REQ}" />
-        <v:MetadataIssueInfo x:Key="disciplineKeywords" Name="disciplineKeywords" Message="{x:Static r:Issues.disciplineKeywords_REQ}" />
-        <v:MetadataIssueInfo x:Key="stratumKeywords" Name="stratumKeywords" Message="{x:Static r:Issues.stratumKeywords_REQ}" />
-        <v:MetadataIssueInfo x:Key="otherKeywords" Name="otherKeywords" Message="{x:Static r:Issues.otherKeywords_REQ}" />
-        <v:MetadataIssueInfo x:Key="productKeywords" Name="productKeywords" Message="{x:Static r:Issues.productKeywords_REQ}" />
-
-        <v:MetadataIssueInfo x:Key="party" Message="{x:Static r:Issues.party_REQ}" />
-        <v:MetadataIssueInfo x:Key="partyFgdc" Message="{x:Static r:Issues.partyFgdc_FGDC_REQ}" />
-        <v:MetadataIssueInfo x:Key="role" Message="{x:Static r:Issues.role_REQ}" />
-        <v:MetadataIssueInfo x:Key="linkage" Message="{x:Static r:Issues.linkage_REQ}" />
-        <v:MetadataIssueInfo x:Key="protocol" Message="{x:Static r:Issues.protocol_REQ}" />
-        <v:MetadataIssueInfo x:Key="rpCntInfo_NAP_REQ" Message="{x:Static r:Issues.rpCntInfo_NAP_REQ}" />
-        <v:MetadataIssueInfo x:Key="tagTopicKeyword" Message="{x:Static r:Issues.tagTopicKeyword_REQ}" />
-        <v:MetadataIssueInfo x:Key="voiceNum" Message="{x:Static r:Issues.voiceNum_FGDC_REQ}" />
-
-        <v:MetadataIssueInfo x:Key="cntAddress" Message="{x:Static r:Issues.cntAddress_FGDC_REQ}" />
-        <v:MetadataIssueInfo x:Key="addressType" Message="{x:Static r:Issues.addressType_REQ}" />
-        <v:MetadataIssueInfo x:Key="adminArea" Message="{x:Static r:Issues.adminArea_REQ}" />
-        <v:MetadataIssueInfo x:Key="adminArea_FGDC" Name="adminArea_FGDC" Message="{x:Static r:Issues.adminArea_FGDC_REQ}" />
-        <v:MetadataIssueInfo x:Key="city" Message="{x:Static r:Issues.city_REQ}" />
-        <v:MetadataIssueInfo x:Key="postCode" Message="{x:Static r:Issues.postCode_REQ}" />
-
-        <!-- id and citation -->
-        <v:MetadataIssueInfo x:Key="resTitle" Message="{x:Static r:Issues.resTitle_REQ}" />
-        <v:MetadataIssueInfo x:Key="dates" Message="{x:Static r:Issues.dates_REQ}" />
-        <v:MetadataIssueInfo x:Key="identCode" Message="{x:Static r:Issues.identCode_REQ}" />
 
     </UserControl.Resources>
 
@@ -294,8 +267,90 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
+                    <Label Name="labelXMLEsri" Content="Bound Using ESRI XMLRecord Node: '/metadata/Esri'"/>
+                    <ListBox x:Name="lvXMLEsri" SelectionMode="Multiple" Margin="10,0,10,20">
+                        <ListBox.ItemsSource>
+                            <Binding XPath="/metadata/Esri"/>
+                        </ListBox.ItemsSource>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Grid.Row="0" Content="XPath=."/>
+                                    <TextBox Grid.Column="1" Grid.Row="0" Name="testNode" Text="{Binding XPath=.}"/>
+                                    <Label Grid.Column="0" Grid.Row="1" Content="XPath=/CreaDate"/>
+                                    <TextBox Grid.Column="1" Grid.Row="1" Name="testCreaDate" Text="{Binding XPath=./CreaDate}"/>
+                                    <Label Grid.Column="0" Grid.Row="2" Content="XPath=/ModDate"/>
+                                    <TextBox Grid.Column="1" Grid.Row="2" Name="testModDate" Text="{Binding XPath=./ModDate}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <!--<Label Content="Test XMLRecord Node: 'EMEdb'"/>
+                    <ListBox DataContext="{DynamicResource EPASecConsts}" ItemsSource = "{Binding}" Margin="10,0,10,20">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Grid.Row="0" Content="XPath=."/>
+                                    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding XPath=.}"/>
+                                    <Label Grid.Column="0" Grid.Row="1" Content="XPath=.."/>
+                                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding XPath=..}"/>
+                                    <Label Grid.Column="0" Grid.Row="2" Content="XPath=./usenote"/>
+                                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding XPath=./usenote}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>-->
                 </StackPanel>
             </StackPanel>
+
+            <Border Style="{DynamicResource EditorBorder2Style}">
+                <StackPanel>
+                    <Border Height="30" Padding="0" Background="#4E87D4">
+                        <Label VerticalAlignment="Center" Foreground="White" Content="ComboBox: EMEdb\SecurityConstraints.xml"/>
+                    </Border>
+                    <ComboBox DataContext="{DynamicResource EPASecConsts}" ItemsSource="{Binding}" IsEditable="True">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding XPath=usenote}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <Border Height="30" Padding="0" Background="#4E87D4">
+                        <Label VerticalAlignment="Center" Foreground="White" Content="ListView: EMEdb\SecurityConstraints.xml"/>
+                    </Border>
+                    <ListView DataContext="{DynamicResource EPASecConsts}" ItemsSource = "{Binding}" Template="{StaticResource ListBoxNoScroll}" Margin="10,20,10,0">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding XPath=usenote}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    
+                </StackPanel>
+            </Border>
 
             <Border Style="{DynamicResource EditorBorder2Style}">
                 <StackPanel>
@@ -303,9 +358,7 @@
                     <Border Height="30" Padding="0" Background="#4E87D4">
                         <Label Style="{DynamicResource EditorVLabelNoIdentStyle}" 
                            Foreground="White"
-                           ToolTip="{x:Static r:Definitions.MD_DataIdentification_topicCategory}"
-                           v:Nav.AnchorName="topics,tpCatBag"
-                           Content="ISO Keywords" />
+                           ToolTip="{x:Static r:Definitions.MD_DataIdentification_topicCategory}" Content="ISO Keywords" />
                     </Border>
                     <Label VerticalAlignment="Center" Content="ESRI Static Resource"/>
                     <Grid>
@@ -315,29 +368,29 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Style="{DynamicResource EditorCheckboxPanel}">
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_001}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_001/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_002}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_002/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_003}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_003/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_004}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_004/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_005}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_005/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_006}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_006/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_007}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_007/@value}" v:Nav.Check="True"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_001}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_001/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_002}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_002/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_003}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_003/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_004}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_004/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_005}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_005/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_006}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_006/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_007}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_007/@value}"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Style="{DynamicResource EditorCheckboxPanel}">
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_008}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_008/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_009}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_009/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_010}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_010/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_011}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_011/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_012}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_012/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_013}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_013/@value}" v:Nav.Check="True"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_008}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_008/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_009}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_009/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_010}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_010/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_011}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_011/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_012}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_012/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_013}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_013/@value}"/>
                         </StackPanel>
                         <StackPanel Grid.Column="2" Style="{DynamicResource EditorCheckboxPanel}">
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_014}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_014/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_015}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_015/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_016}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_016/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_017}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_017/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_018}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_018/@value}" v:Nav.Check="True"/>
-                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_019}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_019/@value}" v:Nav.Check="True"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_014}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_014/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_015}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_015/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_016}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_016/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_017}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_017/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_018}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_018/@value}"/>
+                            <CheckBox Style="{DynamicResource EditorCheckBoxStyle}" Content="{x:Static r:Resources.LBL_TOPICS_019}" IsChecked="{Binding XPath=//tpCatBag/TopicCatCd_019/@value}"/>
                         </StackPanel>
                     </Grid>
                 </StackPanel>
@@ -505,7 +558,7 @@
 
                 </StackPanel>
             </Border>
-
+            
             <!-- validate after all anchors are loaded -->
             <v:PageValidateControl/>
 
