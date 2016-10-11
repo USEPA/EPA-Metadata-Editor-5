@@ -25,6 +25,9 @@ namespace EMEdbManager
             InitializeComponent();
             string appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
             XmlRecord_ThemeKeyEpa.Source = new Uri("C:\\Users\\Innovate\\AppData\\Roaming\\Innovate! Inc\\EPA Metadata Edtior 4x\\Eme4xSystemFiles\\EMEdb\\KeywordsEPA.xml");
+            XmlRecord_ThemeKeyUser.Source = new Uri("C:\\Users\\Innovate\\AppData\\Roaming\\Innovate! Inc\\EPA Metadata Edtior 4x\\Eme4xSystemFiles\\EMEdb\\KeywordsUser.xml");
+            XmlRecord_ThemeKeyPlace.Source = new Uri("C:\\Users\\Innovate\\AppData\\Roaming\\Innovate! Inc\\EPA Metadata Edtior 4x\\Eme4xSystemFiles\\EMEdb\\KeywordsPlace.xml");
+            XmlRecord_ThemeKeyEpa2.Source = new Uri("C:\\Users\\Innovate\\AppData\\Roaming\\Innovate! Inc\\EPA Metadata Edtior 4x\\Eme4xSystemFiles\\EMEdb\\KeywordsEPA.xml");
             //XmlRecord_ThemeKeyUser.Source = new Uri("C:\\Users\\Innovate\\AppData\\Roaming\\Innovate! Inc\\EPA Metadata Edtior 4x\\Eme4xSystemFiles\\EMEdb\\KeywordsUser.xml");
             //XmlRecord_PlaceKey.Source = new Uri("C:\\Users\\Innovate\\AppData\\Roaming\\Innovate! Inc\\EPA Metadata Edtior 4x\\Eme4xSystemFiles\\EMEdb\\KeywordsPlace.xml");
             XmlRecord_SystemofRecords.Source = new Uri("C:\\Users\\Innovate\\AppData\\Roaming\\Innovate! Inc\\EPA Metadata Edtior 4x\\Eme4xSystemFiles\\EMEdb\\SystemofRecords.xml");
@@ -36,6 +39,15 @@ namespace EMEdbManager
         private void lbxThemekeyEpa_loaded(object sender, RoutedEventArgs e)
         {
             lblKwEPACount.Content = lbxThemekeyEpa.Items.Count.ToString();
+        }
+
+        private void lbxThemekeyUser_loaded(object sender, RoutedEventArgs e)
+        {
+            lblKwUserCount.Content = lbxThemekeyUser.Items.Count.ToString();
+        }
+        private void lbxThemekeyPlace_loaded(object sender, RoutedEventArgs e)
+        {
+            lblKwPlaceCount.Content = lbxThemekeyPlace.Items.Count.ToString();
         }
 
         private void lbxSystemofRecords_loaded(object sender, RoutedEventArgs e)
@@ -64,6 +76,18 @@ namespace EMEdbManager
         {
             string source = XmlRecord_SecConsts.Source.LocalPath;
             XmlRecord_SecConsts.Document.Save(source);
+        }
+
+        private void btnSaveThemekeyPlace_Click(object sender, RoutedEventArgs e)
+        {
+            string source = XmlRecord_ThemeKeyUser.Source.LocalPath;
+            XmlRecord_ThemeKeyUser.Document.Save(source);
+        }
+
+        private void btnSaveThemekeyUser_Click(object sender, RoutedEventArgs e)
+        {
+            string source = XmlRecord_ThemeKeyUser.Source.LocalPath;
+            XmlRecord_ThemeKeyUser.Document.Save(source);
         }
     }
 }

@@ -26,5 +26,7 @@ namespace EMEdbManager.Properties
                 return defaultInstance;
             }
         }
+
+        public object HHPath { get; internal set; }
     }
 }
