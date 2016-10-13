@@ -179,6 +179,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MD_RestrictionCodeSOR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MD_ScopeCode_MD_Metadata.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -234,6 +238,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\MD_SecurityConstraintsEME.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MetadataDetailsEME.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -876,6 +884,9 @@
     <Compile Include="Pages\MD_LegalContraintsEME.xaml.cs">
       <DependentUpon>MD_LegalContraintsEME.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MD_RestrictionCodeSOR.xaml.cs">
+      <DependentUpon>MD_RestrictionCodeSOR.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MD_ScopeCode_MD_Metadata.xaml.cs">
       <DependentUpon>MD_ScopeCode_MD_Metadata.xaml</DependentUpon>
     </Compile>
@@ -896,6 +907,9 @@
     </Compile>
     <Compile Include="Pages\MD_SecurityConstraintsEME.xaml.cs">
       <DependentUpon>MD_SecurityConstraintsEME.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MetadataDetailsEME.xaml.cs">
+      <DependentUpon>MetadataDetailsEME.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PartyPickerControl.xaml.cs">
       <DependentUpon>PartyPickerControl.xaml</DependentUpon>

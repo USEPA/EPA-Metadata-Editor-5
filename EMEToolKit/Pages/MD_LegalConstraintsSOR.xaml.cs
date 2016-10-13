@@ -84,15 +84,22 @@ namespace EPAMetadataEditor.Pages
         private void cboSystemNames_LostMouseCapture(object sender, MouseEventArgs e)
         {
             ListBox liBox = (ListBox)lbxLegalConstsOtherLimits;
+            string testURL = "";
             foreach (var liBoxItem in liBox.Items)
             {
                 var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
                 var liBoxChildren = AllChildren(liBoxCont);
-                string liBoxName = "tbxLegalConstsSystemURL";
-                TextBox tbxLegalURL = (TextBox)liBoxChildren.First(c => c.Name == liBoxName);
-                string liBoxName2 = "cboSystemNames";
-                ComboBox cboSysURL = (ComboBox)liBoxChildren.First(c => c.Name == liBoxName2);
-                tbxLegalURL.Text = cboSysURL.Text;
+                string tbxName = "tbxLegalConstsSystemURL";
+                TextBox tbxLegalURL = (TextBox)liBoxChildren.First(c => c.Name == tbxName);
+                string cboBoxName = "cboSystemNames";
+                ComboBox cboSysName = (ComboBox)liBoxChildren.First(c => c.Name == cboBoxName);
+                System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)cboSysName.SelectedItem;
+                tbxLegalURL.Text = cboSysName.Text;
+                if (cboSysName.SelectedValue != null)
+                {
+                    testURL = xmlTest.LastChild.InnerText;
+                    tbxLegalURL.Text = testURL;
+                }
                 tbxLegalURL.Focus();
             }
         }
