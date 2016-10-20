@@ -101,7 +101,7 @@
                 <!-- LOAD SAVED CONTACT -->
                 <DockPanel LastChildFill="True">
                   <Label DockPanel.Dock="Left" VerticalAlignment="Center" Content="{x:Static r:Resources.LBL_CI_PARTY_PICK}"/>
-                  <pages:PartyPickerControl ContainerElement="citRespParty" DockPanel.Dock="Right"/>
+                  <pages:PartyPickerControlEME ContainerElement="citRespParty" DockPanel.Dock="Right"/>
                 </DockPanel>
               </Border>
 

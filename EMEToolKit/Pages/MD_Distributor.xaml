@@ -124,7 +124,7 @@
                   <!-- LOAD SAVED CONTACT -->
                   <DockPanel LastChildFill="True">
                     <Label DockPanel.Dock="Left" VerticalAlignment="Center" Content="{x:Static r:Resources.LBL_CI_LOAD_DISTRIBUTOR}"/>
-                    <pages:PartyPickerControl ContainerElement="distorCont" DockPanel.Dock="Right"/>
+                    <pages:PartyPickerControlEME ContainerElement="distorCont" DockPanel.Dock="Right"/>
                   </DockPanel>
                 </Border>
               </DataTemplate>

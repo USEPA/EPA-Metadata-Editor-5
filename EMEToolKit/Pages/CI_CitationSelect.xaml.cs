@@ -103,9 +103,7 @@ namespace EPAMetadataEditor.Pages
 
         private void btnThesanameNew_Click(object sender, RoutedEventArgs e)
         {
-            //Style = "{DynamicResource EditorTextBoxStyle}"
-            Style style = this.FindResource("EditorTextBoxStyle") as Style;
-            //label1.Style = style;
+            Style style = (Style) this.FindResource("EditorTextBoxStyle");
             ListBox liBox = lbxCitation;
             foreach (var liBoxItem in liBox.Items)
             {

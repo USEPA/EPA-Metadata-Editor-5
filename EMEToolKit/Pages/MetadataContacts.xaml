@@ -95,7 +95,7 @@
                 <!-- LOAD SAVED CONTACT -->
                 <DockPanel LastChildFill="True">
                   <Label DockPanel.Dock="Left" VerticalAlignment="Center" Content="{x:Static r:Resources.LBL_CI_LOAD_META_CONTACT}"/>
-                  <pages:PartyPickerControl ContainerElement="mdContact" DockPanel.Dock="Right"/>
+                  <pages:PartyPickerControlEME ContainerElement="mdContact" DockPanel.Dock="Right"/>
                 </DockPanel>
               </Border>
               
