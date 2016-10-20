@@ -126,7 +126,7 @@ namespace EPAMetadataEditor.Pages
                 XmlNode e2 = child.SelectSingleNode("editorSource");
                 if (null != e2)
                 {
-                    e2.InnerText = "emedb";
+                    e2.InnerText = "EPA Contact";
                 }
 
                 e2 = child.SelectSingleNode("editorDigest");

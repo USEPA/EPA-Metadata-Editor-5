@@ -249,7 +249,7 @@ namespace EPAMetadataEditor.Pages
                 XmlNode e2 = child.SelectSingleNode("editorSource");
                 if (null != e2)
                 {
-                    e2.InnerText = "emedb";
+                    e2.InnerText = "EPA Contact";
                 }
 
                 e2 = child.SelectSingleNode("editorDigest");
@@ -281,8 +281,8 @@ namespace EPAMetadataEditor.Pages
 
             // generate contact list
             contactsListBox.ItemsSource = Utils.GenerateContactsList(_contactsDoc, this.DataContext);
-            _contactsDoc.Save(filePathEsri + "contactsDoc.xml");
 
+            _contactsDoc.Save(filePathEsri + "contactsDoc.xml");
             _contactsEsri.Save(filePathEsri + "contacts.xml");
 
             // come find me later...
