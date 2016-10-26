@@ -50,19 +50,6 @@ namespace EPAMetadataEditor.Pages
             InitializeComponent();
         }
 
-        public List<Control> AllChildren(DependencyObject parent)
-        {
-            var _List = new List<Control> { };
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
-            {
-                var _Child = VisualTreeHelper.GetChild(parent, i);
-                if (_Child is Control)
-                    _List.Add(_Child as Control);
-                _List.AddRange(AllChildren(_Child));
-            }
-            return _List;
-        }
-
         /// <summary>
         /// unload form
         /// </summary>
@@ -79,7 +66,8 @@ namespace EPAMetadataEditor.Pages
             clone.AppendChild(contactsNode);
 
             // write back out the contacts marked saved
-            var list = _contactsDoc.SelectNodes("//contact[(editorSave='True') and not(editorSource='emedb')]");
+            //var list = _contactsDoc.SelectNodes("//contact[(editorSave='True') and not(editorSource='EPA Contact')]");
+            var list = _contactsDoc.SelectNodes("//contact[editorSave='True']");
             StringBuilder sb = new StringBuilder();
 
             foreach (XmlNode child in list)
@@ -172,8 +160,26 @@ namespace EPAMetadataEditor.Pages
             _contactsDoc = new XmlDocument();
             _contactsEsri = new XmlDocument();
             _contactsEpa = new XmlDocument();
+            XmlDocument _contactsBAK = new XmlDocument();
             string filePathEsri = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\ArcGIS\\Descriptions\\";
             string filePathEpa = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA Metadata Edtior 4x\\Eme4xSystemFiles\\EMEdb\\";
+
+            try { _contactsBAK.Load(filePathEsri + "contacts.xml"); }
+            catch (System.IO.FileNotFoundException)
+            {
+                _contactsBAK.LoadXml(
+                "<contacts> \n" +
+                "  <contact> \n" +
+                "    <editorSource></editorSource> \n" +
+                "    <editorDigest></editorDigest> \n" +
+                "    <rpIndName></rpIndName> \n" +
+                "    <rpOrgName></rpOrgName> \n" +
+                "    <rpPosName></rpPosName> \n" +
+                "    <editorSave></editorSave> \n" +
+                "    <rpCntInfo></rpCntInfo> \n" +
+                "  </contact> \n" +
+                "</contacts>");
+            }
 
             //_contactsEsri.PreserveWhitespace = true;
             try { _contactsEsri.Load(filePathEsri + "contacts.xml"); }
@@ -218,7 +224,7 @@ namespace EPAMetadataEditor.Pages
             XmlNode contactsNodeMerge = cloneMerge.CreateElement("contacts");
             cloneMerge.AppendChild(contactsNodeMerge);
 
-            // write back out the contacts marked saved
+            // Populate contacts list with local contacts.xml and EPA contacts
             var listEsri = _contactsEsri.SelectNodes("//contact");
             var listEpa = _contactsEpa.SelectNodes("//contact");
             StringBuilder sb2 = new StringBuilder();
@@ -262,7 +268,7 @@ namespace EPAMetadataEditor.Pages
                 e2 = child.SelectSingleNode("editorSave");
                 if (null != e2)
                 {
-                    e2.InnerText = "True";
+                    e2.InnerText = "False";
                 }
 
                 // save back epa editorSource
@@ -275,15 +281,13 @@ namespace EPAMetadataEditor.Pages
             contactsNodeMerge.InnerXml = sb2.ToString();
 
             // save to file
-            //cloneMerge.Save(Utils.GetContactsFileLocation());
-            //cloneMerge.Save(filePathEsri + "contactsCbo.xml");
-            cloneMerge.Save(filePathEsri + "contacts.xml");
+            cloneMerge.Save(Utils.GetContactsFileLocation());
+
 
             // generate contact list
             contactsListBox.ItemsSource = Utils.GenerateContactsList(_contactsDoc, this.DataContext);
 
-            _contactsDoc.Save(filePathEsri + "contactsDoc.xml");
-            _contactsEsri.Save(filePathEsri + "contacts.xml");
+            _contactsBAK.Save(Utils.GetContactsFileLocation());
 
             // come find me later...
             Utils.GetMetadataEditorControl(this).AddCommitPage(this);
