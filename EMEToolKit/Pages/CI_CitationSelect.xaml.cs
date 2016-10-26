@@ -118,5 +118,22 @@ namespace EPAMetadataEditor.Pages
                 //tbxAltTitle.Focus();
             }
         }
+
+        private void btnThesanameCode_Click(object sender, RoutedEventArgs e)
+        {
+            ListBox liBox = lbxCitation;
+            foreach (var liBoxItem in liBox.Items)
+            {
+                var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
+                var liBoxChildren = AllChildren(liBoxCont);
+                var thesTitle = "tbxResTitle";
+                var altName = "tbxAltTitle";
+                var tbxResTitle = (TextBox)liBoxChildren.First(c => c.Name == thesTitle);
+                var tbxAltTitle = (TextBox)liBoxChildren.First(c => c.Name == altName);
+                tbxResTitle.Text = "Federal Program Inventory";
+                tbxResTitle.Focus();
+                tbxAltTitle.Focus();
+            }
+        }
     }
 }

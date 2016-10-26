@@ -184,6 +184,7 @@ namespace EPAMetadataEditor.Pages
                 //{
                 //    nameString = nameNode.InnerText + " test";
                 //}
+
                 string nameString = "unknown";
                 string sourceString = "unknown";
                 var nameString1 = Utils.ExtractResponsiblePartyLabel(node, ESRI.ArcGIS.Metadata.Editor.Properties.Resources.LBL_CI_PARTY_ADD_FORMAT);

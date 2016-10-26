@@ -155,6 +155,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MD_KeywordsCode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MD_KeywordsEPA.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -869,6 +873,9 @@
     </Compile>
     <Compile Include="Pages\MD_KeywordsBAK.xaml.cs">
       <DependentUpon>MD_KeywordsBAK.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MD_KeywordsCode.xaml.cs">
+      <DependentUpon>MD_KeywordsCode.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MD_KeywordsEPA.xaml.cs">
       <DependentUpon>MD_KeywordsEPA.xaml</DependentUpon>

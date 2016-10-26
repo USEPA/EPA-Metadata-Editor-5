@@ -130,6 +130,7 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                         <!-- Title, Alt Title -->
                         <Button Name="btnThesanameEPA" Click="btnThesanameEPA_Click" Style="{DynamicResource DeleteButton}">EPA Keywords</Button>
+                        <Button Name="btnThesanameCode" Click="btnThesanameCode_Click" Style="{DynamicResource DeleteButton}">Program Code</Button>
                         <Button Name="btnThesanameUser" Click="btnThesanameUser_Click" Style="{DynamicResource DeleteButton}">User Keywords</Button>
                         <Button Name="btnThesanameNew" Click="btnThesanameNew_Click" Style="{DynamicResource DeleteButton}">Custom Thesaurus</Button>
                         <!-- title -->

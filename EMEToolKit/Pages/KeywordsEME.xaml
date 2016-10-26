@@ -290,6 +290,40 @@
                                     </ListBox.ItemTemplate>
                                 </ListBox>
                             </StackPanel>
+                            
+                            <!-- program code -->
+                            <StackPanel>
+                                <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                    <ListBox.ItemsSource>
+                                        <Binding XPath="themeKeys[thesaName/resTitle[contains(. , 'Federal Program Inventory')]]"/>
+                                    </ListBox.ItemsSource>
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Style="{DynamicResource EditorBorder2Style}">
+                                                <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                                    <Expander.Header>
+                                                        <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
+                                                                   RelativeSource={RelativeSource FindAncestor,
+                                                                   AncestorType={x:Type ContentPresenter}},
+                                                                   Mode=OneWayToSource}" LastChildFill="True">
+                                                            <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Program Code"/>
+                                                        </DockPanel>
+                                                    </Expander.Header>
+                                                    <StackPanel Style="{DynamicResource ExpanderBodyStyle}">
+                                                        <p:MD_KeywordsCode ToolTip="{x:Static r:Definitions.MD_Keywords_theme}"/>
+                                                        <Border Style="{DynamicResource EditorBorderHRuleStyle}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                                    </StackPanel>
+                                                </Expander>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </StackPanel>
 
                             <!-- place keywords -->
                             <StackPanel>
@@ -358,11 +392,12 @@
                                     </ListBox.ItemTemplate>
                                 </ListBox>
                             </StackPanel>
+                            
                             <!-- theme keys -->
                             <StackPanel>
                                 <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
                                     <ListBox.ItemsSource>
-                                        <Binding XPath="themeKeys[not(thesaName/resTitle) or thesaName/resTitle[not(contains(. , 'User')) and not(contains(. , 'EPA GIS Keyword Thesaurus'))]]"/>
+                                        <Binding XPath="themeKeys[not(thesaName/resTitle) or thesaName/resTitle[not(contains(. , 'User')) and not(contains(. , 'EPA GIS Keyword Thesaurus')) and not(contains(. , 'Federal Program Inventory'))]]"/>
                                     </ListBox.ItemsSource>
                                     <ListBox.ItemsPanel>
                                         <ItemsPanelTemplate>
