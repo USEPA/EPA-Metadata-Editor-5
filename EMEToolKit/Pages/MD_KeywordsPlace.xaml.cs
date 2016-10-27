@@ -67,9 +67,9 @@ namespace EPAMetadataEditor.Pages
             foreach (string s in _listPlaceK)
             {
                 tbxMDEpaPlaceK.Text += s + System.Environment.NewLine;
-                tbxMDEpaPlaceK.Focus();
             }
             tbxMDEpaPlaceK.Focus();
+            cbx.Focus();
         }
 
         private void chbxEpaPlacekey_Unchecked(object sender, RoutedEventArgs e)
@@ -83,9 +83,9 @@ namespace EPAMetadataEditor.Pages
             foreach (string s in _listPlaceK)
             {
                 tbxMDEpaPlaceK.Text += s + System.Environment.NewLine;
-                tbxMDEpaPlaceK.Focus();
             }
             tbxMDEpaPlaceK.Focus();
+            cbx.Focus();
         }
 
         private void btnLoadDefaultPlaceK_Click(object sender, RoutedEventArgs e)

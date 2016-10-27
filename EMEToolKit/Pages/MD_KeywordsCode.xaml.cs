@@ -18,6 +18,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using ESRI.ArcGIS.Metadata.Editor.Pages;
+using System.Xml;
+
 namespace EPAMetadataEditor.Pages
 {
     /// <summary>
@@ -26,6 +28,9 @@ namespace EPAMetadataEditor.Pages
     public partial class MD_KeywordsCode : EditorPage
     {
         private List<string> _listThemeK = new List<string>();
+        private List<string> _listPCode = new List<string>();
+        private XmlDocument _programCode = new XmlDocument();
+        string filePathEpa = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA Metadata Edtior 4x\\Eme4xSystemFiles\\EMEdb\\";
 
         public MD_KeywordsCode()
         {
@@ -48,6 +53,23 @@ namespace EPAMetadataEditor.Pages
         private void MD_KeywordsCode_Loaded(object sender, RoutedEventArgs e)
         {
             FillXml();
+
+            try
+            {
+                _programCode.Load(filePathEpa + "ProgramCode.xml");
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                _programCode.LoadXml(
+                "<emeData> \n" +
+                "  <ProgramCode> \n" +
+                "    <programName></programName> \n" +
+                "    <pCode></pCode> \n" +
+                "    <default></default> \n" +
+                "  </ProgramCode> \n" +
+                "</emeData>");
+            }
+
         }
 
         private void chbxPCode_Checked(object sender, RoutedEventArgs e)
@@ -65,6 +87,7 @@ namespace EPAMetadataEditor.Pages
                 tbxMDPCode.Text += s + System.Environment.NewLine;
             }
             tbxMDPCode.Focus();
+            cbx.Focus();
         }
 
         private void chbxPCode_Unchecked(object sender, RoutedEventArgs e)
@@ -80,6 +103,8 @@ namespace EPAMetadataEditor.Pages
                 tbxMDPCode.Text += s + System.Environment.NewLine;
             }
             tbxMDPCode.Focus();
+            cbx.Focus();
+
         }
 
         private void btnLoadDefaultPCode_Click(object sender, RoutedEventArgs e)
@@ -135,6 +160,8 @@ namespace EPAMetadataEditor.Pages
                     var liBoxChildren = AllChildren(liBoxCont);
                     var chbxName = "chbxPCode";
                     var chBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == chbxName);
+                    var lblName = "lblPName";
+                    var lblCtrl = (Label)liBoxChildren.First(c => c.Name == lblName);
                     System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)chBoxCtrl.Content;
                     chBoxCtrl.IsChecked = listPCode.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
                 }

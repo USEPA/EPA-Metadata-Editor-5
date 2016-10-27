@@ -63,9 +63,9 @@ namespace EPAMetadataEditor.Pages
             foreach (string s in _listThemeK)
             {
                 tbxMDEpaThemeK.Text += s + System.Environment.NewLine;
-                //tbxMDEpaThemeK.Focus();
             }
             tbxMDEpaThemeK.Focus();
+            cbx.Focus();
         }
 
         private void chbxEpaThemekey_Unchecked(object sender, RoutedEventArgs e)
@@ -79,9 +79,9 @@ namespace EPAMetadataEditor.Pages
             foreach (string s in _listThemeK)
             {
                 tbxMDEpaThemeK.Text += s + System.Environment.NewLine;
-                //tbxMDEpaThemeK.Focus();
             }
             tbxMDEpaThemeK.Focus();
+            cbx.Focus();
         }
 
         private void btnLoadDefaultThemeK_Click(object sender, RoutedEventArgs e)

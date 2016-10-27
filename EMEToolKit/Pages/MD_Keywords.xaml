@@ -82,12 +82,12 @@
         <Border Style="{DynamicResource EditorBorderSubStyle}">
             <StackPanel>
                 <!-- CHOOSE thesaurus -->
-                <StackPanel Orientation="Horizontal">
+                <StackPanel>
                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=self::*[not(following-sibling::thesaName)]}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Button Name="btnAddThesaEPA" Tag="thesaName" Click="btnAddThesaEPA_Click" Style="{DynamicResource AddButton}">
-                                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                    <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
                                         <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
                                         <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Add Keyword Thesaurus"/>
                                     </StackPanel>
@@ -95,32 +95,18 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                </StackPanel>
-                <!-- thesaurus citation selection -->
-                <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=thesaName}">
-                    <ListBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <StackPanel/>
-                        </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Expander ToolTip="{x:Static r:Definitions.MD_Keywords_thesaurusName}" Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-                                <Expander.Header>
-                                    <DockPanel HorizontalAlignment="{Binding HorizontalAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Mode=OneWayToSource}" LastChildFill="True">
-                                        <!--<Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
-                                            <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                                        </Button>-->
-                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Select Keyword Thesaurus"/>
-                                    </DockPanel>
-                                </Expander.Header>
-                                <Border Style="{DynamicResource EditorBorderSubStyle}">
+                    <!-- thesaurus citation selection -->
+                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=thesaName}" Margin="10,0,0,10" VerticalAlignment="Top">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                    <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Thesaurus Type:"/>
                                     <p:CI_CitationSelect/>
-                                </Border>
-                            </Expander>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
 
                 <!-- keywords -->
                 <controls:Resizer>

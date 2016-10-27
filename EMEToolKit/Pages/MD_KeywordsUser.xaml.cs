@@ -58,9 +58,9 @@ namespace EPAMetadataEditor.Pages
             foreach (string s in _listUserK)
             {
                 tbxMDEpaUserK.Text += s + System.Environment.NewLine;
-                tbxMDEpaUserK.Focus();
             }
             tbxMDEpaUserK.Focus();
+            cbx.Focus();
         }
 
         private void chbxEpaUserkey_Unchecked(object sender, RoutedEventArgs e)
@@ -74,9 +74,9 @@ namespace EPAMetadataEditor.Pages
             foreach (string s in _listUserK)
             {
                 tbxMDEpaUserK.Text += s + System.Environment.NewLine;
-                tbxMDEpaUserK.Focus();
             }
             tbxMDEpaUserK.Focus();
+            cbx.Focus();
         }
 
         private void btnLoadDefaultUserK_Click(object sender, RoutedEventArgs e)
