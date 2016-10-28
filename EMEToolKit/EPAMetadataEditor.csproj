@@ -465,12 +465,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\Keywords.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Pages\LanguageCode.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1017,9 +1011,6 @@
     </Compile>
     <Compile Include="Pages\ItemInfo.xaml.cs">
       <DependentUpon>ItemInfo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Keywords.xaml.cs">
-      <DependentUpon>Keywords.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\LanguageCode.xaml.cs">
       <DependentUpon>LanguageCode.xaml</DependentUpon>

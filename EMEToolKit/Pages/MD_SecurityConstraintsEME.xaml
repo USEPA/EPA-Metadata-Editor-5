@@ -37,7 +37,7 @@
                 <ANY xmlns="">
                     <!--<useLimit/>-->
                     <class>
-                        <ClasscationCd value=""/>
+                        <ClasscationCd value=""></ClasscationCd>
                     </class>
                     <userNote/>
                     <classSys/>
