@@ -30,11 +30,11 @@ using ESRI.ArcGIS.Metadata.Editor.Pages;
 namespace EPAMetadataEditor.Pages
 {
     /// <summary>
-    /// Interaction logic for MD_Keywords.xaml
+    /// Interaction logic for MD_KeywordsNoThesaurus.xaml
     /// </summary>
-    public partial class MD_Keywords : EditorPage
+    public partial class MD_KeywordsNoThesaurus : EditorPage
     {
-        public MD_Keywords()
+        public MD_KeywordsNoThesaurus()
         {
             InitializeComponent();
         }

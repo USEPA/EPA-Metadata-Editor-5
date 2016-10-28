@@ -143,6 +143,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MD_KeywordsNoThesaurus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MD_KeywordsPlace.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -838,6 +842,9 @@
     </Compile>
     <Compile Include="Pages\MD_KeywordsEPA.xaml.cs">
       <DependentUpon>MD_KeywordsEPA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MD_KeywordsNoThesaurus.xaml.cs">
+      <DependentUpon>MD_KeywordsNoThesaurus.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MD_KeywordsPlace.xaml.cs">
       <DependentUpon>MD_KeywordsPlace.xaml</DependentUpon>
