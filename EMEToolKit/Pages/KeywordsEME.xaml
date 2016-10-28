@@ -432,7 +432,8 @@
                                 <Button Tag="ThemeKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
                                     <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                         <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                                        <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_THEME}"/>
+                                        <!--<TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_KEY_NEW_THEME}"/>-->
+                                        <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Add keyword or Program Code"/>
                                     </StackPanel>
                                 </Button>
                             </StackPanel>

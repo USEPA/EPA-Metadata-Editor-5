@@ -123,6 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\CI_ResponsiblePartyPub.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\KeywordsEME.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -248,6 +252,10 @@
       <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ResourcePub.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\UCUM_Length.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -814,6 +822,9 @@
     <Compile Include="Pages\CI_PresentationForm.xaml.cs">
       <DependentUpon>CI_PresentationForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CI_ResponsiblePartyPub.xaml.cs">
+      <DependentUpon>CI_ResponsiblePartyPub.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Converters\VisibleEmptyConverter.cs" />
     <Compile Include="Pages\Converters\VisibleNullConverter.cs" />
     <Compile Include="Pages\KeywordsEME.xaml.cs">
@@ -872,6 +883,9 @@
     </Compile>
     <Compile Include="Pages\PartyPickerControlEME.xaml.cs">
       <DependentUpon>PartyPickerControlEME.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ResourcePub.xaml.cs">
+      <DependentUpon>ResourcePub.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TM_Period.xaml.cs">
       <DependentUpon>TM_Period.xaml</DependentUpon>

@@ -89,7 +89,8 @@
                                 <Button Name="btnAddThesaEPA" Tag="thesaName" Click="btnAddThesaEPA_Click" Style="{DynamicResource AddButton}">
                                     <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
                                         <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                                        <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Add Keyword Thesaurus"/>
+                                        <!--<TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Add Keyword Thesaurus"/>-->
+                                        <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Add keyword list"/>
                                     </StackPanel>
                                 </Button>
                             </DataTemplate>
