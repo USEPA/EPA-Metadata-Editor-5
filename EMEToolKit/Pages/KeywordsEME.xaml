@@ -276,6 +276,9 @@
                                                                    RelativeSource={RelativeSource FindAncestor,
                                                                    AncestorType={x:Type ContentPresenter}},
                                                                    Mode=OneWayToSource}" LastChildFill="True">
+                                                        <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
+                                                            <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
+                                                        </Button>
                                                         <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="EPA Keywords"/>
                                                     </DockPanel>
                                                 </Expander.Header>
@@ -388,7 +391,8 @@
                             <!-- theme key with generic thesaurus -->
                             <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
                                 <ListBox.ItemsSource>
-                                    <Binding XPath="themeKeys[not(thesaName/resTitle) or thesaName/resTitle[not(contains(. , 'User')) and not(contains(. , 'EPA GIS Keyword Thesaurus')) and not(contains(. , 'Federal Program Inventory'))]]"/>
+                                    <Binding XPath="themeKeys[thesaName/resTitle[not(text() = '')] and thesaName/resTitle[not(contains(. , 'User')) and not(contains(. , 'EPA GIS Keyword Thesaurus')) and not(contains(. , 'Federal Program Inventory'))]]"/>
+                                    <!--<Binding XPath="themeKeys[not(thesaName/resTitle) or thesaName/resTitle[not(contains(. , 'User')) and not(contains(. , 'EPA GIS Keyword Thesaurus')) and not(contains(. , 'Federal Program Inventory'))]]"/>-->
                                 </ListBox.ItemsSource>
                                 <ListBox.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -420,9 +424,9 @@
                             </ListBox>
 
                             <!-- theme keys with no thesaurus-->
-                            <!--<ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
                                 <ListBox.ItemsSource>
-                                    <Binding XPath="themeKeys[not(thesaName/resTitle) or thesaName/resTitle[not(text())]]"/>
+                                    <Binding XPath="themeKeys[not(thesaName/resTitle) or thesaName/resTitle[text() = '']]"/>
                                 </ListBox.ItemsSource>
                                 <ListBox.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -451,7 +455,7 @@
                                         </Border>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
-                            </ListBox>-->
+                            </ListBox>
 
                             <!-- ADD theme keywords -->
                             <Button Tag="ThemeKey" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">

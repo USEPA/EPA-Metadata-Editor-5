@@ -82,37 +82,32 @@
         <Border Style="{DynamicResource EditorBorderSubStyle}">
             <StackPanel>
                 <!-- CHOOSE thesaurus -->
-                <StackPanel>
-                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=self::*[not(following-sibling::thesaName)]}">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <Button Name="btnAddThesaEPA" Tag="thesaName" Click="btnAddThesaEPA_Click" Style="{DynamicResource AddButton}">
-                                    <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
-                                        <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                                        <!--<TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Add Keyword Thesaurus"/>-->
-                                        <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Add keyword list"/>
-                                    </StackPanel>
-                                </Button>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                    <!-- thesaurus citation selection -->
-                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=thesaName}" Margin="10,0,0,10" VerticalAlignment="Top">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                                    <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Thesaurus Type:"/>
-                                    <p:CI_CitationSelect/>
+                <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=self::*[not(following-sibling::thesaName)]}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Button Name="btnAddThesaEPA" Tag="thesaName" Click="btnAddThesaEPA_Click" Style="{DynamicResource AddButton}">
+                                <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
+                                    <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
+                                    <!--<TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Add Keyword Thesaurus"/>-->
+                                    <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Add keyword list"/>
                                 </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </StackPanel>
-
+                            </Button>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <!-- thesaurus citation selection -->
+                <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=thesaName}" Margin="10,0,0,10" VerticalAlignment="Top">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Thesaurus Type:"/>
+                                <p:CI_CitationSelect/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
                 <!-- keywords -->
-                <controls:Resizer>
-                    <TextBox Style="{DynamicResource TbxHidden}" v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}" Text="{e:MetadataBinding XPath=bag}"/>
-                </controls:Resizer>
+                <TextBox Style="{DynamicResource TbxHidden}" v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}" Text="{e:MetadataBinding XPath=bag}"/>
             </StackPanel>
         </Border>
 
