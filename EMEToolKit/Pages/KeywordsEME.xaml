@@ -9,7 +9,7 @@
     Loaded="FillXml">
 
     <UserControl.Resources>
-    <!-- 
+        <!-- 
     <!ENTITY % DataIdent '(idCitation, idAbs, idPurp?, idCredit*, idStatus*, idPoC*, resMaint*, graphOver*, dsFormat*, 
           discKeys*, otherKeys*, placeKeys*, searchKeys*, stratKeys*, tempKeys*, themeKeys*, idSpecUse*, resConst*, aggrInfo*, spatRpType*, dataScale*, dataLang+, dataChar*, tpCat*, envirDesc?, dataExt*, suppInfo?)'>
     <!ENTITY % Keywords '(keyword+, keyTyp?, thesaName?, thesaLang?)'> 
@@ -147,6 +147,8 @@
         <!-- validation issues  -->
         <v:MetadataIssueInfo x:Key="topics" Message="{x:Static r:Issues.topics_REQ}" />
         <v:MetadataIssueInfo x:Key="themeKeywords" Name="themeKeywords" Message="{x:Static r:Issues.themeKeywords_REQ}" />
+        <v:MetadataIssueInfo x:Key="themeKeywordsCd" Message="Program Code required" />
+        <v:MetadataIssueInfo x:Key="themeKeywordsEpa" Message="EPA Keywords required" />
         <v:MetadataIssueInfo x:Key="placeKeywords" Name="placeKeywords" Message="{x:Static r:Issues.placeKeywords_REQ}" />
         <v:MetadataIssueInfo x:Key="temporalKeywords" Name="temporalKeywords" Message="{x:Static r:Issues.temporalKeywords_REQ}" />
         <v:MetadataIssueInfo x:Key="disciplineKeywords" Name="disciplineKeywords" Message="{x:Static r:Issues.disciplineKeywords_REQ}" />
@@ -273,9 +275,9 @@
                                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                 <Expander.Header>
                                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                                                                   RelativeSource={RelativeSource FindAncestor,
-                                                                   AncestorType={x:Type ContentPresenter}},
-                                                                   Mode=OneWayToSource}" LastChildFill="True">
+                                                               RelativeSource={RelativeSource FindAncestor,
+                                                               AncestorType={x:Type ContentPresenter}},
+                                                               Mode=OneWayToSource}" LastChildFill="True">
                                                         <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
                                                             <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                                         </Button>
@@ -308,9 +310,9 @@
                                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                 <Expander.Header>
                                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                                                                   RelativeSource={RelativeSource FindAncestor,
-                                                                   AncestorType={x:Type ContentPresenter}},
-                                                                   Mode=OneWayToSource}" LastChildFill="True">
+                                                               RelativeSource={RelativeSource FindAncestor,
+                                                               AncestorType={x:Type ContentPresenter}},
+                                                               Mode=OneWayToSource}" LastChildFill="True">
                                                         <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Program Code"/>
                                                     </DockPanel>
                                                 </Expander.Header>
@@ -337,9 +339,9 @@
                                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                 <Expander.Header>
                                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                                                                   RelativeSource={RelativeSource FindAncestor,
-                                                                   AncestorType={x:Type ContentPresenter}},
-                                                                   Mode=OneWayToSource}" LastChildFill="True">
+                                                               RelativeSource={RelativeSource FindAncestor,
+                                                               AncestorType={x:Type ContentPresenter}},
+                                                               Mode=OneWayToSource}" LastChildFill="True">
                                                         <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Place Keywords"/>
                                                     </DockPanel>
                                                 </Expander.Header>
@@ -369,9 +371,9 @@
                                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                 <Expander.Header>
                                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                                                                   RelativeSource={RelativeSource FindAncestor,
-                                                                   AncestorType={x:Type ContentPresenter}},
-                                                                   Mode=OneWayToSource}" LastChildFill="True">
+                                                               RelativeSource={RelativeSource FindAncestor,
+                                                               AncestorType={x:Type ContentPresenter}},
+                                                               Mode=OneWayToSource}" LastChildFill="True">
                                                         <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
                                                             <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                                         </Button>
@@ -405,9 +407,9 @@
                                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                 <Expander.Header>
                                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                                                                   RelativeSource={RelativeSource FindAncestor,
-                                                                   AncestorType={x:Type ContentPresenter}},
-                                                                   Mode=OneWayToSource}" LastChildFill="True">
+                                                               RelativeSource={RelativeSource FindAncestor,
+                                                               AncestorType={x:Type ContentPresenter}},
+                                                               Mode=OneWayToSource}" LastChildFill="True">
                                                         <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
                                                             <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                                         </Button>
@@ -439,9 +441,9 @@
                                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                 <Expander.Header>
                                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                                                                   RelativeSource={RelativeSource FindAncestor,
-                                                                   AncestorType={x:Type ContentPresenter}},
-                                                                   Mode=OneWayToSource}" LastChildFill="True">
+                                                               RelativeSource={RelativeSource FindAncestor,
+                                                               AncestorType={x:Type ContentPresenter}},
+                                                               Mode=OneWayToSource}" LastChildFill="True">
                                                         <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
                                                             <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                                         </Button>

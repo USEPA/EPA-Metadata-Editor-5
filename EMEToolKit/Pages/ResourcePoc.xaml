@@ -8,10 +8,7 @@
     Loaded="FillXml">
 
     <UserControl.Resources>
-        <!--
-      <!ENTITY % DataIdent '(idCitation, idAbs, idPurp?, idCredit*, idStatus*, idPoC*, resMaint*, graphOver*, dsFormat*, descKeys*, idSpecUse*, resConst*, aggrInfo*, spatRpType*, dataScale*, dataLang+, dataChar*, tpCat*, envirDesc?, geoBox?, geoDesc?, dataExt*, suppInfo?)'
-
-    -->
+        <!-- <!ENTITY % DataIdent '(idCitation, idAbs, idPurp?, idCredit*, idStatus*, idPoC*, resMaint*, graphOver*, dsFormat*, descKeys*, idSpecUse*, resConst*, aggrInfo*, spatRpType*, dataScale*, dataLang+, dataChar*, tpCat*, envirDesc?, geoBox?, geoDesc?, dataExt*, suppInfo?)'    -->
         <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
             <x:XData>
                 <ANY xmlns="">
@@ -52,6 +49,8 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
+
+                            <!-- Point of Contact -->
                             <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=idPoC}">
                                 <ListBox.ItemsPanel>
                                     <ItemsPanelTemplate>
@@ -97,6 +96,7 @@
                                     <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_ADD_CONTACT}"/>
                                 </StackPanel>
                             </Button>
+                            
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

@@ -22,7 +22,7 @@
                     <rpPosName></rpPosName>
                     <rpCntInfo editorFillOnly="True" editorExpand=""/>
                     <role>
-                        <RoleCd value="007" />
+                        <RoleCd value="010" />
                     </role>
                 </ANY>
             </x:XData>
@@ -78,12 +78,14 @@
 
                 <!-- role -->
                 <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="3" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Role}"/>
-                <ComboBox Loaded="PostProcessComboBoxValues" corepages:EditorPage.SourceXPath="role/RoleCd/@value" Grid.Row="3" Grid.Column="1" Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
-            v:Nav.AnchorName="role,role"
-            ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_role}"
-            ItemsSource="{Binding Source={StaticResource CI_RoleCode}, Path=List}"
-            DisplayMemberPath="."
-            SelectedValuePath="@value">
+                <ComboBox Loaded="PostProcessComboBoxValues" corepages:EditorPage.SourceXPath="role/RoleCd/@value"
+                          Grid.Row="3" Grid.Column="1"
+                          Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
+                          v:Nav.AnchorName="rolePub,role"
+                          ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_role}"
+                          ItemsSource="{Binding Source={StaticResource CI_RoleCode}, Path=List}"
+                          DisplayMemberPath="."
+                          SelectedValuePath="@value">
                     <ComboBox.SelectedValue>
                         <e:MetadataBinding XPath="role/RoleCd/@value"/>
                     </ComboBox.SelectedValue>
@@ -114,7 +116,7 @@
 
                     <!--  ADD CONTACT -->
                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}"
-                  ItemsSource="{Binding XPath=self::*[not(rpCntInfo)]}">
+                             ItemsSource="{Binding XPath=self::*[not(rpCntInfo)]}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Button Tag="Contact" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">

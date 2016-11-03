@@ -30,6 +30,7 @@
         <v:MetadataIssueInfo x:Key="party" Message="{x:Static r:Issues.party_REQ}" />
         <v:MetadataIssueInfo x:Key="partyFgdc" Message="{x:Static r:Issues.partyFgdc_FGDC_REQ}" />
         <v:MetadataIssueInfo x:Key="role" Message="{x:Static r:Issues.role_REQ}" />
+        <v:MetadataIssueInfo x:Key="rolePub" Message="Publisher required" />
         <v:MetadataIssueInfo x:Key="linkage" Message="{x:Static r:Issues.linkage_REQ}" />
         <v:MetadataIssueInfo x:Key="protocol" Message="{x:Static r:Issues.protocol_REQ}" />
         <v:MetadataIssueInfo x:Key="rpCntInfo_NAP_REQ" Message="{x:Static r:Issues.rpCntInfo_NAP_REQ}" />
@@ -52,6 +53,8 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
+
+                            <!-- Publisher -->
                             <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
                                 <ListBox.ItemsSource>
                                     <!--/metadata/dataIdInfo/idPoC[role/RoleCd[@value='007'] or not(role/RoleCd)]-->
@@ -79,15 +82,15 @@
                                                     </DockPanel>
                                                 </Expander.Header>
                                                 <!-- party -->
-                                                <p:CI_ResponsibleParty x:Name="responsibleParty"/>
+                                                <p:CI_ResponsiblePartyPub x:Name="responsibleParty"/>
                                             </Expander>
                                         </Border>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
 
+                            <!-- LOAD SAVED CONTACT -->
                             <Border Style="{DynamicResource EditorBorder2Style}">
-                                <!-- LOAD SAVED CONTACT -->
                                 <DockPanel LastChildFill="True">
                                     <Label DockPanel.Dock="Left" VerticalAlignment="Center" Content="{x:Static r:Resources.LBL_CI_LOAD_POC_CONTACT}"/>
                                     <p:PartyPickerControlEME ContainerElement="idPoC" DockPanel.Dock="Right"/>
@@ -101,6 +104,9 @@
                                     <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_ADD_CONTACT}"/>
                                 </StackPanel>
                             </Button>
+
+                            <Label>Test</Label>
+                            
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

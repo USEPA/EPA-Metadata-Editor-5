@@ -101,7 +101,7 @@
                 <StackPanel>
                     <!--Metadata Keywords-->
                     <TextBox x:Name="tbxMDPCode" Text="{e:MetadataBinding XPath=bag}"  Style="{DynamicResource TbxHidden}"
-                             v:Nav.AnchorName="themeKeywordsEPA,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"/>
+                             v:Nav.AnchorName="themeKeywordsCd,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"/>
                     
                     <!--EPA Keyword List from: EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsEPA.xml-->
                     <ListView x:Name="lbxPCode"

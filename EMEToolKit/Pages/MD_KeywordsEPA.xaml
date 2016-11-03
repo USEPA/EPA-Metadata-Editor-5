@@ -117,7 +117,7 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
                         <!--Metadata Keywords-->
                         <TextBox x:Name="tbxMDEpaThemeK" Text="{e:MetadataBinding XPath=bag}"  Style="{DynamicResource TbxHidden}"
-                             v:Nav.AnchorName="themeKeywordsEPA,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"/>
+                                 v:Nav.AnchorName="themeKeywordsEPA,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"/>
                         <Button Name="btnLoadDefaultThemeK" Click="btnLoadDefaultThemeK_Click" Style="{DynamicResource AddButton}">
                             <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                 <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>

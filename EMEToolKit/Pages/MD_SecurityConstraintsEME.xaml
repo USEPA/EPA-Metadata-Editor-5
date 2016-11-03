@@ -123,9 +123,8 @@
 
                 <!-- classification system -->
                 <Label Grid.Row="1" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_SYSTEM}"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource EditorTextBoxStyle}" ToolTip="{x:Static r:Definitions.MD_SecurityConstraints_classificationSystem}"
-            v:Nav.AnchorName="classSys,classSys"
-            Text="{e:MetadataBinding XPath=classSys}" />
+                <TextBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource EditorTextBoxStyle}" ToolTip="{x:Static r:Definitions.MD_SecurityConstraints_classificationSystem}" 
+                         v:Nav.AnchorName="classSys,classSys" Text="{e:MetadataBinding XPath=classSys}" />
 
                 <!-- user note -->
                 <Label Grid.Row="2" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_USERNOTE}"/>
@@ -137,13 +136,12 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
                 <TextBox Grid.Row="2" Grid.Column="1" x:Name="tbxConstsUserNote" Style="{DynamicResource TbxHidden}"
-                         Text="{e:MetadataBinding XPath=userNote}" />
+                         v:Nav.AnchorName="userNote,userNote" Text="{e:MetadataBinding XPath=userNote}" />
 
                 <!-- handling description -->
                 <Label Grid.Row="3" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_HANDLING}"/>
                 <TextBox Grid.Row="3" Grid.Column="1" Style="{DynamicResource EditorTextBoxStyle}" ToolTip="{x:Static r:Definitions.MD_SecurityConstraints_handlingDescription}"
-            v:Nav.AnchorName="handDesc,handDesc"
-            Text="{e:MetadataBinding XPath=handDesc}" />
+                         v:Nav.AnchorName="handDesc,handDesc" Text="{e:MetadataBinding XPath=handDesc}" />
 
             </Grid>
 

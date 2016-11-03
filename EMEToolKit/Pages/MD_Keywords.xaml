@@ -85,8 +85,8 @@
                 <!-- keywords -->
                 <controls:Resizer>
                     <TextBox Style="{DynamicResource EditorTextAreaResizeStyle}"
-            v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
-            Text="{e:MetadataBinding XPath=bag}"/>
+                             v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"
+                             Text="{e:MetadataBinding XPath=bag}"/>
                 </controls:Resizer>
             </StackPanel>
         </Border>
