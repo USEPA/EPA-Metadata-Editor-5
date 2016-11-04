@@ -46,7 +46,7 @@ namespace EPAMetadataEditor.Pages
             FillXml();
 
             var xmldp = (XmlDataProvider)this.Resources["EPAData"];
-            string dbname = "SystemofRecords.xml";
+            string dbname = "SecurityConstraints.xml";
             xmldp.Source = new Uri(_pathEmeDb + dbname);
         }
 
