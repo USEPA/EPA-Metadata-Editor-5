@@ -34,6 +34,8 @@ using System.Reflection;
 
 using ESRI.ArcGIS.Metadata.Editor;
 using ESRI.ArcGIS.Metadata.Editor.Pages;
+using System.Diagnostics;
+
 namespace EPAMetadataEditor.Pages
 {
     /// <summary>
@@ -258,6 +260,12 @@ namespace EPAMetadataEditor.Pages
             tbxMdDateSt.Text = DateTime.Now.ToString("yyyyMMdd");
             tbxMdDateSt.Focus();
             tbxTopOfPage.Focus();
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 

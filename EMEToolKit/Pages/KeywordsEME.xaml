@@ -147,8 +147,8 @@
         <!-- validation issues  -->
         <v:MetadataIssueInfo x:Key="topics" Message="{x:Static r:Issues.topics_REQ}" />
         <v:MetadataIssueInfo x:Key="themeKeywords" Name="themeKeywords" Message="{x:Static r:Issues.themeKeywords_REQ}" />
-        <v:MetadataIssueInfo x:Key="themeKeywordsCd" Message="Program Code required" />
-        <v:MetadataIssueInfo x:Key="themeKeywordsEpa" Message="EPA Keywords required" />
+        <v:MetadataIssueInfo x:Key="themeKeywordsCd" Message="Program Code Section Required" />
+        <v:MetadataIssueInfo x:Key="themeKeywordsEpa" Message="EPA Keywords Section Required" />
         <v:MetadataIssueInfo x:Key="placeKeywords" Name="placeKeywords" Message="{x:Static r:Issues.placeKeywords_REQ}" />
         <v:MetadataIssueInfo x:Key="temporalKeywords" Name="temporalKeywords" Message="{x:Static r:Issues.temporalKeywords_REQ}" />
         <v:MetadataIssueInfo x:Key="disciplineKeywords" Name="disciplineKeywords" Message="{x:Static r:Issues.disciplineKeywords_REQ}" />
@@ -313,7 +313,7 @@
                                                                RelativeSource={RelativeSource FindAncestor,
                                                                AncestorType={x:Type ContentPresenter}},
                                                                Mode=OneWayToSource}" LastChildFill="True">
-                                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Program Code"/>
+                                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Program Code Keywords"/>
                                                     </DockPanel>
                                                 </Expander.Header>
                                                 <StackPanel Style="{DynamicResource ExpanderBodyStyle}">

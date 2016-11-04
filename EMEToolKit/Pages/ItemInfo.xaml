@@ -180,9 +180,11 @@
 
         <!-- validation issues -->
         <!--<v:MetadataIssueInfo x:Key="resTitle" Message="{x:Static r:Issues.resTitle_REQ}" />-->
-        <v:MetadataIssueInfo x:Key="resTitle" Message="title is required (single-word titles are not permitted)" />
+        <!--<v:MetadataIssueInfo x:Key="resTitle" Message="title is required (single-word titles are not permitted)" />-->
+        <v:MetadataIssueInfo x:Key="resTitle" Message="title does not meet minimum requirements (please see documentation)" />
         <!--<v:MetadataIssueInfo x:Key="idAbs" Message="{x:Static r:Issues.idAbs_REQ}" />-->
-        <v:MetadataIssueInfo x:Key="idAbs" Message="description is required (must contain at least 5 words)" />
+        <!--<v:MetadataIssueInfo x:Key="idAbs" Message="description is required (must contain at least 5 words)" />-->
+        <v:MetadataIssueInfo x:Key="idAbs" Message="description does not meet minimum requirements (please see documentation)" />
         <v:MetadataIssueInfo x:Key="scriptTitle" Message="{x:Static r:Issues.scriptTitle_REQ}" />
         <v:MetadataIssueInfo x:Key="useLimit" Message="{x:Static r:Issues.useLimit_REQ}" />
         <v:MetadataIssueInfo x:Key="idPurp" Message="{x:Static r:Issues.idPurp_REQ}" />
@@ -206,6 +208,9 @@
         <StackPanel>
             <!-- org title -->
             <Image Source="../Icons/epa_logo_horizontal_black.png" RenderOptions.BitmapScalingMode="Fant" MaxHeight="40" HorizontalAlignment="Left" Margin="10"/>
+            <TextBlock>
+                <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification" RequestNavigate="Hyperlink_RequestNavigate">EPA Metadata Technical Specification</Hyperlink>
+            </TextBlock>
             <TextBox x:Name="tbxTopOfPage" Style="{DynamicResource TbxHidden}" Text="[ Top of page ]" HorizontalAlignment="Center"/>
             <TextBox x:Name="tbxMdDateSt" Style="{DynamicResource TbxHidden}" Text="{e:MetadataElementSync XPath=/metadata/mdDateSt}" HorizontalAlignment="Center" Loaded="tbxMdDateSt_Loaded"/>
 

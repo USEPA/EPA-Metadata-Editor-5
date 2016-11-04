@@ -69,7 +69,7 @@
 
         <!--<v:MetadataIssueInfo x:Key="userNote" Message="non-public access level requires user note chosen from list of Controlled Unclassified Information (CUI) categories" />-->
         <!--<v:MetadataIssueInfo x:Key="userNote" Message="User Note required if Access Level is not public [choose from list of Controlled Unclassified Information (CUI) categories]" />-->
-        <v:MetadataIssueInfo x:Key="userNote" Message="User Note required if Access Level is not public" />
+        <v:MetadataIssueInfo x:Key="userNote" Message="EPA User Note required if Access Level is not Unclassified" />
 
         <v:MetadataIssueInfo x:Key="othConsts" Message="{x:Static r:Issues.othConsts_REQ}" />
         <v:MetadataIssueInfo x:Key="resConst" Message="{x:Static r:Issues.resConst_REQ}" />

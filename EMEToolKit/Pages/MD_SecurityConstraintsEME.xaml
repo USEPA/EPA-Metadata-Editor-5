@@ -112,7 +112,8 @@
                 </Grid.RowDefinitions>
 
                 <!-- classification -->
-                <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_CLASS}"/>
+                <!--<Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_CLASS}"/>-->
+                <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="Classification (Access Level)"/>
                 <ListBox Grid.Row="0" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=class}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
