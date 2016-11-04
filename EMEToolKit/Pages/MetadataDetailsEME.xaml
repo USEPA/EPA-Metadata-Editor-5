@@ -109,10 +109,11 @@
 
     <Grid Style="{DynamicResource EditorFrontPageStyle}">
         <StackPanel>
-            <Image Source="../Icons/epa_logo_horizontal_black.png" RenderOptions.BitmapScalingMode="Fant" MaxHeight="40" HorizontalAlignment="Left" Margin="10"/>
+            <!-- org header -->
+            <p:EME_Header/>
             <TextBox x:Name="tbxTopOfPage" Style="{DynamicResource TbxHidden}" Text="[ Top of page ]" HorizontalAlignment="Center"/>
             <TextBox x:Name="tbxMdDateSt" Style="{DynamicResource TbxHidden}" Text="{e:MetadataElementSync XPath=/metadata/mdDateSt}" HorizontalAlignment="Center" Loaded="tbxMdDateSt_Loaded"/>
-            
+
             <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.SEC_METADETAILS}"/>
 
             <ListBox Name="rootListBox" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata}">

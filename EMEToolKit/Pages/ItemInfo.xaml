@@ -204,13 +204,9 @@
     </UserControl.Resources>
 
     <Grid Style="{DynamicResource EditorFrontPageStyle}">
-
         <StackPanel>
-            <!-- org title -->
-            <Image Source="../Icons/epa_logo_horizontal_black.png" RenderOptions.BitmapScalingMode="Fant" MaxHeight="40" HorizontalAlignment="Left" Margin="10"/>
-            <TextBlock>
-                <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification" RequestNavigate="Hyperlink_RequestNavigate">EPA Metadata Technical Specification</Hyperlink>
-            </TextBlock>
+            <!-- org header -->
+            <p:EME_Header/>
             <TextBox x:Name="tbxTopOfPage" Style="{DynamicResource TbxHidden}" Text="[ Top of page ]" HorizontalAlignment="Center"/>
             <TextBox x:Name="tbxMdDateSt" Style="{DynamicResource TbxHidden}" Text="{e:MetadataElementSync XPath=/metadata/mdDateSt}" HorizontalAlignment="Center" Loaded="tbxMdDateSt_Loaded"/>
 

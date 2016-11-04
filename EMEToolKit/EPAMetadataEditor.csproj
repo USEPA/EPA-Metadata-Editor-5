@@ -127,6 +127,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EME_Header.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\KeywordsEME.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -816,6 +820,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ESRI.ArcGIS.MetadataEditor" />
+    <Compile Include="AppCode\EmeUtils.cs" />
     <Compile Include="AppCode\Utils1.cs" />
     <Compile Include="Pages\CI_CitationEPA.xaml.cs">
       <DependentUpon>CI_CitationEPA.xaml</DependentUpon>
@@ -831,6 +836,9 @@
     </Compile>
     <Compile Include="Pages\Converters\VisibleEmptyConverter.cs" />
     <Compile Include="Pages\Converters\VisibleNullConverter.cs" />
+    <Compile Include="Pages\EME_Header.xaml.cs">
+      <DependentUpon>EME_Header.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\KeywordsEME.xaml.cs">
       <DependentUpon>KeywordsEME.xaml</DependentUpon>
     </Compile>

@@ -89,7 +89,7 @@
                                 <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
                                     <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
                                     <!--<TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Add Keyword Thesaurus"/>-->
-                                    <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Add keyword list"/>
+                                    <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="Choose Keyword type or Program Code"/>
                                 </StackPanel>
                             </Button>
                         </DataTemplate>
@@ -107,7 +107,8 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <!-- keywords -->
-                <TextBox Style="{DynamicResource TbxHidden}" v:Nav.AnchorName="bag,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}" Text="{e:MetadataBinding XPath=bag}"/>
+                <TextBox Style="{DynamicResource TbxHidden}" v:Nav.AnchorName="bag,bag" Text="{e:MetadataBinding XPath=bag}"
+                         v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"/>
             </StackPanel>
         </Border>
 

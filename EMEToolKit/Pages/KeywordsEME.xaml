@@ -146,10 +146,12 @@
 
         <!-- validation issues  -->
         <v:MetadataIssueInfo x:Key="topics" Message="{x:Static r:Issues.topics_REQ}" />
-        <v:MetadataIssueInfo x:Key="themeKeywords" Name="themeKeywords" Message="{x:Static r:Issues.themeKeywords_REQ}" />
-        <v:MetadataIssueInfo x:Key="themeKeywordsCd" Message="Program Code Section Required" />
-        <v:MetadataIssueInfo x:Key="themeKeywordsEpa" Message="EPA Keywords Section Required" />
-        <v:MetadataIssueInfo x:Key="placeKeywords" Name="placeKeywords" Message="{x:Static r:Issues.placeKeywords_REQ}" />
+        <!--<v:MetadataIssueInfo x:Key="themeKeywords" Name="themeKeywords" Message="{x:Static r:Issues.themeKeywords_REQ}" />-->
+        <v:MetadataIssueInfo x:Key="themeKeywords" Name="themeKeywords" Message="please select at least one keyword per section" />
+        <v:MetadataIssueInfo x:Key="themeKeywordsCd" Message="program code section required" />
+        <v:MetadataIssueInfo x:Key="themeKeywordsEpa" Message="epa keywords section required" />
+        <!--<v:MetadataIssueInfo x:Key="placeKeywords" Name="placeKeywords" Message="{x:Static r:Issues.placeKeywords_REQ}" />-->
+        <v:MetadataIssueInfo x:Key="placeKeywords" Name="placeKeywords" Message="please select at least one place keyword" />
         <v:MetadataIssueInfo x:Key="temporalKeywords" Name="temporalKeywords" Message="{x:Static r:Issues.temporalKeywords_REQ}" />
         <v:MetadataIssueInfo x:Key="disciplineKeywords" Name="disciplineKeywords" Message="{x:Static r:Issues.disciplineKeywords_REQ}" />
         <v:MetadataIssueInfo x:Key="stratumKeywords" Name="stratumKeywords" Message="{x:Static r:Issues.stratumKeywords_REQ}" />
@@ -181,7 +183,9 @@
 
     <Grid Style="{DynamicResource EditorFrontPageStyle}">
         <StackPanel>
-            <Image Source="../Icons/epa_logo_horizontal_black.png" RenderOptions.BitmapScalingMode="Fant" MaxHeight="40" HorizontalAlignment="Left" Margin="10"/>
+            <!-- org header -->
+            <p:EME_Header/>
+
             <ListBox x:Name="lbxKeywordEditorPage" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata/dataIdInfo[1]}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -413,7 +417,8 @@
                                                         <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
                                                             <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                                         </Button>
-                                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THEMEKEY}"/>
+                                                        <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THEMEKEY}"/>-->
+                                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Custom Keywords"/>
                                                     </DockPanel>
                                                 </Expander.Header>
                                                 <StackPanel Style="{DynamicResource ExpanderBodyStyle}">
@@ -447,7 +452,8 @@
                                                         <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
                                                             <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                                         </Button>
-                                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THEMEKEY}"/>
+                                                        <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THEMEKEY}"/>-->
+                                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Keywords and Program Code"/>
                                                     </DockPanel>
                                                 </Expander.Header>
                                                 <StackPanel Style="{DynamicResource ExpanderBodyStyle}">

@@ -61,27 +61,24 @@
                 <!-- individual name -->
                 <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Name}"/>
                 <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="0" Grid.Column="1" SourceUpdated="DefaultValueChanged" ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_individualName}"
-            v:Nav.AnchorName="IndName,rpIndName"
-            Text="{e:MetadataBinding XPath=rpIndName}" />
+                         v:Nav.AnchorName="IndName,rpIndName" Text="{e:MetadataBinding XPath=rpIndName}" />
 
                 <!-- organization -->
                 <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Organization}"/>
                 <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="1" Grid.Column="1" SourceUpdated="DefaultValueChanged" ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_organisationName}"
-            v:Nav.AnchorName="OrgName,rpOrgName"
-            Text="{e:MetadataBinding XPath=rpOrgName}" />
+                         v:Nav.AnchorName="OrgName,rpOrgName" Text="{e:MetadataBinding XPath=rpOrgName}" />
 
                 <!-- position -->
                 <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="2" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Position}"/>
                 <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="2" Grid.Column="1" SourceUpdated="DefaultValueChanged" ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_positionName}"
-            v:Nav.AnchorName="PosName,rpPosName"
-            Text="{e:MetadataBinding XPath=rpPosName}" />
+                         Text="{e:MetadataBinding XPath=rpPosName}" />
 
                 <!-- role -->
                 <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="3" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Role}"/>
                 <ComboBox Loaded="PostProcessComboBoxValues" corepages:EditorPage.SourceXPath="role/RoleCd/@value"
                           Grid.Row="3" Grid.Column="1"
                           Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
-                          v:Nav.AnchorName="rolePub,role"
+                          v:Nav.AnchorName="role,role"
                           ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_role}"
                           ItemsSource="{Binding Source={StaticResource CI_RoleCode}, Path=List}"
                           DisplayMemberPath="."

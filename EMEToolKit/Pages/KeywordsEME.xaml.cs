@@ -27,6 +27,8 @@ using System.Windows.Shapes;
 
 using ESRI.ArcGIS.Metadata.Editor;
 using ESRI.ArcGIS.Metadata.Editor.Pages;
+using System.Diagnostics;
+
 namespace EPAMetadataEditor.Pages
 {
     /// <summary>
@@ -43,6 +45,12 @@ namespace EPAMetadataEditor.Pages
         {
             get { return ESRI.ArcGIS.Metadata.Editor.Properties.Resources.CFG_LBL_KEYWORDS; }
             //get { return "TEST: Topics & Keywords"; }
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }

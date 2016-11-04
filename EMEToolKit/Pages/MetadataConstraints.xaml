@@ -7,8 +7,8 @@
     xmlns:r="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
     Loaded="FillXml">
 
-  <UserControl.Resources>
-    <!-- 
+    <UserControl.Resources>
+        <!-- 
       <!ENTITY % Metadata '(... mdConst*, appSchInfo*, mdMaint?, series*, describes*, propType*, featType*, featAttr*, spdoinfo?, eainfo?, Binary?, (tool? | toolbox?), taxSys?, miAcquInfo*)'> 
 
       <!ELEMENT resConst %ConstsTypes;>    
@@ -18,107 +18,109 @@
       <!ENTITY % LegConsts '(useLimit*, accessConsts*, useConsts*, othConsts*)'>
       <!ENTITY % SecConsts '(useLimit*, class, userNote?, classSys?, handDesc?)'>
     -->
-    <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <metadata>
-          </metadata>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+        <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <metadata>
+                    </metadata>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <!-- general constraints -->
-    <XmlDataProvider x:Key="XmlRecord_General" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <mdConst editorAppend="True">
-            <Consts editorExpand="True"/>
-          </mdConst>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+        <!-- general constraints -->
+        <XmlDataProvider x:Key="XmlRecord_General" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <mdConst editorAppend="True">
+                        <Consts editorExpand="True"/>
+                    </mdConst>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <!-- legal constraints -->
-    <XmlDataProvider x:Key="XmlRecord_Legal" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <mdConst editorAppend="True">
-            <LegConsts editorExpand="True"/>
-          </mdConst>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+        <!-- legal constraints -->
+        <XmlDataProvider x:Key="XmlRecord_Legal" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <mdConst editorAppend="True">
+                        <LegConsts editorExpand="True"/>
+                    </mdConst>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <!-- security constraints -->
-    <XmlDataProvider x:Key="XmlRecord_Security" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <mdConst editorAppend="True">
-            <SecConsts editorExpand="True"/>
-          </mdConst>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+        <!-- security constraints -->
+        <XmlDataProvider x:Key="XmlRecord_Security" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <mdConst editorAppend="True">
+                        <SecConsts editorExpand="True"/>
+                    </mdConst>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <v:MetadataIssueInfo x:Key="ClasscationCd" Message="{x:Static r:Issues.ClasscationCd_REQ}" />
-    <v:MetadataIssueInfo x:Key="othConsts" Message="{x:Static r:Issues.othConsts_REQ}" />
-    <v:MetadataIssueInfo x:Key="useLimit" Message="{x:Static r:Issues.useLimit_REQ}" />
-    
-  </UserControl.Resources>
+        <v:MetadataIssueInfo x:Key="ClasscationCd" Message="{x:Static r:Issues.ClasscationCd_REQ}" />
+        <v:MetadataIssueInfo x:Key="othConsts" Message="{x:Static r:Issues.othConsts_REQ}" />
+        <v:MetadataIssueInfo x:Key="useLimit" Message="{x:Static r:Issues.useLimit_REQ}" />
 
-  <Grid Style="{DynamicResource EditorFrontPageStyle}">
-    <StackPanel>
+    </UserControl.Resources>
 
-      <!-- title -->
-      <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.LBL_CONSTS_METADATA}"/>
+    <Grid Style="{DynamicResource EditorFrontPageStyle}">
+        <StackPanel>
+            <!-- org header -->
+            <p:EME_Header/>
+            
+            <!-- title -->
+            <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.LBL_CONSTS_METADATA}"/>
 
-      <ListBox v:Nav.AnchorName="mdConst" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata}">
-        <ListBox.ItemTemplate>
-          <DataTemplate>
-            <StackPanel>
-
-              <!-- all resource constraints -->
-              <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=mdConst}">
+            <ListBox v:Nav.AnchorName="mdConst" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata}">
                 <ListBox.ItemTemplate>
-                  <DataTemplate>
-                    <!-- constraint types -->
-                    <p:ConstraintTypes/>
-                  </DataTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+
+                            <!-- all resource constraints -->
+                            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=mdConst}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <!-- constraint types -->
+                                        <p:ConstraintTypes/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                            <!-- ADD general constraints -->
+                            <Button Tag="General" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
+                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                    <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
+                                    <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_CONSTS_NEW_GENERAL}"/>
+                                </StackPanel>
+                            </Button>
+
+                            <!-- ADD legal constraints -->
+                            <Button Tag="Legal" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
+                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                    <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
+                                    <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_CONSTS_NEW_LEGAL}"/>
+                                </StackPanel>
+                            </Button>
+
+                            <!-- ADD security constraints -->
+                            <Button Tag="Security" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
+                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                    <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
+                                    <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_CONSTS_NEW_SECURITY}"/>
+                                </StackPanel>
+                            </Button>
+
+                        </StackPanel>
+                    </DataTemplate>
                 </ListBox.ItemTemplate>
-              </ListBox>
+            </ListBox>
 
-              <!-- ADD general constraints -->
-              <Button Tag="General" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                  <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                  <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_CONSTS_NEW_GENERAL}"/>
-                </StackPanel>
-              </Button>
+            <!-- validate after all anchors are loaded -->
+            <v:PageValidateControl/>
 
-              <!-- ADD legal constraints -->
-              <Button Tag="Legal" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                  <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                  <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_CONSTS_NEW_LEGAL}"/>
-                </StackPanel>
-              </Button>
-
-              <!-- ADD security constraints -->
-              <Button Tag="Security" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-                  <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                  <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_CONSTS_NEW_SECURITY}"/>
-                </StackPanel>
-              </Button>
-
-            </StackPanel>
-          </DataTemplate>
-        </ListBox.ItemTemplate>
-      </ListBox>
-
-      <!-- validate after all anchors are loaded -->
-      <v:PageValidateControl/>
-      
-    </StackPanel>
-  </Grid>
+        </StackPanel>
+    </Grid>
 </corepages:EditorPage>
