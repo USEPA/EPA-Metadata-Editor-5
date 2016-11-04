@@ -44,9 +44,6 @@ namespace EPAMetadataEditor.Pages
         private XmlDocument _contactsDoc = null;
         private XmlDocument _contactsEsri = null;
         private XmlDocument _contactsEpa = null;
-        private string _filePathEsri = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\ArcGIS\\Descriptions\\";
-        private string _filePathEpa = Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA MetadataToolkit\\EMEdb\\";
-
         public string partySource = null;
         public ContactManager()
         {
@@ -164,8 +161,10 @@ namespace EPAMetadataEditor.Pages
             _contactsEsri = new XmlDocument();
             _contactsEpa = new XmlDocument();
             XmlDocument _contactsBAK = new XmlDocument();
+            string filePathEsri = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\ArcGIS\\Descriptions\\";
+            string filePathEpa = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA MetadataToolkit\\EMEdb\\";
 
-            try { _contactsBAK.Load(_filePathEsri + "contacts.xml"); }
+            try { _contactsBAK.Load(filePathEsri + "contacts.xml"); }
             catch (System.IO.FileNotFoundException)
             {
                 _contactsBAK.LoadXml(
@@ -183,7 +182,7 @@ namespace EPAMetadataEditor.Pages
             }
 
             //_contactsEsri.PreserveWhitespace = true;
-            try { _contactsEsri.Load(_filePathEsri + "contacts.xml"); }
+            try { _contactsEsri.Load(filePathEsri + "contacts.xml"); }
             catch (System.IO.FileNotFoundException)
             {
                 _contactsEsri.LoadXml(
@@ -202,7 +201,7 @@ namespace EPAMetadataEditor.Pages
             //_contactsEsri.Save(filePathEsri + "contactManEsri.xml");
 
             //_contactsEpa.PreserveWhitespace = true;
-            try { _contactsEpa.Load(_filePathEpa + "contacts.xml"); }
+            try { _contactsEpa.Load(filePathEpa + "contacts.xml"); }
             catch (System.IO.FileNotFoundException)
             {
                 _contactsEpa.LoadXml(
