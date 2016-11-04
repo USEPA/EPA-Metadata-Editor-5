@@ -64,7 +64,7 @@
         </XmlDataProvider>
 
         <XmlDataProvider x:Key="EPAData"
-                         Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\ProgramCode.xml"
+                         Source="ProgramCode.xml"
                          XPath="emeData/ProgramCode[pCode[(text())]]"
                          IsInitialLoadEnabled="True"/>
 
@@ -103,7 +103,7 @@
                     <TextBox x:Name="tbxMDPCode" Text="{e:MetadataBinding XPath=bag}"  Style="{DynamicResource TbxHidden}"
                              v:Nav.AnchorName="themeKeywordsCd,bag" v:MetadataRules.HasIssue="{Binding Path=(v:MetadataRules.HasIssue), RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type corepages:EditorPage}}}"/>
                     
-                    <!--EPA Keyword List from: EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsEPA.xml-->
+                    <!--EPA Keyword List from: KeywordsEPA.xml-->
                     <ListView x:Name="lbxPCode"
                               DataContext="{DynamicResource EPAData}"
                               ItemsSource = "{Binding}"

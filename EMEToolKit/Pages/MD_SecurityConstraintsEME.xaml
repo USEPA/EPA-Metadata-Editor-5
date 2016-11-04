@@ -8,7 +8,7 @@
     xmlns:toolkit="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit"
     xmlns:controls="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Controls;assembly=ESRI.ArcGIS.MetadataEditor"
     xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
-    Loaded="FillXml">
+    Loaded="EditorPage_Loaded">
 
     <UserControl.Resources>
         <!-- 
@@ -54,8 +54,8 @@
             </x:XData>
         </XmlDataProvider>
 
-        <XmlDataProvider x:Key="EPASecConsts"
-                         Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\SecurityConstraints.xml"
+        <XmlDataProvider x:Key="EPAData"
+                         Source="SecurityConstraints.xml"
                          XPath="emeData/SecurityConstraints"
                          IsInitialLoadEnabled="True"/>
 
@@ -129,7 +129,7 @@
 
                 <!-- user note -->
                 <Label Grid.Row="2" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_USERNOTE}"/>
-                <ComboBox Grid.Row="2" Grid.Column="1" x:Name="cboEpaSecUseNote" DataContext="{DynamicResource EPASecConsts}" ItemsSource="{Binding}" IsEditable="True" Loaded="cboEpaSecUseNote_Loaded" LostFocus="cboEpaSecUseNote_LostFocus" ToolTip="{x:Static r:Definitions.MD_SecurityConstraints_userNote}">
+                <ComboBox Grid.Row="2" Grid.Column="1" x:Name="cboEpaSecUseNote" DataContext="{DynamicResource EPAData}" ItemsSource="{Binding}" IsEditable="True" Loaded="cboEpaSecUseNote_Loaded" LostFocus="cboEpaSecUseNote_LostFocus" ToolTip="{x:Static r:Definitions.MD_SecurityConstraints_userNote}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding XPath=usenote}"/>

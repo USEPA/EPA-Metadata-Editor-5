@@ -18,6 +18,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using ESRI.ArcGIS.Metadata.Editor.Pages;
+using System.Windows.Data;
+
 namespace EPAMetadataEditor.Pages
 {
     /// <summary>
@@ -26,6 +28,7 @@ namespace EPAMetadataEditor.Pages
     public partial class MD_KeywordsEPA : EditorPage
     {
         private List<string> _listThemeK = new List<string>();
+        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA MetadataToolkit\\EMEdb\\";
 
         public MD_KeywordsEPA()
         {
@@ -48,6 +51,10 @@ namespace EPAMetadataEditor.Pages
         private void MD_KeywordsEPA_Loaded(object sender, RoutedEventArgs e)
         {
             FillXml();
+
+            var xmldp = (XmlDataProvider)this.Resources["EPAData"];
+            string dbname = "KeywordsEPA.xml";
+            xmldp.Source = new Uri(_pathEmeDb + dbname);
         }
 
         private void chbxEpaThemekey_Checked(object sender, RoutedEventArgs e)
@@ -112,32 +119,6 @@ namespace EPAMetadataEditor.Pages
                 var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
                 liBoxCtrl.IsChecked = false;
             }
-        }
-
-        private void btnLoadMDThemeK_Click(object sender, RoutedEventArgs e)
-        {
-            //List<string> MDKeywords = new List<string>();
-            //if (tbxMDEpaThemeK.Text.Any())
-            //{
-            //    string[] strMDKeywords = tbxMDEpaThemeK.Text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
-            //    foreach (string s in strMDKeywords)
-            //    {
-            //        MDKeywords.Add(s.Trim());
-            //    }
-            //}
-            //MDKeywords = MDKeywords.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
-            //MDKeywords.Sort();
-
-            //ListBox liBox = (ListBox)lbxEpaThemeK;
-            //foreach (var liBoxItem in liBox.Items)
-            //{
-            //    var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
-            //    var liBoxChildren = AllChildren(liBoxCont);
-            //    var liBoxName = "chbxEpaThemekey";
-            //    var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
-            //    System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
-            //    liBoxCtrl.IsChecked = MDKeywords.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
-            //}
         }
 
         private void tbxMDEpaThemeK_Loaded(object sender, RoutedEventArgs e)

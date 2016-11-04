@@ -64,7 +64,7 @@
         </XmlDataProvider>
 
         <XmlDataProvider x:Key="EPAData"
-                         Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsEPA.xml"
+                         Source="KeywordsEPA.xml"
                          XPath="emeData/KeywordsEPA"
                          IsInitialLoadEnabled="True"/>
 
@@ -99,7 +99,7 @@
             <!-- EPA keywords -->
             <controls:Resizer>
                 <StackPanel>
-                    <!--EPA Keyword List from: EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsEPA.xml-->
+                    <!--EPA Keyword List from: KeywordsEPA.xml-->
                     <ListView x:Name="lbxEpaThemeK"
                               DataContext="{DynamicResource EPAData}"
                               ItemsSource = "{Binding}"

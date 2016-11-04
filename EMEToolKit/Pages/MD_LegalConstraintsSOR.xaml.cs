@@ -34,6 +34,8 @@ namespace EPAMetadataEditor.Pages
     /// </summary>
     public partial class MD_LegalConstraintsSOR : EditorPage
     {
+        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA MetadataToolkit\\EMEdb\\";
+
         public MD_LegalConstraintsSOR()
         {
             InitializeComponent();
@@ -52,33 +54,13 @@ namespace EPAMetadataEditor.Pages
             return _List;
         }
 
-        private void cboSystemNames_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void EditorPage_Loaded(object sender, RoutedEventArgs e)
         {
-            //ListBox liBox = (ListBox)lbxLegalConstsOtherLimits;
-            //foreach (var liBoxItem in liBox.Items)
-            //{
-            //    var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
-            //    var liBoxChildren = AllChildren(liBoxCont);
-            //    string liBoxName = "tbxLegalConstsSystemURL";
-            //    TextBox tbxLegalURL = (TextBox)liBoxChildren.First(c => c.Name == liBoxName);
-            //    tbxLegalURL.Focus();
-            //}
-        }
+            FillXml();
 
-        private void cboSystemNames_LostFocus(object sender, RoutedEventArgs e)
-        {
-            //ListBox liBox = (ListBox)lbxLegalConstsOtherLimits;
-            //foreach (var liBoxItem in liBox.Items)
-            //{
-            //    var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
-            //    var liBoxChildren = AllChildren(liBoxCont);
-            //    string liBoxName = "tbxLegalConstsSystemURL";
-            //    TextBox tbxLegalURL = (TextBox)liBoxChildren.First(c => c.Name == liBoxName);
-            //    string liBoxName2 = "cboSystemNames";
-            //    ComboBox cboSysURL = (ComboBox)liBoxChildren.First(c => c.Name == liBoxName2);
-            //    tbxLegalURL.Text = cboSysURL.Text;
-            //    tbxLegalURL.Focus();
-            //}
+            var xmldp = (XmlDataProvider)this.Resources["EPAData"];
+            string dbname = "SystemofRecords.xml";
+            xmldp.Source = new Uri(_pathEmeDb + dbname);
         }
 
         private void cboSystemNames_LostMouseCapture(object sender, MouseEventArgs e)

@@ -7,7 +7,7 @@
     xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
     xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
     xmlns:controls="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Controls;assembly=ESRI.ArcGIS.MetadataEditor"
-    Loaded="FillXml">
+    Loaded="EditorPage_Loaded">
 
     <UserControl.Resources>
         <!-- 
@@ -63,8 +63,8 @@
             </x:XData>
         </XmlDataProvider>
 
-        <XmlDataProvider x:Key="UserData"
-                         Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsUser.xml"
+        <XmlDataProvider x:Key="EPAData"
+                         Source="KeywordsUser.xml"
                          XPath="emeData/KeywordsUser"
                          IsInitialLoadEnabled="True"/>
 
@@ -99,9 +99,9 @@
             <!-- user keywords -->
             <controls:Resizer>
                 <StackPanel>
-                    <!--User Keyword List from: EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\KeywordsUser.xml-->
+                    <!--User Keyword List from: KeywordsUser.xml-->
                     <ListView x:Name="lbxEpaUserK"
-                              DataContext="{DynamicResource UserData}"
+                              DataContext="{DynamicResource EPAData}"
                               ItemsSource = "{Binding}"
                               Template="{StaticResource ListBoxNoScroll}"
                               ItemsPanel="{StaticResource ThreeColumnList}"

@@ -19,6 +19,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using ESRI.ArcGIS.Metadata.Editor.Pages;
 using System.Xml;
+using System.Windows.Data;
 
 namespace EPAMetadataEditor.Pages
 {
@@ -27,10 +28,8 @@ namespace EPAMetadataEditor.Pages
     /// </summary>
     public partial class MD_KeywordsCode : EditorPage
     {
-        private List<string> _listThemeK = new List<string>();
         private List<string> _listPCode = new List<string>();
-        private XmlDocument _programCode = new XmlDocument();
-        string filePathEpa = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA Metadata Edtior 4x\\Eme4xSystemFiles\\EMEdb\\";
+        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA MetadataToolkit\\EMEdb\\";
 
         public MD_KeywordsCode()
         {
@@ -54,22 +53,9 @@ namespace EPAMetadataEditor.Pages
         {
             FillXml();
 
-            try
-            {
-                _programCode.Load(filePathEpa + "ProgramCode.xml");
-            }
-            catch (System.IO.FileNotFoundException)
-            {
-                _programCode.LoadXml(
-                "<emeData> \n" +
-                "  <ProgramCode> \n" +
-                "    <programName></programName> \n" +
-                "    <pCode></pCode> \n" +
-                "    <default></default> \n" +
-                "  </ProgramCode> \n" +
-                "</emeData>");
-            }
-
+            var xmldp = (XmlDataProvider)this.Resources["EPAData"];
+            string dbname = "ProgramCode.xml";
+            xmldp.Source = new Uri(_pathEmeDb + dbname);
         }
 
         private void chbxPCode_Checked(object sender, RoutedEventArgs e)
@@ -77,12 +63,12 @@ namespace EPAMetadataEditor.Pages
             CheckBox cbx = (CheckBox)sender;
             System.Xml.XmlElement xmlCheckBox = (System.Xml.XmlElement)cbx.Content;
 
-            _listThemeK.Add(xmlCheckBox.InnerText);
-            _listThemeK.Sort();
-            _listThemeK = _listThemeK.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+            _listPCode.Add(xmlCheckBox.InnerText);
+            _listPCode.Sort();
+            _listPCode = _listPCode.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
             tbxMDPCode.Text = "";
 
-            foreach (string s in _listThemeK)
+            foreach (string s in _listPCode)
             {
                 tbxMDPCode.Text += s + System.Environment.NewLine;
             }
@@ -95,10 +81,10 @@ namespace EPAMetadataEditor.Pages
             CheckBox cbx = (CheckBox)sender;
             System.Xml.XmlElement xmlCheckBox = (System.Xml.XmlElement)cbx.Content;
 
-            _listThemeK.Remove(xmlCheckBox.InnerText);
+            _listPCode.Remove(xmlCheckBox.InnerText);
             tbxMDPCode.Text = "";
 
-            foreach (string s in _listThemeK)
+            foreach (string s in _listPCode)
             {
                 tbxMDPCode.Text += s + System.Environment.NewLine;
             }

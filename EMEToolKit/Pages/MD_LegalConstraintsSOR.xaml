@@ -8,7 +8,7 @@
     xmlns:toolkit="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit"
     xmlns:controls="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Controls;assembly=ESRI.ArcGIS.MetadataEditor"
     xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
-    Loaded="FillXml">
+    Loaded="EditorPage_Loaded">
 
     <UserControl.Resources>
         <!-- 
@@ -84,8 +84,8 @@
             </x:XData>
         </XmlDataProvider>
         
-        <XmlDataProvider x:Key="EpaSystemOfRecords"
-                         Source="C:\Users\Innovate\AppData\Roaming\Innovate! Inc\EPA Metadata Edtior 4x\Eme4xSystemFiles\EMEdb\SystemofRecords.xml"
+        <XmlDataProvider x:Key="EPAData"
+                         Source="SystemofRecords.xml"
                          XPath="emeData/SystemOfRecord"
                          IsInitialLoadEnabled="True"/>
 
@@ -145,7 +145,7 @@
                             </Button>
                             <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="System of Record"/>
                             <Grid>
-                                <ComboBox x:Name="cboSystemNames" DataContext="{DynamicResource EpaSystemOfRecords}" Style="{DynamicResource EditorHComboBoxStyle}"
+                                <ComboBox x:Name="cboSystemNames" DataContext="{DynamicResource EPAData}" Style="{DynamicResource EditorHComboBoxStyle}"
                                               ItemsSource="{Binding}"
                                               LostMouseCapture="cboSystemNames_LostMouseCapture"
                                               ToolTip="{x:Static r:Definitions.MD_LegalConstraints_otherConstraints}">

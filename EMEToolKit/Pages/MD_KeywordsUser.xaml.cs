@@ -18,6 +18,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using ESRI.ArcGIS.Metadata.Editor.Pages;
+using System.Windows.Data;
+
 namespace EPAMetadataEditor.Pages
 {
     /// <summary>
@@ -26,6 +28,7 @@ namespace EPAMetadataEditor.Pages
     public partial class MD_KeywordsUser : EditorPage
     {
         private List<string> _listUserK = new List<string>();
+        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA MetadataToolkit\\EMEdb\\";
 
         public MD_KeywordsUser()
         {
@@ -43,6 +46,15 @@ namespace EPAMetadataEditor.Pages
                 _List.AddRange(AllChildren(_Child));
             }
             return _List;
+        }
+
+        private void EditorPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            FillXml();
+
+            var xmldp = (XmlDataProvider)this.Resources["EPAData"];
+            string dbname = "KeywordsUser.xml";
+            xmldp.Source = new Uri(_pathEmeDb + dbname);
         }
 
         private void chbxEpaUserkey_Checked(object sender, RoutedEventArgs e)
@@ -107,33 +119,6 @@ namespace EPAMetadataEditor.Pages
                 var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
                 liBoxCtrl.IsChecked = false;
             }
-        }
-
-        private void btnLoadMDUserK_Click(object sender, RoutedEventArgs e)
-        {
-            //List<string> MDKeywords = new List<string>();
-
-            //if (tbxMDEpaUserK.Text.Any())
-            //{
-            //    string[] strMDKeywords = tbxMDEpaUserK.Text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
-            //    foreach (string s in strMDKeywords)
-            //    {
-            //        MDKeywords.Add(s.Trim());
-            //    }
-            //}
-            //MDKeywords = MDKeywords.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
-            //MDKeywords.Sort();
-
-            //ListBox liBox = (ListBox)lbxEpaUserK;
-            //foreach (var liBoxItem in liBox.Items)
-            //{
-            //    var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
-            //    var liBoxChildren = AllChildren(liBoxCont);
-            //    var liBoxName = "chbxEpaUserkey";
-            //    var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
-            //    System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
-            //    liBoxCtrl.IsChecked = MDKeywords.Exists(s => s.Equals(xmlTest.InnerText.Trim()));
-            //}
         }
 
         private void tbxMDEpaUserK_Loaded(object sender, RoutedEventArgs e)

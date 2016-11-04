@@ -109,9 +109,6 @@
                                     <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_ADD_CONTACT}"/>
                                 </StackPanel>
                             </Button>
-
-                            <Label>Test</Label>
-                            
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

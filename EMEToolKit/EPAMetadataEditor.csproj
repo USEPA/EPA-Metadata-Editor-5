@@ -820,8 +820,6 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ESRI.ArcGIS.MetadataEditor" />
-    <Compile Include="AppCode\EmeUtils.cs" />
-    <Compile Include="AppCode\Utils1.cs" />
     <Compile Include="Pages\CI_CitationEPA.xaml.cs">
       <DependentUpon>CI_CitationEPA.xaml</DependentUpon>
     </Compile>
@@ -1355,6 +1353,9 @@
   <ItemGroup>
     <Resource Include="EMEdb\contacts.xml" />
     <Resource Include="EMEdb\SecurityConstraints.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AppCode\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

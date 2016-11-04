@@ -34,9 +34,20 @@ namespace EPAMetadataEditor.Pages
     /// </summary>
     public partial class MD_SecurityConstraintsEME : EditorPage
     {
+        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA MetadataToolkit\\EMEdb\\";
+
         public MD_SecurityConstraintsEME()
         {
             InitializeComponent();
+        }
+
+        private void EditorPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            FillXml();
+
+            var xmldp = (XmlDataProvider)this.Resources["EPAData"];
+            string dbname = "SystemofRecords.xml";
+            xmldp.Source = new Uri(_pathEmeDb + dbname);
         }
 
         private void cboEpaSecUseNote_LostFocus(object sender, RoutedEventArgs e)
@@ -55,5 +66,6 @@ namespace EPAMetadataEditor.Pages
                 }
             }
         }
+
     }
 }

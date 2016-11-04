@@ -35,6 +35,7 @@ namespace EPAMetadataEditor.Pages
     public partial class MD_KeywordsPlace : EditorPage
     {
         private List<string> _listPlaceK = new List<string>();
+        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA MetadataToolkit\\EMEdb\\";
 
         public MD_KeywordsPlace()
         {
@@ -52,6 +53,15 @@ namespace EPAMetadataEditor.Pages
                 _List.AddRange(AllChildren(_Child));
             }
             return _List;
+        }
+
+        private void EditorPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            FillXml();
+
+            var xmldp = (XmlDataProvider)this.Resources["EPAData"];
+            string dbname = "KeywordsPlace.xml";
+            xmldp.Source = new Uri(_pathEmeDb + dbname);
         }
 
         private void chbxEpaPlacekey_Checked(object sender, RoutedEventArgs e)
