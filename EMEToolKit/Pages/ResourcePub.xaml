@@ -52,7 +52,7 @@
             <!-- org header -->
             <p:EME_Header/>
             <!-- title -->
-            <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.LBL_RES_POCS}"/>
+            <Label Style="{DynamicResource EditorPageTitle}" Content="Publisher"/>
 
             <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=//dataIdInfo[1]}">
                 <ListBox.ItemTemplate>
