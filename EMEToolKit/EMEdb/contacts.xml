@@ -1,6 +1,6 @@
 <contacts>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>32</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 1</rpOrgName>
     <rpIndName>Tom Giffen</rpIndName>
@@ -29,7 +29,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>33</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 2, GIS Team</rpOrgName>
     <rpIndName>Bob Simpson</rpIndName>
@@ -57,8 +57,9 @@
     </rpCntInfo>
     <editorSave>False</editorSave>
   </contact>
+
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>34</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 2, GIS Team</rpOrgName>
     <rpIndName>Grace Smith</rpIndName>
@@ -87,7 +88,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>35</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Environmental Information</rpOrgName>
     <rpIndName>Harvey Simon</rpIndName>
@@ -115,7 +116,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>36</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 2, GIS Team</rpOrgName>
     <rpIndName>Linda Timander</rpIndName>
@@ -143,7 +144,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>38</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 2, GIS Team</rpOrgName>
     <rpIndName>Robert Eckman</rpIndName>
@@ -172,7 +173,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>39</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 2, GIS Team</rpOrgName>
     <rpIndName>Suk-Yee Tang</rpIndName>
@@ -201,7 +202,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>41</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 3</rpOrgName>
     <rpIndName>Don Evans</rpIndName>
@@ -230,7 +231,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>42</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 3</rpOrgName>
     <rpIndName>John Graves</rpIndName>
@@ -260,7 +261,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>43</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 3</rpOrgName>
     <rpIndName>Matthew Mellon</rpIndName>
@@ -288,7 +289,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>48</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 6</rpOrgName>
     <rpIndName>David Parrish</rpIndName>
@@ -317,7 +318,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>49</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 6</rpOrgName>
     <rpIndName>Jeff Danielson</rpIndName>
@@ -346,7 +347,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>50</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 6</rpOrgName>
     <rpIndName>Melody Lister</rpIndName>
@@ -375,7 +376,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>51</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 7</rpOrgName>
     <rpIndName>Holly Mehl</rpIndName>
@@ -404,7 +405,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>52</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 8</rpOrgName>
     <rpIndName>Tony Selle</rpIndName>
@@ -433,7 +434,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>53</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 9</rpOrgName>
     <rpIndName>Cheryl Henley</rpIndName>
@@ -462,7 +463,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>54</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 10</rpOrgName>
     <rpIndName>Scott Augustine</rpIndName>
@@ -491,7 +492,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>55</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Research Triangle Park</rpOrgName>
     <rpIndName>National Geospatial Support Team</rpIndName>
@@ -520,7 +521,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>56</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Environmental Information, Office of Information Collection</rpOrgName>
     <rpIndName>Ana Greene</rpIndName>
@@ -549,7 +550,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>58</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Air and Radiation-Office of Air Quality Planning and Standards</rpOrgName>
     <rpIndName>Brian Stitt</rpIndName>
@@ -577,7 +578,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>63</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Environmental Information</rpOrgName>
     <rpIndName>Kim Balassiano</rpIndName>
@@ -605,7 +606,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>64</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Environmental Information</rpOrgName>
     <rpIndName>David Smith</rpIndName>
@@ -633,7 +634,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>66</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Environmental Information</rpOrgName>
     <rpIndName>Lee Kyle</rpIndName>
@@ -661,7 +662,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>67</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Environmental Information</rpOrgName>
     <rpIndName>Tim Richards</rpIndName>
@@ -690,7 +691,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>68</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Research and Development-National Center for Environmental Assessment</rpOrgName>
     <rpIndName>Phillip Morefield</rpIndName>
@@ -718,7 +719,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>69</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Research and Development-National Exposure Research Laboratory-Environmental Sciences Division-Regional Environmental Vulnerability Assessment</rpOrgName>
     <rpIndName>Vasu Kilaru</rpIndName>
@@ -747,7 +748,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>71</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Research and Development-National Health and Environmental Effects Research Laboratory-Western Ecology Division</rpOrgName>
     <rpIndName>Marc Weber</rpIndName>
@@ -775,7 +776,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>74</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Research and Development-Sustainable and Healthy Communities Research Program, Nation Atlas for Sustainability</rpOrgName>
     <rpIndName>Anne Neale</rpIndName>
@@ -805,7 +806,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>79</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Solid Waste and Emergency Response-Office of Emergency Management</rpOrgName>
     <rpIndName>Chris Burgess</rpIndName>
@@ -833,7 +834,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>80</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Solid Waste and Emergency Response-Office of Emergency Management</rpOrgName>
     <rpIndName>Josh Krochmal</rpIndName>
@@ -860,7 +861,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>95</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Water</rpOrgName>
     <rpIndName>Craig Malkmes</rpIndName>
@@ -888,7 +889,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>97</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Water</rpOrgName>
     <rpIndName>Vince Allen</rpIndName>
@@ -918,7 +919,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>98</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Water</rpOrgName>
     <rpIndName>Thomas Dabolt</rpIndName>
@@ -946,7 +947,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>99</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 1</rpOrgName>
     <rpIndName>Alexandra Dichter</rpIndName>
@@ -974,7 +975,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>100</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 1</rpOrgName>
     <rpIndName>Gordon Hamilton</rpIndName>
@@ -1002,7 +1003,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>101</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 1</rpOrgName>
     <rpIndName>Jori Bonner</rpIndName>
@@ -1031,7 +1032,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>102</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 3-Chesapeake Bay Program</rpOrgName>
     <rpIndName>John Wolf</rpIndName>
@@ -1060,7 +1061,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>103</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 3-Chesapeake Bay Program</rpOrgName>
     <rpIndName>Brian Burch</rpIndName>
@@ -1089,7 +1090,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>104</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 3-Chesapeake Bay Program</rpOrgName>
     <rpIndName>Howard Weinberg</rpIndName>
@@ -1118,7 +1119,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>105</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 5</rpOrgName>
     <rpIndName>Carmen Maso</rpIndName>
@@ -1148,7 +1149,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>106</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 5</rpOrgName>
     <rpIndName>Jan Krysa</rpIndName>
@@ -1176,7 +1177,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>107</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 5</rpOrgName>
     <rpIndName>Paisly Di Bianca</rpIndName>
@@ -1204,7 +1205,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>108</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 7</rpOrgName>
     <rpIndName>Casey McLaughlin</rpIndName>
@@ -1233,7 +1234,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>109</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 8</rpOrgName>
     <rpIndName>John Wieber</rpIndName>
@@ -1262,7 +1263,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>110</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 9</rpOrgName>
     <rpIndName>Linda Chambers</rpIndName>
@@ -1291,7 +1292,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>111</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 9</rpOrgName>
     <rpIndName>Stacy Takeda</rpIndName>
@@ -1320,7 +1321,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>112</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 9</rpOrgName>
     <rpIndName>Mo Tangestani</rpIndName>
@@ -1349,7 +1350,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>113</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 9</rpOrgName>
     <rpIndName>Fletcher Clover</rpIndName>
@@ -1378,7 +1379,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>114</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Region 9</rpOrgName>
     <rpIndName>Charles Swanson</rpIndName>
@@ -1407,7 +1408,7 @@
     <editorSave>False</editorSave>
   </contact>
   <contact>
-    <editorSource>emedb</editorSource>
+    <editorSource>EPA Contact</editorSource>
     <editorDigest>115</editorDigest>
     <rpOrgName>U.S. Environmental Protection Agency, Office of Environmental Information</rpOrgName>
     <rpIndName>Dave Catlin</rpIndName>

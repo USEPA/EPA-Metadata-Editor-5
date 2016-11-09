@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EMEdbManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Left">
-    
+        Title="EME Database Manager" Height="400" Width="650" VerticalAlignment="Top" HorizontalAlignment="Left">
+
     <Window.Resources>
         <!-- Label style -->
         <Style x:Key="labelStyle" TargetType="{x:Type Label}">
@@ -16,9 +16,16 @@
             <Setter Property="MinWidth" Value="80" />
         </Style>
 
+        <Style x:Key="thesaStyle" TargetType="{x:Type Label}">
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="MinWidth" Value="80" />
+        </Style>
+
         <Style x:Key="textboxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="MinWidth" Value="200"/>
-            <Setter Property="Margin" Value="0,0,0,0" />
+            <Setter Property="Margin" Value="5" />
         </Style>
 
         <Style x:Key="fieldsetStyle" TargetType="{x:Type StackPanel}">
@@ -26,19 +33,32 @@
         </Style>
 
         <DataTemplate x:Key="keywordItemTemplate">
-            <Label Content="{Binding XPath=themekey}" Loaded="lbxThemekeyEpa_loaded"/>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding XPath=default}" VerticalAlignment="Center"></CheckBox>
+                <Label Content="{Binding XPath=themekey}" Loaded="lbxThemekeyEpa_loaded"/>
+            </StackPanel>
         </DataTemplate>
 
         <DataTemplate x:Key="placeKeyItemTemplate">
-            <Label Content="{Binding XPath=placekey}" Loaded="lbxThemekeyPlace_loaded"/>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding XPath=default}" VerticalAlignment="Center"></CheckBox>
+                <Label Content="{Binding XPath=placekey}" Loaded="lbxThemekeyPlace_loaded"/>
+            </StackPanel>
         </DataTemplate>
 
         <DataTemplate x:Key="userKeyItemTemplate">
-            <Label Content="{Binding XPath=themekey}" Loaded="lbxThemekeyUser_loaded"/>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding XPath=default}" VerticalAlignment="Center"></CheckBox>
+                <Label Content="{Binding XPath=themekey}" Loaded="lbxThemekeyUser_loaded"/>
+            </StackPanel>
         </DataTemplate>
 
         <DataTemplate x:Key="sornItemTemplate">
-            <Label Content="{Binding XPath=SysRcrdName}" Loaded="lbxSystemofRecords_loaded"/>
+            <Label Loaded="lbxSystemofRecords_loaded">
+                <Label.Content>
+                    <Binding  XPath="SysRcrdName"/>
+                </Label.Content>
+            </Label>
         </DataTemplate>
 
         <DataTemplate x:Key="secconstsItemTemplate">
@@ -46,7 +66,7 @@
         </DataTemplate>
 
     </Window.Resources>
-    
+
     <TabControl>
         <TabItem Header="KeywordsEPA">
             <Grid Margin="0,10,0,0">
@@ -64,7 +84,10 @@
 
                 <DockPanel Grid.Column="0" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Top">
                     <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
-                        <Label VerticalAlignment="Center" Foreground="White">EPA Keywords</Label>
+                        <DockPanel>
+                            <Label VerticalAlignment="Center" Foreground="White">EPA Keywords</Label>
+                            <Label Name="lblKwEPACount" DockPanel.Dock="Right" VerticalAlignment="Center" Foreground="White"/>
+                        </DockPanel>
                     </Border>
                     <ListBox x:Name="lbxThemekeyEpa" Margin="0,0,0,20" DockPanel.Dock="Left"
                      ItemsSource="{Binding}"
@@ -73,27 +96,25 @@
                      Visibility="Visible" SelectionMode="Single"/>
                 </DockPanel>
 
-                <DockPanel Grid.Column="1" Margin="0,0,5,0">
-                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">Default:</Label>
-                        <CheckBox IsChecked="{Binding XPath=default}" VerticalAlignment="Center"></CheckBox>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">Keyword:</Label>
-                        <TextBox Style="{StaticResource textboxStyle}" Text="{Binding XPath=themekey}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">Thesaurus:</Label>
-                        <TextBox Style="{StaticResource textboxStyle}" Text="{Binding XPath=themekt}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">EPA Keyword Count:</Label>
-                        <Label Name="lblKwEPACount"/>
-                    </StackPanel>
-                    <StackPanel DockPanel.Dock="Bottom">
-                        <Button x:Name="btnSaveThemekeyEpa" Click="btnSaveThemekeyEpa_Click" Margin="10" Width="140" Height="20">Update Keyword</Button>
-                    </StackPanel>
-                </DockPanel>
+                <Grid Grid.Column="1" Margin="0,0,5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource labelStyle}">Keyword:</Label>
+                    <TextBox Grid.Column="1" Grid.Row="0" Style="{StaticResource textboxStyle}" Text="{Binding XPath=themekey}"/>
+                    <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}">Thesaurus:</Label>
+                    <Label Grid.Column="1" Grid.Row="1" Style="{StaticResource thesaStyle}" Content="{Binding XPath=themekt}"/>
+                    <Button x:Name="btnSaveThemekeyEpa" Grid.Column="1" Grid.Row="2" Click="btnSaveThemekeyEpa_Click" Margin="10,0" Width="140" Height="20">Update Keyword</Button>
+                    <Button x:Name="btnAddThemekeyEpa" Grid.Column="1" Grid.Row="3" Click="btnAddThemekeyEpa_Click" Margin="10,0" Width="140" Height="20">Add Keyword</Button>
+                </Grid>
             </Grid>
         </TabItem>
         <TabItem Header="KeywordsUser">
@@ -112,7 +133,10 @@
 
                 <DockPanel Grid.Column="0" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Top">
                     <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
-                        <Label VerticalAlignment="Center" Foreground="White">User Keywords</Label>
+                        <DockPanel>
+                            <Label VerticalAlignment="Center" Foreground="White">User Keywords</Label>
+                            <Label Name="lblKwUserCount" DockPanel.Dock="Right" VerticalAlignment="Center" Foreground="White"/>
+                        </DockPanel>
                     </Border>
                     <ListBox x:Name="lbxThemekeyUser" Margin="0,0,0,20" DockPanel.Dock="Left"
                      ItemsSource="{Binding}"
@@ -121,27 +145,25 @@
                      Visibility="Visible" SelectionMode="Single"/>
                 </DockPanel>
 
-                <DockPanel Grid.Column="1" Margin="0,0,5,0">
-                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">Default:</Label>
-                        <CheckBox IsChecked="{Binding XPath=default}" VerticalAlignment="Center"></CheckBox>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">Keyword:</Label>
-                        <TextBox Style="{StaticResource textboxStyle}" Text="{Binding XPath=themekey}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">Thesaurus:</Label>
-                        <TextBox Style="{StaticResource textboxStyle}" Text="{Binding XPath=themekt}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">User Keyword Count:</Label>
-                        <Label Name="lblKwUserCount"/>
-                    </StackPanel>
-                    <StackPanel DockPanel.Dock="Bottom">
-                        <Button x:Name="btnSaveThemekeyUser" Click="btnSaveThemekeyUser_Click" Margin="10" Width="140" Height="20">Update Keyword</Button>
-                    </StackPanel>
-                </DockPanel>
+                <Grid Grid.Column="1" Margin="0,0,5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource labelStyle}">Keyword:</Label>
+                    <TextBox Grid.Column="1" Grid.Row="0" Style="{StaticResource textboxStyle}" Text="{Binding XPath=themekey}"/>
+                    <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}">Thesaurus:</Label>
+                    <Label Grid.Column="1" Grid.Row="1" Style="{StaticResource thesaStyle}" Content="{Binding XPath=themekt}"/>
+                    <Button x:Name="btnSaveThemekeyUser" Grid.Column="1" Grid.Row="2" Click="btnSaveThemekeyUser_Click" Margin="10,0" Width="140" Height="20">Update Keyword</Button>
+                    <Button x:Name="btnAddThemekeyUser" Grid.Column="1" Grid.Row="3" Click="btnAddThemekeyUser_Click" Margin="10,0" Width="140" Height="20">Add Keyword</Button>
+                </Grid>
             </Grid>
         </TabItem>
         <TabItem Header="KeywordsPlace">
@@ -160,7 +182,10 @@
 
                 <DockPanel Grid.Column="0" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Top">
                     <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
-                        <Label VerticalAlignment="Center" Foreground="White">Place Keywords</Label>
+                        <DockPanel>
+                            <Label VerticalAlignment="Center" Foreground="White">Place Keywords</Label>
+                            <Label Name="lblKwPlaceCount" DockPanel.Dock="Right" VerticalAlignment="Center" Foreground="White"/>
+                        </DockPanel>
                     </Border>
                     <ListBox x:Name="lbxThemekeyPlace" Margin="0,0,0,20" DockPanel.Dock="Left"
                      ItemsSource="{Binding}"
@@ -169,30 +194,28 @@
                      Visibility="Visible" SelectionMode="Single"/>
                 </DockPanel>
 
-                <DockPanel Grid.Column="1" Margin="0,0,5,0">
-                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">Default:</Label>
-                        <CheckBox IsChecked="{Binding XPath=default}" VerticalAlignment="Center"></CheckBox>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">Keyword:</Label>
-                        <TextBox Style="{StaticResource textboxStyle}" Text="{Binding XPath=placekey}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">Thesaurus:</Label>
-                        <TextBox Style="{StaticResource textboxStyle}" Text="{Binding XPath=placekt}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">Place Keyword Count:</Label>
-                        <Label Name="lblKwPlaceCount"/>
-                    </StackPanel>
-                    <StackPanel DockPanel.Dock="Bottom">
-                        <Button x:Name="btnSaveThemekeyPlace" Click="btnSaveThemekeyPlace_Click" Margin="10" Width="140" Height="20">Update Keyword</Button>
-                    </StackPanel>
-                </DockPanel>
+                <Grid Grid.Column="1" Margin="0,0,5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource labelStyle}">Keyword:</Label>
+                    <TextBox Grid.Column="1" Grid.Row="0" Style="{StaticResource textboxStyle}" Text="{Binding XPath=placekey}"/>
+                    <!--<Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}">Thesaurus:</Label>
+                    <Label Grid.Column="1" Grid.Row="1" Style="{StaticResource thesaStyle}" Content="{Binding XPath=placekt}"/>-->
+                    <Button x:Name="btnSaveThemekeyPlace" Grid.Column="1" Grid.Row="2" Click="btnSaveThemekeyPlace_Click" Margin="10,0" Width="140" Height="20">Update Keyword</Button>
+                    <Button x:Name="btnAddThemekeyPlace" Grid.Column="1" Grid.Row="3" Click="btnAddThemekeyPlace_Click" Margin="10,0" Width="140" Height="20">Add Keyword</Button>
+                </Grid>
             </Grid>
         </TabItem>
-        <TabItem Header="Keyword DataGrid">
+        <!--<TabItem Header="Keyword DataGrid">
             <Grid Margin="0,10,0,0">
                 <Grid.DataContext>
                     <XmlDataProvider x:Name="XmlRecord_ThemeKeyEpa2" XPath="emeData" />
@@ -233,7 +256,7 @@
                     </StackPanel>
                 </DockPanel>
             </Grid>
-        </TabItem>
+        </TabItem>-->
 
         <TabItem Header="System of Records">
             <Grid Margin="0,10,0,0">
@@ -251,7 +274,10 @@
 
                 <DockPanel Grid.Column="0" Margin="5,0,0,0" VerticalAlignment="Top">
                     <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
-                        <Label VerticalAlignment="Center" Foreground="White">System of Records</Label>
+                        <DockPanel>
+                            <Label VerticalAlignment="Center" Foreground="White">System of Records</Label>
+                            <Label Name="lblSoRCount" DockPanel.Dock="Right" VerticalAlignment="Center" Foreground="White"/>
+                        </DockPanel>
                     </Border>
                     <ListBox x:Name="lbxSystemofRecords" Margin="0,0,0,20" DockPanel.Dock="Left"
                      ItemsSource="{Binding}"
@@ -260,23 +286,25 @@
                      Visibility="Visible" SelectionMode="Single"/>
                 </DockPanel>
 
-                <DockPanel Grid.Column="1" Margin="0,0,5,0">
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">System Name:</Label>
-                        <TextBox Style="{StaticResource textboxStyle}" Text="{Binding XPath=SysRcrdName}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">System URL:</Label>
-                        <TextBox Style="{StaticResource textboxStyle}" Text="{Binding XPath=SysRcrdUrl}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">SORN Count:</Label>
-                        <Label Name="lblSoRCount"/>
-                    </StackPanel>
-                    <StackPanel DockPanel.Dock="Bottom">
-                        <Button x:Name="btnSaveSOR" Click="btnSaveSOR_Click" Margin="10" Width="154" Height="20">Update System of Records</Button>
-                    </StackPanel>
-                </DockPanel>
+                <Grid Grid.Column="1" Margin="0,0,5,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource labelStyle}">System Name:</Label>
+                    <TextBox Grid.Column="1" Grid.Row="0" Style="{StaticResource textboxStyle}" Text="{Binding XPath=SysRcrdName}"/>
+                    <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}">System URL:</Label>
+                    <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource textboxStyle}" Text="{Binding XPath=SysRcrdUrl}"/>
+                    <Button x:Name="btnSaveSOR" Grid.Column="1" Grid.Row="3" Click="btnSaveSOR_Click" Margin="10,0" Width="154" Height="20">Update System of Records</Button>
+                    <!--<Button x:Name="btnAddSOR" Grid.Column="1" Grid.Row="4" Click="btnAddSOR_Click" Margin="10,0" Width="154" Height="20">New System of Records</Button>-->
+                </Grid>
             </Grid>
         </TabItem>
         <TabItem Header="Security Constraints">
@@ -295,7 +323,10 @@
 
                 <DockPanel Grid.Column="0" Margin="5,0,0,0" VerticalAlignment="Top">
                     <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
-                        <Label VerticalAlignment="Center" Foreground="White">Security Constraints</Label>
+                        <DockPanel>
+                            <Label VerticalAlignment="Center" Foreground="White">Security Constraints</Label>
+                            <Label Name="lblSecConstsCount" DockPanel.Dock="Right" VerticalAlignment="Center" Foreground="White"/>
+                        </DockPanel>
                     </Border>
                     <ListBox x:Name="lbxSecConsts" Margin="0,0,0,20" DockPanel.Dock="Left"
                      ItemsSource="{Binding}"
@@ -303,24 +334,25 @@
                      IsSynchronizedWithCurrentItem="True"
                      Visibility="Visible" SelectionMode="Single"/>
                 </DockPanel>
-
-                <DockPanel Grid.Column="1" Margin="0,0,5,0">
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">Use Limitations:</Label>
-                        <TextBox Style="{StaticResource textboxStyle}" Text="{Binding XPath=usenote}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">Classification:</Label>
-                        <TextBox Style="{StaticResource textboxStyle}" Text="{Binding XPath=constsclass}"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Style="{StaticResource fieldsetStyle}" DockPanel.Dock="Top">
-                        <Label Style="{StaticResource labelStyle}">Use Constraints Count:</Label>
-                        <Label Name="lblSecConstsCount"/>
-                    </StackPanel>
-                    <StackPanel DockPanel.Dock="Bottom">
-                        <Button x:Name="btnSaveSecConsts" Click="btnSaveSecConsts_Click" Margin="10" Width="140" Height="20">Update Security Constraints</Button>
-                    </StackPanel>
-                </DockPanel>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource labelStyle}" HorizontalAlignment="Left">Use Limitations:</Label>
+                    <TextBox Grid.Column="1" Grid.Row="0" Style="{StaticResource textboxStyle}" Text="{Binding XPath=usenote}"/>
+                    <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}" HorizontalAlignment="Left">Classification:</Label>
+                    <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource textboxStyle}" Text="{Binding XPath=constsclass}"/>
+                    <Button Grid.Column="1" Grid.Row="3" x:Name="btnSaveSecConsts" Click="btnSaveSecConsts_Click" Margin="10,0" Width="150" Height="20">Update Security Constraints</Button>
+                    <Button Grid.Column="1" Grid.Row="4" x:Name="btnAddSecConsts" Click="btnAddSecConsts_Click" Margin="10,0" Width="150" Height="20">New Security Constraint</Button>
+                </Grid>
             </Grid>
         </TabItem>
     </TabControl>
