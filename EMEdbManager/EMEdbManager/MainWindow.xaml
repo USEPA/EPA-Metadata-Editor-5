@@ -83,7 +83,7 @@
                 </Grid.RowDefinitions>
 
                 <DockPanel Grid.Column="0" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Top">
-                    <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
+                    <Border Height="30" Padding="0" Background="SteelBlue" DockPanel.Dock="Top">
                         <DockPanel>
                             <Label VerticalAlignment="Center" Foreground="White">EPA Keywords</Label>
                             <Label Name="lblKwEPACount" DockPanel.Dock="Right" VerticalAlignment="Center" Foreground="White"/>
@@ -132,7 +132,7 @@
                 </Grid.RowDefinitions>
 
                 <DockPanel Grid.Column="0" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Top">
-                    <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
+                    <Border Height="30" Padding="0" Background="SteelBlue" DockPanel.Dock="Top">
                         <DockPanel>
                             <Label VerticalAlignment="Center" Foreground="White">User Keywords</Label>
                             <Label Name="lblKwUserCount" DockPanel.Dock="Right" VerticalAlignment="Center" Foreground="White"/>
@@ -181,7 +181,7 @@
                 </Grid.RowDefinitions>
 
                 <DockPanel Grid.Column="0" Width="Auto" Margin="5,0,0,0" VerticalAlignment="Top">
-                    <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
+                    <Border Height="30" Padding="0" Background="SteelBlue" DockPanel.Dock="Top">
                         <DockPanel>
                             <Label VerticalAlignment="Center" Foreground="White">Place Keywords</Label>
                             <Label Name="lblKwPlaceCount" DockPanel.Dock="Right" VerticalAlignment="Center" Foreground="White"/>
@@ -273,7 +273,7 @@
                 </Grid.RowDefinitions>
 
                 <DockPanel Grid.Column="0" Margin="5,0,0,0" VerticalAlignment="Top">
-                    <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
+                    <Border Height="30" Padding="0" Background="SteelBlue" DockPanel.Dock="Top">
                         <DockPanel>
                             <Label VerticalAlignment="Center" Foreground="White">System of Records</Label>
                             <Label Name="lblSoRCount" DockPanel.Dock="Right" VerticalAlignment="Center" Foreground="White"/>
@@ -322,7 +322,7 @@
                 </Grid.RowDefinitions>
 
                 <DockPanel Grid.Column="0" Margin="5,0,0,0" VerticalAlignment="Top">
-                    <Border Height="30" Padding="0" Background="#4E87D4" DockPanel.Dock="Top">
+                    <Border Height="30" Padding="0" Background="SteelBlue" DockPanel.Dock="Top">
                         <DockPanel>
                             <Label VerticalAlignment="Center" Foreground="White">Security Constraints</Label>
                             <Label Name="lblSecConstsCount" DockPanel.Dock="Right" VerticalAlignment="Center" Foreground="White"/>
