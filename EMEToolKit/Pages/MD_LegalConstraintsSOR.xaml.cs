@@ -34,7 +34,7 @@ namespace EPAMetadataEditor.Pages
     /// </summary>
     public partial class MD_LegalConstraintsSOR : EditorPage
     {
-        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA MetadataToolkit\\EMEdb\\";
+        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EME Toolkit\\EMEdb\\";
 
         public MD_LegalConstraintsSOR()
         {

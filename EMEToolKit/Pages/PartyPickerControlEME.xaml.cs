@@ -53,7 +53,7 @@ namespace EPAMetadataEditor.Pages
             XmlDocument _contactsEpa = new XmlDocument();
 
             string filePathEsri = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\ArcGIS\\Descriptions\\";
-            string filePathEpa = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA MetadataToolkit\\EMEdb\\";
+            string filePathEpa = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EME Toolkit\\EMEdb\\";
 
             try { _contactsEsri.Load(filePathEsri + "contacts.xml"); }
             catch (System.IO.FileNotFoundException)

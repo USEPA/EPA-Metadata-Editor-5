@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="EME Toolkit" Language="1033" Version="0.9.1.0" Manufacturer="Innovate! Inc." UpgradeCode="{E8C6A23A-E07D-47F0-8DF3-8C9041065A8A}">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="SetupEMEToolkit" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentGroupRef Id="EMEdbComponents" />
+      <ComponentGroupRef Id="EMEdbRoaming" />
+      <ComponentRef Id="EMEDLL"/>
+      <ComponentRef Id="EMECONFIG"/>
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="AppDataFolder">
+        <Directory Id="INNOVATEROAM" Name="Innovate! Inc">
+          <Component Id="INNOVATEROAM" Guid="{0100E3A0-1A6E-456A-BE01-8EB4C4A6E644}">
+            <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="Product" Type="string" Value="EPA Metadata Editor Toolkit" KeyPath ="yes"/>
+            <RemoveFolder Id="INNOVATEROAM" On="uninstall"/>
+          </Component>
+          <Directory Id="INSTALLROAM" Name="EME Toolkit">
+            <Component Id="INSTALLROAM" Guid="{F117BF59-5E95-4DC5-AC4F-F00CFD4AF4D0}">
+              <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="InstallDir" Type="string" Value="[INSTALLFOLDER]" KeyPath ="yes"/>
+              <RemoveFolder Id="INSTALLROAM" On="uninstall"/>
+            </Component>
+            <Directory Id="EMEDBROAM" Name="EMEdb">
+              <Component Id="EMEDBROAM" Guid="{DA7E73BD-56CB-4585-923B-BB614BAC4CC8}"
+                SharedDllRefCount="no" KeyPath="no" NeverOverwrite="no" Permanent="no" Transitive="no"
+                 Location="either">
+                <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="DatabaseSource" Type="string" Value="[EMEDBFOLDER]" KeyPath ="yes"/>
+                <RemoveFolder Id="EMEDBROAM" On="uninstall"/>
+                <CreateFolder/>
+              </Component>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+			<Directory Id="ProgramFilesFolder">
+        <Directory Id="ArcGISFolder" Name="ArcGIS">
+          <Directory Id="ArcDesktop104" Name="Desktop10.4">
+            <Directory Id="ARC104BIN" Name="bin"/>
+            <Directory Id="Arc104MD" Name="Metadata">
+              <Directory Id="ARC104CONFIG" Name="Config"/>
+            </Directory>
+          </Directory>
+        </Directory>
+        <Directory Id="INNOVATEFOLDER" Name="Innovate! Inc">
+          <Directory Id="INSTALLFOLDER" Name="EME Toolkit">
+            <Directory Id="EMEDBFOLDER" Name="EMEdb">
+              <Component Id="EMEDBFOLDER" Guid="{7C10658D-794E-4DDD-BB01-CFAA63FF0CB3}"
+                SharedDllRefCount="no" KeyPath="no" NeverOverwrite="no" Permanent="no" Transitive="no"
+                 Location="either">
+                <CreateFolder/>
+              </Component>
+            </Directory>
+          </Directory>
+        </Directory>
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+      <Component Id="ProductComponent">
+        <File Source="$(var.EMEdbManager.TargetPath)"/>
+      </Component>
+		</ComponentGroup>
+    <ComponentGroup Id="EMEdbComponents" Directory="EMEDBFOLDER">
+      <ComponentRef Id="EMEDBFOLDER"/>
+      <Component Id="EMEdbComponent" Guid="{44A0B9EC-1169-4AF1-99AE-12EA54DA49B2}">
+        <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//BoundingBox.xml" />
+        <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//Citation.xml" />
+        <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//Contact_Information.xml" />
+        <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//contacts.xml" />
+        <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//DistributionLiability.xml" />
+        <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//KeywordsEPA.xml" />
+        <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//KeywordsISO.xml" />
+        <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//KeywordsPlace.xml" />
+        <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//KeywordsUser.xml" />
+        <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//OnlineLinkage.xml" />
+        <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//ProgramCode.xml" />
+        <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//Publisher.xml" />
+        <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//SecurityConstraints.xml" />
+        <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//SystemofRecords.xml" />
+      </Component>
+    </ComponentGroup>
+    <ComponentGroup Id="EMEdbRoaming" Directory="EMEDBROAM">
+      <ComponentRef Id="INNOVATEROAM"></ComponentRef>
+      <ComponentRef Id="INSTALLROAM"></ComponentRef>
+      <ComponentRef Id="EMEDBROAM"></ComponentRef>
+      <Component Id="EMEdbRoamComponents" Guid="{F42C7DEF-9641-4E4E-A303-24AC4CF2ECCD}">
+        <File Id="DbBoundingBox" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//BoundingBox.xml" />
+        <File Id="DbCitation" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//Citation.xml" />
+        <File Id="DbContact_Information" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//Contact_Information.xml" />
+        <File Id="Dbcontacts" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//contacts.xml" />
+        <File Id="DbDistributionLiability" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//DistributionLiability.xml" />
+        <File Id="DbKeywordsEPA" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//KeywordsEPA.xml" />
+        <File Id="DbKeywordsISO" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//KeywordsISO.xml" />
+        <File Id="DbKeywordsPlace" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//KeywordsPlace.xml" />
+        <File Id="DbKeywordsUser" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//KeywordsUser.xml" />
+        <File Id="DbOnlineLinkage" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//OnlineLinkage.xml" />
+        <File Id="DbProgramCode" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//ProgramCode.xml" />
+        <File Id="DbPublisher" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//Publisher.xml" />
+        <File Id="DbSecurityConstraints" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//SecurityConstraints.xml" />
+        <File Id="DbSystemofRecords" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//SystemofRecords.xml" />
+        <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="DatabaseLocation" Type="string" Value="[EMEDBROAM]" KeyPath ="yes"/>
+      </Component>
+    </ComponentGroup>
+    <Component Id="EMEDLL" Directory="ARC104BIN">
+      <File Source="$(var.EPAMetadataEditor.TargetPath)" />
+    </Component>
+    <Component Id="EMECONFIG" Directory="ARC104CONFIG">
+      <File Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19915 2003.cfg" />
+    </Component>
+	</Fragment>
+</Wix>

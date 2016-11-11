@@ -37,6 +37,6 @@
   <KeywordsUser>
     <themekt>User</themekt>
     <themekey>sample</themekey>
-    <default>True</default>
-  </KeywordsUser>
+    <default>false</default>
+  </KeywordsUser>  
 </emeData>

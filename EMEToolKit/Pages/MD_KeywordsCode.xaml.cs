@@ -29,7 +29,7 @@ namespace EPAMetadataEditor.Pages
     public partial class MD_KeywordsCode : EditorPage
     {
         private List<string> _listPCode = new List<string>();
-        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA MetadataToolkit\\EMEdb\\";
+        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EME Toolkit\\EMEdb\\";
 
         public MD_KeywordsCode()
         {

@@ -57,7 +57,35 @@
     </rpCntInfo>
     <editorSave>False</editorSave>
   </contact>
-
+    <contact>
+    <editorSource>EPA Contact</editorSource>
+    <editorDigest></editorDigest>
+    <rpOrgName>U.S. Environmental Protection Agency, Region 2, GIS Team</rpOrgName>
+    <rpIndName></rpIndName>
+    <rpPosName></rpPosName>
+    <rpCntInfo editorExpand="False">
+      <cntAddress>
+        <delPoint></delPoint>
+        <city>New York</city>
+        <adminArea>NY</adminArea>
+        <postCode>10007</postCode>
+        <eMailAdd></eMailAdd>
+      </cntAddress>
+      <cntPhone>
+        <voiceNum>(212) 637-3335</voiceNum>
+        <faxNum>(212) 637-3358</faxNum>
+      </cntPhone>
+      <cntOnlineRes>
+        <linkage>http://www.epa.gov/region02/</linkage>
+        <protocol>website</protocol>
+        <orFunct>
+          <OnFunctCd value="002">
+          </OnFunctCd>
+        </orFunct>
+      </cntOnlineRes>
+    </rpCntInfo>
+    <editorSave>False</editorSave>
+  </contact>
   <contact>
     <editorSource>EPA Contact</editorSource>
     <editorDigest>34</editorDigest>
