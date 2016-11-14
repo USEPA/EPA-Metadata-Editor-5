@@ -9,8 +9,8 @@
     xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
     Loaded="FillXml">
 
-  <UserControl.Resources>
-    <!--
+    <UserControl.Resources>
+        <!--
     
       For each lineage process, show a checkbox, setting a flag that indicates if the entry should be exported.
 
@@ -34,109 +34,110 @@
       Date="20091012" Time="133518">MetadataImporter c:\ArcGIS\ArcTutor\Metadata\yellowstone\states_xsltt1.xml c:\arcgis\arctutor\metadata\yellowstone\states c:\arcgis\arctutor\metadata\yellowstone\states</Process>
 
     -->
-    
-    <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <metadata>
-            <Esri>
-              <DataProperties>
-                <lineage editorFillOnly="True">
-                  <Process export="False" editorExpand="False"></Process>
-                </lineage>
-              </DataProperties>
-            </Esri>
-          </metadata>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
-  </UserControl.Resources>
 
-  <Grid Style="{DynamicResource EditorFrontPageStyle}">
-    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata}">
-      <ListBox.ItemTemplate>
-        <DataTemplate>
-          <StackPanel>
+        <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <metadata>
+                        <Esri>
+                            <DataProperties>
+                                <lineage editorFillOnly="True">
+                                    <Process export="False" editorExpand="False"></Process>
+                                </lineage>
+                            </DataProperties>
+                        </Esri>
+                    </metadata>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
+    </UserControl.Resources>
 
-            <!-- heading -->
-            <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.SEC_PROCESSHISTORY}"/>
-            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=Esri[not(DataProperties/lineage/Process)]}">
-              <ListBox.ItemTemplate>
+    <Grid Style="{DynamicResource EditorFrontPageStyle}">
+        <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata}">
+            <ListBox.ItemTemplate>
                 <DataTemplate>
-                  <Label Style="{DynamicResource EditorHMessageLabel}"  Content="{x:Static r:Resources.LBL_NO_GEO_PROCESS}"/>
-                </DataTemplate>
-              </ListBox.ItemTemplate>
-            </ListBox>
-            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=Esri/DataProperties/lineage/Process}">
-              <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                  <StackPanel/>
-                </ItemsPanelTemplate>
-              </ListBox.ItemsPanel>
-              <ListBox.ItemTemplate>
-                <DataTemplate>
-                  <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-                    <Expander.Header>
-                      <StackPanel Orientation="Horizontal">
-                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_PROCESS}"/>
-                        <Label Content="{Binding XPath=@Name}"/>
-                      </StackPanel>
-                    </Expander.Header>
-                    <!-- process -->
                     <StackPanel>
-                      <Grid>
-                        <Grid.RowDefinitions>
-                          <RowDefinition />
-                          <RowDefinition />
-                          <RowDefinition />
-                          <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                          <ColumnDefinition Width="Auto"/>
-                          <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                        <!-- org header -->
+                        <p:EME_Header/>
+                        <!-- heading -->
+                        <Label Style="{DynamicResource EditorPageTitle}" Content="{x:Static r:Resources.SEC_PROCESSHISTORY}"/>
+                        <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=Esri[not(DataProperties/lineage/Process)]}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Style="{DynamicResource EditorHMessageLabel}"  Content="{x:Static r:Resources.LBL_NO_GEO_PROCESS}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=Esri/DataProperties/lineage/Process}">
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                                        <Expander.Header>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_PROCESS}"/>
+                                                <Label Content="{Binding XPath=@Name}"/>
+                                            </StackPanel>
+                                        </Expander.Header>
+                                        <!-- process -->
+                                        <StackPanel>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
 
-                        <!-- export -->
-                        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0"
-                            Content="{x:Static r:Resources.LBL_GEOPROCESSING_EXPORT}"/>
-                        <CheckBox Style="{DynamicResource EditorCheckBoxStyle}"
-                            ToolTip="{x:Static r:Definitions.ESRI_geoprocessingHistory_export}"
-                            Grid.Row="0" Grid.Column="1" Content=""
-                            IsChecked="{Binding XPath=@export}"/>
+                                                <!-- export -->
+                                                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0"
+                                                       Content="{x:Static r:Resources.LBL_GEOPROCESSING_EXPORT}"/>
+                                                <CheckBox Style="{DynamicResource EditorCheckBoxStyle}"
+                                                          ToolTip="{x:Static r:Definitions.ESRI_geoprocessingHistory_export}"
+                                                          Grid.Row="0" Grid.Column="1" Content=""
+                                                          IsChecked="{Binding XPath=@export}"/>
 
-                        <!-- tool source -->
-                        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0"
-                           Content="{x:Static r:Resources.LBL_TOOLSOURCE}"/>
-                        <TextBox IsReadOnly="True" Grid.Row="1" Grid.Column="1" Style="{DynamicResource EditorTextBoxStyle}"
-                            Text="{e:MetadataBinding XPath=@ToolSource}"/>
+                                                <!-- tool source -->
+                                                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0"
+                                                       Content="{x:Static r:Resources.LBL_TOOLSOURCE}"/>
+                                                <TextBox IsReadOnly="True" Grid.Row="1" Grid.Column="1" Style="{DynamicResource EditorTextBoxStyle}"
+                                                         Text="{e:MetadataBinding XPath=@ToolSource}"/>
 
-                        <!-- date -->
-                        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="2" Grid.Column="0"
-                            Content="{x:Static r:Resources.LBL_TOOLDATE}"/>
-                        <TextBox IsReadOnly="True" Grid.Row="2" Grid.Column="1" Style="{DynamicResource EditorTextBoxStyle}"
-                            Text="{e:MetadataBinding XPath=@Date}"/>
+                                                <!-- date -->
+                                                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="2" Grid.Column="0"
+                                                       Content="{x:Static r:Resources.LBL_TOOLDATE}"/>
+                                                <TextBox IsReadOnly="True" Grid.Row="2" Grid.Column="1" Style="{DynamicResource EditorTextBoxStyle}"
+                                                         Text="{e:MetadataBinding XPath=@Date}"/>
 
-                        <!-- time -->
-                        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="3" Grid.Column="0"
-                            Content="{x:Static r:Resources.LBL_TOOLTIME}"/>
-                        <TextBox Grid.Row="3" Grid.Column="1" IsReadOnly="True" Style="{DynamicResource EditorTextBoxStyle}"
-                            Text="{e:MetadataBinding XPath=@Time}"/>
-                      </Grid>
+                                                <!-- time -->
+                                                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="3" Grid.Column="0"
+                                                       Content="{x:Static r:Resources.LBL_TOOLTIME}"/>
+                                                <TextBox Grid.Row="3" Grid.Column="1" IsReadOnly="True" Style="{DynamicResource EditorTextBoxStyle}"
+                                                         Text="{e:MetadataBinding XPath=@Time}"/>
+                                            </Grid>
 
-                      <Label Style="{DynamicResource EditorVLabelStyle}" Content="{x:Static r:Resources.LBL_GEOPROCESSING_CMD}"/>
-                      <controls:Resizer>
-                        <TextBox IsReadOnly="True" Style="{DynamicResource EditorTextAreaShortResizeStyle}" 
-                            Text="{e:MetadataBinding XPath=.}"/>
-                      </controls:Resizer>
+                                            <Label Style="{DynamicResource EditorVLabelStyle}" Content="{x:Static r:Resources.LBL_GEOPROCESSING_CMD}"/>
+                                            <controls:Resizer>
+                                                <TextBox IsReadOnly="True" Style="{DynamicResource EditorTextAreaShortResizeStyle}"
+                                                         Text="{e:MetadataBinding XPath=.}"/>
+                                            </controls:Resizer>
 
+                                        </StackPanel>
+                                    </Expander>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                     </StackPanel>
-                  </Expander>
                 </DataTemplate>
-              </ListBox.ItemTemplate>
-            </ListBox>
-          </StackPanel>
-        </DataTemplate>
-      </ListBox.ItemTemplate>
-    </ListBox>
-  </Grid>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
 </corepages:EditorPage>

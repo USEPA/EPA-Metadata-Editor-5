@@ -25,7 +25,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace EPAMetadataEditor.Pages
+using ESRI.ArcGIS.Metadata.Editor;
+using ESRI.ArcGIS.Metadata.Editor.Pages;
+namespace EPAMetadataEditor.Pages
 {
     /// <summary>
     /// Interaction logic for MD_Keywords.xaml
@@ -35,6 +37,24 @@ using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; name
         public MD_Keywords()
         {
             InitializeComponent();
+        }
+
+        public List<Control> AllChildren(DependencyObject parent)
+        {
+            var _List = new List<Control> { };
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var _Child = VisualTreeHelper.GetChild(parent, i);
+                if (_Child is Control)
+                    _List.Add(_Child as Control);
+                _List.AddRange(AllChildren(_Child));
+            }
+            return _List;
+        }
+
+        private void btnAddThesaEPA_Click(object sender, RoutedEventArgs e)
+        {
+            AddRecordByTagToLocal(sender, e);
         }
     }
 }

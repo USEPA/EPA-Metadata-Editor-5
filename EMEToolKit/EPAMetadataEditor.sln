@@ -5,16 +5,40 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPAMetadataEditor", "EPAMetadataEditor.csproj", "{7D4CA083-99B9-4FB2-BD08-ECB050202479}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMEdbManager", "..\EMEdbManager\EMEdbManager\EMEdbManager.csproj", "{6AEF6592-CFD5-44A0-B959-E260B9B55F3E}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "emetoolkit_x64_installer", "..\SetupEMEToolkit\emetoolkit_x64_installer.wixproj", "{B5CF2FC9-6A1B-4168-BF21-702D2166BA8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7D4CA083-99B9-4FB2-BD08-ECB050202479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7D4CA083-99B9-4FB2-BD08-ECB050202479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D4CA083-99B9-4FB2-BD08-ECB050202479}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7D4CA083-99B9-4FB2-BD08-ECB050202479}.Debug|x86.Build.0 = Debug|Any CPU
 		{7D4CA083-99B9-4FB2-BD08-ECB050202479}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D4CA083-99B9-4FB2-BD08-ECB050202479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D4CA083-99B9-4FB2-BD08-ECB050202479}.Release|x86.ActiveCfg = Release|Any CPU
+		{7D4CA083-99B9-4FB2-BD08-ECB050202479}.Release|x86.Build.0 = Release|Any CPU
+		{6AEF6592-CFD5-44A0-B959-E260B9B55F3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AEF6592-CFD5-44A0-B959-E260B9B55F3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AEF6592-CFD5-44A0-B959-E260B9B55F3E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6AEF6592-CFD5-44A0-B959-E260B9B55F3E}.Debug|x86.Build.0 = Debug|Any CPU
+		{6AEF6592-CFD5-44A0-B959-E260B9B55F3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AEF6592-CFD5-44A0-B959-E260B9B55F3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AEF6592-CFD5-44A0-B959-E260B9B55F3E}.Release|x86.ActiveCfg = Release|Any CPU
+		{6AEF6592-CFD5-44A0-B959-E260B9B55F3E}.Release|x86.Build.0 = Release|Any CPU
+		{B5CF2FC9-6A1B-4168-BF21-702D2166BA8F}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B5CF2FC9-6A1B-4168-BF21-702D2166BA8F}.Debug|x86.ActiveCfg = Debug|x86
+		{B5CF2FC9-6A1B-4168-BF21-702D2166BA8F}.Debug|x86.Build.0 = Debug|x86
+		{B5CF2FC9-6A1B-4168-BF21-702D2166BA8F}.Release|Any CPU.ActiveCfg = Release|x86
+		{B5CF2FC9-6A1B-4168-BF21-702D2166BA8F}.Release|x86.ActiveCfg = Release|x86
+		{B5CF2FC9-6A1B-4168-BF21-702D2166BA8F}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

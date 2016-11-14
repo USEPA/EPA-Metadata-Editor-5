@@ -141,7 +141,7 @@
                 </Button>
                 <!-- email -->
                 <TextBox Style="{DynamicResource EditorTextBoxStyle}" ToolTip="{x:Static r:Definitions.CI_Address_electronicMailAddress}"
-                    v:Nav.AnchorName="eMailAdd"
+                    v:Nav.AnchorName="pubEmail"
                     Text="{e:MetadataBinding XPath=.}"/>
               </DockPanel>
             </DataTemplate>
