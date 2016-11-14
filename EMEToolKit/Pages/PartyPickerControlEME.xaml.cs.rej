@@ -1,0 +1,11 @@
+diff a/EMEToolKit/Pages/PartyPickerControlEME.xaml.cs b/EMEToolKit/Pages/PartyPickerControlEME.xaml.cs	(rejected hunks)
+@@ -38,6 +38,9 @@
+     /// </summary>
+     public partial class PartyPickerControlEME : EditorPage
+     {
++        private string _filePathEsri = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\ArcGIS\\Descriptions\\";
++        private string _filePathEpa = Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EPA MetadataToolkit\\EMEdb\\";
++
+         public string ContainerElement { get; set; }
+ 
+         public PartyPickerControlEME()

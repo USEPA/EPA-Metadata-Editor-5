@@ -7,26 +7,26 @@
     xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
     xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor">
 
-  <UserControl.Resources>
-    <e:Codelists x:Key="MD_ClassificationCode" CodelistName="MD_ClassificationCode"/>
-  </UserControl.Resources>
+    <UserControl.Resources>
+        <e:Codelists x:Key="MD_ClassificationCode" CodelistName="MD_ClassificationCode"/>
+    </UserControl.Resources>
 
-  <Grid>
-    <StackPanel>
-      <ComboBox Loaded="PostProcessComboBoxValues" Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
-          ToolTip="{x:Static prop:Definitions.MD_SecurityConstraints_classification}"
-          ItemsSource="{Binding Source={StaticResource MD_ClassificationCode}, Path=List}"
-          DisplayMemberPath="."
-          v:Nav.AnchorName="ClasscationCd,ClasscationCd"
-          SelectedValuePath="@value">
-        <ComboBox.SelectedValue>
-          <e:MetadataBinding XPath="ClasscationCd/@value"/>
-        </ComboBox.SelectedValue>
-      </ComboBox>
+    <Grid>
+        <StackPanel>
+            <ComboBox Loaded="PostProcessComboBoxValues" Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
+                      ToolTip="{x:Static prop:Definitions.MD_SecurityConstraints_classification}"
+                      ItemsSource="{Binding Source={StaticResource MD_ClassificationCode}, Path=List}"
+                      DisplayMemberPath="."
+                      v:Nav.AnchorName="ClasscationCd,ClasscationCd"
+                      SelectedValuePath="@value">
+                <ComboBox.SelectedValue>
+                    <e:MetadataBinding XPath="ClasscationCd/@value"/>
+                </ComboBox.SelectedValue>
+            </ComboBox>
 
-      <!-- validate after all anchors are loaded -->
-      <v:PageValidateControl/>
+            <!-- validate after all anchors are loaded -->
+            <v:PageValidateControl/>
 
-    </StackPanel>
-  </Grid>
+        </StackPanel>
+    </Grid>
 </corepages:EditorPage>

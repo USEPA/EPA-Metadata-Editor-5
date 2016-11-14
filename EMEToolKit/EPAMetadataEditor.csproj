@@ -109,23 +109,67 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\CI_CitationEPA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CI_CitationSelect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\CI_PresentationForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\EPAMetadataTest.xaml">
+    <Page Include="Pages\CI_ResponsiblePartyPub.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\KeywordsBAK.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Pages\EME_Header.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\KeywordsEME.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MD_CoverageDescriptionBaseBAK.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\MD_KeywordsCode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MD_KeywordsEPA.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MD_KeywordsNoThesaurus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MD_KeywordsPlace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MD_KeywordsUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MD_LegalConstraintsSOR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MD_LegalContraintsEME.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MD_RestrictionCodeSOR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MD_ScopeCode_MD_Metadata.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -181,11 +225,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\MD_SecurityConstraintsEME.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MetadataDetailsEME.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PartyPickerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\PartyPickerControlEME.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\References.xaml">
       <SubType>Designer</SubType>
@@ -204,6 +260,10 @@
       <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ResourcePub.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\UCUM_Length.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -416,12 +476,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\ItemInfo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\Keywords.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <Generator>MSBuild:Compile</Generator>
@@ -766,21 +820,52 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ESRI.ArcGIS.MetadataEditor" />
-    <Compile Include="AppCode\utildemo.cs" />
-    <Compile Include="AppCode\Utils1.cs" />
+    <Compile Include="Pages\CI_CitationEPA.xaml.cs">
+      <DependentUpon>CI_CitationEPA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CI_CitationSelect.xaml.cs">
+      <DependentUpon>CI_CitationSelect.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CI_PresentationForm.xaml.cs">
       <DependentUpon>CI_PresentationForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CI_ResponsiblePartyPub.xaml.cs">
+      <DependentUpon>CI_ResponsiblePartyPub.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Converters\VisibleEmptyConverter.cs" />
     <Compile Include="Pages\Converters\VisibleNullConverter.cs" />
-    <Compile Include="Pages\EPAMetadataTest.xaml.cs">
-      <DependentUpon>EPAMetadataTest.xaml</DependentUpon>
+    <Compile Include="Pages\EME_Header.xaml.cs">
+      <DependentUpon>EME_Header.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\KeywordsBAK.xaml.cs">
-      <DependentUpon>KeywordsBAK.xaml</DependentUpon>
+    <Compile Include="Pages\KeywordsEME.xaml.cs">
+      <DependentUpon>KeywordsEME.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MD_CoverageDescriptionBaseBAK.xaml.cs">
       <DependentUpon>MD_CoverageDescriptionBaseBAK.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MD_KeywordsCode.xaml.cs">
+      <DependentUpon>MD_KeywordsCode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MD_KeywordsEPA.xaml.cs">
+      <DependentUpon>MD_KeywordsEPA.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MD_KeywordsNoThesaurus.xaml.cs">
+      <DependentUpon>MD_KeywordsNoThesaurus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MD_KeywordsPlace.xaml.cs">
+      <DependentUpon>MD_KeywordsPlace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MD_KeywordsUser.xaml.cs">
+      <DependentUpon>MD_KeywordsUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MD_LegalConstraintsSOR.xaml.cs">
+      <DependentUpon>MD_LegalConstraintsSOR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MD_LegalContraintsEME.xaml.cs">
+      <DependentUpon>MD_LegalContraintsEME.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MD_RestrictionCodeSOR.xaml.cs">
+      <DependentUpon>MD_RestrictionCodeSOR.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MD_ScopeCode_MD_Metadata.xaml.cs">
       <DependentUpon>MD_ScopeCode_MD_Metadata.xaml</DependentUpon>
@@ -800,8 +885,20 @@
     <Compile Include="Pages\MD_FileIdentifier.xaml.cs">
       <DependentUpon>MD_FileIdentifier.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MD_SecurityConstraintsEME.xaml.cs">
+      <DependentUpon>MD_SecurityConstraintsEME.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MetadataDetailsEME.xaml.cs">
+      <DependentUpon>MetadataDetailsEME.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PartyPickerControl.xaml.cs">
       <DependentUpon>PartyPickerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PartyPickerControlEME.xaml.cs">
+      <DependentUpon>PartyPickerControlEME.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ResourcePub.xaml.cs">
+      <DependentUpon>ResourcePub.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TM_Period.xaml.cs">
       <DependentUpon>TM_Period.xaml</DependentUpon>
@@ -941,9 +1038,6 @@
     </Compile>
     <Compile Include="Pages\ItemInfo.xaml.cs">
       <DependentUpon>ItemInfo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Keywords.xaml.cs">
-      <DependentUpon>Keywords.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\LanguageCode.xaml.cs">
       <DependentUpon>LanguageCode.xaml</DependentUpon>
@@ -1123,6 +1217,7 @@
     <Compile Include="Themes\Generic.xaml.cs">
       <DependentUpon>Generic.xaml</DependentUpon>
     </Compile>
+    <None Include="Config\EPA Metadata Specification NAP ISO19915 2003.cfg" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1238,21 +1333,19 @@
     <Resource Include="EMEdb\SystemofRecords.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Codelists\Codelists_ArcGIS.xml" />
-    <Resource Include="Codelists\KeyCdEPA.xml" />
-    <Resource Include="Codelists\KeywordsEPA.xml" />
-    <Resource Include="Codelists\KeywordsPlace.xml" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Resource Include="Demo\MetadataSample.xml" />
+    <Resource Include="Icons\epa_logo_horizontal_black.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EMEdb\contacts.xml" />
+    <Resource Include="EMEdb\SecurityConstraints.xml" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!--To modify your build process, add your task inside one of the targets below and uncomment it. 

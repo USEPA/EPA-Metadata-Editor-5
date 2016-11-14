@@ -51,5 +51,18 @@ using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; name
         // NOOP
       }
     }
-  }
+
+        private void EditorPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            FillXml();
+            if (this.IsVisible == true)
+            {
+                //var dataContextXml = Utils.GetXmlDataContext(this.DataContext);
+                //lblContactsFileLocation.Content = Utils.GetContactsFileLocation();
+                //lblThisDataContextStr.Content = this.DataContext.ToString();
+                //lblThisDataContext.Content = this.DataContext;
+                //lblGetDataContext.Content = dataContextXml;
+            }
+        }
+    }
 }

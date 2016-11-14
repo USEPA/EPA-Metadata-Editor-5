@@ -6,61 +6,68 @@
     xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
     xmlns:r="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
     xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
-    Loaded="FillXml">
+    Loaded="EditorPage_Loaded">
 
-  <UserControl.Resources>
-    <!-- <!ENTITY % RespParty '(rpIndName?, rpOrgName?, rpPosName?, rpCntInfo?, role)'> -->
-    <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <rpIndName></rpIndName>
-          <rpOrgName></rpOrgName>
-          <rpPosName></rpPosName>
-          <rpCntInfo editorExpand="False"/>
-          <role>
-            <RoleCd value="" />
-          </role>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+    <UserControl.Resources>
+        <!-- <!ENTITY % RespParty '(rpIndName?, rpOrgName?, rpPosName?, rpCntInfo?, role)'> -->
+        <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <rpIndName></rpIndName>
+                    <rpOrgName></rpOrgName>
+                    <rpPosName></rpPosName>
+                    <rpCntInfo editorExpand="False"/>
+                    <role>
+                        <RoleCd value="" />
+                    </role>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <e:Codelists x:Key="CI_RoleCode" CodelistName="CI_RoleCode"/>
+        <e:Codelists x:Key="CI_RoleCode" CodelistName="CI_RoleCode"/>
 
-  </UserControl.Resources>
+    </UserControl.Resources>
 
-  <Grid>
-    <StackPanel>
-      <Grid Style="{DynamicResource EditorSubPageStyle}">
-        <Grid.RowDefinitions>
-          <RowDefinition />
-          <RowDefinition />
-          <RowDefinition />
-          <RowDefinition />
-          <RowDefinition />
-          <RowDefinition />
-        </Grid.RowDefinitions>
+    <Grid>
+        <StackPanel>
+            <!--<Label x:Name="lblContactsFileLocation" Content="ContactsFileLocation" VerticalAlignment="Center"/>-->
+            <!--<StackPanel Orientation="Horizontal">
+                <Label x:Name="lblThisDataContextStr" Content="DataContext"/>
+                <Label x:Name="lblGetDataContext" Content="DataContext"/>
+            </StackPanel>
+            <Label x:Name="lblThisDataContext" Content="DataContext"/>-->
 
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="Auto" />
-          <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+            <Grid Style="{DynamicResource EditorSubPageStyle}">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-        <!-- individual name -->
-        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Name}"/>
-        <TextBox IsEnabled="False" Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="0" Grid.Column="1" SourceUpdated="DefaultValueChanged" ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_individualName}"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- individual name -->
+                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Name}"/>
+                <TextBox IsEnabled="False" Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="0" Grid.Column="1" SourceUpdated="DefaultValueChanged" ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_individualName}"
             Text="{e:MetadataBinding XPath=rpIndName}" />
 
-        <!-- organization -->
-        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Organization}"/>
-        <TextBox IsEnabled="False" Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="1" Grid.Column="1" SourceUpdated="DefaultValueChanged" ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_organisationName}"
+                <!-- organization -->
+                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Organization}"/>
+                <TextBox IsEnabled="False" Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="1" Grid.Column="1" SourceUpdated="DefaultValueChanged" ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_organisationName}"
             Text="{e:MetadataBinding XPath=rpOrgName}" />
 
-        <!-- position -->
-        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="2" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Position}"/>
-        <TextBox IsEnabled="False" Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="2" Grid.Column="1" SourceUpdated="DefaultValueChanged" ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_positionName}"
+                <!-- position -->
+                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="2" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Position}"/>
+                <TextBox IsEnabled="False" Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="2" Grid.Column="1" SourceUpdated="DefaultValueChanged" ToolTip="{x:Static r:Definitions.CI_ResponsibleParty_positionName}"
             Text="{e:MetadataBinding XPath=rpPosName}" />
 
-        <!-- role 
+                <!-- role 
         <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="3" Grid.Column="0" Content="{x:Static r:Resources.LBL_CI_Role}"/>
         <ComboBox IsEnabled="False" Loaded="PostProcessComboBoxValues" corepages:EditorPage.SourceXPath="role/RoleCd/@value" Grid.Row="3" Grid.Column="1" Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
             v:Nav.AnchorName="role,role"
@@ -73,11 +80,11 @@
           </ComboBox.SelectedValue>
         </ComboBox>
         -->
-      </Grid>
+            </Grid>
 
-      <!-- validate after all anchors are loaded -->
-      <v:PageValidateControl/>
+            <!-- validate after all anchors are loaded -->
+            <v:PageValidateControl/>
 
-    </StackPanel>
-  </Grid>
+        </StackPanel>
+    </Grid>
 </corepages:EditorPage>

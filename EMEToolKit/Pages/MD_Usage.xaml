@@ -114,7 +114,7 @@
         <!-- LOAD SAVED CONTACT -->
         <DockPanel LastChildFill="True">
           <Label DockPanel.Dock="Left" VerticalAlignment="Center" Content="{x:Static r:Resources.LBL_CI_LOAD_USAGE_CONTACT}"/>
-          <pages:PartyPickerControl ContainerElement="usrCntInfo" DockPanel.Dock="Right"/>
+          <pages:PartyPickerControlEME ContainerElement="usrCntInfo" DockPanel.Dock="Right"/>
         </DockPanel>
       </Border>
       
