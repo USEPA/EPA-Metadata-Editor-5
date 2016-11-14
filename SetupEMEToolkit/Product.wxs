@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="EME Toolkit" Language="1033" Version="0.9.1.0" Manufacturer="Innovate! Inc." UpgradeCode="{E8C6A23A-E07D-47F0-8DF3-8C9041065A8A}">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+	<Product Id="{D74BB895-765E-4C51-ACC3-150199B58BA3}" Name="EME Toolkit 0.9.5" Language="1033" Version="0.9.5.0" Manufacturer="Innovate! Inc." UpgradeCode="{E8C6A23A-E07D-47F0-8DF3-8C9041065A8A}">
+		<Package Id="*" InstallerVersion="400" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+		<MediaTemplate EmbedCab="yes" />
 
-		<Feature Id="ProductFeature" Title="SetupEMEToolkit" Level="1">
-      <ComponentGroupRef Id="ProductComponents" />
+		<Feature Id="EMEdbFeature" Title="EME Database Components" Level="1">
+      <ComponentGroupRef Id="EMEdbManComponents" />
       <ComponentGroupRef Id="EMEdbComponents" />
       <ComponentGroupRef Id="EMEdbRoaming" />
-      <ComponentRef Id="EMEDLL"/>
-      <ComponentRef Id="EMECONFIG"/>
+      <ComponentRef Id="ApplicationShortcut" />
+		</Feature>    
+    
+		<Feature Id="EMEToolkitArcGis104" Title="EME Toolkit for ArcCatalog 10.4" Level="1">
+      <ComponentRef Id="EMEToolkitDLL104"/>
+      <ComponentRef Id="EMEToolkitConfig104"/>
 		</Feature>
+    
+		<Feature Id="EMEToolkitArcGis103" Title="EME Toolkit for ArcCatalog 10.3" Level="0">
+      <ComponentRef Id="EMEToolkitDLL103"/>
+      <ComponentRef Id="EMEToolkitConfig103"/>
+		</Feature>
+    
+		<Feature Id="EMEToolkitArcGis102" Title="EME Toolkit for ArcCatalog 10.2" Level="0">
+      <ComponentRef Id="EMEToolkitDLL102"/>
+      <ComponentRef Id="EMEToolkitConfig102"/>
+		</Feature> 
+      
+		<Feature Id="EMEToolkitArcGis101" Title="EME Toolkit for ArcCatalog 10.1" Level="0">
+      <ComponentRef Id="EMEToolkitDLL101"/>
+      <ComponentRef Id="EMEToolkitConfig101"/>
+		</Feature>  
 	</Product>
 
 	<Fragment>
@@ -29,9 +48,7 @@
               <RemoveFolder Id="INSTALLROAM" On="uninstall"/>
             </Component>
             <Directory Id="EMEDBROAM" Name="EMEdb">
-              <Component Id="EMEDBROAM" Guid="{DA7E73BD-56CB-4585-923B-BB614BAC4CC8}"
-                SharedDllRefCount="no" KeyPath="no" NeverOverwrite="no" Permanent="no" Transitive="no"
-                 Location="either">
+              <Component Id="EMEDBROAM" Guid="{DA7E73BD-56CB-4585-923B-BB614BAC4CC8}">
                 <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="DatabaseSource" Type="string" Value="[EMEDBFOLDER]" KeyPath ="yes"/>
                 <RemoveFolder Id="EMEDBROAM" On="uninstall"/>
                 <CreateFolder/>
@@ -48,6 +65,24 @@
               <Directory Id="ARC104CONFIG" Name="Config"/>
             </Directory>
           </Directory>
+          <Directory Id="ArcDesktop103" Name="Desktop10.3">
+            <Directory Id="ARC103BIN" Name="bin"/>
+            <Directory Id="Arc103MD" Name="Metadata">
+              <Directory Id="ARC103CONFIG" Name="Config"/>
+            </Directory>
+          </Directory>
+          <Directory Id="ArcDesktop102" Name="Desktop10.2">
+            <Directory Id="ARC102BIN" Name="bin"/>
+            <Directory Id="Arc102MD" Name="Metadata">
+              <Directory Id="ARC102CONFIG" Name="Config"/>
+            </Directory>
+          </Directory>
+          <Directory Id="ArcDesktop101" Name="Desktop10.1">
+            <Directory Id="ARC101BIN" Name="bin"/>
+            <Directory Id="Arc101MD" Name="Metadata">
+              <Directory Id="ARC101CONFIG" Name="Config"/>
+            </Directory>
+          </Directory>        
         </Directory>
         <Directory Id="INNOVATEFOLDER" Name="Innovate! Inc">
           <Directory Id="INSTALLFOLDER" Name="EME Toolkit">
@@ -60,15 +95,18 @@
             </Directory>
           </Directory>
         </Directory>
-			</Directory>
+			</Directory>      
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="EME Toolkit"/>
+      </Directory>
 		</Directory>
 	</Fragment>
 
 	<Fragment>
-		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+		<ComponentGroup Id="EMEdbManComponents" Directory="INSTALLFOLDER">
 			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
-      <Component Id="ProductComponent">
-        <File Source="$(var.EMEdbManager.TargetPath)"/>
+      <Component Id="emedbman.exe">
+        <File Id="emedbman.exe" Source="$(var.EMEdbManager.TargetPath)"/>
       </Component>
 		</ComponentGroup>
     <ComponentGroup Id="EMEdbComponents" Directory="EMEDBFOLDER">
@@ -112,11 +150,40 @@
         <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="DatabaseLocation" Type="string" Value="[EMEDBROAM]" KeyPath ="yes"/>
       </Component>
     </ComponentGroup>
-    <Component Id="EMEDLL" Directory="ARC104BIN">
-      <File Source="$(var.EPAMetadataEditor.TargetPath)" />
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="{81022974-9A3B-4937-932F-BFD907936B98}">
+        <Shortcut Id="ApplicationStartMenuShortcut" 
+                  Name="EME Database Manager"
+                  Description="Update and modify EPA Metadata Editor Data Files"
+                  Target="[#emedbman.exe]"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\EMEdbManager" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>      
+    <Component Id="EMEToolkitDLL104" Directory="ARC104BIN">
+      <File Id="EmeDLL104" Source="$(var.EPAMetadataEditor.TargetPath)" />
     </Component>
-    <Component Id="EMECONFIG" Directory="ARC104CONFIG">
-      <File Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19915 2003.cfg" />
+    <Component Id="EMEToolkitConfig104" Directory="ARC104CONFIG">
+      <File Id="EMEConfig104" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19915 2003.cfg" />
+    </Component>
+    <Component Id="EMEToolkitDLL103" Directory="ARC103BIN">
+      <File Id="EmeDLL103" Source="$(var.EPAMetadataEditor.TargetPath)" />
+    </Component>
+    <Component Id="EMEToolkitConfig103" Directory="ARC103CONFIG">
+      <File Id="EMEConfig103" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19915 2003.cfg" />
+    </Component>
+    <Component Id="EMEToolkitDLL102" Directory="ARC102BIN">
+      <File Id="EmeDLL102" Source="$(var.EPAMetadataEditor.TargetPath)" />
+    </Component>
+    <Component Id="EMEToolkitConfig102" Directory="ARC102CONFIG">
+      <File Id="EMEConfig102" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19915 2003.cfg" />
+    </Component>
+    <Component Id="EMEToolkitDLL101" Directory="ARC101BIN">
+      <File Id="EmeDLL101" Source="$(var.EPAMetadataEditor.TargetPath)" />
+    </Component>
+    <Component Id="EMEToolkitConfig101" Directory="ARC101CONFIG">
+      <File Id="EMEConfig101" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19915 2003.cfg" />
     </Component>
 	</Fragment>
 </Wix>

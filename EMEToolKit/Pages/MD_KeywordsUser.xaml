@@ -99,6 +99,7 @@
             <!-- user keywords -->
             <controls:Resizer>
                 <StackPanel>
+                    <Label Content="(this list can be customized using the EME Database Manager)" Margin="0,0,0,20" FontSize="10"/>
                     <!--User Keyword List from: KeywordsUser.xml-->
                     <ListView x:Name="lbxEpaUserK"
                               DataContext="{DynamicResource EPAData}"
