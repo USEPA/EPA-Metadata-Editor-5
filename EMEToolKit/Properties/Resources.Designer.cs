@@ -22,7 +22,7 @@ namespace EPAMetadataEditor.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace EPAMetadataEditor.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("EPAMetadataEditor.Properties.Resources", typeof(Resources).Assembly);
@@ -51,156 +51,12 @@ namespace EPAMetadataEditor.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ISO Keywords.
-        /// </summary>
-        public static string LBL_EME_ISOK {
-            get {
-                return ResourceManager.GetString("LBL_EME_ISOK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EME Topics &amp; Keywords.
-        /// </summary>
-        public static string LBL_EME_KEYWORDS_SIDEBAR {
-            get {
-                return ResourceManager.GetString("LBL_EME_KEYWORDS_SIDEBAR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Place Keywords.
-        /// </summary>
-        public static string LBL_EME_PLACEK {
-            get {
-                return ResourceManager.GetString("LBL_EME_PLACEK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EME Demo Page.
-        /// </summary>
-        public static string LBL_EME_SIDEBAR {
-            get {
-                return ResourceManager.GetString("LBL_EME_SIDEBAR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EPA Keywords.
-        /// </summary>
-        public static string LBL_EME_THEMEK {
-            get {
-                return ResourceManager.GetString("LBL_EME_THEMEK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to U.S. Environmental Protection Agency Theme Keywords.
-        /// </summary>
-        public static string LBL_EME_THEMEK_TIP {
-            get {
-                return ResourceManager.GetString("LBL_EME_THEMEK_TIP", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User Keywords.
-        /// </summary>
-        public static string LBL_EME_USERK {
-            get {
-                return ResourceManager.GetString("LBL_EME_USERK", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Custom Tool Tip.
-        /// </summary>
-        public static string LBL_EPA_TIP {
-            get {
-                return ResourceManager.GetString("LBL_EPA_TIP", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to U.S. Environmental Protection Agency.
-        /// </summary>
-        public static string LBL_EPA_TITLE {
-            get {
-                return ResourceManager.GetString("LBL_EPA_TITLE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ESRI Topics &amp; Keywords.
-        /// </summary>
-        public static string LBL_ESRI_KEYWORDS {
-            get {
-                return ResourceManager.GetString("LBL_ESRI_KEYWORDS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tracking Position:.
-        /// </summary>
-        public static string LBL_TEST_POSITION {
-            get {
-                return ResourceManager.GetString("LBL_TEST_POSITION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Internal workflow tracking position.
-        /// </summary>
-        public static string LBL_TEST_POSITION_TIP {
-            get {
-                return ResourceManager.GetString("LBL_TEST_POSITION_TIP", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EME Test Page.
-        /// </summary>
-        public static string LBL_TEST_SIDEBAR {
-            get {
-                return ResourceManager.GetString("LBL_TEST_SIDEBAR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tracking Status:.
-        /// </summary>
-        public static string LBL_TEST_STATUS {
-            get {
-                return ResourceManager.GetString("LBL_TEST_STATUS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Internal workflow tracking status.
-        /// </summary>
-        public static string LBL_TEST_STATUS_TIP {
-            get {
-                return ResourceManager.GetString("LBL_TEST_STATUS_TIP", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to EPA EditorPage Test.
-        /// </summary>
-        public static string LBL_TEST_TITLE {
-            get {
-                return ResourceManager.GetString("LBL_TEST_TITLE", resourceCulture);
             }
         }
     }

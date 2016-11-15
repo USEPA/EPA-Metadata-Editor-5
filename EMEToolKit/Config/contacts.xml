@@ -1,0 +1,25 @@
+<contacts>
+  <contact>
+    <editorSource>external</editorSource>
+    <editorDigest>
+    </editorDigest>
+    <rpOrgName>
+    </rpOrgName>
+    <rpCntInfo editorExpand="False">
+      <cntAddress>
+        <city>
+        </city>
+        <adminArea>
+        </adminArea>
+        <country>
+        </country>
+      </cntAddress>
+    </rpCntInfo>
+    <editorSave>
+    </editorSave>
+    <rpIndName>
+    </rpIndName>
+    <rpPosName>
+    </rpPosName>
+  </contact>
+</contacts>

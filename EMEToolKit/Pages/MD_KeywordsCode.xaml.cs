@@ -65,7 +65,7 @@ namespace EPAMetadataEditor.Pages
 
             _listPCode.Add(xmlCheckBox.InnerText);
             _listPCode.Sort();
-            _listPCode = _listPCode.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+            _listPCode = _listPCode.Where(s => !string.IsNullOrEmpty(s)).Distinct().ToList();
             tbxMDPCode.Text = "";
 
             foreach (string s in _listPCode)
@@ -136,7 +136,7 @@ namespace EPAMetadataEditor.Pages
                         listPCode.Add(s.Trim());
                     }
                 }
-                listPCode = listPCode.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+                listPCode = listPCode.Where(s => !string.IsNullOrEmpty(s)).Distinct().ToList();
                 listPCode.Sort();
 
                 ListBox liBox = (ListBox)lbxPCode;
