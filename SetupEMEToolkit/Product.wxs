@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="{D74BB895-765E-4C51-ACC3-150199B58BA3}" Name="EME Toolkit 0.9.7 for ArcGIS 10.4x" Language="1033" Version="0.9.7.0" Manufacturer="Innovate! Inc." UpgradeCode="{E8C6A23A-E07D-47F0-8DF3-8C9041065A8A}">
-		<Package Id="*" InstallerVersion="400" Compressed="yes" InstallScope="perMachine"/>
+	<Product Id="{9643E2F1-5FE2-42F3-A3E5-5C555E5B8AF9}" Name="EME Toolkit 0.9.8 for ArcGIS 10.4x" Language="1033" Version="0.9.8.0" Manufacturer="Innovate! Inc." UpgradeCode="{522B556A-CE0C-48D8-BB7B-4925F8515A5D}">
+		<Package Id="*" InstallerVersion="400" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<MediaTemplate EmbedCab="yes" />
@@ -21,6 +21,7 @@
 		<Feature Id="EMEToolkitArcGis103" Title="EME Toolkit for ArcCatalog 10.3" Level="0">
       <ComponentRef Id="EMEToolkitDLL103"/>
       <ComponentRef Id="EMEToolkitConfig103"/>
+      <ComponentGroupRef Id="ArcGISdocs"/>
 		</Feature>
     
 		<Feature Id="EMEToolkitArcGis102" Title="EME Toolkit for ArcCatalog 10.2" Level="0">
@@ -38,18 +39,18 @@
 		<Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="AppDataFolder">
         <Directory Id="INNOVATEROAM" Name="Innovate! Inc">
-          <Component Id="INNOVATEROAM" Guid="{0100E3A0-1A6E-456A-BE01-8EB4C4A6E644}">
+          <Component Id="INNOVATEROAM" Guid="{237CE76E-8C72-426F-A8F1-CD6BA5056EC2}">
             <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="Product" Type="string" Value="EPA Metadata Editor Toolkit" KeyPath ="yes"/>
             <RemoveFolder Id="INNOVATEROAM" On="uninstall"/>
           </Component>
           <Directory Id="INSTALLROAM" Name="EME Toolkit">
-            <Component Id="INSTALLROAM" Guid="{F117BF59-5E95-4DC5-AC4F-F00CFD4AF4D0}">
+            <Component Id="INSTALLROAM" Guid="{EF1492C0-2F18-4086-BA31-1A6369B78B32}">
               <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="InstallDir" Type="string" Value="[INSTALLFOLDER]" KeyPath ="yes"/>
               <RemoveFolder Id="INSTALLROAM" On="uninstall"/>
             </Component>
             <Directory Id="EMEDBROAM" Name="EMEdb">
-              <Component Id="EMEDBROAM" Guid="{DA7E73BD-56CB-4585-923B-BB614BAC4CC8}">
-                <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="InstallVersion" Type="string" Value="[ProductVersion]" KeyPath ="yes"/>
+              <Component Id="EMEDBROAM" Guid="{E70F1EB8-32BA-47D2-B4C4-D37BCA3611ED}">
+                <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="DatabaseSource" Type="string" Value="[EMEDBFOLDER]" KeyPath ="yes"/>
                 <RemoveFolder Id="EMEDBROAM" On="uninstall"/>
                 <CreateFolder/>
               </Component>
@@ -87,9 +88,8 @@
         <Directory Id="INNOVATEFOLDER" Name="Innovate! Inc">
           <Directory Id="INSTALLFOLDER" Name="EME Toolkit">
             <Directory Id="EMEDBFOLDER" Name="EMEdb">
-              <Component Id="EMEDBFOLDER" Guid="{7C10658D-794E-4DDD-BB01-CFAA63FF0CB3}"
-                SharedDllRefCount="no" KeyPath="no" NeverOverwrite="no" Permanent="no" Transitive="no"
-                 Location="either">
+              <Component Id="EMEDBFOLDER" Guid="{FDA70515-A174-4B93-B6C1-F72E7D9FF773}" 
+                         SharedDllRefCount="no" KeyPath="no" NeverOverwrite="no" Permanent="no" Transitive="no" Location="either">
                 <CreateFolder/>
               </Component>
             </Directory>
@@ -98,6 +98,21 @@
 			</Directory>      
       <Directory Id="ProgramMenuFolder">
         <Directory Id="ApplicationProgramsFolder" Name="EME Toolkit"/>
+      </Directory>
+      <Directory Id="PersonalFolder">
+        <Directory Id="DOCSesri" Name="ArcGIS">
+          <Component Id="DOCSesri" Guid="{65A27CEA-D1AB-4E0D-9EEA-57FB07C9FA33}">
+            <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="InstallDir" Type="string" Value="[INSTALLFOLDER]" KeyPath ="yes"/>
+            <RemoveFolder Id="DOCSesri" On="uninstall"/>
+          </Component>
+          <Directory Id="ARCGISdesc" Name="Descriptions">
+            <Component Id="ARCGISdesc" Guid="{17021EC2-F4F3-4BB9-9416-5E3B1A9A880D}">
+              <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="InstallDir" Type="string" Value="[INSTALLFOLDER]" KeyPath ="yes"/>
+              <RemoveFolder Id="ARCGISdesc" On="uninstall"/>
+              <CreateFolder/>
+            </Component>
+          </Directory>
+        </Directory>
       </Directory>
 		</Directory>
 	</Fragment>
@@ -110,7 +125,7 @@
 		</ComponentGroup>
     <ComponentGroup Id="EMEdbComponents" Directory="EMEDBFOLDER">
       <ComponentRef Id="EMEDBFOLDER"/>
-      <Component Id="EMEdbComponent" Guid="{44A0B9EC-1169-4AF1-99AE-12EA54DA49B2}">
+      <Component Id="EMEdbComponent" Guid="{BD1D1BAD-1B02-404B-99D3-466A29B2C3BB}">
         <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//BoundingBox.xml" />
         <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//Citation.xml" />
         <File Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//Contact_Information.xml" />
@@ -131,8 +146,8 @@
       <ComponentRef Id="INNOVATEROAM"></ComponentRef>
       <ComponentRef Id="INSTALLROAM"></ComponentRef>
       <ComponentRef Id="EMEDBROAM"></ComponentRef>
-      <Component Id="EMEdbRoamComponents" Guid="{F42C7DEF-9641-4E4E-A303-24AC4CF2ECCD}" Permanent="yes">
-        <File  Id="DbBoundingBox" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//BoundingBox.xml" />
+      <Component Id="EMEdbRoamComponents" Guid="{6B056CBC-24FA-4587-8A71-CEBB475323F5}" Permanent="yes">
+        <File Id="DbBoundingBox" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//BoundingBox.xml" />
         <File Id="DbCitation" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//Citation.xml" />
         <File Id="DbContact_Information" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//Contact_Information.xml" />
         <File Id="Dbcontacts" Source="$(var.EPAMetadataEditor.ProjectDir)//EMEdb//contacts.xml" />
@@ -150,7 +165,7 @@
       </Component>
     </ComponentGroup>
     <DirectoryRef Id="ApplicationProgramsFolder">
-      <Component Id="ApplicationShortcut" Guid="{81022974-9A3B-4937-932F-BFD907936B98}">
+      <Component Id="ApplicationShortcut" Guid="{ECB58C24-A834-4EE9-9A03-B768F510B7C2}">
         <Shortcut Id="ApplicationStartMenuShortcut" 
                   Name="EME Database Manager"
                   Description="Update and modify EPA Metadata Editor Data Files"
@@ -159,7 +174,17 @@
         <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
         <RegistryValue Root="HKCU" Key="Software\Microsoft\EMEdbManager" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
-    </DirectoryRef>      
+    </DirectoryRef>
+    
+    <ComponentGroup Id="ArcGISdocs" Directory="ARCGISdesc">
+      <ComponentRef Id="DOCSesri"/>
+      <ComponentRef Id="ARCGISdesc"/>
+      <Component Id="EMEToolkitContacts" Guid="{342AA147-DB98-4D36-88BC-4DA6BFBA8E10}" Permanent="yes">
+        <File Id="EMEContacts" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//contacts.xml" />
+        <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="LocalContacts" Type="string" Value="[ARCGISdesc]" KeyPath ="yes"/>
+      </Component>
+    </ComponentGroup>
+    
     <Component Id="EMEToolkitDLL104" Directory="ARC104BIN">
       <File Id="EmeDLL104" Source="$(var.EPAMetadataEditor.TargetPath)" />
     </Component>

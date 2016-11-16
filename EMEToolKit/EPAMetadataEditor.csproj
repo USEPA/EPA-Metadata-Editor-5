@@ -1217,6 +1217,7 @@
     <Compile Include="Themes\Generic.xaml.cs">
       <DependentUpon>Generic.xaml</DependentUpon>
     </Compile>
+    <None Include="Config\contacts.bak" />
     <None Include="Config\EPA Metadata Specification NAP ISO19915 2003.cfg" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1345,7 +1346,9 @@
     <Resource Include="EMEdb\contacts.xml" />
     <Resource Include="EMEdb\SecurityConstraints.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Config\contacts.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!--To modify your build process, add your task inside one of the targets below and uncomment it. 
