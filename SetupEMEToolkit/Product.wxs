@@ -10,6 +10,7 @@
       <ComponentGroupRef Id="EMEdbManComponents" />
       <ComponentGroupRef Id="EMEdbComponents" />
       <ComponentGroupRef Id="EMEdbRoaming" />
+      <ComponentGroupRef Id="ArcGISdocs"/>
       <ComponentRef Id="ApplicationShortcut" />
 		</Feature>    
     
@@ -21,7 +22,6 @@
 		<Feature Id="EMEToolkitArcGis103" Title="EME Toolkit for ArcCatalog 10.3" Level="0">
       <ComponentRef Id="EMEToolkitDLL103"/>
       <ComponentRef Id="EMEToolkitConfig103"/>
-      <ComponentGroupRef Id="ArcGISdocs"/>
 		</Feature>
     
 		<Feature Id="EMEToolkitArcGis102" Title="EME Toolkit for ArcCatalog 10.2" Level="0">
