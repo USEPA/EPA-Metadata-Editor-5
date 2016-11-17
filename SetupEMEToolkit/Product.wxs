@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="{D74BB895-765E-4C51-ACC3-150199B58BA3}" Name="EME Toolkit 0.9.7 for ArcGIS 10.3x" Language="1033" Version="0.9.7.0" Manufacturer="Innovate! Inc." UpgradeCode="{E8C6A23A-E07D-47F0-8DF3-8C9041065A8A}">
+	<Product Id="{D74BB895-765E-4C51-ACC3-150199B58BA3}" Name="EME Toolkit 0.9.8 for ArcGIS 10.3x" Language="1033" Version="0.9.8.0" Manufacturer="Innovate! Inc." UpgradeCode="{E8C6A23A-E07D-47F0-8DF3-8C9041065A8A}">
 		<Package Id="*" InstallerVersion="400" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -10,6 +10,7 @@
       <ComponentGroupRef Id="EMEdbManComponents" />
       <ComponentGroupRef Id="EMEdbComponents" />
       <ComponentGroupRef Id="EMEdbRoaming" />
+      <ComponentGroupRef Id="ArcGISdocs"/>
       <ComponentRef Id="ApplicationShortcut" />
 		</Feature>    
     
@@ -21,7 +22,6 @@
 		<Feature Id="EMEToolkitArcGis103" Title="EME Toolkit for ArcCatalog 10.3" Level="1">
       <ComponentRef Id="EMEToolkitDLL103"/>
       <ComponentRef Id="EMEToolkitConfig103"/>
-      <ComponentGroupRef Id="ArcGISdocs103"/>
 		</Feature>
     
 		<Feature Id="EMEToolkitArcGis102" Title="EME Toolkit for ArcCatalog 10.2" Level="0">
@@ -176,11 +176,11 @@
       </Component>
     </DirectoryRef>
     
-    <ComponentGroup Id="ArcGISdocs103" Directory="ARCGISdesc">
+    <ComponentGroup Id="ArcGISdocs" Directory="ARCGISdesc">
       <ComponentRef Id="DOCSesri"/>
       <ComponentRef Id="ARCGISdesc"/>
-      <Component Id="EMEToolkitContacts103" Guid="{DF7D1E82-BD4D-4C8D-B94D-A8E557FA3364}" Permanent="yes">
-        <File Id="EMEContacts103" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//contacts.xml" />
+      <Component Id="EMEToolkitContacts" Guid="{DF7D1E82-BD4D-4C8D-B94D-A8E557FA3364}" Permanent="yes">
+        <File Id="EMEContacts" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//contacts.xml" />
         <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="LocalContacts" Type="string" Value="[ARCGISdesc]" KeyPath ="yes"/>
       </Component>
     </ComponentGroup>
