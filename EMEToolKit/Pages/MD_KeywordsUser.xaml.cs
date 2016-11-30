@@ -101,7 +101,7 @@ namespace EPAMetadataEditor.Pages
                 var liBoxName = "chbxEpaUserkey";
                 var liBoxCtrl = (CheckBox)liBoxChildren.First(c => c.Name == liBoxName);
                 System.Xml.XmlElement xmlTest = (System.Xml.XmlElement)liBoxCtrl.Content;
-                if (xmlTest.NextSibling.InnerText.Contains("true"))
+                if (xmlTest.NextSibling.InnerText.ToLower().Contains("true"))
                 { liBoxCtrl.IsChecked = true; }
                 else
                 { liBoxCtrl.IsChecked = false; }

@@ -67,8 +67,8 @@ namespace EMEdbManager
 
         private void btnSaveThemekeyPlace_Click(object sender, RoutedEventArgs e)
         {
-            string source = XmlRecord_ThemeKeyUser.Source.LocalPath;
-            XmlRecord_ThemeKeyUser.Document.Save(source);
+            string source = XmlRecord_ThemeKeyPlace.Source.LocalPath;
+            XmlRecord_ThemeKeyPlace.Document.Save(source);
         }
 
         private void btnSaveThemekeyUser_Click(object sender, RoutedEventArgs e)

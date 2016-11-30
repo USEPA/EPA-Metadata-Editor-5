@@ -69,7 +69,7 @@
                          IsInitialLoadEnabled="True"/>
 
         <DataTemplate x:Key="keywordItemCheckBox">
-            <CheckBox Content="{Binding XPath=themekey}" Margin="0,5"/>
+            <CheckBox Content="{Binding XPath=themekey}" Margin="5"/>
         </DataTemplate>
 
         <ControlTemplate x:Key="ListBoxNoScroll">

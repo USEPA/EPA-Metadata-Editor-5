@@ -6,7 +6,7 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>b5cf2fc9-6a1b-4168-bf21-702d2166ba8f</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>emetoolkit_10.3x_installer-0.9.9</OutputName>
+    <OutputName>emetoolkit_10.3x_installer-0.9.9.3</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
