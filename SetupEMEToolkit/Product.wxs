@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="{D74BB895-765E-4C51-ACC3-150199B58BA3}" Name="EME Toolkit 0.9.8 for ArcGIS 10.3x" Language="1033" Version="0.9.8.0" Manufacturer="Innovate! Inc." UpgradeCode="{E8C6A23A-E07D-47F0-8DF3-8C9041065A8A}">
+	<Product Id="{D74BB895-765E-4C51-ACC3-150199B58BA3}" Name="EME Toolkit 0.9.9 for ArcGIS 10.3x" Language="1033" Version="0.9.9.0" Manufacturer="Innovate! Inc." UpgradeCode="{E8C6A23A-E07D-47F0-8DF3-8C9041065A8A}">
 		<Package Id="*" InstallerVersion="400" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -189,25 +189,25 @@
       <File Id="EmeDLL104" Source="$(var.EPAMetadataEditor.TargetPath)" />
     </Component>
     <Component Id="EMEToolkitConfig104" Directory="ARC104CONFIG">
-      <File Id="EMEConfig104" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19915 2003.cfg" />
+      <File Id="EMEConfig104" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19115 2003.cfg" />
     </Component>
     <Component Id="EMEToolkitDLL103" Directory="ARC103BIN">
       <File Id="EmeDLL103" Source="$(var.EPAMetadataEditor.TargetPath)" />
     </Component>
     <Component Id="EMEToolkitConfig103" Directory="ARC103CONFIG">
-      <File Id="EMEConfig103" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19915 2003.cfg" />
+      <File Id="EMEConfig103" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19115 2003.cfg" />
     </Component>
     <Component Id="EMEToolkitDLL102" Directory="ARC102BIN">
       <File Id="EmeDLL102" Source="$(var.EPAMetadataEditor.TargetPath)" />
     </Component>
     <Component Id="EMEToolkitConfig102" Directory="ARC102CONFIG">
-      <File Id="EMEConfig102" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19915 2003.cfg" />
+      <File Id="EMEConfig102" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19115 2003.cfg" />
     </Component>
     <Component Id="EMEToolkitDLL101" Directory="ARC101BIN">
       <File Id="EmeDLL101" Source="$(var.EPAMetadataEditor.TargetPath)" />
     </Component>
     <Component Id="EMEToolkitConfig101" Directory="ARC101CONFIG">
-      <File Id="EMEConfig101" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19915 2003.cfg" />
+      <File Id="EMEConfig101" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19115 2003.cfg" />
     </Component>
 	</Fragment>
 </Wix>
