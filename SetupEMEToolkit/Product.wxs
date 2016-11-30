@@ -189,25 +189,25 @@
       <File Id="EmeDLL104" Source="$(var.EPAMetadataEditor.TargetPath)" />
     </Component>
     <Component Id="EMEToolkitConfig104" Directory="ARC104CONFIG">
-      <File Id="EMEConfig104" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19915 2003.cfg" />
+      <File Id="EMEConfig104" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19115 2003.cfg" />
     </Component>
     <Component Id="EMEToolkitDLL103" Directory="ARC103BIN">
       <File Id="EmeDLL103" Source="$(var.EPAMetadataEditor.TargetPath)" />
     </Component>
     <Component Id="EMEToolkitConfig103" Directory="ARC103CONFIG">
-      <File Id="EMEConfig103" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19915 2003.cfg" />
+      <File Id="EMEConfig103" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19115 2003.cfg" />
     </Component>
     <Component Id="EMEToolkitDLL102" Directory="ARC102BIN">
       <File Id="EmeDLL102" Source="$(var.EPAMetadataEditor.TargetPath)" />
     </Component>
     <Component Id="EMEToolkitConfig102" Directory="ARC102CONFIG">
-      <File Id="EMEConfig102" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19915 2003.cfg" />
+      <File Id="EMEConfig102" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19115 2003.cfg" />
     </Component>
     <Component Id="EMEToolkitDLL101" Directory="ARC101BIN">
       <File Id="EmeDLL101" Source="$(var.EPAMetadataEditor.TargetPath)" />
     </Component>
     <Component Id="EMEToolkitConfig101" Directory="ARC101CONFIG">
-      <File Id="EMEConfig101" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19915 2003.cfg" />
+      <File Id="EMEConfig101" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19115 2003.cfg" />
     </Component>
 	</Fragment>
 </Wix>
