@@ -135,6 +135,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MD_ConstraintsEME.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MD_CoverageDescriptionBaseBAK.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -839,6 +843,9 @@
     </Compile>
     <Compile Include="Pages\KeywordsEME.xaml.cs">
       <DependentUpon>KeywordsEME.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MD_ConstraintsEME.xaml.cs">
+      <DependentUpon>MD_ConstraintsEME.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MD_CoverageDescriptionBaseBAK.xaml.cs">
       <DependentUpon>MD_CoverageDescriptionBaseBAK.xaml</DependentUpon>
