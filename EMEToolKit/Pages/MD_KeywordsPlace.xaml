@@ -69,7 +69,7 @@
                          IsInitialLoadEnabled="True"/>
 
         <DataTemplate x:Key="keywordItemCheckBox">
-            <CheckBox Content="{Binding XPath=themekey}"/>
+            <CheckBox Content="{Binding XPath=themekey}" Margin="0,5"/>
         </DataTemplate>
 
         <ControlTemplate x:Key="ListBoxNoScroll">
@@ -77,7 +77,7 @@
         </ControlTemplate>
 
         <ItemsPanelTemplate x:Key="ThreeColumnList">
-            <UniformGrid Columns="3"/>
+            <UniformGrid Columns="3" Margin="0,5"/>
         </ItemsPanelTemplate>
 
         <Style x:Key="ChbxListItem" TargetType="{x:Type ListViewItem}">
@@ -110,7 +110,7 @@
                               Margin="10,0,0,0" Loaded="tbxMDEpaPlaceK_Loaded">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <CheckBox Name="chbxEpaPlacekey" Content="{Binding XPath=placekey}" Checked="chbxEpaPlacekey_Checked" Unchecked="chbxEpaPlacekey_Unchecked"/>
+                                <CheckBox Name="chbxEpaPlacekey" Content="{Binding XPath=placekey}" Checked="chbxEpaPlacekey_Checked" Unchecked="chbxEpaPlacekey_Unchecked" Margin="0,0,0,10"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

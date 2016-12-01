@@ -111,7 +111,7 @@
                               Margin="10,0,0,0" Loaded="tbxMDEpaUserK_Loaded">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <CheckBox Name="chbxEpaUserkey" Content="{Binding XPath=themekey}" Checked="chbxEpaUserkey_Checked" Unchecked="chbxEpaUserkey_Unchecked"/>
+                                <CheckBox Name="chbxEpaUserkey" Content="{Binding XPath=themekey}" Checked="chbxEpaUserkey_Checked" Unchecked="chbxEpaUserkey_Unchecked" Margin="0,0,0,10"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

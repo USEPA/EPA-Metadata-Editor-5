@@ -69,7 +69,7 @@
                          IsInitialLoadEnabled="True"/>
 
         <DataTemplate x:Key="keywordItemCheckBox">
-            <CheckBox Content="{Binding XPath=themekey}" Margin="5"/>
+            <CheckBox Content="{Binding XPath=themekey}"/>
         </DataTemplate>
 
         <ControlTemplate x:Key="ListBoxNoScroll">
@@ -110,7 +110,7 @@
                               Margin="10,0,0,0" Loaded="tbxMDEpaThemeK_Loaded">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <CheckBox Name="chbxEpaThemekey" Content="{Binding XPath=themekey}" Checked="chbxEpaThemekey_Checked" Unchecked="chbxEpaThemekey_Unchecked"/>
+                                <CheckBox Name="chbxEpaThemekey" Content="{Binding XPath=themekey}" Checked="chbxEpaThemekey_Checked" Unchecked="chbxEpaThemekey_Unchecked" Margin="0,0,0,10"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
