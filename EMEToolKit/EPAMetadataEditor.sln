@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMEdbManager", "..\EMEdbMan
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "emetoolkit_x64_installer", "..\SetupEMEToolkit\emetoolkit_x64_installer.wixproj", "{B5CF2FC9-6A1B-4168-BF21-702D2166BA8F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EMEToolbox", "EMEToolbox", "{8ACD09F3-882F-4197-ADA9-761C2C767A46}"
+	ProjectSection(SolutionItems) = preProject
+		..\EMEToolbox\EPAUpgradeCleanup.xslt = ..\EMEToolbox\EPAUpgradeCleanup.xslt
+		..\EMEToolbox\EPAUpgradeFGDCtoArcGIS.pyt = ..\EMEToolbox\EPAUpgradeFGDCtoArcGIS.pyt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
