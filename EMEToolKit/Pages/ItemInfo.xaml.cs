@@ -12,29 +12,21 @@ email: contracts@esri.com
 */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.IO;
-using ESRI.ArcGIS.Metadata.Editor.Convert;
-using System.Web;
 using System.Xml;
-using System.Windows.Markup;
 using System.Collections;
-using System.Reflection;
 
 using ESRI.ArcGIS.Metadata.Editor;
 using ESRI.ArcGIS.Metadata.Editor.Pages;
 using System.Diagnostics;
+using System.Collections.Generic;
+using System.Windows.Media;
+using System.Linq;
 
 namespace EPAMetadataEditor.Pages
 {
@@ -45,10 +37,30 @@ namespace EPAMetadataEditor.Pages
     {
         private Image _thumbnailImage = null;
         private bool _isDefault = false;
+        private List<string> _listThemeK = new List<string>();
 
         public ItemInfo()
         {
             InitializeComponent();
+        }
+
+        public List<Control> AllChildren(DependencyObject parent)
+        {
+            var _List = new List<Control> { };
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(parent); i++)
+            {
+                var _Child = VisualTreeHelper.GetChild(parent, i);
+                if (_Child is Control)
+                    _List.Add(_Child as Control);
+                _List.AddRange(AllChildren(_Child));
+            }
+            return _List;
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
 
         public override string SidebarLabel
@@ -262,10 +274,34 @@ namespace EPAMetadataEditor.Pages
             tbxTopOfPage.Focus();
         }
 
-        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        private void btnDelSearchTags_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
-            e.Handled = true;
+            if (lbxItemDesc.IsVisible == true)
+            {
+                ListBox liBox = (ListBox)lbxItemDesc;
+                foreach (var liBoxItem in liBox.Items)
+                {
+                    var liBoxCont = liBox.ItemContainerGenerator.ContainerFromItem(liBoxItem);
+                    var liBoxChildren = AllChildren(liBoxCont);
+                    var liBoxName = "tbxSearchTags";
+                    var liBoxCtrl = (TextBox)liBoxChildren.First(c => c.Name == liBoxName);
+                    //Add logic to copy to clipboard
+                    List<string> listSearchTag = new List<string>();
+                    if (liBoxCtrl.Text.Any())
+                    {
+                        string[] strsearchTag = liBoxCtrl.Text.Split(new string[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                        foreach (string s in strsearchTag)
+                        {
+                            listSearchTag.Add(s.Trim());
+                        }
+                    }
+                    listSearchTag = listSearchTag.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+                    listSearchTag.Sort();
+                    //clear TextBox
+                    liBoxCtrl.Text = null;
+                    tbxTopOfPage.Focus();
+                }
+            }
         }
     }
 

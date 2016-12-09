@@ -81,7 +81,7 @@
           </Button>
           <Button DockPanel.Dock="Right" IsDefault="True" Name="primaryActionButton" Click="OnClickHyperlinkOk" Style="{DynamicResource TopButton}" Content="{x:Static prop:Resources.BTN_RICHTEXT_APPLY}"/>
           <Label VerticalAlignment="Center" DockPanel.Dock="Left" Content="{x:Static prop:Resources.BTN_RICHTEXT_URL}"/>
-          <TextBox VerticalAlignment="Center" x:Name="linkEditorText"/>
+          <TextBox VerticalAlignment="Center" x:Name="linkEditorText" Background="White"/>
         </DockPanel>      
       </StackPanel>
 
