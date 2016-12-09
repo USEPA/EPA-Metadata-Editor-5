@@ -298,7 +298,8 @@ namespace EPAMetadataEditor.Pages
                     listSearchTag = listSearchTag.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
                     listSearchTag.Sort();
                     //clear TextBox
-                    liBoxCtrl.Text = null;
+                    liBoxCtrl.Text = "";
+                    liBoxCtrl.Focus();
                     tbxTopOfPage.Focus();
                 }
             }
