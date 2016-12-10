@@ -34,21 +34,21 @@
 
         <DataTemplate x:Key="keywordItemTemplate">
             <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked="{Binding XPath=default}" VerticalAlignment="Center"></CheckBox>
+                <CheckBox IsChecked="{Binding XPath=default}" VerticalAlignment="Center" Checked="btnSaveThemekeyEpa_Click" Unchecked="btnSaveThemekeyEpa_Click"/>
                 <Label Content="{Binding XPath=themekey}" Loaded="lbxThemekeyEpa_loaded"/>
             </StackPanel>
         </DataTemplate>
 
         <DataTemplate x:Key="placeKeyItemTemplate">
             <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked="{Binding XPath=default}" VerticalAlignment="Center"></CheckBox>
+                <CheckBox IsChecked="{Binding XPath=default}" VerticalAlignment="Center" Checked="btnSaveThemekeyPlace_Click" Unchecked="btnSaveThemekeyPlace_Click"/>
                 <Label Content="{Binding XPath=placekey}" Loaded="lbxThemekeyPlace_loaded"/>
             </StackPanel>
         </DataTemplate>
 
         <DataTemplate x:Key="userKeyItemTemplate">
             <StackPanel Orientation="Horizontal">
-                <CheckBox IsChecked="{Binding XPath=default}" VerticalAlignment="Center"></CheckBox>
+                <CheckBox IsChecked="{Binding XPath=default}" VerticalAlignment="Center" Checked="btnSaveThemekeyUser_Click" Unchecked="btnSaveThemekeyUser_Click"/>
                 <Label Content="{Binding XPath=themekey}" Loaded="lbxThemekeyUser_loaded"/>
             </StackPanel>
         </DataTemplate>

@@ -49,7 +49,17 @@
             <x:XData>
                 <ANY xmlns="" editorExpand="False">
                     <bag/>
-                    <thesaName editorExpand="" editorFillOnly="True"/>
+                    <thesaName editorExpand="" editorFillOnly="True">
+                        <date>
+                            <createDate>2016-11-16T00:00:00</createDate>
+                        </date>
+                        <citOnlineRes xmlns="">
+                            <linkage>https://ofmpub.epa.gov/sor_internet/registry/termreg/searchandretrieve/taxonomies/search.do</linkage>
+                            <orFunct>
+                                <OnFunctCd value="002"/>
+                            </orFunct>
+                        </citOnlineRes>
+                    </thesaName>
                 </ANY>
             </x:XData>
         </XmlDataProvider>

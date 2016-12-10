@@ -135,6 +135,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\MD_ConstraintsEME.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MD_CoverageDescriptionBaseBAK.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -840,6 +844,9 @@
     <Compile Include="Pages\KeywordsEME.xaml.cs">
       <DependentUpon>KeywordsEME.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MD_ConstraintsEME.xaml.cs">
+      <DependentUpon>MD_ConstraintsEME.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MD_CoverageDescriptionBaseBAK.xaml.cs">
       <DependentUpon>MD_CoverageDescriptionBaseBAK.xaml</DependentUpon>
     </Compile>
@@ -1217,7 +1224,10 @@
     <Compile Include="Themes\Generic.xaml.cs">
       <DependentUpon>Generic.xaml</DependentUpon>
     </Compile>
-    <None Include="Config\EPA Metadata Specification NAP ISO19915 2003.cfg" />
+    <None Include="Config\contacts.bak" />
+    <None Include="Config\EPA Metadata Specification NAP ISO19115 2003.cfg">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1345,7 +1355,9 @@
     <Resource Include="EMEdb\contacts.xml" />
     <Resource Include="EMEdb\SecurityConstraints.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Config\contacts.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!--To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -22,7 +22,6 @@
     <!ELEMENT tempKeys %Keywords;>
     <!ELEMENT themeKeys %Keywords;>    
     -->
-
         <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
             <x:XData>
                 <ANY xmlns="">
@@ -57,6 +56,9 @@
                                 <TopicCatCd_019 value="False"/>
                             </tpCatBag>
                             <placeKeys>
+                                <thesaName xmlns="">
+                                    <resTitle>EPA Place Names</resTitle>
+                                </thesaName>
                                 <thesaLang>
                                     <languageCode value="eng"/>
                                     <countryCode value="US"/>
@@ -197,7 +199,7 @@
                             </StackPanel>
 
                             <!-- iso keyword section -->
-                            <Border Style="{DynamicResource EditorBorder2Style}">
+                            <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
                                 <StackPanel>
                                     <!-- topics -->
                                     <Label Style="{DynamicResource EditorVLabelNoIdentStyle}" 
@@ -275,7 +277,7 @@
                                 </ListBox.ItemsPanel>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <Border Style="{DynamicResource EditorBorder2Style}">
+                                        <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
                                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                 <Expander.Header>
                                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
@@ -310,7 +312,7 @@
                                 </ListBox.ItemsPanel>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <Border Style="{DynamicResource EditorBorder2Style}">
+                                        <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
                                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                 <Expander.Header>
                                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
@@ -339,7 +341,7 @@
                                 </ListBox.ItemsPanel>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <Border Style="{DynamicResource EditorBorder2Style}">
+                                        <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
                                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                 <Expander.Header>
                                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
@@ -371,7 +373,7 @@
                                 </ListBox.ItemsPanel>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <Border Style="{DynamicResource EditorBorder2Style}">
+                                        <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
                                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                 <Expander.Header>
                                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
@@ -407,7 +409,7 @@
                                 </ListBox.ItemsPanel>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <Border Style="{DynamicResource EditorBorder2Style}">
+                                        <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
                                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                 <Expander.Header>
                                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
@@ -442,7 +444,7 @@
                                 </ListBox.ItemsPanel>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <Border Style="{DynamicResource EditorBorder2Style}">
+                                        <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
                                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                 <Expander.Header>
                                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,

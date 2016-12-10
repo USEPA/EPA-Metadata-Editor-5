@@ -1,0 +1,63 @@
+<contacts>
+  <contact>
+    <editorSource>external</editorSource>
+    <editorDigest>6660ca24a85b98f638b81291f78b621e</editorDigest>
+    <rpOrgName>DeLorme Publishing Company, Inc.</rpOrgName>
+    <rpCntInfo editorExpand="False">
+      <cntAddress>
+        <city>Yarmouth</city>
+        <adminArea>Maine</adminArea>
+        <country>us</country>
+      </cntAddress>
+    </rpCntInfo>
+    <editorSave>True</editorSave>
+    <rpIndName>
+    </rpIndName>
+    <rpPosName>
+    </rpPosName>
+  </contact>
+  <contact>
+    <editorSource>external</editorSource>
+    <editorDigest>301ad3388c616565d09fdafbd3c57</editorDigest>
+    <rpIndName Sync="TRUE">ArcGIS Content Team</rpIndName>
+    <rpOrgName Sync="TRUE">Esri</rpOrgName>
+    <rpPosName Sync="TRUE">ArcGIS Content Team</rpPosName>
+    <rpCntInfo editorExpand="False">
+      <cntPhone>
+        <voiceNum Sync="TRUE">909-793-2853</voiceNum>
+        <faxNum Sync="TRUE">909-793-5953</faxNum>
+      </cntPhone>
+      <cntAddress>
+        <delPoint Sync="TRUE">380 New York Street</delPoint>
+        <city Sync="TRUE">Redlands</city>
+        <adminArea Sync="TRUE">California</adminArea>
+        <postCode Sync="TRUE">92373-8100</postCode>
+        <country Sync="TRUE">us</country>
+        <eMailAdd Sync="TRUE">info@esri.com</eMailAdd>
+      </cntAddress>
+    </rpCntInfo>
+    <editorSave>True</editorSave>
+  </contact>
+  <contact>
+    <editorSource>external</editorSource>
+    <editorDigest>8414af7abe97250997755b75ec1859</editorDigest>
+    <rpOrgName>Esri; Esri Offices</rpOrgName>
+    <rpCntInfo editorExpand="False">
+      <cntAddress>
+        <delPoint>380 New York Street</delPoint>
+        <city>Redlands</city>
+        <adminArea>California</adminArea>
+        <postCode>92373-8100</postCode>
+        <country>us</country>
+      </cntAddress>
+      <cntPhone>
+        <voiceNum>800-447-9778</voiceNum>
+      </cntPhone>
+    </rpCntInfo>
+    <editorSave>True</editorSave>
+    <rpIndName>
+    </rpIndName>
+    <rpPosName>
+    </rpPosName>
+  </contact>
+</contacts>
