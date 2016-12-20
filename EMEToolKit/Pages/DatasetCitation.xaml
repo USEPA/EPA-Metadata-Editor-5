@@ -23,7 +23,8 @@
 
         <!-- validation issues -->
         <v:MetadataIssueInfo x:Key="resTitle" Message="{x:Static r:Issues.resTitle_REQ}" />
-        <v:MetadataIssueInfo x:Key="dates" Message="{x:Static r:Issues.dates_REQ}" />
+        <!--<v:MetadataIssueInfo x:Key="dates" Message="{x:Static r:Issues.dates_REQ}" />-->
+        <v:MetadataIssueInfo x:Key="dates" Message="date published is required" />
         <v:MetadataIssueInfo x:Key="identCode" Message="{x:Static r:Issues.identCode_REQ}" />
         <v:MetadataIssueInfo x:Key="pubDate" Message="{x:Static r:Issues.pubDate_FGDC_REQ}" />
         <v:MetadataIssueInfo x:Key="datasetSeries" Message="{x:Static r:Issues.datasetSeries_FGDC_REQ}" />

@@ -120,7 +120,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <Border Style="{DynamicResource EditorBorder2Style}">
+                            <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
@@ -135,7 +135,12 @@
                                     </Grid.RowDefinitions>
 
                                     <!-- file id -->
-                                    <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_META_FILEID}"/>
+                                    <!--<Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_META_FILEID}"/>-->
+                                    <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}">
+                                        <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#identifier" RequestNavigate="Hyperlink_RequestNavigate">
+                                            <TextBlock Text="{x:Static r:Resources.LBL_META_FILEID}"/>
+                                        </Hyperlink>
+                                    </Label>
                                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding XPath=mdFileID}">
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>

@@ -53,6 +53,7 @@
         <v:MetadataIssueInfo x:Key="dataExtBBoxReq_FGDC" Message="{x:Static r:Issues.dataExtBBoxReq_FGDC}" />
         <v:MetadataIssueInfo x:Key="dataExtServiceReq" Message="{x:Static r:Issues.extent_dataExtService_REQ}" />
         <v:MetadataIssueInfo x:Key="temporalReq" Message="{x:Static r:Issues.extent_dataExtTemp_REQ}" />
+        <v:MetadataIssueInfo x:Key="temporalPeriodReq" Message="temporal extent should contain an interval of time defined by start and end dates" />
         <v:MetadataIssueInfo x:Key="exDesc" Message="{x:Static r:Issues.extent_dataExtDesc_REQ}" />
         <v:MetadataIssueInfo x:Key="tempEle_exDesc" Name="tempEle_exDesc" Message="{x:Static r:Issues.tempEle_exDesc_REQ}" />
 

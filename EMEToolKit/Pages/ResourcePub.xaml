@@ -52,8 +52,12 @@
             <!-- org header -->
             <p:EME_Header/>
             <!-- title -->
-            <Label Style="{DynamicResource EditorPageTitle}" Content="Publisher"/>
-
+            <!--<Label Style="{DynamicResource EditorPageTitle}" Content="Publisher"/>-->
+            <Label Style="{DynamicResource EditorPageTitle}">
+                <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#publisher" RequestNavigate="Hyperlink_RequestNavigate">
+                    <TextBlock Text="Publisher"/>
+                </Hyperlink>
+            </Label>
             <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=//dataIdInfo[1]}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -72,7 +76,7 @@
                                 </ListBox.ItemsPanel>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <Border Style="{DynamicResource EditorBorder2Style}" >
+                                        <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
                                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                                 <Expander.Header>
                                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,

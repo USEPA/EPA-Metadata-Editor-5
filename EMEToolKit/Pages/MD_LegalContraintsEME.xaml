@@ -117,12 +117,17 @@
                                 <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
                                     <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                 </Button>
-                                <Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_USELIMIT}"/>
+                                <!--<Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_USELIMIT}"/>-->
+                                <Label Style="{DynamicResource EditorHLabelNoIdentStyle}">
+                                    <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#data-license" RequestNavigate="Hyperlink_RequestNavigate">
+                                        <TextBlock Text="{x:Static r:Resources.LBL_CONSTS_USELIMIT}"/>
+                                    </Hyperlink>
+                                </Label>
                             </DockPanel>
                             <!-- use limitations -->
                             <StackPanel>
                                 <Button Name="btnAddSORN" Content="Add System of Records Notice" Click="btnAddSORN_Click"/>
-                                <TextBox x:Name="tbxUseLimit" Style="{DynamicResource EditorTextAreaResizeStyle}" Text="{e:MetadataBinding XPath=.}" v:Nav.AnchorName="useLimit" ToolTip="{x:Static r:Definitions.MD_Constraints_useLimitation}"/>
+                                <TextBox x:Name="tbxUseLimit" Style="{DynamicResource EditorTextAreaResizeStyle}" Text="{e:MetadataBinding XPath=.}" v:Nav.AnchorName="dataLicense" ToolTip="{x:Static r:Definitions.MD_Constraints_useLimitation}"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>

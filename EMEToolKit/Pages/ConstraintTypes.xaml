@@ -85,7 +85,7 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Border Style="{DynamicResource EditorBorder2Style}">
+                        <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                 <Expander.Header>
                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Mode=OneWayToSource}" LastChildFill="True">
@@ -114,7 +114,7 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Border Style="{DynamicResource EditorBorder2Style}">
+                        <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                 <Expander.Header>
                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Mode=OneWayToSource}" LastChildFill="True">
@@ -141,7 +141,7 @@
                 </ListBox.ItemsPanel>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <Border Style="{DynamicResource EditorBorder2Style}">
+                        <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
                             <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
                                 <Expander.Header>
                                     <DockPanel HorizontalAlignment="{Binding HorizontalAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Mode=OneWayToSource}" LastChildFill="True">
