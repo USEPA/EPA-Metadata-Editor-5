@@ -48,7 +48,7 @@
     <xsl:template match="metadata/dataIdInfo/idPurp" priority="1"></xsl:template>  
     
     <!-- Convert TimeInstant to TimeExtent -->
-    <!-- If we had access to XSLT 2.0, we'd increment tmEnd by 1 day using this expression: xs:date(./TM_Instant/tmPosition) + xs:dayTimeDuration('P1D'), but ArcGIS is stuck at xslt 1.0 -->
+    <!-- If we had access to XSLT 2.0, we'd increment tmEnd by 1 day using this expression: xs:date(./TM_Instant/tmPosition) + xs:dayTimeDuration('P1D'), but ArcGIS is stuck at xslt 1.0, so we're setting tmBegin = tmEnd to keep it simple. -->
     <xsl:template match="exTemp" priority="1">
 		<xsl:copy>
 			<xsl:apply-templates select="node() | @*" />
@@ -62,6 +62,15 @@
 	</xsl:template>  
     <xsl:template match="TM_Instant" priority="1"></xsl:template>  
     
+    <!-- Designate Publisher as Publisher - default is "point of contact" -->
+    <xsl:template match="metadata/dataIdInfo/idPoC[1]/role/RoleCd" priority="1">
+    	<xsl:copy>
+			<xsl:apply-templates select="node() | @*" />
+    		<xsl:attribute name="value">010</xsl:attribute>
+    		<xsl:text>Publisher</xsl:text>
+		</xsl:copy>
+    </xsl:template> 
+
     <!-- exclude Legacy elements from the output -->
 	<xsl:template match="Esri | Binary | idinfo | dataqual | spdoinfo/indspref | spdoinfo/direct | spdoinfo/ptvctinf/sdtsterm | spdoinfo/ptvctinf/vpfterm | spdoinfo/rastinfo | spref | distinfo | metainfo | Esri/MetaID | Esri/Sync | seqId | MemberName | catFetTyps/*[not(name() = 'genericName')] | scaleDist/uom | dimResol/uom | valUnit/*[not(name() = 'UOM')] | quanValUnit/*[not(name() = 'UOM')] | coordinates | usrDefFreq/*[not(name() = 'duration')] | exTemp/TM_GeometricPrimitive | citId/text() | citIdType | geoBox | geoDesc | MdIdent | RS_Identifier" priority="1" >
 	</xsl:template>
