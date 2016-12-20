@@ -11,35 +11,31 @@ Redlands, California, USA 92373
 email: contracts@esri.com
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using ESRI.ArcGIS.Metadata.Editor.Pages;
+using System.Diagnostics;
 
-using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace EPAMetadataEditor.Pages
+namespace EPAMetadataEditor.Pages
 {
-  /// <summary>
-  /// Interaction logic for ReferenceSystem.xaml
-  /// </summary>
-  public partial class ReferenceSystem : EditorPage
-  {
-    public ReferenceSystem()
+    /// <summary>
+    /// Interaction logic for ReferenceSystem.xaml
+    /// </summary>
+    public partial class ReferenceSystem : EditorPage
     {
-      InitializeComponent();
-    }
+        public ReferenceSystem()
+        {
+            InitializeComponent();
+        }
 
-    public override string SidebarLabel
-    {
-      get { return ESRI.ArcGIS.Metadata.Editor.Properties.Resources.CFG_LBL_REFERENCESYSTEM; }
+        public override string SidebarLabel
+        {
+            get { return ESRI.ArcGIS.Metadata.Editor.Properties.Resources.CFG_LBL_REFERENCESYSTEM; }
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
+        }
     }
-  }
 }

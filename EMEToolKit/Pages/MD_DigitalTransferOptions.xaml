@@ -8,8 +8,8 @@
     xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
     Loaded="FillXml">
 
-  <UserControl.Resources>
-    <!--
+    <UserControl.Resources>
+        <!--
 
     <!ENTITY % Distrib '(distFormat*, distributor*, distTranOps*)'>   
     <!ENTITY % DigTranOps '(unitsODist?, transSize?, onLineSrc*, offLineMed?)'>
@@ -25,114 +25,125 @@
     <!ELEMENT onLineSrc %OnlineRes;>    
     
     -->
-    
-    <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <unitsODist/>
-          <transSize/>
-          <offLineMed editorExpand="False"/>
-          <onLineSrc editorExpand="False" editorFillOnly="True" />
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
 
-    <!-- online resource -->
-    <XmlDataProvider x:Key="XmlRecord_Online" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <onLineSrc editorAppend="True" editorExpand="True"/>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
+        <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <unitsODist/>
+                    <transSize/>
+                    <offLineMed editorExpand="False"/>
+                    <onLineSrc editorExpand="False" editorFillOnly="True" />
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-    <v:MetadataRealRules x:Key="transSize" Msg="{x:Static r:Issues.transSize_REAL}" Min="0.0"/>
-    
-  </UserControl.Resources>
+        <!-- online resource -->
+        <XmlDataProvider x:Key="XmlRecord_Online" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <onLineSrc editorAppend="True" editorExpand="True"/>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
 
-  <Grid Style="{DynamicResource EditorSubPageStyle}">
-    <StackPanel>
-      <Grid>
-        <Grid.RowDefinitions>
-          <RowDefinition />
-          <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="Auto"/>
-          <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <v:MetadataRealRules x:Key="transSize" Msg="{x:Static r:Issues.transSize_REAL}" Min="0.0"/>
 
-        <!-- units of distro -->
-        <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_DIGOPT_UNITS}"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Style="{DynamicResource EditorTextBoxStyle}" ToolTip="{x:Static r:Definitions.MD_DigitalTransferOptions_unitsOfDistribution}"
+    </UserControl.Resources>
+
+    <Grid Style="{DynamicResource EditorSubPageStyle}">
+        <StackPanel>
+            <!-- online resource -->
+            <ListBox ItemsSource="{Binding XPath=onLineSrc}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                            <Expander.Header>
+                                <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
+                                           RelativeSource={RelativeSource FindAncestor,
+                                           AncestorType={x:Type ContentPresenter}},
+                                           Mode=OneWayToSource}" LastChildFill="True">
+                                    <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
+                                        <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
+                                    </Button>
+                                    <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DIGOPT_ONLINE}"/>-->
+                                    <!--<Label Style="{DynamicResource EditorHExpanderLabel}">
+                                        <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#distribution-url" RequestNavigate="Hyperlink_RequestNavigate">
+                                            <TextBlock Text="{x:Static r:Resources.LBL_DIGOPT_ONLINE}"/>
+                                        </Hyperlink>
+                                    </Label>-->
+                                </DockPanel>
+                            </Expander.Header>
+                            <!-- online resource -->
+                            <pages:CI_OnlineResourceEME/>
+                        </Expander>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <!-- ADD online resource -->
+            <Button Tag="Online" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                    <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
+                    <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_DIGOPT_NEW_ONLINE}"/>
+                </StackPanel>
+            </Button>
+           
+            <!-- offline medium -->
+            <ListBox ItemsSource="{Binding XPath=offLineMed}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
+                            <Expander.Header>
+                                <Label Style="{DynamicResource EditorHExpanderLabel}" Content="{x:Static r:Resources.LBL_DIGOPT_OFFLINE}"/>
+                            </Expander.Header>
+                            <!-- medium -->
+                            <pages:MD_Medium/>
+                        </Expander>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+            <!--Download Details-->
+            <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="False">
+                <Expander.Header>
+                    <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Download Details"/>
+                </Expander.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- units of distro -->
+                    <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_DIGOPT_UNITS}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Style="{DynamicResource EditorTextBoxStyle}" ToolTip="{x:Static r:Definitions.MD_DigitalTransferOptions_unitsOfDistribution}"
             Text="{e:MetadataBinding XPath=unitsODist}"/>
 
-        <!-- transfer size -->
-        <Label Grid.Row="1" Grid.Column="0" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_DIGOPT_SIZE}"/>
-        <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="1" Grid.Column="1" ToolTip="{x:Static r:Definitions.MD_DigitalTransferOptions_transferSize}"
+                    <!-- transfer size -->
+                    <Label Grid.Row="1" Grid.Column="0" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_DIGOPT_SIZE}"/>
+                    <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="1" Grid.Column="1" ToolTip="{x:Static r:Definitions.MD_DigitalTransferOptions_transferSize}"
             v:Nav.AnchorName="transSize,transSize" v:MetadataRules.Rules="{StaticResource transSize}"
             Text="{e:MetadataElementSync XPath=transSize}"/>
-      </Grid>
-
-      <!-- online resource -->
-      <ListBox ItemsSource="{Binding XPath=onLineSrc}">
-        <ListBox.ItemsPanel>
-          <ItemsPanelTemplate>
-            <StackPanel/>
-          </ItemsPanelTemplate>
-        </ListBox.ItemsPanel>
-        <ListBox.ItemTemplate>
-          <DataTemplate>
-            <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-              <Expander.Header>               
-                <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                    RelativeSource={RelativeSource FindAncestor,
-                    AncestorType={x:Type ContentPresenter}},
-                    Mode=OneWayToSource}" LastChildFill="True">
-                  <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
-                    <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
-                  </Button>
-                  <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DIGOPT_ONLINE}"/>
-                </DockPanel>              
-              </Expander.Header>
-              <!-- online resource -->
-              <pages:CI_OnlineResource/>
+                </Grid>
             </Expander>
-          </DataTemplate>
-        </ListBox.ItemTemplate>
-      </ListBox>
-      
-      <!-- ADD online resource -->
-      <Button Tag="Online" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
-        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
-          <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-          <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_DIGOPT_NEW_ONLINE}"/>
+
+            <!-- validate after all anchors are loaded -->
+            <v:PageValidateControl/>
+
         </StackPanel>
-      </Button>
-
-      <!-- offline medium -->
-      <ListBox ItemsSource="{Binding XPath=offLineMed}">
-        <ListBox.ItemsPanel>
-          <ItemsPanelTemplate>
-            <StackPanel/>
-          </ItemsPanelTemplate>
-        </ListBox.ItemsPanel>
-        <ListBox.ItemTemplate>
-          <DataTemplate>
-            <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=@editorExpand, Mode=TwoWay}">
-              <Expander.Header>
-                <Label Style="{DynamicResource EditorHExpanderLabel}" Content="{x:Static r:Resources.LBL_DIGOPT_OFFLINE}"/>
-              </Expander.Header>
-              <!-- medium -->
-              <pages:MD_Medium/>
-            </Expander>
-          </DataTemplate>
-        </ListBox.ItemTemplate>
-      </ListBox>
-
-      <!-- validate after all anchors are loaded -->
-      <v:PageValidateControl/>
-      
-    </StackPanel>
-  </Grid>
+    </Grid>
 </corepages:EditorPage>

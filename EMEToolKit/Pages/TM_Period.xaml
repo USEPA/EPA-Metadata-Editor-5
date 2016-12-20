@@ -4,48 +4,50 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:p="clr-namespace:EPAMetadataEditor.Pages"
+    xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
     xmlns:r="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
     xmlns:controls="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Controls;assembly=ESRI.ArcGIS.MetadataEditor"
-    Loaded="FillXml">  
-  <!-- 
+    Loaded="FillXml">
+    <!-- 
   <!ENTITY % TM_Primitive '(TM_Instant | TM_Period)'> 
   <!ENTITY % TM_Period '(gmlDesc?, gmlDescRef?, gmlIdent?, gmlName*, tmBegin, tmEnd)'> 
   <!ELEMENT tmPosition (#PCDATA)> 
   <!ELEMENT tmBegin (#PCDATA)>
   <!ELEMENT tmEnd (#PCDATA)>
   -->
-  <UserControl.Resources>
-    <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
-      <x:XData>
-        <ANY xmlns="">
-          <tmBegin/>
-          <tmEnd/>
-        </ANY>
-      </x:XData>
-    </XmlDataProvider>
-  </UserControl.Resources>
+    <UserControl.Resources>
+        <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <tmBegin/>
+                    <tmEnd/>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
+    </UserControl.Resources>
 
-  <Grid>
-    <Grid.RowDefinitions>
-      <RowDefinition />
-      <RowDefinition />
-    </Grid.RowDefinitions>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="Auto"/>
-      <ColumnDefinition Width="*"/>
-    </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-    <!-- begin date -->
-    <Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Grid.Row="0" Grid.Column="0" ToolTip=""
-        Content="{x:Static r:Resources.LBL_EXT_TEMP_BEG}"/>
-    <controls:DateTimeIsoControl Grid.Row="0" Grid.Column="1" 
-        Items="{Binding XPath=tmBegin}"/>
-    
-    <!-- end date -->
-    <Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Grid.Row="1" Grid.Column="0" 
-        Content="{x:Static r:Resources.LBL_EXT_TEMP_END}"/>
-    <controls:DateTimeIsoControl Grid.Row="1" Grid.Column="1"
-        Items="{Binding XPath=tmEnd}"/>
+        <!-- begin date -->
+        <Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Grid.Row="0" Grid.Column="0" ToolTip=""
+               Content="{x:Static r:Resources.LBL_EXT_TEMP_BEG}"/>
+        <controls:DateTimeIsoControl Grid.Row="0" Grid.Column="1"
+                                     Items="{Binding XPath=tmBegin}"/>
 
-  </Grid>
+        <!-- end date -->
+        <Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Grid.Row="1" Grid.Column="0"
+               Content="{x:Static r:Resources.LBL_EXT_TEMP_END}"/>
+        <controls:DateTimeIsoControl Grid.Row="1" Grid.Column="1"
+                                     v:Nav.AnchorName="temporalReq,tmEnd"
+                                     Items="{Binding XPath=tmEnd}"/>
+
+    </Grid>
 </corepages:EditorPage>

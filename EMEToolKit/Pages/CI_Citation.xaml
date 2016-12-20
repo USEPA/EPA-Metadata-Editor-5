@@ -343,10 +343,15 @@
 
 
                             <!-- dates -->
-                            <Border Style="{DynamicResource EditorBorder2Style}">
+                            <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
                                 <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=date/@editorExpand, Mode=TwoWay}">
                                     <Expander.Header>
-                                        <Label Style="{DynamicResource EditorHExpanderLabel}" Content="{x:Static r:Resources.LBL_DATES}"/>
+                                        <!--<Label Style="{DynamicResource EditorHExpanderLabel}" Content="{x:Static r:Resources.LBL_DATES}"/>-->
+                                        <Label Style="{DynamicResource EditorHExpanderLabel}">
+                                            <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#last-update" RequestNavigate="Hyperlink_RequestNavigate">
+                                                <TextBlock Text="{x:Static r:Resources.LBL_DATES}"/>
+                                            </Hyperlink>
+                                        </Label>
                                     </Expander.Header>
                                     <Grid Style="{DynamicResource EditorSub2NoIndent}">
                                         <Grid.RowDefinitions>

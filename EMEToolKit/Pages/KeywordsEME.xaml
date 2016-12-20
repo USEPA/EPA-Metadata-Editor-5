@@ -202,10 +202,17 @@
                             <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
                                 <StackPanel>
                                     <!-- topics -->
-                                    <Label Style="{DynamicResource EditorVLabelNoIdentStyle}" 
+                                    <!--<Label Style="{DynamicResource EditorVLabelNoIdentStyle}" 
                                            ToolTip="{x:Static r:Definitions.MD_DataIdentification_topicCategory}"
                                            v:Nav.AnchorName="topics,tpCatBag"
-                                           Content="{x:Static r:Resources.LBL_DESC_TOPICS}" />
+                                           Content="{x:Static r:Resources.LBL_DESC_TOPICS}" />-->
+                                    <Label Style="{DynamicResource EditorVLabelNoIdentStyle}" 
+                                           ToolTip="{x:Static r:Definitions.MD_DataIdentification_topicCategory}"
+                                           v:Nav.AnchorName="topics,tpCatBag">
+                                        <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-iso" RequestNavigate="Hyperlink_RequestNavigate">
+                                            <TextBlock Text="{x:Static r:Resources.LBL_DESC_TOPICS}"/>
+                                        </Hyperlink>
+                                    </Label>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
@@ -287,7 +294,12 @@
                                                         <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
                                                             <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                                         </Button>
-                                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="EPA Keywords"/>
+                                                        <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="EPA Keywords"/>-->
+                                                        <Label Style="{DynamicResource EditorHExpanderLabel}">
+                                                            <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-epa-theme" RequestNavigate="Hyperlink_RequestNavigate">
+                                                                <TextBlock Text="EPA Keywords"/>
+                                                            </Hyperlink>
+                                                        </Label>
                                                     </DockPanel>
                                                 </Expander.Header>
                                                 <StackPanel Style="{DynamicResource ExpanderBodyStyle}">
@@ -319,7 +331,12 @@
                                                                RelativeSource={RelativeSource FindAncestor,
                                                                AncestorType={x:Type ContentPresenter}},
                                                                Mode=OneWayToSource}" LastChildFill="True">
-                                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Program Code Keywords"/>
+                                                        <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Program Code Keywords"/>-->
+                                                        <Label Style="{DynamicResource EditorHExpanderLabel}">
+                                                            <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-federal-program-code" RequestNavigate="Hyperlink_RequestNavigate">
+                                                                <TextBlock Text="Program Code Keywords"/>
+                                                            </Hyperlink>
+                                                        </Label>
                                                     </DockPanel>
                                                 </Expander.Header>
                                                 <StackPanel Style="{DynamicResource ExpanderBodyStyle}">
@@ -348,7 +365,12 @@
                                                                RelativeSource={RelativeSource FindAncestor,
                                                                AncestorType={x:Type ContentPresenter}},
                                                                Mode=OneWayToSource}" LastChildFill="True">
-                                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Place Keywords"/>
+                                                        <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Place Keywords"/>-->
+                                                        <Label Style="{DynamicResource EditorHExpanderLabel}">
+                                                            <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-place" RequestNavigate="Hyperlink_RequestNavigate">
+                                                                <TextBlock Text="Place Keywords"/>
+                                                            </Hyperlink>
+                                                        </Label>
                                                     </DockPanel>
                                                 </Expander.Header>
                                                 <StackPanel Style="{DynamicResource ExpanderBodyStyle}">
@@ -383,7 +405,12 @@
                                                         <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
                                                             <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                                         </Button>
-                                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="User Keywords"/>
+                                                        <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="User Keywords"/>-->
+                                                        <Label Style="{DynamicResource EditorHExpanderLabel}">
+                                                            <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-general" RequestNavigate="Hyperlink_RequestNavigate">
+                                                                <TextBlock Text="User Keywords"/>
+                                                            </Hyperlink>
+                                                        </Label>
                                                     </DockPanel>
                                                 </Expander.Header>
                                                 <StackPanel Style="{DynamicResource ExpanderBodyStyle}">
@@ -420,7 +447,12 @@
                                                             <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                                         </Button>
                                                         <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THEMEKEY}"/>-->
-                                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Custom Keywords"/>
+                                                        <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Custom Keywords"/>-->
+                                                        <Label Style="{DynamicResource EditorHExpanderLabel}">
+                                                            <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-general" RequestNavigate="Hyperlink_RequestNavigate">
+                                                                <TextBlock Text="Custom Keywords"/>
+                                                            </Hyperlink>
+                                                        </Label>
                                                     </DockPanel>
                                                 </Expander.Header>
                                                 <StackPanel Style="{DynamicResource ExpanderBodyStyle}">
@@ -455,7 +487,12 @@
                                                             <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                                         </Button>
                                                         <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DESC_THEMEKEY}"/>-->
-                                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Keywords and Program Code"/>
+                                                        <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Keywords and Program Code"/>-->
+                                                        <Label Style="{DynamicResource EditorHExpanderLabel}">
+                                                            <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-general" RequestNavigate="Hyperlink_RequestNavigate">
+                                                                <TextBlock Text="Keywords and Program Code"/>
+                                                            </Hyperlink>
+                                                        </Label>
                                                     </DockPanel>
                                                 </Expander.Header>
                                                 <StackPanel Style="{DynamicResource ExpanderBodyStyle}">

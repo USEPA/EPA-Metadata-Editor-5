@@ -110,7 +110,12 @@
                                 <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
                                     <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                 </Button>
-                                <Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{e:MetadataBinding XPath=.}" v:Nav.AnchorName="useLimit" ToolTip="{x:Static r:Definitions.MD_Constraints_useLimitation}"/>
+                                <!--<Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{e:MetadataBinding XPath=.}" v:Nav.AnchorName="useLimit" ToolTip="{x:Static r:Definitions.MD_Constraints_useLimitation}"/>-->
+                                <Label Style="{DynamicResource EditorHLabelNoIdentStyle}">
+                                    <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#system-of-records" RequestNavigate="Hyperlink_RequestNavigate">
+                                        <TextBlock Text="{e:MetadataBinding XPath=.}"/>
+                                    </Hyperlink>
+                                </Label>
                             </DockPanel>
                         </StackPanel>
                     </DataTemplate>
@@ -155,7 +160,7 @@
                                         </DataTemplate>
                                     </ComboBox.ItemTemplate>
                                 </ComboBox>
-                                <TextBox x:Name="tbxLegalConstsSystemURL" Style="{DynamicResource TbxHidden}" Text="{e:MetadataBinding XPath=.}" v:Nav.AnchorName="othConsts" ToolTip="{x:Static r:Definitions.MD_LegalConstraints_otherConstraints}"/>
+                                <TextBox x:Name="tbxLegalConstsSystemURL" Style="{DynamicResource TbxHidden}" Text="{e:MetadataBinding XPath=.}" v:Nav.AnchorName="sornURL" ToolTip="{x:Static r:Definitions.MD_LegalConstraints_otherConstraints}"/>
                                 <Label x:Name="lblSystemURL" Content="{e:MetadataBinding XPath=.}"  IsHitTestVisible="False" VerticalAlignment="Center" HorizontalAlignment="Center">
                                     <Label.Style>
                                         <Style TargetType="Label">

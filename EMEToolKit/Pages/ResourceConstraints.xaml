@@ -74,6 +74,9 @@
         <v:MetadataIssueInfo x:Key="othConsts" Message="{x:Static r:Issues.othConsts_REQ}" />
         <v:MetadataIssueInfo x:Key="resConst" Message="{x:Static r:Issues.resConst_REQ}" />
         <v:MetadataIssueInfo x:Key="useLimit" Message="{x:Static r:Issues.useLimit_REQ}" />
+        
+        <v:MetadataIssueInfo x:Key="sornURL" Message="please select system of records url" />
+        <v:MetadataIssueInfo x:Key="dataLicense" Message="data license (use limitation) must contain url" />
         <v:MetadataIssueInfo x:Key="useLimitDist" Name="useLimitDist" Message="{x:Static r:Issues.useLimitDist_REQ}" />
 
     </UserControl.Resources>

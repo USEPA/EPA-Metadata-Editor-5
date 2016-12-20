@@ -113,7 +113,12 @@
 
                 <!-- classification -->
                 <!--<Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_CLASS}"/>-->
-                <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="Classification (Access Level)"/>
+                <!--<Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="Classification (Access Level)"/>-->
+                <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}">
+                    <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#access-level" RequestNavigate="Hyperlink_RequestNavigate">
+                        <TextBlock Text="Classification (Access Level)"/>
+                    </Hyperlink>
+                </Label>
                 <ListBox Grid.Row="0" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=class}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -128,7 +133,12 @@
                          v:Nav.AnchorName="classSys,classSys" Text="{e:MetadataBinding XPath=classSys}" />
 
                 <!-- user note -->
-                <Label Grid.Row="2" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_USERNOTE}"/>
+                <!--<Label Grid.Row="2" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_USERNOTE}"/>-->
+                <Label Grid.Row="2" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}">
+                    <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#rights" RequestNavigate="Hyperlink_RequestNavigate">
+                        <TextBlock Text="{x:Static r:Resources.LBL_CONSTS_USERNOTE}"/>
+                    </Hyperlink>
+                </Label>
                 <ComboBox Grid.Row="2" Grid.Column="1" x:Name="cboEpaSecUseNote" DataContext="{DynamicResource EPAData}" ItemsSource="{Binding}" IsEditable="True" Loaded="cboEpaSecUseNote_Loaded" LostFocus="cboEpaSecUseNote_LostFocus" ToolTip="{x:Static r:Definitions.MD_SecurityConstraints_userNote}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>

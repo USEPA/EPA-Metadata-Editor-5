@@ -11,22 +11,11 @@ Redlands, California, USA 92373
 email: contracts@esri.com
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.ComponentModel;
+using ESRI.ArcGIS.Metadata.Editor.Pages;
+using System.Diagnostics;
 
-using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace EPAMetadataEditor.Pages
+namespace EPAMetadataEditor.Pages
 {
     /// <summary>
     /// Interaction logic for MD_Distribution.xaml
@@ -36,6 +25,12 @@ using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; name
         public MD_Distribution()
         {
             InitializeComponent();
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }
