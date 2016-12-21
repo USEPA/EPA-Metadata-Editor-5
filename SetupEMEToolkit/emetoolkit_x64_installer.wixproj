@@ -6,7 +6,7 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>b5cf2fc9-6a1b-4168-bf21-702d2166ba8f</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>emetoolkit_10.4x_installer-0.9.8.14</OutputName>
+    <OutputName>emetoolkit_10.4x_installer-0.9.9.1</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
@@ -28,6 +28,14 @@
     <ProjectReference Include="..\EMEdbManager\EMEdbManager\EMEdbManager.csproj">
       <Name>EMEdbManager</Name>
       <Project>{6aef6592-cfd5-44a0-b959-e260b9b55f3e}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\EMEToolbox\EMEToolbox.pyproj">
+      <Name>EMEToolbox</Name>
+      <Project>{269b3191-bd9e-4e2e-9965-06dcf2cd3d7d}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>

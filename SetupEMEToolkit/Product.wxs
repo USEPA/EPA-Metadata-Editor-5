@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="{9643E2F1-5FE2-42F3-A3E5-5C555E5B8AF9}" Name="EME Toolkit 0.9.8 for ArcGIS 10.4x" Language="1033" Version="0.9.8.14" Manufacturer="Innovate! Inc." UpgradeCode="{522B556A-CE0C-48D8-BB7B-4925F8515A5D}">
+	<Product Id="{9643E2F1-5FE2-42F3-A3E5-5C555E5B8AF9}" Name="EME Toolkit 0.9.9 for ArcGIS 10.4x" Language="1033" Version="0.9.9.1" Manufacturer="Innovate! Inc." UpgradeCode="{522B556A-CE0C-48D8-BB7B-4925F8515A5D}">
 		<Package Id="*" InstallerVersion="400" Compressed="yes" InstallScope="perMachine" />
 <!-- 0.9.8.1 Fix EMEdb "Defaults" checkbox behavior -->
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -17,6 +17,7 @@
 		<Feature Id="EMEToolkitArcGis104" Title="EME Toolkit for ArcCatalog 10.4" Level="1">
       <ComponentRef Id="EMEToolkitDLL104"/>
       <ComponentRef Id="EMEToolkitConfig104"/>
+      <ComponentGroupRef Id="EMEToolbox104"/>
 		</Feature>
     
 		<Feature Id="EMEToolkitArcGis103" Title="EME Toolkit for ArcCatalog 10.3" Level="0">
@@ -38,6 +39,30 @@
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="AppDataFolder">
+        <Directory Id="ESRIRoam" Name="ESRI">
+          <Component Id="ESRIRoam" Guid="{FDD47F81-A1AB-4654-92EA-8B244C6D069D}">
+            <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolBox" Name="Product" Type="string" Value="[ProductName]" KeyPath ="yes"/>
+            <RemoveFolder Id="ESRIRoam" On="uninstall"/>
+          </Component>
+          <Directory Id="ESRIDesktop104" Name="Desktop10.4">
+            <Component Id="ESRIDesktop104" Guid="{FDD80EA7-6BF0-4656-98D2-B2D9CE750300}">
+              <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolBox" Name="Product" Type="string" Value="EPA Metadata Toolbox" KeyPath ="yes"/>
+              <RemoveFolder Id="ESRIDesktop104" On="uninstall"/>
+            </Component>
+            <Directory Id="ArcToolbox104" Name="ArcToolbox">
+              <Component Id="ArcToolbox104" Guid="{2A5214D7-752C-475D-8280-BB834E775438}">
+                <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolBox" Name="ArcGIS 10.4.x" Type="string" Value="Installed" KeyPath ="yes"/>
+                <RemoveFolder Id="ArcToolbox104" On="uninstall"/>
+              </Component>
+              <Directory Id="MyToolbox104" Name="My Toolboxes">
+                <Component Id="MyToolbox104" Guid="{4718BA16-28F7-4D93-9332-E51B81031787}">
+                  <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolBox" Name="InstallDir" Type="string" Value="[MyToolbox104]" KeyPath ="yes"/>
+                  <RemoveFolder Id="MyToolbox104" On="uninstall"/>
+                </Component>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
         <Directory Id="INNOVATEROAM" Name="Innovate! Inc">
           <Component Id="INNOVATEROAM" Guid="{237CE76E-8C72-426F-A8F1-CD6BA5056EC2}">
             <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="Product" Type="string" Value="EPA Metadata Editor Toolkit" KeyPath ="yes"/>
@@ -182,6 +207,19 @@
       <Component Id="EMEToolkitContacts" Guid="{342AA147-DB98-4D36-88BC-4DA6BFBA8E10}" Permanent="yes">
         <File Id="EMEContacts" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//contacts.xml" />
         <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolkit" Name="LocalContacts" Type="string" Value="[ARCGISdesc]" KeyPath ="yes"/>
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="EMEToolbox104" Directory="MyToolbox104">
+      <ComponentRef Id="ESRIRoam" />
+      <ComponentRef Id="ESRIDesktop104" />
+      <ComponentRef Id="ArcToolbox104" />
+      <ComponentRef Id="MyToolbox104" />
+      <Component Id="EMEToolboxComponents104" Guid="{79FF7E61-7CE5-4234-9C81-3CBDFD96F73D}" Permanent="no">
+        <File Source="$(var.EMEToolbox.ProjectDir)//EPAUpgradeFGDCtoArcGIS.pyt"/>
+        <File Source="$(var.EMEToolbox.ProjectDir)//EPAUpgradeCleanup.xslt"/>
+        <File Source="$(var.EMEToolbox.ProjectDir)//exactCopyOf.xslt"/>
+        <RegistryValue Root="HKCU" Key="Software\Innovate" Name="Product" Type="string" Value="[ProductName]" KeyPath="yes"/>
       </Component>
     </ComponentGroup>
     
