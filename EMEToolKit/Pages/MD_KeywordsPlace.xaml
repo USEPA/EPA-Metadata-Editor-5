@@ -208,7 +208,7 @@
                             </DockPanel>
                         </Expander.Header>
                         <Border Style="{DynamicResource EditorBorderSubStyle}">
-                            <p:CI_Citation/>
+                            <p:CI_CitationEPA/>
                         </Border>
                     </Expander>
                 </DataTemplate>
