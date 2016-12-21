@@ -9,11 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMEdbManager", "..\EMEdbMan
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "emetoolkit_x64_installer", "..\SetupEMEToolkit\emetoolkit_x64_installer.wixproj", "{B5CF2FC9-6A1B-4168-BF21-702D2166BA8F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EMEToolbox", "EMEToolbox", "{8ACD09F3-882F-4197-ADA9-761C2C767A46}"
-	ProjectSection(SolutionItems) = preProject
-		..\EMEToolbox\EPAUpgradeCleanup.xslt = ..\EMEToolbox\EPAUpgradeCleanup.xslt
-		..\EMEToolbox\EPAUpgradeFGDCtoArcGIS.pyt = ..\EMEToolbox\EPAUpgradeFGDCtoArcGIS.pyt
-	EndProjectSection
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "EMEToolbox", "..\EMEToolbox\EMEToolbox.pyproj", "{269B3191-BD9E-4E2E-9965-06DCF2CD3D7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +41,10 @@ Global
 		{B5CF2FC9-6A1B-4168-BF21-702D2166BA8F}.Release|Any CPU.ActiveCfg = Release|x86
 		{B5CF2FC9-6A1B-4168-BF21-702D2166BA8F}.Release|x86.ActiveCfg = Release|x86
 		{B5CF2FC9-6A1B-4168-BF21-702D2166BA8F}.Release|x86.Build.0 = Release|x86
+		{269B3191-BD9E-4E2E-9965-06DCF2CD3D7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{269B3191-BD9E-4E2E-9965-06DCF2CD3D7D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{269B3191-BD9E-4E2E-9965-06DCF2CD3D7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{269B3191-BD9E-4E2E-9965-06DCF2CD3D7D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
