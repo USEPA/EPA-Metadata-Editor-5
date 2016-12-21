@@ -49,6 +49,7 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- linkage -->
+                <Border Grid.Row="0" Grid.ColumnSpan="2" Background="LemonChiffon"></Border>
                 <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0" Content="{x:Static prop:Resources.LBL_ONLINE_LINKAGE}" />
                 <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="0" Grid.Column="1"
                          ToolTip="{x:Static prop:Definitions.CI_OnlineResource_linkage}"
@@ -69,6 +70,7 @@
                          Text="{e:MetadataBinding XPath=orDesc}"/>
 
                 <!-- function -->
+                <Border Grid.Row="3" Grid.ColumnSpan="2" Background="LemonChiffon"></Border>
                 <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="3" Grid.Column="0" Content="{x:Static prop:Resources.LBL_ONLINE_FUNCTION}"/>
                 <ComboBox Loaded="PostProcessComboBoxValues" corepages:EditorPage.SourceXPath="orFunct/OnFunctCd/@value" Grid.Row="3" Grid.Column="1"  Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
                           ToolTip="{x:Static prop:Definitions.CI_OnlineResource_function}"

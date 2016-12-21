@@ -142,7 +142,7 @@
             </Border>
 
             <!-- transfer options -->
-            <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
+            <Border Style="{DynamicResource EditorBorder2Style}">
                 <StackPanel>
                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=distTranOps}">
                         <ListBox.ItemsPanel>

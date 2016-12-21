@@ -120,7 +120,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
+                            <Border Style="{DynamicResource EditorBorder2Style}">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
@@ -136,12 +136,13 @@
 
                                     <!-- file id -->
                                     <!--<Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_META_FILEID}"/>-->
-                                    <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}">
+                                    <Border Grid.Row="0" Grid.ColumnSpan="2" Background="LemonChiffon"></Border>
+                                    <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Background="LemonChiffon">
                                         <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#identifier" RequestNavigate="Hyperlink_RequestNavigate">
                                             <TextBlock Text="{x:Static r:Resources.LBL_META_FILEID}"/>
                                         </Hyperlink>
                                     </Label>
-                                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding XPath=mdFileID}">
+                                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding XPath=mdFileID}" Background="LemonChiffon">
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
                                                 <p:MD_FileIdentifier/>
@@ -155,21 +156,22 @@
                                              Text="{e:MetadataBinding XPath=mdParentID}" />
 
                                     <!-- dataset URI -->
-                                    <Label Grid.Row="2" Grid.Column="0" DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_META_URI}"/>
+                                    <!--<Label Grid.Row="2" Grid.Column="0" DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_META_URI}"/>
                                     <TextBox Grid.Row="2" Grid.Column="1" Style="{DynamicResource EditorTextBoxStyle}" ToolTip="{x:Static r:Definitions.MD_Metadata_dataSetURI}"
-                                             Text="{e:MetadataBinding XPath=dataSetURI}" />
+                                             Text="{e:MetadataBinding XPath=dataSetURI}" />-->
 
                                     <!-- NAP: dataset URI function -->
-                                    <Label e:MetadataStyle.OnlyProfiles="NAP" Style="{DynamicResource EditorHLabelNoIdentStyle}" Grid.Row="3" Grid.Column="0" Content="{x:Static r:Resources.LBL_ONLINE_FUNCTION}"/>
+                                    <!--<Label e:MetadataStyle.OnlyProfiles="NAP" Style="{DynamicResource EditorHLabelNoIdentStyle}" Grid.Row="3" Grid.Column="0" Content="{x:Static r:Resources.LBL_ONLINE_FUNCTION}"/>
                                     <ComboBox e:MetadataStyle.OnlyProfiles="NAP" Loaded="PostProcessComboBoxValues" corepages:EditorPage.SourceXPath="dataSetFn/OnFunctCd/@value" Grid.Row="3" Grid.Column="1"  Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
                                               ToolTip="{x:Static r:Definitions.NAP_Metadata_DatasetURI_Function}"
                                               ItemsSource="{Binding Source={StaticResource CI_OnLineFunctionCode}, Path=List}"
                                               DisplayMemberPath="." SelectedValuePath="@value" SelectedValue="{Binding XPath=dataSetFn/OnFunctCd/@value}">
-                                    </ComboBox>
+                                    </ComboBox>-->
 
                                     <!-- date stamp -->
-                                    <Label Grid.Row="4" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_META_DATE}" ToolTip="{x:Static r:Definitions.MD_Metadata_dateStamp}"/>
-                                    <ListBox x:Name="lbxMdDateSt" Grid.Row="4" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}" v:Nav.AnchorName="mdDateSt,mdDateSt" ItemsSource="{Binding XPath=mdDateSt}">
+                                    <Border Grid.Row="4" Grid.ColumnSpan="2" Background="LemonChiffon"></Border>
+                                    <Label Grid.Row="4" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_META_DATE}" ToolTip="{x:Static r:Definitions.MD_Metadata_dateStamp}" Background="LemonChiffon"/>
+                                    <ListBox x:Name="lbxMdDateSt" Grid.Row="4" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}" v:Nav.AnchorName="mdDateSt,mdDateSt" ItemsSource="{Binding XPath=mdDateSt}" Background="LemonChiffon">
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
                                                 <DockPanel LastChildFill="True">
