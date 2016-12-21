@@ -70,7 +70,7 @@
                                     <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
                                         <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                     </Button>
-                                    <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DIGOPT_ONLINE}"/>-->
+                                    <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DIGOPT_ONLINE}"/>
                                     <!--<Label Style="{DynamicResource EditorHExpanderLabel}">
                                         <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#distribution-url" RequestNavigate="Hyperlink_RequestNavigate">
                                             <TextBlock Text="{x:Static r:Resources.LBL_DIGOPT_ONLINE}"/>

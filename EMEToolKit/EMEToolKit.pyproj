@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{f8085e68-f200-472f-a62c-da6aa83e9028}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile />
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="ArcGISMetadata\Stylesheets\ArcGIS_Imports\codelists.xslt" />
+    <Content Include="Icons\epa_logo_horizontal_black.png" />
+    <Content Include="Icons\GenericAddGreen16.png" />
+    <Content Include="Icons\GenericCheckMarkGreen16.png" />
+    <Content Include="Icons\GenericDeleteBlack16.png" />
+    <Content Include="Icons\GenericDeleteRed16.png" />
+    <Content Include="Icons\GenericExclamation_B_16.png" />
+    <Content Include="Icons\GenericOpen_B_16.png" />
+    <Content Include="Icons\GenericPrint_B_16.png" />
+    <Content Include="Icons\GenericSave_B_16.png" />
+    <Content Include="Icons\GenericWarning32.png" />
+    <Content Include="Icons\Image32.png" />
+    <Content Include="Icons\MetadataCreateUpdate16.png" />
+    <Content Include="Icons\MetadataDocument16.png" />
+    <Content Include="Icons\MetadataEdit16.png" />
+    <Content Include="Icons\MetadataExport16.png" />
+    <Content Include="Icons\MetadataImport16.png" />
+    <Content Include="Icons\MetadataInvalid16.png" />
+    <Content Include="Icons\MetadataValid16.png" />
+    <Content Include="Icons\MetadataValidate16.png" />
+    <Content Include="Icons\RichTextEditor\EditRedo16.png" />
+    <Content Include="Icons\RichTextEditor\EditUndo16.png" />
+    <Content Include="Icons\RichTextEditor\ElementTextBold16.png" />
+    <Content Include="Icons\RichTextEditor\ElementTextItalic16.png" />
+    <Content Include="Icons\RichTextEditor\ElementTextSizeDecrease16.png" />
+    <Content Include="Icons\RichTextEditor\ElementTextSizeIncrease16.png" />
+    <Content Include="Icons\RichTextEditor\ElementTextUnderline16.png" />
+    <Content Include="Icons\RichTextEditor\HyperlinkTool16.png" />
+    <Content Include="Icons\RichTextEditor\indentless.png" />
+    <Content Include="Icons\RichTextEditor\indentmore.png" />
+    <Content Include="Icons\RichTextEditor\link.png" />
+    <Content Include="Icons\RichTextEditor\listbullets.png" />
+    <Content Include="Icons\RichTextEditor\numberbullets.png" />
+    <Content Include="Icons\RichTextEditor\pcenter.png" />
+    <Content Include="Icons\RichTextEditor\pjustify.png" />
+    <Content Include="Icons\RichTextEditor\pleft.png" />
+    <Content Include="Icons\RichTextEditor\pright.png" />
+    <Content Include="Icons\Scale\vectorLOD_0.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_1.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_10.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_11.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_12.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_13.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_14.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_15.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_16.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_17.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_18.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_19.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_2.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_20.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_21.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_3.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_4.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_5.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_6.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_7.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_8.bmp" />
+    <Content Include="Icons\Scale\vectorLOD_9.bmp" />
+    <Content Include="obj\Debug\EPAMetadataEditor.csproj.FileListAbsolute.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ArcGISMetadata\" />
+    <Folder Include="ArcGISMetadata\Stylesheets\" />
+    <Folder Include="ArcGISMetadata\Stylesheets\ArcGIS_Imports" />
+    <Folder Include="Icons" />
+    <Folder Include="Icons\RichTextEditor" />
+    <Folder Include="Icons\Scale" />
+    <Folder Include="obj\" />
+    <Folder Include="obj\Debug" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
