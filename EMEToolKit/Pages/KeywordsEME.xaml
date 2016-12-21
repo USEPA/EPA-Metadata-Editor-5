@@ -249,7 +249,7 @@
                             </Border>
 
                             <!-- content type -->
-                            <Border Style="{DynamicResource EditorBorder2Style}">
+                            <!--<Border Style="{DynamicResource EditorBorder2Style}">
                                 <DockPanel LastChildFill="True">
                                     <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" 
                                            Content="{x:Static r:Resources.LBL_IMS_CONTENT_TYPE}"/>
@@ -270,7 +270,7 @@
                                         </ComboBox.SelectedValue>
                                     </ComboBox>
                                 </DockPanel>
-                            </Border>
+                            </Border>-->
 
                             <!-- epa keywords -->
                             <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">

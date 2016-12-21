@@ -156,6 +156,7 @@
                                         </Grid.ColumnDefinitions>
 
                                         <!-- title -->
+                                        <Border Grid.Row="0" Grid.ColumnSpan="2" Background="LemonChiffon"></Border>
                                         <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0" Content="{x:Static r:Resources.LBL_TITLE}"/>
                                         <TextBox x:Name="tbxResTitle" Grid.Row="0" Grid.Column="1" Style="{DynamicResource EditorTextBoxStyle}" ToolTip="{x:Static r:Definitions.CI_Citation_title}"
                                                  v:Nav.AnchorName="resTitle,resTitle"
@@ -343,7 +344,7 @@
 
 
                             <!-- dates -->
-                            <Border Style="{DynamicResource EditorBorder2Style}" Background="LemonChiffon">
+                            <Border Style="{DynamicResource EditorBorder2Style}">
                                 <Expander Style="{DynamicResource EditorExpander2Style}" IsExpanded="{Binding XPath=date/@editorExpand, Mode=TwoWay}">
                                     <Expander.Header>
                                         <!--<Label Style="{DynamicResource EditorHExpanderLabel}" Content="{x:Static r:Resources.LBL_DATES}"/>-->
@@ -374,6 +375,7 @@
                                                                      Items="{Binding XPath=date/createDate}"/>
 
                                         <!-- published date -->
+                                        <Border Grid.Row="1" Grid.ColumnSpan="2" Background="LemonChiffon"></Border>
                                         <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0"
                                                ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}"
                                                v:Nav.AnchorName="dates,date/pubDate"
