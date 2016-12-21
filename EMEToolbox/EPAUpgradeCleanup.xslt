@@ -72,7 +72,7 @@
     </xsl:template> 
 
     <!-- exclude Legacy elements from the output -->
-	<xsl:template match="Esri | Binary | idinfo | dataqual | spdoinfo/indspref | spdoinfo/direct | spdoinfo/ptvctinf/sdtsterm | spdoinfo/ptvctinf/vpfterm | spdoinfo/rastinfo | spref | distinfo | metainfo | Esri/MetaID | Esri/Sync | seqId | MemberName | catFetTyps/*[not(name() = 'genericName')] | scaleDist/uom | dimResol/uom | valUnit/*[not(name() = 'UOM')] | quanValUnit/*[not(name() = 'UOM')] | coordinates | usrDefFreq/*[not(name() = 'duration')] | exTemp/TM_GeometricPrimitive | citId/text() | citIdType | geoBox | geoDesc | MdIdent | RS_Identifier" priority="1" >
+	<xsl:template match="Esri | Binary | idinfo | dataqual | spdoinfo/indspref | spdoinfo/direct | spdoinfo/ptvctinf/sdtsterm | spdoinfo/ptvctinf/vpfterm | spdoinfo/rastinfo | spref | distinfo | metainfo | Esri/MetaID | Esri/Sync | seqId | MemberName | catFetTyps/*[not(name() = 'genericName')] | scaleDist/uom | dimResol/uom | valUnit/*[not(name() = 'UOM')] | quanValUnit/*[not(name() = 'UOM')] | coordinates | usrDefFreq/*[not(name() = 'duration')] | exTemp/TM_GeometricPrimitive | citId/text() | citIdType | geoBox | geoDesc | MdIdent | RS_Identifier | searchKeys" priority="1" >
 	</xsl:template>
     
 </xsl:stylesheet>
