@@ -71,6 +71,20 @@
 		</xsl:copy>
     </xsl:template> 
 
+    <!-- Assign License code if EPA default license - licenseUnrestricted -->
+    <xsl:template match="LegConsts" priority="1">
+    	<xsl:copy>
+    		<xsl:if test="contains(./useLimit,'edg.epa.gov/EPA_Data_License')">
+				<xsl:apply-templates select="node() | @*" />
+				<xsl:if test="count (./accessConsts) = 0">
+	                <accessConsts>
+	                    <RestrictCd value="009">licenceUnrestricted</RestrictCd>
+	                </accessConsts>
+	            </xsl:if>
+    		</xsl:if>
+		</xsl:copy>
+    </xsl:template> 
+
     <!-- exclude Legacy elements from the output -->
 	<xsl:template match="Esri | Binary | idinfo | dataqual | spdoinfo/indspref | spdoinfo/direct | spdoinfo/ptvctinf/sdtsterm | spdoinfo/ptvctinf/vpfterm | spdoinfo/rastinfo | spref | distinfo | metainfo | Esri/MetaID | Esri/Sync | seqId | MemberName | catFetTyps/*[not(name() = 'genericName')] | scaleDist/uom | dimResol/uom | valUnit/*[not(name() = 'UOM')] | quanValUnit/*[not(name() = 'UOM')] | coordinates | usrDefFreq/*[not(name() = 'duration')] | exTemp/TM_GeometricPrimitive | citId/text() | citIdType | geoBox | geoDesc | MdIdent | RS_Identifier | searchKeys" priority="1" >
 	</xsl:template>
