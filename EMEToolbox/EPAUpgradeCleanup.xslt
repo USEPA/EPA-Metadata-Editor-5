@@ -93,6 +93,19 @@
     		</xsl:if>
 		</xsl:copy>
     </xsl:template> 
+    
+    <!-- Map "No Confidentiality" to "Unclassified" as security constraint -->
+    <xsl:template match="/metadata/dataIdInfo/resConst/SecConsts" priority="1">
+		<xsl:copy>
+			<xsl:apply-templates select="node() | @*" />        
+            <xsl:if test="../../../idinfo/secinfo/secclass = 'No Confidentiality'">
+				<class>
+                    <ClasscationCd value="001">unclassified</ClasscationCd>
+                </class>
+			</xsl:if>
+		</xsl:copy>
+	</xsl:template>  
+    
 
     <!-- exclude Legacy elements from the output -->
 	<xsl:template match="Esri | Binary | idinfo | dataqual | spdoinfo/indspref | spdoinfo/direct | spdoinfo/ptvctinf/sdtsterm | spdoinfo/ptvctinf/vpfterm | spdoinfo/rastinfo | spref | distinfo | metainfo | Esri/MetaID | Esri/Sync | seqId | MemberName | catFetTyps/*[not(name() = 'genericName')] | scaleDist/uom | dimResol/uom | valUnit/*[not(name() = 'UOM')] | quanValUnit/*[not(name() = 'UOM')] | coordinates | usrDefFreq/*[not(name() = 'duration')] | exTemp/TM_GeometricPrimitive | citId/text() | citIdType | geoBox | geoDesc | MdIdent | RS_Identifier | searchKeys" priority="1" >
