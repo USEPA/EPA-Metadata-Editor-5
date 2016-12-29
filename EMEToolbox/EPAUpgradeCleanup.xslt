@@ -27,6 +27,15 @@
 			</xsl:if>
 		</xsl:copy>
 	</xsl:template>
+    
+    <!-- For some strange reason, the UUID is ending up as a useLimitation. Remove it. -->
+	<xsl:template match="/metadata/mdConst" priority="1">
+		<xsl:copy>
+			<xsl:if test="./Consts/useLimit != /metadata/Esri/PublishedDocID">
+				<xsl:apply-templates select="node() | @*" />
+			</xsl:if>
+		</xsl:copy>
+	</xsl:template>    
 
 	<!-- Move legacy "Purpose" value to "Supplemental Information" -->
 	<xsl:template match="metadata/dataIdInfo/idPurp" priority="1">
