@@ -153,6 +153,6 @@ class cleanupTool(object):
                     arcpy.AddReturnMessage(msg)
         finally:
             # Regardless of errors, clean up intermediate products.
-            arcpy.Delete_management(Copy_to_be_upgraded)
+            pass
         return
         
