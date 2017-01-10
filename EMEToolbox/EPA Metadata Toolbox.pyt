@@ -9,7 +9,7 @@ class Toolbox(object):
         self.alias = ""
 
         # List of tool classes associated with this toolbox
-        self.tools = [upgradeTool,cleanupTool,exportISOTool]
+        self.tools = [upgradeTool,cleanupTool,exportISOTool,saveTemplate,mergeTemplate]
 
 
 class upgradeTool(object):
@@ -222,4 +222,142 @@ class exportISOTool(object):
             # Regardless of errors, clean up intermediate products.
             pass
         return
-                
+
+class saveTemplate(object):
+    def __init__(self):
+        """Define the tool (tool name is the name of the class)."""
+        self.label = "Save record as metadata template"
+        self.description = "This tool saves a metadata record as a reusable template by excluding those elements which must be unique in every metadata record, such as title, abstract, unique identifier, etc, leaving those elements that are common across many records."
+        self.canRunInBackground = False
+
+    def getParameterInfo(self):
+        """Define parameter definitions"""
+            # Second parameter
+        param0 = arcpy.Parameter(
+            displayName="Source Metadata",
+            name="sourcemetadata",
+            datatype="DEType",
+            parameterType="Required",
+            direction="Input")
+
+        # Third parameter
+        param1 = arcpy.Parameter(
+            displayName="Output Metadata",
+            name="out_metadata",
+            datatype="DEFile",
+            parameterType="Required",
+            direction="Output")
+            
+        params = [param0, param1]
+        return params
+
+    def isLicensed(self):
+        """Set whether tool is licensed to execute."""
+        return True
+
+    def updateParameters(self, parameters):
+        """Modify the values and properties of parameters before internal
+        validation is performed.  This method is called whenever a parameter
+        has been changed."""
+        return
+
+    def updateMessages(self, parameters):
+        """Modify the messages created by internal validation for each tool
+        parameter.  This method is called after internal validation."""
+        return
+
+    def execute(self, parameters, messages):
+        try:
+            """The source code of the tool."""
+            Source_Metadata = parameters[0].valueAsText
+            Output_Metadata = parameters[1].valueAsText
+            
+            # Local variables:
+            saveTemplate_xslt = "saveTemplate.xslt"
+
+            # Process: EPA Cleanup
+            arcpy.XSLTransform_conversion(Source_Metadata, saveTemplate_xslt, Output_Metadata, "")
+            
+            messages.addMessage("Process complete - please review the output carefully before reusing as a template.")
+        except:
+            # Cycle through Geoprocessing tool specific errors
+            for msg in range(0, arcpy.GetMessageCount()):
+                if arcpy.GetSeverity(msg) == 2:
+                    arcpy.AddReturnMessage(msg)
+        finally:
+            # Regardless of errors, clean up intermediate products.
+            pass
+        return
+        
+class mergeTemplate(object):
+    def __init__(self):
+        """Define the tool (tool name is the name of the class)."""
+        self.label = "Merge a selected metadata record with a saved template"
+        self.description = "This tool merges a selected metadata record with elements from a saved template record. Elements from the template record will overwrite their equivalents in the selected record, but by design it will exclude those elements which must be unique in every metadata record, such as title, abstract, unique identifier, etc, replacing only those elements that are common across many records. Still, caution is urged when using this tool."
+        self.canRunInBackground = False
+
+    def getParameterInfo(self):
+        """Define parameter definitions"""
+        param0 = arcpy.Parameter(
+            displayName="Source Metadata",
+            name="sourcemetadata",
+            datatype="DEType",
+            parameterType="Required",
+            direction="Input")
+
+        param1 = arcpy.Parameter(
+            displayName="Template Metadata",
+            name="template_metadata",
+            datatype="DEFile",
+            parameterType="Required",
+            direction="Input")
+            
+        param2 = arcpy.Parameter(
+            displayName="Output Metadata",
+            name="out_metadata",
+            datatype="DEFile",
+            parameterType="Required",
+            direction="Output")
+            
+        params = [param0, param1, param2]
+        return params
+
+    def isLicensed(self):
+        """Set whether tool is licensed to execute."""
+        return True
+
+    def updateParameters(self, parameters):
+        """Modify the values and properties of parameters before internal
+        validation is performed.  This method is called whenever a parameter
+        has been changed."""
+        return
+
+    def updateMessages(self, parameters):
+        """Modify the messages created by internal validation for each tool
+        parameter.  This method is called after internal validation."""
+        return
+
+    def execute(self, parameters, messages):
+        try:
+            """The source code of the tool."""
+            Source_Metadata = parameters[0].valueAsText
+            Template_Metadata = parameters[1].valueAsText
+            Output_Metadata = parameters[2].valueAsText
+            
+            # Local variables:
+            mergeTemplate_xslt = "mergeTemplate.xslt"
+
+            # Process: EPA Cleanup
+            arcpy.XSLTransform_conversion(Source_Metadata, mergeTemplate_xslt, Output_Metadata, "Template_Metadata")
+            
+            messages.addMessage("Process complete - please review the output carefully.")
+        except:
+            # Cycle through Geoprocessing tool specific errors
+            for msg in range(0, arcpy.GetMessageCount()):
+                if arcpy.GetSeverity(msg) == 2:
+                    arcpy.AddReturnMessage(msg)
+        finally:
+            # Regardless of errors, clean up intermediate products.
+            pass
+        return        
+        
