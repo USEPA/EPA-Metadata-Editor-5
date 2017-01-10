@@ -76,7 +76,9 @@
         <v:MetadataIssueInfo x:Key="useLimit" Message="{x:Static r:Issues.useLimit_REQ}" />
         
         <v:MetadataIssueInfo x:Key="sornURL" Message="please select system of records url" />
-        <v:MetadataIssueInfo x:Key="dataLicense" Message="data license (use limitation) must contain url" />
+        <!--<v:MetadataIssueInfo x:Key="dataLicense" Message="data license (use limitation) must contain url" />-->
+        <v:MetadataIssueInfo x:Key="dataLicense" Message="must choose 'new use limitation' or 'system of records notice'" />
+        <v:MetadataIssueInfo x:Key="licenseURL" Message="data license must include an url in 'other constraints'" />
         <v:MetadataIssueInfo x:Key="useLimitDist" Name="useLimitDist" Message="{x:Static r:Issues.useLimitDist_REQ}" />
 
     </UserControl.Resources>

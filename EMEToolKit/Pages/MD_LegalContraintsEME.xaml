@@ -221,10 +221,14 @@
                             </DockPanel>
                             <!-- other limitations -->
                             <controls:Resizer>
+                                <!--<TextBox Style="{DynamicResource EditorTextAreaResizeStyle}" 
+                                         Text="{e:MetadataBinding XPath=.}"
+                                         v:Nav.AnchorName="othConsts"
+                                         ToolTip="{x:Static r:Definitions.MD_LegalConstraints_otherConstraints}"/>-->
                                 <TextBox Style="{DynamicResource EditorTextAreaResizeStyle}" 
-                    Text="{e:MetadataBinding XPath=.}"
-                    v:Nav.AnchorName="othConsts"
-                    ToolTip="{x:Static r:Definitions.MD_LegalConstraints_otherConstraints}"/>
+                                         Text="{e:MetadataBinding XPath=.}"
+                                         v:Nav.AnchorName="licenseURL"
+                                         ToolTip="{x:Static r:Definitions.MD_LegalConstraints_otherConstraints}"/>
                             </controls:Resizer>
                         </StackPanel>
                     </DataTemplate>
