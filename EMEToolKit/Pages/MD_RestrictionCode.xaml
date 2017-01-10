@@ -7,25 +7,64 @@
     xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
     xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor">
 
-  <UserControl.Resources>
-    <e:Codelists x:Key="MD_RestrictionCode" CodelistName="MD_RestrictionCode"/>
-  </UserControl.Resources>
+    <UserControl.Resources>
+        <!--<e:Codelists x:Key="MD_RestrictionCode" CodelistName="MD_RestrictionCode"/>-->
+        <XmlDataProvider x:Key="MD_RestrictionCode"
+                         XPath="codelist/code"
+                         IsAsynchronous="False"
+                         IsInitialLoadEnabled="True">
+            <x:XData>
+                <codelist id="MD_RestrictionCode" source="ISO19115" xmlns="">
+                    <code value="" source="ArcGIS">Empty</code>
+                    <code value="001" source="ISO19115" podvalue="restricted public"  stdvalue="copyright">Copyright</code>
+                    <code value="002" source="ISO19115" podvalue="restricted public" stdvalue="patent">Patent</code>
+                    <code value="003" source="ISO19115" podvalue="restricted public" stdvalue="patentPending">Patent Pending</code>
+                    <code value="004" source="ISO19115" podvalue="restricted public" stdvalue="trademark">Trademark</code>
+                    <code value="005" source="ISO19115" podvalue="restricted public" stdvalue="license">License</code>
+                    <code value="006" source="ISO19115" podvalue="restricted public" stdvalue="intellectualPropertyRights">Intellectual Property Rights</code>
+                    <code value="007" source="ISO19115" podvalue="non-public" stdvalue="restricted">Restricted</code>
+                    <code value="008" source="ISO19115" podvalue="public" stdvalue="otherRestrictions">Other Restrictions</code>
+                    <code value="009" source="NAP" podvalue="public" stdvalue="licenseUnrestricted">Unrestricted License</code>
+                    <code value="010" source="NAP" podvalue="public" stdvalue="licenseEndUser">End User License</code>
+                    <code value="011" source="NAP" podvalue="public" stdvalue="licenseDistributor">Distributor License</code>
+                    <code value="012" source="NAP" podvalue="public" stdvalue="privacy">Privacy</code>
+                    <code value="013" source="NAP" podvalue="public" stdvalue="statutory">Statutory</code>
+                    <code value="014" source="NAP" podvalue="non-public" stdvalue="confidential">Confidential</code>
+                    <code value="015" source="NAP" podvalue="public" stdvalue="sensitivity">Sensitivity</code>
+                </codelist>
+            </x:XData>
+        </XmlDataProvider>
 
-  <Grid>
-    <StackPanel>
-      <ComboBox Loaded="PostProcessComboBoxValues" Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
-          ItemsSource="{Binding Source={StaticResource MD_RestrictionCode}, Path=List}"
-          DisplayMemberPath="."
+        <Style x:Key="TbxHidden" TargetType="{x:Type TextBox}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="0.125"/>
+            <Setter Property="Height" Value="0"/>
+            <Setter Property="Width" Value="0"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <StackPanel>
+            <ComboBox Loaded="PostProcessComboBoxValues" Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
+          ItemsSource="{Binding Source={StaticResource MD_RestrictionCode}}"
           v:Nav.AnchorName="RestrictCd,RestrictCd"
           SelectedValuePath="@value">
-        <ComboBox.SelectedValue>
-          <e:MetadataBinding XPath="RestrictCd/@value"/>
-        </ComboBox.SelectedValue>
-      </ComboBox>
+                <ComboBox.SelectedValue>
+                    <e:MetadataBinding XPath="RestrictCd/@value"/>
+                </ComboBox.SelectedValue>
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <DockPanel HorizontalAlignment="{Binding HorizontalAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Mode=OneWayToSource}" LastChildFill="True">
+                            <TextBlock x:Name="lblClassName" HorizontalAlignment="Left" Text="{Binding XPath=.}" />
+                            <TextBlock x:Name="lblPODDomain" HorizontalAlignment="Right" Text="{Binding XPath=@podvalue}" />
+                        </DockPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
 
-      <!-- validate after all anchors are loaded -->
-      <v:PageValidateControl/>
+            <!-- validate after all anchors are loaded -->
+            <v:PageValidateControl/>
 
-    </StackPanel>
-  </Grid>
+        </StackPanel>
+    </Grid>
 </corepages:EditorPage>
