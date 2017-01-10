@@ -23,8 +23,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="EPA Metadata Toolbox.pyt" />
     <Content Include="EPAUpgradeCleanup.xslt" />
-    <Content Include="EPAUpgradeFGDCtoArcGIS.pyt" />
     <Content Include="exactCopyOf.xslt" />
   </ItemGroup>
   <PropertyGroup>
