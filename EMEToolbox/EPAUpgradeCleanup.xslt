@@ -27,6 +27,15 @@
 			</xsl:if>
 		</xsl:copy>
 	</xsl:template>
+    
+    <!-- For some strange reason, the UUID is ending up as a useLimitation. Remove it. -->
+	<xsl:template match="/metadata/mdConst" priority="1">
+		<xsl:copy>
+			<xsl:if test="./Consts/useLimit != /metadata/Esri/PublishedDocID">
+				<xsl:apply-templates select="node() | @*" />
+			</xsl:if>
+		</xsl:copy>
+	</xsl:template>    
 
 	<!-- Move legacy "Purpose" value to "Supplemental Information" -->
 	<xsl:template match="metadata/dataIdInfo/idPurp" priority="1">
@@ -71,8 +80,35 @@
 		</xsl:copy>
     </xsl:template> 
 
+    <!-- Assign License code if EPA default license - licenseUnrestricted -->
+    <xsl:template match="LegConsts" priority="1">
+    	<xsl:copy>
+    		<xsl:if test="contains(./useLimit,'edg.epa.gov/EPA_Data_License')">
+				<xsl:apply-templates select="node() | @*" />
+				<xsl:if test="count (./accessConsts) = 0">
+	                <accessConsts>
+	                    <RestrictCd value="009">licenceUnrestricted</RestrictCd>
+	                </accessConsts>
+	            </xsl:if>
+    		</xsl:if>
+		</xsl:copy>
+    </xsl:template> 
+    
+    <!-- Map "No Confidentiality" to "Unclassified" as security constraint -->
+    <xsl:template match="/metadata/dataIdInfo/resConst/SecConsts" priority="1">
+		<xsl:copy>
+			<xsl:apply-templates select="node() | @*" />        
+            <xsl:if test="../../../idinfo/secinfo/secclass = 'No Confidentiality'">
+				<class>
+                    <ClasscationCd value="001">unclassified</ClasscationCd>
+                </class>
+			</xsl:if>
+		</xsl:copy>
+	</xsl:template>  
+    
+
     <!-- exclude Legacy elements from the output -->
-	<xsl:template match="Esri | Binary | idinfo | dataqual | spdoinfo/indspref | spdoinfo/direct | spdoinfo/ptvctinf/sdtsterm | spdoinfo/ptvctinf/vpfterm | spdoinfo/rastinfo | spref | distinfo | metainfo | Esri/MetaID | Esri/Sync | seqId | MemberName | catFetTyps/*[not(name() = 'genericName')] | scaleDist/uom | dimResol/uom | valUnit/*[not(name() = 'UOM')] | quanValUnit/*[not(name() = 'UOM')] | coordinates | usrDefFreq/*[not(name() = 'duration')] | exTemp/TM_GeometricPrimitive | citId/text() | citIdType | geoBox | geoDesc | MdIdent | RS_Identifier" priority="1" >
+	<xsl:template match="Esri | Binary | idinfo | dataqual | spdoinfo/indspref | spdoinfo/direct | spdoinfo/ptvctinf/sdtsterm | spdoinfo/ptvctinf/vpfterm | spdoinfo/rastinfo | spref | distinfo | metainfo | Esri/MetaID | Esri/Sync | seqId | MemberName | catFetTyps/*[not(name() = 'genericName')] | scaleDist/uom | dimResol/uom | valUnit/*[not(name() = 'UOM')] | quanValUnit/*[not(name() = 'UOM')] | coordinates | usrDefFreq/*[not(name() = 'duration')] | exTemp/TM_GeometricPrimitive | citId/text() | citIdType | geoBox | geoDesc | MdIdent | RS_Identifier | searchKeys" priority="1" >
 	</xsl:template>
     
 </xsl:stylesheet>
