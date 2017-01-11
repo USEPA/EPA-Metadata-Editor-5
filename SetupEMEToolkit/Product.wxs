@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="{9643E2F1-5FE2-42F3-A3E5-5C555E5B8AF9}" Name="EME Toolkit 0.9.9 for ArcGIS 10.4x" Language="1033" Version="0.9.9.84" Manufacturer="Innovate! Inc." UpgradeCode="{522B556A-CE0C-48D8-BB7B-4925F8515A5D}">
+	<Product Id="{9643E2F1-5FE2-42F3-A3E5-5C555E5B8AF9}" Name="EME Toolkit 0.9.9 for ArcGIS 10.4x" Language="1033" Version="0.9.9.91" Manufacturer="Innovate! Inc." UpgradeCode="{522B556A-CE0C-48D8-BB7B-4925F8515A5D}">
 		<Package Id="*" InstallerVersion="400" Compressed="yes" InstallScope="perMachine" />
 <!-- 0.9.8.1 Fix EMEdb "Defaults" checkbox behavior -->
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -218,7 +218,8 @@
       <Component Id="EMEToolboxComponents104" Guid="{79FF7E61-7CE5-4234-9C81-3CBDFD96F73D}" Permanent="no">
         <File Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.pyt"/>
         <File Source="$(var.EMEToolbox.ProjectDir)//EPAUpgradeCleanup.xslt"/>
-        <File Source="$(var.EMEToolbox.ProjectDir)//exactCopyOf.xslt"/>
+        <File Source="$(var.EMEToolbox.ProjectDir)//mergeTemplate.xslt"/>
+        <File Source="$(var.EMEToolbox.ProjectDir)//saveTemplate.xslt"/>
         <RegistryValue Root="HKCU" Key="Software\Innovate" Name="Product" Type="string" Value="[ProductName]" KeyPath="yes"/>
       </Component>
     </ComponentGroup>

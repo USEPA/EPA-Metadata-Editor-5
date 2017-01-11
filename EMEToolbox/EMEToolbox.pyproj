@@ -25,7 +25,8 @@
   <ItemGroup>
     <Content Include="EPA Metadata Toolbox.pyt" />
     <Content Include="EPAUpgradeCleanup.xslt" />
-    <Content Include="exactCopyOf.xslt" />
+    <Content Include="mergeTemplate.xslt" />
+    <Content Include="saveTemplate.xslt" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
