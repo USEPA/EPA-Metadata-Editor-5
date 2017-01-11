@@ -51,10 +51,10 @@
                 <ANY xmlns="">
                     <!--<useLimit/>-->
                     <accessConsts>
-                        <RestrictCd value=""/>
+                        <RestrictCd value=""></RestrictCd>
                     </accessConsts>
                     <useConsts>
-                        <RestrictCd value=""/>
+                        <RestrictCd value=""></RestrictCd>
                     </useConsts>
                 </ANY>
             </x:XData>
