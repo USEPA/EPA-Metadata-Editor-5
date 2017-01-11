@@ -52,7 +52,7 @@
                     <!--<useLimit/>-->
                     <!--<useLimit>FederalRegister.gov System of Records Notice</useLimit>-->
                     <accessConsts>
-                        <RestrictCd value="012"/>
+                        <RestrictCd value="012"></RestrictCd>
                     </accessConsts>
                 </ANY>
             </x:XData>
@@ -151,9 +151,9 @@
                             <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="System of Record"/>
                             <Grid>
                                 <ComboBox x:Name="cboSystemNames" DataContext="{DynamicResource EPAData}" Style="{DynamicResource EditorHComboBoxStyle}"
-                                              ItemsSource="{Binding}"
-                                              LostMouseCapture="cboSystemNames_LostMouseCapture"
-                                              ToolTip="{x:Static r:Definitions.MD_LegalConstraints_otherConstraints}">
+                                          ItemsSource="{Binding}"
+                                          LostMouseCapture="cboSystemNames_LostMouseCapture"
+                                          ToolTip="{x:Static r:Definitions.MD_LegalConstraints_otherConstraints}">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate>
                                             <TextBlock x:Name="tbkSysRcrdName" Text="{Binding XPath=SysRcrdName}" ToolTip="{Binding XPath=SysRcrdUrl}"/>

@@ -8,12 +8,35 @@
     xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor">
 
     <UserControl.Resources>
-        <e:Codelists x:Key="MD_ClassificationCode" CodelistName="MD_ClassificationCode"/>
+        <!--<e:Codelists x:Key="MD_ClassificationCode" CodelistName="MD_ClassificationCode"/>-->
+        <XmlDataProvider x:Key="MD_ClassificationCode"
+                         XPath="codelist/code"
+                         IsAsynchronous="False"
+                         IsInitialLoadEnabled="True">
+            <x:XData>
+                <codelist id="MD_ClassificationCode" source="ISO19115" xmlns="">
+                    <code value="" source="ArcGIS">Empty</code>
+                    <code value="001" source="ISO19115" stdvalue="unclassified">Unclassified</code>
+                    <code value="002" source="ISO19115" stdvalue="restricted">Restricted</code>
+                    <code value="003" source="ISO19115" stdvalue="confidential">Confidential</code>
+                    <code value="004" source="ISO19115" stdvalue="secret">Secret</code>
+                    <code value="005" source="ISO19115" stdvalue="topSecret">Top Secret</code>
+                    <code value="006" source="NAP" stdvalue="sensitive">Sensitive</code>
+                    <code value="007" source="NAP" stdvalue="forOfficialUseOnly">Official Use Only</code>
+                </codelist>
+            </x:XData>
+        </XmlDataProvider>
+
+        <Style x:Key="TbkHidden" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="0.125"/>
+            <Setter Property="Height" Value="0"/>
+            <Setter Property="Width" Value="0"/>
+        </Style>
     </UserControl.Resources>
 
     <Grid>
         <StackPanel>
-            <ComboBox Loaded="PostProcessComboBoxValues" Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
+            <!--<ComboBox Loaded="PostProcessComboBoxValues" Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
                       ToolTip="{x:Static prop:Definitions.MD_SecurityConstraints_classification}"
                       ItemsSource="{Binding Source={StaticResource MD_ClassificationCode}, Path=List}"
                       DisplayMemberPath="."
@@ -22,8 +45,26 @@
                 <ComboBox.SelectedValue>
                     <e:MetadataBinding XPath="ClasscationCd/@value"/>
                 </ComboBox.SelectedValue>
+            </ComboBox>-->
+            
+            <ComboBox Loaded="PostProcessComboBoxValues" Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
+                      ToolTip="{x:Static prop:Definitions.MD_SecurityConstraints_classification}"
+                      ItemsSource="{Binding Source={StaticResource MD_ClassificationCode}}"
+                      v:Nav.AnchorName="ClasscationCd,ClasscationCd"
+                      SelectedValuePath="@value"
+                      x:Name="cboClassCd" SelectionChanged="cboClassCd_SelectionChanged" LostFocus="cboClassCd_LostFocus" LostMouseCapture="cboClassCd_LostMouseCapture">
+                <ComboBox.SelectedValue>
+                    <e:MetadataBinding XPath="ClasscationCd/@value"/>
+                </ComboBox.SelectedValue>
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <DockPanel HorizontalAlignment="{Binding HorizontalAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Mode=OneWayToSource}" LastChildFill="True">
+                            <TextBlock x:Name="tbkClassLabel" HorizontalAlignment="Left" Text="{Binding XPath=.}" />
+                        </DockPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
             </ComboBox>
-
+            <TextBlock x:Name="tbkClassName" Style="{DynamicResource TbkHidden}" HorizontalAlignment="Right" Text="{e:MetadataBinding XPath=ClasscationCd}"/>
             <!-- validate after all anchors are loaded -->
             <v:PageValidateControl/>
 

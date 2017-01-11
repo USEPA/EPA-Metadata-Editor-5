@@ -35,8 +35,7 @@
             </x:XData>
         </XmlDataProvider>
 
-        <Style x:Key="TbxHidden" TargetType="{x:Type TextBox}">
-            <Setter Property="BorderThickness" Value="0"/>
+        <Style x:Key="TbkHidden" TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize" Value="0.125"/>
             <Setter Property="Height" Value="0"/>
             <Setter Property="Width" Value="0"/>
@@ -46,22 +45,24 @@
     <Grid>
         <StackPanel>
             <ComboBox Loaded="PostProcessComboBoxValues" Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
-          ItemsSource="{Binding Source={StaticResource MD_RestrictionCode}}"
-          v:Nav.AnchorName="RestrictCd,RestrictCd"
-          SelectedValuePath="@value">
+                      ItemsSource="{Binding Source={StaticResource MD_RestrictionCode}}"
+                      v:Nav.AnchorName="RestrictCd,RestrictCd"
+                      SelectedValuePath="@value"
+                      x:Name="cboRestrictCd" SelectionChanged="cboRestrictCd_SelectionChanged" LostFocus="cboRestrictCd_LostFocus" LostMouseCapture="cboRestrictCd_LostMouseCapture" >
                 <ComboBox.SelectedValue>
                     <e:MetadataBinding XPath="RestrictCd/@value"/>
                 </ComboBox.SelectedValue>
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <DockPanel HorizontalAlignment="{Binding HorizontalAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Mode=OneWayToSource}" LastChildFill="True">
-                            <TextBlock x:Name="lblClassName" HorizontalAlignment="Left" Text="{Binding XPath=.}" />
-                            <TextBlock x:Name="lblPODDomain" HorizontalAlignment="Right" Text="{Binding XPath=@podvalue}" />
+                            <TextBlock x:Name="tbkClassLabel" HorizontalAlignment="Left" Text="{Binding XPath=.}" />
+                            <TextBlock x:Name="tbkPODDomain" HorizontalAlignment="Right" Text="{Binding XPath=@podvalue}" />
                         </DockPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-
+            <TextBlock x:Name="tbkRestrictName" Style="{DynamicResource TbkHidden}" Text="{e:MetadataBinding XPath=RestrictCd}" />
+            
             <!-- validate after all anchors are loaded -->
             <v:PageValidateControl/>
 
