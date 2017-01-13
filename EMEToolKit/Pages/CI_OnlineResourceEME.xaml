@@ -6,7 +6,7 @@
     xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
     xmlns:prop="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
     xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
-    Loaded="FillXml">
+    Loaded="CI_OnlineResourceEME_Loaded">
     <UserControl.Resources>
 
         <!--     
@@ -28,7 +28,19 @@
             </x:XData>
         </XmlDataProvider>
 
+        <XmlDataProvider x:Key="EPAData"
+                         Source="OnlineProtocol.xml"
+                         XPath="emeData/orProtocol"
+                         IsInitialLoadEnabled="True"/>
+
         <e:Codelists x:Key="CI_OnLineFunctionCode" CodelistName="CI_OnLineFunctionCode"/>
+
+        <Style x:Key="TbxHidden" TargetType="{x:Type TextBox}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="0.125"/>
+            <Setter Property="Height" Value="0"/>
+            <Setter Property="Width" Value="0"/>
+        </Style>
 
     </UserControl.Resources>
 
@@ -36,6 +48,7 @@
         <StackPanel>
             <Grid Style="{DynamicResource EditorSubPageStyle}">
                 <Grid.RowDefinitions>
+                    <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
@@ -82,14 +95,32 @@
 
                 <!-- protocol -->
                 <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="4" Grid.Column="0" Content="{x:Static prop:Resources.LBL_ONLINE_PROTOCOL}"/>
-                <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="4" Grid.Column="1"
+                <!--<TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="4" Grid.Column="1"
                          ToolTip="{x:Static prop:Definitions.CI_OnlineResource_protocol}"
                          v:Nav.AnchorName="protocol,protocol"
-                         Text="{e:MetadataBinding XPath=protocol}"/>
+                         Text="{e:MetadataBinding XPath=protocol}" x:Name="tbxProtocol"/>-->
+                <ComboBox Loaded="PostProcessComboBoxValues" Grid.Row="4" Grid.Column="1"
+                          Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False" x:Name="cboOrProtocol" 
+                          ItemsSource="{Binding Source={StaticResource EPAData}}"
+                          SelectedValuePath="identifier" 
+                          ToolTip="{x:Static prop:Definitions.CI_OnlineResource_protocol}" v:Nav.AnchorName="protocol,protocol"
+                          SelectionChanged="cboOrProtocol_SelectionChanged" LostFocus="cboOrProtocol_LostFocus" LostMouseCapture="cboOrProtocol_LostMouseCapture" >
+                    <ComboBox.SelectedValue>
+                        <e:MetadataBinding XPath="protocol"/>
+                    </ComboBox.SelectedValue>
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel HorizontalAlignment="{Binding HorizontalAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Mode=OneWayToSource}" LastChildFill="True">
+                                <TextBlock x:Name="tbkProtocolLabel" HorizontalAlignment="Left" Text="{Binding XPath=label}" />
+                            </DockPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBox x:Name="tbkProtocolName" Grid.Row="5" Grid.Column="1" Style="{DynamicResource TbxHidden}" Text="{e:MetadataBinding XPath=protocol}" />
 
                 <!-- profile -->
-                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="5" Grid.Column="0" Content="{x:Static prop:Resources.LBL_ONLINE_PROFILE}"/>
-                <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="5" Grid.Column="1"
+                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="6" Grid.Column="0" Content="{x:Static prop:Resources.LBL_ONLINE_PROFILE}"/>
+                <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="6" Grid.Column="1"
                          ToolTip="{x:Static prop:Definitions.CI_OnlineResource_applicationProfile}"
                          Text="{e:MetadataBinding XPath=appProfile}"/>
 
