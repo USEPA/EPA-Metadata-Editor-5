@@ -79,6 +79,8 @@ namespace EPAMetadataEditor.Pages
                 var tbxResTitle = (TextBox)liBoxChildren.First(c => c.Name == thesTitle);
                 var tbxAltTitle = (TextBox)liBoxChildren.First(c => c.Name == altName);
                 tbxResTitle.Text = "EPA GIS Keyword Thesaurus";
+                tbxMdDateSt.Text = "2007-11-02";
+                tbxMdDateSt.Focus();
                 tbxResTitle.Focus();
                 tbxAltTitle.Focus();
             }
@@ -96,6 +98,8 @@ namespace EPAMetadataEditor.Pages
                 var tbxResTitle = (TextBox)liBoxChildren.First(c => c.Name == thesTitle);
                 var tbxAltTitle = (TextBox)liBoxChildren.First(c => c.Name == altName);
                 tbxResTitle.Text = "User";
+                tbxMdDateSt.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                tbxMdDateSt.Focus();
                 tbxResTitle.Focus();
                 tbxAltTitle.Focus();
             }
@@ -114,6 +118,8 @@ namespace EPAMetadataEditor.Pages
                 var tbxResTitle = (TextBox)liBoxChildren.First(c => c.Name == thesTitle);
                 var tbxAltTitle = (TextBox)liBoxChildren.First(c => c.Name == altName);
                 tbxResTitle.Style = style;
+                tbxMdDateSt.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                tbxMdDateSt.Focus();
                 tbxResTitle.Focus();
                 //tbxAltTitle.Focus();
             }
@@ -131,9 +137,12 @@ namespace EPAMetadataEditor.Pages
                 var tbxResTitle = (TextBox)liBoxChildren.First(c => c.Name == thesTitle);
                 var tbxAltTitle = (TextBox)liBoxChildren.First(c => c.Name == altName);
                 tbxResTitle.Text = "Federal Program Inventory";
+                tbxMdDateSt.Text = "2013-09-16";
+                tbxMdDateSt.Focus();
                 tbxResTitle.Focus();
                 tbxAltTitle.Focus();
             }
         }
+
     }
 }

@@ -51,13 +51,14 @@
                     <bag/>
                     <thesaName editorExpand="" editorFillOnly="True">
                         <date>
-                            <createDate>2013-09-16T00:00:00</createDate>
+                            <pubDate></pubDate>
                         </date>
                         <citOnlineRes xmlns="">
                             <linkage>https://www.performance.gov/federalprograminventory</linkage>
                             <orFunct>
                                 <OnFunctCd value="002"/>
                             </orFunct>
+                            <orName>Federal Program Inventory</orName>
                         </citOnlineRes>
                     </thesaName>
                 </ANY>

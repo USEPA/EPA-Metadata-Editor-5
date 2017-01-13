@@ -49,7 +49,18 @@
             <x:XData>
                 <ANY xmlns="" editorExpand="False">
                     <bag/>
-                    <thesaName editorExpand="" editorFillOnly="True"/>
+                    <thesaName editorExpand="" editorFillOnly="True">
+                        <date>
+                            <pubDate></pubDate>
+                        </date>
+                        <citOnlineRes xmlns="">
+                            <linkage>https://www.epa.gov/geospatial/epa-metadata-technical-specification</linkage>
+                            <orFunct>
+                                <OnFunctCd value="002"/>
+                            </orFunct>
+                            <orName>EPA Metadata Technical Specification</orName>
+                        </citOnlineRes>
+                    </thesaName>
                 </ANY>
             </x:XData>
         </XmlDataProvider>

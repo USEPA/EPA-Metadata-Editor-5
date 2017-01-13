@@ -107,6 +107,7 @@
             </x:XData>
         </XmlDataProvider>
 
+        <p:DateConverter x:Key="DateConverter" Format="yyyy-MM-dd"/>
         <p:ExpandVisibleConverter x:Key="ExpandConverter"/>
         <p:VisibleBoolNotConverter x:Key="VisibleBoolNotConverter"/>
         <p:VisibleBoolConverter x:Key="VisibleBoolConverter"/>
@@ -370,9 +371,12 @@
                                                ToolTip="{x:Static r:Definitions.CI_Date_creationDate}"
                                                v:Nav.AnchorName="dates,date/createDate"
                                                Content="{x:Static r:Resources.LBL_CREATED_DATE}" />
-                                        <controls:DateTimeIsoControl Grid.Row="0" Grid.Column="1" 
-                                                                     ToolTip="{x:Static r:Definitions.CI_Date_creationDate}"
-                                                                     Items="{Binding XPath=date/createDate}"/>
+                                        <!--<controls:DateTimeIsoControl Grid.Row="0" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_creationDate}" Items="{Binding XPath=date/createDate}"/>-->
+                                        <controls:DateTimePicker DisplayTime="False" Grid.Row="0" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_creationDate}">
+                                            <controls:DateTimePicker.SelectedDate>
+                                                <e:MetadataElementSync XPath="date/createDate" Converter="{StaticResource DateConverter}"/>
+                                            </controls:DateTimePicker.SelectedDate>
+                                        </controls:DateTimePicker>
 
                                         <!-- published date -->
                                         <Border Grid.Row="1" Grid.ColumnSpan="2" Background="LemonChiffon"></Border>
@@ -380,16 +384,24 @@
                                                ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}"
                                                v:Nav.AnchorName="dates,date/pubDate"
                                                Content="{x:Static r:Resources.LBL_PUBLISHED_DATE}"/>
-                                        <controls:DateTimeIsoControl Grid.Row="1" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}"
-                        Items="{Binding XPath=date/pubDate}"/>
+                                        <!--<controls:DateTimeIsoControl Grid.Row="1" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}" Items="{Binding XPath=date/pubDate}"/>-->
+                                        <controls:DateTimePicker DisplayTime="False" Grid.Row="1" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}">
+                                            <controls:DateTimePicker.SelectedDate>
+                                                <e:MetadataElementSync XPath="date/pubDate" Converter="{StaticResource DateConverter}"/>
+                                            </controls:DateTimePicker.SelectedDate>
+                                        </controls:DateTimePicker>
 
                                         <!-- revised date -->
                                         <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="2" Grid.Column="0"
-                         ToolTip="{x:Static r:Definitions.CI_Date_revisionDate}"
-                         v:Nav.AnchorName="dates,date/reviseDate"
-                         Content="{x:Static r:Resources.LBL_REVISED_DATE}"/>
-                                        <controls:DateTimeIsoControl Grid.Row="2" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_revisionDate}"
-                        Items="{Binding XPath=date/reviseDate}"/>
+                                               ToolTip="{x:Static r:Definitions.CI_Date_revisionDate}"
+                                               v:Nav.AnchorName="dates,date/reviseDate"
+                                               Content="{x:Static r:Resources.LBL_REVISED_DATE}"/>
+                                        <!--<controls:DateTimeIsoControl Grid.Row="2" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_revisionDate}" Items="{Binding XPath=date/reviseDate}"/>-->
+                                        <controls:DateTimePicker DisplayTime="False" Grid.Row="2" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_revisionDate}">
+                                            <controls:DateTimePicker.SelectedDate>
+                                                <e:MetadataElementSync XPath="date/reviseDate" Converter="{StaticResource DateConverter}"/>
+                                            </controls:DateTimePicker.SelectedDate>
+                                        </controls:DateTimePicker>
 
                                     </Grid>
                                 </Expander>

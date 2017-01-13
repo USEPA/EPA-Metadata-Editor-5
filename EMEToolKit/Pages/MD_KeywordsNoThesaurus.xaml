@@ -159,9 +159,9 @@
                     <Expander ToolTip="{x:Static r:Definitions.MD_Keywords_thesaurusName}" Style="{DynamicResource EditorExpander2Style}">
                         <Expander.Header>
                             <DockPanel HorizontalAlignment="{Binding HorizontalAlignment,
-                  RelativeSource={RelativeSource FindAncestor,
-                  AncestorType={x:Type ContentPresenter}},
-                  Mode=OneWayToSource}" LastChildFill="True">
+                                       RelativeSource={RelativeSource FindAncestor,
+                                       AncestorType={x:Type ContentPresenter}},
+                                       Mode=OneWayToSource}" LastChildFill="True">
                                 <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
                                     <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                 </Button>

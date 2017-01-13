@@ -34,9 +34,35 @@ namespace EPAMetadataEditor.Pages
     /// </summary>
     public partial class CI_OnlineResourceEME : EditorPage
     {
+        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EME Toolkit\\EMEdb\\";
+
         public CI_OnlineResourceEME()
         {
             InitializeComponent();
+        }
+
+        private void CI_OnlineResourceEME_Loaded(object sender, RoutedEventArgs e)
+        {
+            FillXml();
+
+            var xmldp = (XmlDataProvider)this.Resources["EPAData"];
+            string dbname = "OnlineProtocol.xml";
+            xmldp.Source = new Uri(_pathEmeDb + dbname);
+        }
+
+        private void cboOrProtocol_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cboOrProtocol_LostFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cboOrProtocol_LostMouseCapture(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
