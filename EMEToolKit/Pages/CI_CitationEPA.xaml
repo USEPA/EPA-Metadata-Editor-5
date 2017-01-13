@@ -361,29 +361,29 @@
                                         </Grid.ColumnDefinitions>
 
                                         <!-- created date -->
-                                        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0" 
-                        ToolTip="{x:Static r:Definitions.CI_Date_creationDate}"
-                        v:Nav.AnchorName="dates,date/createDate"
-                        Content="{x:Static r:Resources.LBL_CREATED_DATE}" />
-                                        <controls:DateTimeIsoControl Grid.Row="0" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_creationDate}"                        
-                        Items="{Binding XPath=date/createDate}"/>
+                                        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0"
+                                               ToolTip="{x:Static r:Definitions.CI_Date_creationDate}"                        
+                                               v:Nav.AnchorName="dates,date/createDate"                        
+                                               Content="{x:Static r:Resources.LBL_CREATED_DATE}" />
+                                        <controls:DateTimeIsoControl Grid.Row="0" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_creationDate}"                         
+                                                                     Items="{Binding XPath=date/createDate}"/>
 
                                         <!-- published date -->
                                         <Border Grid.Row="1" Grid.ColumnSpan="2" Background="LemonChiffon"></Border>
-                                        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0"
-                        ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}"
-                        v:Nav.AnchorName="dates,date/pubDate"
-                        Content="{x:Static r:Resources.LBL_PUBLISHED_DATE}"/>
-                                        <controls:DateTimeIsoControl Grid.Row="1" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}"
-                        Items="{Binding XPath=date/pubDate}"/>
+                                        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0"                        
+                                               ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}"                        
+                                               v:Nav.AnchorName="dates,date/pubDate"                       
+                                               Content="{x:Static r:Resources.LBL_PUBLISHED_DATE}"/>
+                                        <controls:DateTimeIsoControl Grid.Row="1" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}" 
+                                                                     Items="{Binding XPath=date/pubDate}"/>
 
                                         <!-- revised date -->
-                                        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="2" Grid.Column="0"
-                         ToolTip="{x:Static r:Definitions.CI_Date_revisionDate}"
-                         v:Nav.AnchorName="dates,date/reviseDate"
-                         Content="{x:Static r:Resources.LBL_REVISED_DATE}"/>
+                                        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="2" Grid.Column="0" 
+                                               ToolTip="{x:Static r:Definitions.CI_Date_revisionDate}" 
+                                               v:Nav.AnchorName="dates,date/reviseDate"
+                                               Content="{x:Static r:Resources.LBL_REVISED_DATE}"/>
                                         <controls:DateTimeIsoControl Grid.Row="2" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_revisionDate}"
-                        Items="{Binding XPath=date/reviseDate}"/>
+                                                                     Items="{Binding XPath=date/reviseDate}"/>
 
                                     </Grid>
                                 </Expander>

@@ -33,7 +33,7 @@
                     <resAltTitle editorAppend="True"></resAltTitle>
                     <collTitle></collTitle>
                     <date editorExpand="False">
-                        <createDate>2016-08-31T00:00:00</createDate>
+                        <createDate></createDate>
                         <pubDate></pubDate>
                         <reviseDate></reviseDate>
                     </date>
@@ -119,6 +119,9 @@
     </UserControl.Resources>
 
     <Grid>
+        <TextBox x:Name="tbxTopOfPage" Style="{DynamicResource TbxHidden}" Text="[ Top of page ]" HorizontalAlignment="Center"/>
+        <TextBox x:Name="tbxMdDateSt" Style="{DynamicResource TbxHidden}" Text="{e:MetadataElementSync XPath=date/pubDate}" HorizontalAlignment="Center"/>
+        
         <ListBox x:Name="lbxCitation" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=.}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -142,6 +145,23 @@
                         <!-- alternative title -->
                         <!--<Label Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_ALTERNATE_TITLE}"/>-->
                         <TextBox x:Name="tbxAltTitle" Style="{DynamicResource TbxHidden}" ToolTip="{x:Static r:Definitions.CI_Citation_alternateTitle}" Text="{e:MetadataBinding XPath=resAltTitle}" SourceUpdated="DefaultValueChanged" />
+
+                        <!-- dates -->
+                        <!-- created date -->
+                        <!--<Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0" ToolTip="{x:Static r:Definitions.CI_Date_creationDate}" v:Nav.AnchorName="dates,date/createDate" Content="{x:Static r:Resources.LBL_CREATED_DATE}" />-->
+                        <!--<controls:DateTimeIsoControl Grid.Row="0" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_creationDate}" Items="{Binding XPath=date/createDate}"/>-->
+                        <TextBox x:Name="tbxCreDate" Style="{DynamicResource TbxHidden}" Text="{e:MetadataElementSync XPath=/date/createDate}" />
+
+                        <!-- published date -->
+                        <!--<Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0" ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}" v:Nav.AnchorName="dates,date/pubDate" Content="{x:Static r:Resources.LBL_PUBLISHED_DATE}"/>-->
+                        <!--<controls:DateTimeIsoControl Grid.Row="1" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}" Items="{Binding XPath=date/pubDate}"/>-->
+                        <TextBox x:Name="tbxPubDate" Style="{DynamicResource TbxHidden}" Text="{Binding XPath=/date/pubDate}" SourceUpdated="DefaultValueChanged" />
+
+                        <!-- revised date -->
+                        <!--<Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="2" Grid.Column="0" ToolTip="{x:Static r:Definitions.CI_Date_revisionDate}" v:Nav.AnchorName="dates,date/reviseDate" Content="{x:Static r:Resources.LBL_REVISED_DATE}"/>-->
+                        <!--<controls:DateTimeIsoControl Grid.Row="2" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_revisionDate}" Items="{Binding XPath=date/reviseDate}"/>-->
+                        <TextBox x:Name="tbxRevDate" Style="{DynamicResource TbxHidden}" Text="{Binding XPath=/date/reviseDate}" SourceUpdated="DefaultValueChanged" />
+
                     </StackPanel>
 
                 </DataTemplate>
