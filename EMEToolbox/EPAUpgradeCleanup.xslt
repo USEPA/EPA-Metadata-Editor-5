@@ -84,11 +84,13 @@
     <xsl:template match="LegConsts" priority="1">
     	<xsl:copy>
     		<xsl:if test="contains(./useLimit,'edg.epa.gov/EPA_Data_License')">
+                <useLimit>EPA Data License</useLimit>
 				<xsl:apply-templates select="node() | @*" />
 				<xsl:if test="count (./accessConsts) = 0">
 	                <accessConsts>
 	                    <RestrictCd value="009">licenceUnrestricted</RestrictCd>
 	                </accessConsts>
+                    <othConsts>https://edg.epa.gov/EPA_Data_License.html</othConsts>
 	            </xsl:if>
     		</xsl:if>
 		</xsl:copy>
