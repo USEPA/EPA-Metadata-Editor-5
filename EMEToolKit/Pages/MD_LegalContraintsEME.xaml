@@ -120,7 +120,7 @@
                                 <!--<Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_USELIMIT}"/>-->
                                 <Label Style="{DynamicResource EditorHLabelNoIdentStyle}">
                                     <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#data-license" RequestNavigate="Hyperlink_RequestNavigate">
-                                        <TextBlock Text="{x:Static r:Resources.LBL_CONSTS_USELIMIT}"/>
+                                        <TextBlock Text="{x:Static r:Resources.LBL_CONSTS_USELIMIT}" FontWeight="Bold"/>
                                     </Hyperlink>
                                 </Label>
                             </DockPanel>

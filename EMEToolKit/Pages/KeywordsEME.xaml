@@ -210,7 +210,8 @@
                                            ToolTip="{x:Static r:Definitions.MD_DataIdentification_topicCategory}"
                                            v:Nav.AnchorName="topics,tpCatBag">
                                         <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-iso" RequestNavigate="Hyperlink_RequestNavigate">
-                                            <TextBlock Text="{x:Static r:Resources.LBL_DESC_TOPICS}"/>
+                                            <!--<TextBlock Text="{x:Static r:Resources.LBL_DESC_TOPICS}"/>-->
+                                            <TextBlock Text="ISO 19115 Topic Categories" FontWeight="Bold" />
                                         </Hyperlink>
                                     </Label>
                                     <Grid>
@@ -297,7 +298,7 @@
                                                         <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="EPA Keywords"/>-->
                                                         <Label Style="{DynamicResource EditorHExpanderLabel}">
                                                             <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-epa-theme" RequestNavigate="Hyperlink_RequestNavigate">
-                                                                <TextBlock Text="EPA Keywords"/>
+                                                                <TextBlock Text="EPA Keywords" FontWeight="Bold"/>
                                                             </Hyperlink>
                                                         </Label>
                                                     </DockPanel>
@@ -334,7 +335,7 @@
                                                         <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Program Code Keywords"/>-->
                                                         <Label Style="{DynamicResource EditorHExpanderLabel}">
                                                             <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-federal-program-code" RequestNavigate="Hyperlink_RequestNavigate">
-                                                                <TextBlock Text="Program Code Keywords"/>
+                                                                <TextBlock Text="Program Code Keywords" FontWeight="Bold"/>
                                                             </Hyperlink>
                                                         </Label>
                                                     </DockPanel>
@@ -368,7 +369,7 @@
                                                         <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Place Keywords"/>-->
                                                         <Label Style="{DynamicResource EditorHExpanderLabel}">
                                                             <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-place" RequestNavigate="Hyperlink_RequestNavigate">
-                                                                <TextBlock Text="Place Keywords"/>
+                                                                <TextBlock Text="Place Keywords" FontWeight="Bold"/>
                                                             </Hyperlink>
                                                         </Label>
                                                     </DockPanel>
@@ -408,7 +409,7 @@
                                                         <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="User Keywords"/>-->
                                                         <Label Style="{DynamicResource EditorHExpanderLabel}">
                                                             <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-general" RequestNavigate="Hyperlink_RequestNavigate">
-                                                                <TextBlock Text="User Keywords"/>
+                                                                <TextBlock Text="User Keywords" FontWeight="Bold"/>
                                                             </Hyperlink>
                                                         </Label>
                                                     </DockPanel>
@@ -450,7 +451,7 @@
                                                         <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Custom Keywords"/>-->
                                                         <Label Style="{DynamicResource EditorHExpanderLabel}">
                                                             <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-general" RequestNavigate="Hyperlink_RequestNavigate">
-                                                                <TextBlock Text="Custom Keywords"/>
+                                                                <TextBlock Text="Custom Keywords" FontWeight="Bold"/>
                                                             </Hyperlink>
                                                         </Label>
                                                     </DockPanel>
@@ -490,7 +491,7 @@
                                                         <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="Keywords and Program Code"/>-->
                                                         <Label Style="{DynamicResource EditorHExpanderLabel}">
                                                             <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-general" RequestNavigate="Hyperlink_RequestNavigate">
-                                                                <TextBlock Text="Keywords and Program Code"/>
+                                                                <TextBlock Text="Keywords and Program Code" FontWeight="Bold"/>
                                                             </Hyperlink>
                                                         </Label>
                                                     </DockPanel>

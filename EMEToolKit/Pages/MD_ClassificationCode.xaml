@@ -17,11 +17,11 @@
                 <codelist id="MD_ClassificationCode" source="ISO19115" xmlns="">
                     <code value="" source="ArcGIS">Empty</code>
                     <code value="001" source="ISO19115" podvalue="  data.gov:public" stdvalue="unclassified">Unclassified</code>
-                    <code value="002" source="ISO19115" podvalue="  data.gov:non-public" stdvalue="restricted">Restricted</code>
+                    <code value="002" source="ISO19115" podvalue="  data.gov:restricted public" stdvalue="restricted">Restricted</code>
                     <code value="003" source="ISO19115" podvalue="  data.gov:non-public" stdvalue="confidential">Confidential</code>
                     <code value="004" source="ISO19115" podvalue="  data.gov:non-public" stdvalue="secret">Secret</code>
                     <code value="005" source="ISO19115" podvalue="  data.gov:non-public" stdvalue="topSecret">Top Secret</code>
-                    <code value="006" source="NAP" podvalue="  data.gov:restricted public" stdvalue="sensitive">Sensitive</code>
+                    <code value="006" source="NAP" podvalue="  data.gov:non-public" stdvalue="sensitive">Sensitive</code>
                     <code value="007" source="NAP" podvalue="  data.gov:restricted public" stdvalue="forOfficialUseOnly">Official Use Only</code>
                 </codelist>
             </x:XData>

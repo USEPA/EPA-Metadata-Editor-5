@@ -56,7 +56,7 @@
                     <DataTemplate>
                         <DockPanel HorizontalAlignment="{Binding HorizontalAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Mode=OneWayToSource}" LastChildFill="True">
                             <TextBlock x:Name="tbkClassLabel" HorizontalAlignment="Left" Text="{Binding XPath=.}" />
-                            <TextBlock x:Name="tbkPODDomain" HorizontalAlignment="Right" Text="{Binding XPath=@podvalue}" FontStyle="Italic" Opacity="0.7" FontSize="10" />
+                            <!--<TextBlock x:Name="tbkPODDomain" HorizontalAlignment="Right" Text="{Binding XPath=@podvalue}" FontStyle="Italic" Opacity="0.7" FontSize="10" />-->
                         </DockPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>

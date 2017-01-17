@@ -222,7 +222,7 @@
                             <!--<Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_ITEMINFO_TITLE}" Background="Red"/>-->
                             <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}">
                                 <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#title" RequestNavigate="Hyperlink_RequestNavigate">
-                                    <TextBlock Text="{x:Static r:Resources.LBL_ITEMINFO_TITLE}"/>
+                                    <TextBlock Text="{x:Static r:Resources.LBL_ITEMINFO_TITLE}" FontWeight="Bold"/>
                                 </Hyperlink>
                             </Label>
                             <TextBox Style="{DynamicResource EditorTextBoxStyle}" ToolTip="{x:Static r:Definitions.CI_Citation_title}" v:Nav.AnchorName="resTitle,resTitle" Text="{e:MetadataElementSync XPath=resTitle}"/>
@@ -273,7 +273,7 @@
                             <DockPanel>
                                 <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}">
                                     <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#tags-general" RequestNavigate="Hyperlink_RequestNavigate">
-                                        <TextBlock Text="{x:Static r:Resources.LBL_ITEMINFO_KEY}"/>
+                                        <TextBlock Text="{x:Static r:Resources.LBL_ITEMINFO_KEY}" FontWeight="Bold"/>
                                     </Hyperlink>
                                 </Label>
                                 <Button Name="btnDelSearchTags" Click="btnDelSearchTags_Click" Style="{DynamicResource TopButton}">
@@ -287,7 +287,7 @@
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <controls:Resizer>
-                                            <TextBox x:Name="tbxSearchTags" IsReadOnly="True" ToolTip="{x:Static r:Definitions.ESRI_searchTags}" Style="{DynamicResource EditorTextAreaShortResizeStyle}" v:Nav.AnchorName="searchKeys,bag" Text="{e:MetadataBinding XPath=bag}"/>
+                                            <TextBox x:Name="tbxSearchTags" IsReadOnly="True" ToolTip="{x:Static r:Definitions.ESRI_searchTags}" Style="{DynamicResource EditorTextAreaShortResizeStyle}" v:Nav.AnchorName="searchKeys,bag" Text="{e:MetadataBinding XPath=bag}" />
                                         </controls:Resizer>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
@@ -317,7 +317,7 @@
                                             <!--<Label Style="{DynamicResource EditorVLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_ITEMINFO_SNIP}" Background="Red"/>-->
                                             <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}">
                                                 <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#description" RequestNavigate="Hyperlink_RequestNavigate">
-                                                    <TextBlock Text="{x:Static r:Resources.LBL_ITEMINFO_SNIP}"/>
+                                                    <TextBlock Text="{x:Static r:Resources.LBL_ITEMINFO_SNIP}" FontWeight="Bold"/>
                                                 </Hyperlink>
                                             </Label>
                                             <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=dataIdInfo/idAbs}">

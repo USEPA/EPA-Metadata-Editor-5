@@ -164,7 +164,7 @@
                                             <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_DIST_TRANS}"/>-->
                                             <Label Style="{DynamicResource EditorHExpanderLabel}">
                                                 <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#distribution-url" RequestNavigate="Hyperlink_RequestNavigate">
-                                                    <TextBlock Text="{x:Static r:Resources.LBL_DIST_TRANS}"/>
+                                                    <TextBlock Text="{x:Static r:Resources.LBL_DIST_TRANS}" FontWeight="Bold"/>
                                                 </Hyperlink>
                                             </Label>
                                         </DockPanel>
