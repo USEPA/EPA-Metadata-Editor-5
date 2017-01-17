@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="{9643E2F1-5FE2-42F3-A3E5-5C555E5B8AF9}" Name="EME Toolkit 0.9.9 for ArcGIS 10.4x" Language="1033" Version="0.9.9.119" Manufacturer="Innovate! Inc." UpgradeCode="{522B556A-CE0C-48D8-BB7B-4925F8515A5D}">
+	<Product Id="{9643E2F1-5FE2-42F3-A3E5-5C555E5B8AF9}" Name="EME Toolkit 0.9.10 for ArcGIS 10.5x" Language="1033" Version="0.9.10.0" Manufacturer="Innovate! Inc." UpgradeCode="{522B556A-CE0C-48D8-BB7B-4925F8515A5D}">
 		<Package Id="*" InstallerVersion="400" Compressed="yes" InstallScope="perMachine" />
 <!-- 0.9.8.1 Fix EMEdb "Defaults" checkbox behavior -->
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -12,13 +12,19 @@
       <ComponentGroupRef Id="EMEdbRoaming" />
       <ComponentGroupRef Id="ArcGISdocs"/>
       <ComponentRef Id="ApplicationShortcut" />
-		</Feature>    
-    
-		<Feature Id="EMEToolkitArcGis104" Title="EME Toolkit for ArcCatalog 10.4" Level="1">
+		</Feature>
+
+    <Feature Id="EMEToolkitArcGis105" Title="EME Toolkit for ArcCatalog 10.5" Level="1">
+      <ComponentRef Id="EMEToolkitDLL105"/>
+      <ComponentRef Id="EMEToolkitConfig105"/>
+      <ComponentGroupRef Id="EMEToolbox105"/>
+    </Feature>
+
+    <Feature Id="EMEToolkitArcGis104" Title="EME Toolkit for ArcCatalog 10.4" Level="0">
       <ComponentRef Id="EMEToolkitDLL104"/>
       <ComponentRef Id="EMEToolkitConfig104"/>
       <ComponentGroupRef Id="EMEToolbox104"/>
-		</Feature>
+    </Feature>
     
 		<Feature Id="EMEToolkitArcGis103" Title="EME Toolkit for ArcCatalog 10.3" Level="0">
       <ComponentRef Id="EMEToolkitDLL103"/>
@@ -40,10 +46,28 @@
 		<Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="AppDataFolder">
         <Directory Id="ESRIRoam" Name="ESRI">
-          <Component Id="ESRIRoam" Guid="{FDD47F81-A1AB-4654-92EA-8B244C6D069D}">
+          <Component Id="ESRIRoam" Guid="{1ADA880B-6105-4591-B8E4-B04EFA53002D}">
             <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolBox" Name="Product" Type="string" Value="[ProductName]" KeyPath ="yes"/>
             <RemoveFolder Id="ESRIRoam" On="uninstall"/>
           </Component>
+          <Directory Id="ESRIDesktop105" Name="Desktop10.5">
+            <Component Id="ESRIDesktop105" Guid="{0F9B1473-23B7-4600-BB03-44F026255063}">
+              <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolBox" Name="Product" Type="string" Value="EPA Metadata Toolbox" KeyPath ="yes"/>
+              <RemoveFolder Id="ESRIDesktop105" On="uninstall"/>
+            </Component>
+            <Directory Id="ArcToolbox105" Name="ArcToolbox">
+              <Component Id="ArcToolbox105" Guid="{9D020544-6AFD-4C58-9F15-1FD5D9D9A6DA}">
+                <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolBox" Name="ArcGIS 10.5.x" Type="string" Value="Installed" KeyPath ="yes"/>
+                <RemoveFolder Id="ArcToolbox105" On="uninstall"/>
+              </Component>
+              <Directory Id="MyToolbox105" Name="My Toolboxes">
+                <Component Id="MyToolbox105" Guid="{5B0BBD29-D82E-4DA1-B23C-18F1A1CAD418}">
+                  <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolBox" Name="InstallDir" Type="string" Value="[MyToolbox105]" KeyPath ="yes"/>
+                  <RemoveFolder Id="MyToolbox105" On="uninstall"/>
+                </Component>
+              </Directory>
+            </Directory>
+          </Directory>
           <Directory Id="ESRIDesktop104" Name="Desktop10.4">
             <Component Id="ESRIDesktop104" Guid="{FDD80EA7-6BF0-4656-98D2-B2D9CE750300}">
               <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolBox" Name="Product" Type="string" Value="EPA Metadata Toolbox" KeyPath ="yes"/>
@@ -85,6 +109,12 @@
       </Directory>
 			<Directory Id="ProgramFilesFolder">
         <Directory Id="ArcGISFolder" Name="ArcGIS">
+          <Directory Id="ArcDesktop105" Name="Desktop10.5">
+            <Directory Id="ARC105BIN" Name="bin"/>
+            <Directory Id="Arc105MD" Name="Metadata">
+              <Directory Id="ARC105CONFIG" Name="Config"/>
+            </Directory>
+          </Directory>
           <Directory Id="ArcDesktop104" Name="Desktop10.4">
             <Directory Id="ARC104BIN" Name="bin"/>
             <Directory Id="Arc104MD" Name="Metadata">
@@ -212,20 +242,40 @@
       </Component>
     </ComponentGroup>
 
+    <ComponentGroup Id="EMEToolbox105" Directory="MyToolbox105">
+      <ComponentRef Id="ESRIRoam" />
+      <ComponentRef Id="ESRIDesktop105" />
+      <ComponentRef Id="ArcToolbox105" />
+      <ComponentRef Id="MyToolbox105" />
+      <Component Id="EMEToolboxComponents105" Guid="{4731C895-5169-4F5D-900C-FDAB541776C2}" Permanent="no">
+        <File Id="Arc105EMEToolbox" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.pyt"/>
+        <File Id="Arc105UpgCleanup" Source="$(var.EMEToolbox.ProjectDir)//EPAUpgradeCleanup.xslt"/>
+        <File Id="Arc105MergeTemp" Source="$(var.EMEToolbox.ProjectDir)//mergeTemplate.xslt"/>
+        <File Id="Arc105SaveTemp" Source="$(var.EMEToolbox.ProjectDir)//saveTemplate.xslt"/>
+        <RegistryValue Root="HKCU" Key="Software\Innovate" Name="Product" Type="string" Value="[ProductName]" KeyPath="yes"/>
+      </Component>
+    </ComponentGroup>
+
     <ComponentGroup Id="EMEToolbox104" Directory="MyToolbox104">
       <ComponentRef Id="ESRIRoam" />
       <ComponentRef Id="ESRIDesktop104" />
       <ComponentRef Id="ArcToolbox104" />
       <ComponentRef Id="MyToolbox104" />
       <Component Id="EMEToolboxComponents104" Guid="{79FF7E61-7CE5-4234-9C81-3CBDFD96F73D}" Permanent="no">
-        <File Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.pyt"/>
-        <File Source="$(var.EMEToolbox.ProjectDir)//EPAUpgradeCleanup.xslt"/>
-        <File Source="$(var.EMEToolbox.ProjectDir)//mergeTemplate.xslt"/>
-        <File Source="$(var.EMEToolbox.ProjectDir)//saveTemplate.xslt"/>
+        <File Id="Arc104EMEToolbox" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.pyt"/>
+        <File Id="Arc104UpgCleanup" Source="$(var.EMEToolbox.ProjectDir)//EPAUpgradeCleanup.xslt"/>
+        <File Id="Arc104MergeTemp" Source="$(var.EMEToolbox.ProjectDir)//mergeTemplate.xslt"/>
+        <File Id="Arc104SaveTemp" Source="$(var.EMEToolbox.ProjectDir)//saveTemplate.xslt"/>
         <RegistryValue Root="HKCU" Key="Software\Innovate" Name="Product" Type="string" Value="[ProductName]" KeyPath="yes"/>
       </Component>
     </ComponentGroup>
-    
+
+    <Component Id="EMEToolkitDLL105" Directory="ARC105BIN">
+      <File Id="EmeDLL105" Source="$(var.EPAMetadataEditor.TargetPath)" />
+    </Component>
+    <Component Id="EMEToolkitConfig105" Directory="ARC105CONFIG">
+      <File Id="EMEConfig105" Source="$(var.EPAMetadataEditor.ProjectDir)//Config//EPA Metadata Specification NAP ISO19115 2003.cfg" />
+    </Component>
     <Component Id="EMEToolkitDLL104" Directory="ARC104BIN">
       <File Id="EmeDLL104" Source="$(var.EPAMetadataEditor.TargetPath)" />
     </Component>
