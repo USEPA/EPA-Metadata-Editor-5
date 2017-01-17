@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="{9643E2F1-5FE2-42F3-A3E5-5C555E5B8AF9}" Name="EME Toolkit 0.9.10 for ArcGIS 10.5x" Language="1033" Version="0.9.10.0" Manufacturer="Innovate! Inc." UpgradeCode="{522B556A-CE0C-48D8-BB7B-4925F8515A5D}">
+	<Product Id="{9643E2F1-5FE2-42F3-A3E5-5C555E5B8AF9}" Name="EME Toolkit 0.9.10 for ArcGIS 10.3x" Language="1033" Version="0.9.10.0" Manufacturer="Innovate! Inc." UpgradeCode="{522B556A-CE0C-48D8-BB7B-4925F8515A5D}">
 		<Package Id="*" InstallerVersion="400" Compressed="yes" InstallScope="perMachine" />
 <!-- 0.9.8.1 Fix EMEdb "Defaults" checkbox behavior -->
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -29,7 +29,8 @@
 		<Feature Id="EMEToolkitArcGis103" Title="EME Toolkit for ArcCatalog 10.3" Level="0">
       <ComponentRef Id="EMEToolkitDLL103"/>
       <ComponentRef Id="EMEToolkitConfig103"/>
-		</Feature>
+      <ComponentGroupRef Id="EMEToolbox103"/>
+    </Feature>
     
 		<Feature Id="EMEToolkitArcGis102" Title="EME Toolkit for ArcCatalog 10.2" Level="0">
       <ComponentRef Id="EMEToolkitDLL102"/>
@@ -82,6 +83,24 @@
                 <Component Id="MyToolbox104" Guid="{4718BA16-28F7-4D93-9332-E51B81031787}">
                   <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolBox" Name="InstallDir" Type="string" Value="[MyToolbox104]" KeyPath ="yes"/>
                   <RemoveFolder Id="MyToolbox104" On="uninstall"/>
+                </Component>
+              </Directory>
+            </Directory>
+          </Directory>
+          <Directory Id="ESRIDesktop103" Name="Desktop10.3">
+            <Component Id="ESRIDesktop103" Guid="{7307D7B9-F743-47E4-AD73-845032AD145F}">
+              <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolBox" Name="Product" Type="string" Value="EPA Metadata Toolbox" KeyPath ="yes"/>
+              <RemoveFolder Id="ESRIDesktop103" On="uninstall"/>
+            </Component>
+            <Directory Id="ArcToolbox103" Name="ArcToolbox">
+              <Component Id="ArcToolbox103" Guid="{8E99E5F0-C52B-4B80-899F-DBDA8A71BE40}">
+                <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolBox" Name="ArcGIS 10.3.x" Type="string" Value="Installed" KeyPath ="yes"/>
+                <RemoveFolder Id="ArcToolbox103" On="uninstall"/>
+              </Component>
+              <Directory Id="MyToolbox103" Name="My Toolboxes">
+                <Component Id="MyToolbox103" Guid="{95660413-54A4-4D23-B945-ECA90EE98842}">
+                  <RegistryValue Root="HKCU" Key="Software\Innovate\EMEToolBox" Name="InstallDir" Type="string" Value="[MyToolbox103]" KeyPath ="yes"/>
+                  <RemoveFolder Id="MyToolbox103" On="uninstall"/>
                 </Component>
               </Directory>
             </Directory>
@@ -266,6 +285,20 @@
         <File Id="Arc104UpgCleanup" Source="$(var.EMEToolbox.ProjectDir)//EPAUpgradeCleanup.xslt"/>
         <File Id="Arc104MergeTemp" Source="$(var.EMEToolbox.ProjectDir)//mergeTemplate.xslt"/>
         <File Id="Arc104SaveTemp" Source="$(var.EMEToolbox.ProjectDir)//saveTemplate.xslt"/>
+        <RegistryValue Root="HKCU" Key="Software\Innovate" Name="Product" Type="string" Value="[ProductName]" KeyPath="yes"/>
+      </Component>
+    </ComponentGroup>
+
+    <ComponentGroup Id="EMEToolbox103" Directory="MyToolbox103">
+      <ComponentRef Id="ESRIRoam" />
+      <ComponentRef Id="ESRIDesktop103" />
+      <ComponentRef Id="ArcToolbox103" />
+      <ComponentRef Id="MyToolbox103" />
+      <Component Id="EMEToolboxComponents103" Guid="{3E2A41D9-D923-4883-BDB5-726731D28D17}" Permanent="no">
+        <File Id="Arc103EMEToolbox" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.pyt"/>
+        <File Id="Arc103UpgCleanup" Source="$(var.EMEToolbox.ProjectDir)//EPAUpgradeCleanup.xslt"/>
+        <File Id="Arc103MergeTemp" Source="$(var.EMEToolbox.ProjectDir)//mergeTemplate.xslt"/>
+        <File Id="Arc103SaveTemp" Source="$(var.EMEToolbox.ProjectDir)//saveTemplate.xslt"/>
         <RegistryValue Root="HKCU" Key="Software\Innovate" Name="Product" Type="string" Value="[ProductName]" KeyPath="yes"/>
       </Component>
     </ComponentGroup>
