@@ -93,7 +93,7 @@
                                                         <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_MD_RS}"/>-->
                                                         <Label Style="{DynamicResource EditorHExpanderLabel}">
                                                             <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#spatial-reference" RequestNavigate="Hyperlink_RequestNavigate">
-                                                                <TextBlock Text="{x:Static r:Resources.LBL_MD_RS}"/>
+                                                                <TextBlock Text="{x:Static r:Resources.LBL_MD_RS}" FontWeight="Bold"/>
                                                             </Hyperlink>
                                                         </Label>
                                                     </DockPanel>

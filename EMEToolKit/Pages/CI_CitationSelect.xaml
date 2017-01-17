@@ -108,7 +108,24 @@
             <Setter Property="Height" Value="0"/>
             <Setter Property="Width" Value="0"/>
         </Style>
-        
+
+        <Style x:Key="RoundedButton" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="ButtonBorder" 
+                                CornerRadius="10" 
+                                BorderThickness="1" 
+                                RenderTransformOrigin="0.5,0.5">
+                            <ContentPresenter x:Name="ButtonContentPresenter"
+                                VerticalAlignment="Center"  
+                                HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <p:ExpandVisibleConverter x:Key="ExpandConverter"/>
         <p:VisibleBoolNotConverter x:Key="VisibleBoolNotConverter"/>
         <p:VisibleBoolConverter x:Key="VisibleBoolConverter"/>
@@ -133,10 +150,10 @@
                     <StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                             <!-- Title, Alt Title -->
-                            <Button Name="btnThesanameEPA" Click="btnThesanameEPA_Click" Style="{DynamicResource DeleteButton}">EPA Keywords</Button>
-                            <Button Name="btnThesanameCode" Click="btnThesanameCode_Click" Style="{DynamicResource DeleteButton}">Program Code</Button>
-                            <Button Name="btnThesanameUser" Click="btnThesanameUser_Click" Style="{DynamicResource DeleteButton}">User Keywords</Button>
-                            <Button Name="btnThesanameNew" Click="btnThesanameNew_Click" Style="{DynamicResource DeleteButton}">Custom Thesaurus</Button>
+                            <Button Name="btnThesanameEPA" Click="btnThesanameEPA_Click" Margin="5,0,0,0" >EPA Keywords</Button>
+                            <Button Name="btnThesanameCode" Click="btnThesanameCode_Click" Margin="5,0,0,0" >Program Code</Button>
+                            <Button Name="btnThesanameUser" Click="btnThesanameUser_Click" Margin="5,0,0,0" >User Keywords</Button>
+                            <Button Name="btnThesanameNew" Click="btnThesanameNew_Click" Margin="5,0,0,0" >Custom Thesaurus</Button>
                         </StackPanel>
                         <!-- title -->
                         <!--<Label Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_TITLE}"/>-->

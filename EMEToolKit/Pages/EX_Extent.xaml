@@ -159,7 +159,7 @@
                                         <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_EXT_BOX}"/>-->
                                         <Label Style="{DynamicResource EditorHExpanderLabel}">
                                             <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#spatial-extent" RequestNavigate="Hyperlink_RequestNavigate">
-                                                <TextBlock Text="{x:Static r:Resources.LBL_EXT_BOX}"/>
+                                                <TextBlock Text="{x:Static r:Resources.LBL_EXT_BOX}" FontWeight="Bold"/>
                                             </Hyperlink>
                                         </Label>
                                     </DockPanel>
@@ -225,7 +225,7 @@
                                         <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static r:Resources.LBL_EXT_TEMP}"/>-->
                                         <Label Style="{DynamicResource EditorHExpanderLabel}">
                                             <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#temporal-extent" RequestNavigate="Hyperlink_RequestNavigate">
-                                                <TextBlock Text="{x:Static r:Resources.LBL_EXT_TEMP}"/>
+                                                <TextBlock Text="{x:Static r:Resources.LBL_EXT_TEMP}" FontWeight="Bold"/>
                                             </Hyperlink>
                                         </Label>
                                     </DockPanel>
@@ -312,9 +312,9 @@
 
             <!-- ADD bounding box -->
             <Button Tag="bbox" Click="AddRecordByTag" Style="{DynamicResource AddButton}">
-                <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Background="LemonChiffon">
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                     <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                    <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_EXTENTS_NEW_BBOX}"/>
+                    <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_EXTENTS_NEW_BBOX}" FontWeight="Bold"/>
                 </StackPanel>
             </Button>
 
@@ -329,9 +329,9 @@
             <!-- ADD temporal -->
             <StackPanel Orientation="Horizontal">
                 <Button Tag="tempEle" Click="AddRecordByTag" Style="{DynamicResource AddButton}">
-                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Background="LemonChiffon">
+                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                         <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
-                        <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_EXTENTS_NEW_TEMP}"/>
+                        <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_EXTENTS_NEW_TEMP}" FontWeight="Bold"/>
                     </StackPanel>
                 </Button>
                 <Button Tag="tempEleInstant" Click="AddRecordByTag" Style="{DynamicResource AddButton}">

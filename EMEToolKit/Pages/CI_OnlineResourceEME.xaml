@@ -67,7 +67,7 @@
                 <TextBox Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="0" Grid.Column="1"
                          ToolTip="{x:Static prop:Definitions.CI_OnlineResource_linkage}"
                          v:Nav.AnchorName="linkage,linkage"
-                         Text="{e:MetadataBinding XPath=linkage}"/>
+                         Text="{e:MetadataBinding XPath=linkage}" FontWeight="Bold"/>
                 <!-- NOTE: deleted URL rule -->
 
                 <!-- name -->
@@ -84,7 +84,7 @@
 
                 <!-- function -->
                 <Border Grid.Row="3" Grid.ColumnSpan="2" Background="LemonChiffon"></Border>
-                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="3" Grid.Column="0" Content="{x:Static prop:Resources.LBL_ONLINE_FUNCTION}"/>
+                <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="3" Grid.Column="0" Content="{x:Static prop:Resources.LBL_ONLINE_FUNCTION}" FontWeight="Bold"/>
                 <ComboBox Loaded="PostProcessComboBoxValues" corepages:EditorPage.SourceXPath="orFunct/OnFunctCd/@value" Grid.Row="3" Grid.Column="1"  Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
                           ToolTip="{x:Static prop:Definitions.CI_OnlineResource_function}"
                           ItemsSource="{Binding Source={StaticResource CI_OnLineFunctionCode}, Path=List}"

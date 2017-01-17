@@ -158,10 +158,10 @@
 
                                         <!-- title -->
                                         <Border Grid.Row="0" Grid.ColumnSpan="2" Background="LemonChiffon"></Border>
-                                        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0" Content="{x:Static r:Resources.LBL_TITLE}"/>
+                                        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0" Content="{x:Static r:Resources.LBL_TITLE}" FontWeight="Bold" />
                                         <TextBox x:Name="tbxResTitle" Grid.Row="0" Grid.Column="1" Style="{DynamicResource EditorTextBoxStyle}" ToolTip="{x:Static r:Definitions.CI_Citation_title}"
                                                  v:Nav.AnchorName="resTitle,resTitle"
-                                                 Text="{e:MetadataElementSync XPath=resTitle}"/>
+                                                 Text="{e:MetadataElementSync XPath=resTitle}" />
 
                                         <!-- alternative title -->
                                         <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0" Content="{x:Static r:Resources.LBL_ALTERNATE_TITLE}"/>
@@ -351,7 +351,7 @@
                                         <!--<Label Style="{DynamicResource EditorHExpanderLabel}" Content="{x:Static r:Resources.LBL_DATES}"/>-->
                                         <Label Style="{DynamicResource EditorHExpanderLabel}">
                                             <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#last-update" RequestNavigate="Hyperlink_RequestNavigate">
-                                                <TextBlock Text="{x:Static r:Resources.LBL_DATES}"/>
+                                                <TextBlock Text="{x:Static r:Resources.LBL_DATES}" />
                                             </Hyperlink>
                                         </Label>
                                     </Expander.Header>
@@ -383,7 +383,7 @@
                                         <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0"
                                                ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}"
                                                v:Nav.AnchorName="dates,date/pubDate"
-                                               Content="{x:Static r:Resources.LBL_PUBLISHED_DATE}"/>
+                                               Content="{x:Static r:Resources.LBL_PUBLISHED_DATE}" FontWeight="Bold"/>
                                         <!--<controls:DateTimeIsoControl Grid.Row="1" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}" Items="{Binding XPath=date/pubDate}"/>-->
                                         <controls:DateTimePicker DisplayTime="False" Grid.Row="1" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}">
                                             <controls:DateTimePicker.SelectedDate>

@@ -92,7 +92,7 @@
                                         <Button DockPanel.Dock="Right" Click="DeleteItem" Tag="deleteParent" Style="{DynamicResource DeleteButton}">
                                             <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                         </Button>
-                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static prop:Resources.LBL_CONSTS_LEGAL}"/>
+                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static prop:Resources.LBL_CONSTS_LEGAL}" FontWeight="Bold"/>
                                     </DockPanel>
                                 </Expander.Header>
                                 <pages:MD_LegalConstraintsEME/>
@@ -122,7 +122,7 @@
                                             <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                         </Button>
                                         <!--<Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static prop:Resources.LBL_CONSTS_LEGAL}"/>-->
-                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="System of Records Notice"/>
+                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="System of Records Notice" FontWeight="Bold"/>
                                     </DockPanel>
                                 </Expander.Header>
                                 <pages:MD_LegalConstraintsSOR/>
@@ -148,7 +148,7 @@
                                         <Button DockPanel.Dock="Right" Click="DeleteItem" Tag="deleteParent" Style="{DynamicResource DeleteButton}">
                                             <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                         </Button>
-                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static prop:Resources.LBL_CONSTS_SECURITY}"/>
+                                        <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{x:Static prop:Resources.LBL_CONSTS_SECURITY}" FontWeight="Bold"/>
                                     </DockPanel>
                                 </Expander.Header>
                                 <pages:MD_SecurityConstraintsEME/>

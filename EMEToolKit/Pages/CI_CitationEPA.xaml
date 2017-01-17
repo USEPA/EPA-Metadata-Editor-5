@@ -138,7 +138,7 @@
                                                    RelativeSource={RelativeSource FindAncestor,
                                                    AncestorType={x:Type ContentPresenter}},
                                                    Mode=OneWayToSource}" LastChildFill="True">
-                                            <Label Style="{DynamicResource EditorHExpanderSimpleLabel}" Content="{x:Static r:Resources.LBL_CITATION_TITLES}"/>
+                                            <Label Style="{DynamicResource EditorHExpanderSimpleLabel}" Content="{x:Static r:Resources.LBL_CITATION_TITLES}" />
                                             <Label Style="{DynamicResource EditorHExpanderLabel}"  Content="{Binding XPath=resTitle, Mode=TwoWay}"/>
                                         </DockPanel>
                                     </Expander.Header>
@@ -157,10 +157,10 @@
 
                                         <!-- title -->
                                         <Border Grid.Row="0" Grid.ColumnSpan="2" Background="LemonChiffon"></Border>
-                                        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0" Content="{x:Static r:Resources.LBL_TITLE}"/>
+                                        <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="0" Grid.Column="0" Content="{x:Static r:Resources.LBL_TITLE}" FontWeight="Bold" />
                                         <Label Grid.Row="0" Grid.Column="1" Style="{DynamicResource EditorHLabelStyle}" ToolTip="{x:Static r:Definitions.CI_Citation_title}"
                         v:Nav.AnchorName="resTitle,resTitle"
-                        Content="{e:MetadataElementSync XPath=resTitle}"/>
+                        Content="{e:MetadataElementSync XPath=resTitle}" FontWeight="Bold"/>
 
                                         <!-- alternative title -->
                                         <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0" Content="{x:Static r:Resources.LBL_ALTERNATE_TITLE}"/>
@@ -373,7 +373,7 @@
                                         <Label Style="{DynamicResource EditorHLabelStyle}" Grid.Row="1" Grid.Column="0"                        
                                                ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}"                        
                                                v:Nav.AnchorName="dates,date/pubDate"                       
-                                               Content="{x:Static r:Resources.LBL_PUBLISHED_DATE}"/>
+                                               Content="{x:Static r:Resources.LBL_PUBLISHED_DATE}" FontWeight="Bold"/>
                                         <controls:DateTimeIsoControl Grid.Row="1" Grid.Column="1" ToolTip="{x:Static r:Definitions.CI_Date_publicationDate}" 
                                                                      Items="{Binding XPath=date/pubDate}"/>
 

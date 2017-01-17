@@ -139,7 +139,7 @@
                                     <Border Grid.Row="0" Grid.ColumnSpan="2" Background="LemonChiffon"></Border>
                                     <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Background="LemonChiffon">
                                         <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#identifier" RequestNavigate="Hyperlink_RequestNavigate">
-                                            <TextBlock Text="{x:Static r:Resources.LBL_META_FILEID}"/>
+                                            <TextBlock Text="{x:Static r:Resources.LBL_META_FILEID}" FontWeight="Bold"/>
                                         </Hyperlink>
                                     </Label>
                                     <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding XPath=mdFileID}" Background="LemonChiffon">
@@ -170,7 +170,7 @@
 
                                     <!-- date stamp -->
                                     <Border Grid.Row="4" Grid.ColumnSpan="2" Background="LemonChiffon"></Border>
-                                    <Label Grid.Row="4" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_META_DATE}" ToolTip="{x:Static r:Definitions.MD_Metadata_dateStamp}" Background="LemonChiffon"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_META_DATE}" ToolTip="{x:Static r:Definitions.MD_Metadata_dateStamp}" Background="LemonChiffon" FontWeight="Bold"/>
                                     <ListBox x:Name="lbxMdDateSt" Grid.Row="4" Grid.Column="1" Style="{DynamicResource EditorNoScrollListBoxStyle}" v:Nav.AnchorName="mdDateSt,mdDateSt" ItemsSource="{Binding XPath=mdDateSt}" Background="LemonChiffon">
                                         <ListBox.ItemTemplate>
                                             <DataTemplate>
