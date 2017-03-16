@@ -1,5 +1,5 @@
 # EPA Metadata Editor v5.0
-EPA’s Metadata Editor version 5.0 (EME v5.0) is a custom software tool that aids the practical documentation of geospatial datasets. EME v5.0 assists GIS professionals in creating, editing, and validating metadata that complies with EPA’s <a href="https://www.epa.gov/geospatial/epa-metadata-technical-specification"> Metadata Technical Specification </a>, ISO’s 19115 standard endorsed by the Federal Geographic Data Committee (FGDC), and OMB’s Project Open Data (POD) schema. EME v5.0 is EPA’s customization of Esri’s ArcCatalog metadata editor and creates ISO/POD-compliant ArcGIS Metadata. 
+EPA’s Metadata Editor version 5.0 (EME v5.0) is a custom software tool that aids the practical documentation of geospatial datasets. EME v5.0 assists GIS professionals in creating, editing, and validating metadata that complies with EPA’s <a href="https://www.epa.gov/geospatial/epa-metadata-technical-specification"> Metadata Technical Specification</a>, ISO’s 19115 standard endorsed by the Federal Geographic Data Committee (FGDC), and OMB’s Project Open Data (POD) schema. EME v5.0 is EPA’s customization of Esri’s ArcCatalog metadata editor and creates ISO/POD-compliant ArcGIS Metadata. 
 
 Additional information and resources can be found on the <a href="https://github.com/USEPA/EPA-Metadata-Editor-5/wiki"> EPA Metadata Editor 5.0</a> Wiki.
 
