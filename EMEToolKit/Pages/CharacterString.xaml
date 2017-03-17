@@ -1,0 +1,17 @@
+﻿<corepages:EditorPage x:Class="EPAMetadataEditor.Pages.CharacterString"
+    xmlns:corepages="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Pages;assembly=ESRI.ArcGIS.MetadataEditor" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:pages="clr-namespace:EPAMetadataEditor.Pages"
+    xmlns:prop="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
+    xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor">
+
+  <Grid Style="{DynamicResource EditorSubSectionStyle}">
+    <DockPanel LastChildFill="True">
+      <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
+        <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
+      </Button>
+      <TextBox Style="{DynamicResource EditorTextBoxStyle}" Text="{Binding XPath=.}"/>
+    </DockPanel>
+  </Grid>
+</corepages:EditorPage>

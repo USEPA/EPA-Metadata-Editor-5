@@ -1,0 +1,75 @@
+﻿<corepages:EditorPage x:Class="EPAMetadataEditor.Pages.MD_ConstraintsEME"
+    xmlns:corepages="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Pages;assembly=ESRI.ArcGIS.MetadataEditor" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
+    xmlns:p="clr-namespace:EPAMetadataEditor.Pages"
+    xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
+    xmlns:r="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
+    xmlns:toolkit="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit"
+    xmlns:controls="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Controls;assembly=ESRI.ArcGIS.MetadataEditor"
+    Loaded="FillXml">
+
+    <UserControl.Resources>
+        <!--    
+    <!ELEMENT mdConst %ConstsTypes;>
+    <!ENTITY % ConstsTypes '(Consts | LegConsts | SecConsts)'>    
+    <!ENTITY % Consts '(useLimit*)'>   
+    <!ELEMENT useLimit (#PCDATA)>   
+    -->
+        <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
+
+        <XmlDataProvider x:Key="XmlRecord_UseLimit" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+            <x:XData>
+                <ANY xmlns="">
+                    <useLimit editorAppend="True">Please check sources, scale, accuracy, currency and other available information. Please confirm that you are using the most recent copy of both data and metadata.</useLimit>
+                </ANY>
+            </x:XData>
+        </XmlDataProvider>
+
+    </UserControl.Resources>
+
+    <Grid Style="{DynamicResource EditorSubPageStyle}">
+        <StackPanel>
+
+            <!-- use limitations -->
+            <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=useLimit}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <DockPanel Style="{DynamicResource EditorDockPanelStyle}" HorizontalAlignment="{Binding HorizontalAlignment,
+                                       RelativeSource={RelativeSource FindAncestor,
+                                       AncestorType={x:Type ContentPresenter}},
+                                       Mode=OneWayToSource}" LastChildFill="True">
+                                <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
+                                    <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
+                                </Button>
+                                <Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_USELIMIT}"/>
+                            </DockPanel>
+                            <!-- use limitations -->
+                            <Border Style="{DynamicResource EditorRichTextBoxContainerNoIndentStyle}">
+                                <p:EditorRichTextBox v:Nav.AnchorName="useLimit" ToolTip="{x:Static r:Definitions.MD_Constraints_useLimitation}" />
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <!-- ADD use limitation -->
+            <Button Tag="UseLimit" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                    <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
+                    <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_CONSTS_NEW_USELIMIT}"/>
+                </StackPanel>
+            </Button>
+
+            <!-- validate after all anchors are loaded -->
+            <v:PageValidateControl/>
+
+        </StackPanel>
+    </Grid>
+</corepages:EditorPage>

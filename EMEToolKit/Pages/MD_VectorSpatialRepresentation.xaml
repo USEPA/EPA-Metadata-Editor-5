@@ -1,0 +1,181 @@
+﻿<corepages:EditorPage x:Class="EPAMetadataEditor.Pages.MD_VectorSpatialRepresentation"
+    xmlns:corepages="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Pages;assembly=ESRI.ArcGIS.MetadataEditor" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:v="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Validation;assembly=ESRI.ArcGIS.MetadataEditor"
+    xmlns:p="clr-namespace:EPAMetadataEditor.Pages"
+    xmlns:r="clr-namespace:ESRI.ArcGIS.Metadata.Editor.Properties;assembly=ESRI.ArcGIS.MetadataEditor"
+    xmlns:toolkit="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit"
+    xmlns:e="clr-namespace:ESRI.ArcGIS.Metadata.Editor;assembly=ESRI.ArcGIS.MetadataEditor"
+    Loaded="FillXml">
+
+  <UserControl.Resources>
+    <!-- 
+    
+   
+      <!ENTITY % Metadata '(... spatRepInfo*, refSysInfo*, mdExtInfo*, (dataIdInfo+ | svIdInfo+), contInfo*, distInfo?, dqInfo*, porCatInfo*, mdConst*, appSchInfo*, mdMaint?, series*, describes*, propType*, featType*, featAttr*, spdoinfo?, eainfo?, Binary?, (tool? | toolbox?), taxSys?, miAcquInfo*)'> 
+      <!ELEMENT spatRepInfo %SpatRepTypes;>
+      
+      <!ENTITY % SpatRepTypes '(GridSpatRep | Georect | Georef | VectSpatRep | MiGeorect | MiGeoref)'> not currently editing or translating image extension elements Mi... 
+      
+      grid info translated in to georect for internal storage at 10, but will separate and use these elements appropriately on export as illustrated in the comment below if additional georect info not available 
+      should always get full georect info from ArcGIS by 10 synchronization for rasters 
+      
+      <!ENTITY % GridSpatRep '(numDims, axisDimension*, cellGeo, tranParaAv)'> not using for ESRI synchronized info, but need it for manually defined info from editor
+      <!ENTITY % Georect '(numDims, axisDimension*, cellGeo, tranParaAv, chkPtAv, chkPtDesc?, cornerPts*, centerPt?, ptInPixel, transDimDesc?, transDimMap*)'> cornerPts was single but now multiple each with one point; transDimMap can occur 0 to 2 times 
+      <!ENTITY % Georef '(numDims, axisDimension*, cellGeo, tranParaAv, ctrlPtAv, orieParaAv, orieParaDs?, georefPars, paraCit*)'> in ArcGIS everything is handled as if it is georeferenced even if it isn't, will always get georect; may need to provide additional georef info in this case, but should not remove georect 
+      <!ENTITY % VectSpatRep '(topLvl?, geometObjs*)'>
+      <!ENTITY % Dimension '(dimSize, dimResol?)'>
+      <!ENTITY % GeometObjs '(geoObjTyp, geoObjCnt?)'>
+    
+  
+      <!ENTITY % VectSpatRep '(topLvl?, geometObjs*)'>
+      <!ELEMENT topLvl (TopoLevCd)>
+      MD_TopologyLevelCode
+            <!ELEMENT TopoLevCd EMPTY>
+            <!ATTLIST TopoLevCd
+	      Sync CDATA #IMPLIED
+	      value (001 | 002 | 003 | 004 | 005 | 006 | 007 | 008 | 009) #REQUIRED>
+            001-009 (geometryOnly | topology1D | planarGraph | fullPlanarGraph | surfaceGraph | 
+            fullSurfaceGraph | topology3D | fullTopology3D | abstract) from ISO 19115
+
+      <!ELEMENT geometObjs %GeometObjs;>
+      <!ATTLIST geometObjs
+	      Name CDATA #IMPLIED
+      >
+      <!ENTITY % GeometObjs '(geoObjTyp, geoObjCnt?)'>
+      <!ELEMENT geoObjTyp (GeoObjTypCd)>
+      <!ELEMENT GeoObjTypCd EMPTY>
+      <!ATTLIST GeoObjTypCd
+	      Sync CDATA #IMPLIED
+	      value (001 | 002 | 003 | 004 | 005 | 006) #REQUIRED>
+       001-006 (complex | composite | curve | point | solid | surface) from ISO 19115
+        <!ELEMENT geoObjCnt %Integer;>
+        <!ATTLIST geoObjCnt
+	      Sync CDATA #IMPLIED
+      >
+
+      -->
+    <XmlDataProvider x:Key="XmlRecord" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+      <x:XData>
+        <ANY xmlns="">
+          <topLvl>
+            <TopoLevCd value=""/>            
+          </topLvl>
+          <geometObjs editorFillOnly="True">
+            <geoObjTyp>
+              <GeoObjTypCd value=""/>
+            </geoObjTyp>
+            <geoObjCnt></geoObjCnt>
+          </geometObjs>
+        </ANY>
+      </x:XData>
+    </XmlDataProvider>
+
+    <!-- MD_GeometricObjects -->
+    <XmlDataProvider x:Key="XmlRecord_GeometObjs" XPath="/" IsAsynchronous="False" IsInitialLoadEnabled="True">
+      <x:XData>
+        <ANY xmlns="">
+          <geometObjs>
+            <geoObjTyp>
+              <GeoObjTypCd value=""/>
+            </geoObjTyp>
+            <geoObjCnt></geoObjCnt>
+          </geometObjs>
+        </ANY>
+      </x:XData>
+    </XmlDataProvider>   
+
+    <e:Codelists x:Key="MD_TopologyLevelCode" CodelistName="MD_TopologyLevelCode"/>
+    <e:Codelists x:Key="MD_GeometricObjectTypeCode" CodelistName="MD_GeometricObjectTypeCode"/>
+
+    <v:MetadataIntegerRules x:Key="GeoObjCntRule" Msg="{x:Static r:Issues.geoObjCnt_INTEGER}"/>
+    
+  </UserControl.Resources>
+
+  <Grid Style="{DynamicResource EditorSubPageStyle}">
+    <StackPanel>
+
+      <!-- topology level -->
+      <DockPanel LastChildFill="True">        
+        <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelStyle}"
+              Content="{x:Static r:Resources.LBL_SPATREF_TOPLEVEL}"/>
+        <ComboBox Loaded="PostProcessComboBoxValues" corepages:EditorPage.SourceXPath="topLvl/TopoLevCd/@value" SelectionChanged="ComboBoxSyncSelectionChanged" DockPanel.Dock="Left" Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
+            ToolTip="{x:Static r:Definitions.MD_VectorSpatialRepresentation_topologyLevel}"
+            ItemsSource="{Binding Source={StaticResource MD_TopologyLevelCode}, Path=List}"
+            DisplayMemberPath="."
+            SelectedValuePath="@value">
+          <ComboBox.SelectedValue>
+            <e:MetadataBinding XPath="topLvl/TopoLevCd/@value"/>
+          </ComboBox.SelectedValue>
+        </ComboBox>        
+      </DockPanel>      
+
+      <!-- geometric objects -->
+      <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=geometObjs}">
+        <ListBox.ItemsPanel>
+          <ItemsPanelTemplate>
+            <StackPanel/>
+          </ItemsPanelTemplate>
+        </ListBox.ItemsPanel>
+        <ListBox.ItemTemplate>
+          <DataTemplate>
+            <DockPanel LastChildFill="True">
+              <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelStyle}" Content="{x:Static r:Resources.LBL_SPATREF_GEOOBJ}"/>
+             
+              <!-- add if the last sibling -->
+              <ListBox DockPanel.Dock="Right" Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=self::*[not(following-sibling::geometObjs)]}">
+                <ListBox.ItemTemplate>
+                  <DataTemplate>
+                    <Button Tag="GeometObjs_Parent" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
+                      <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
+                    </Button>
+                  </DataTemplate>
+                </ListBox.ItemTemplate>
+              </ListBox>
+              <!-- delete -->
+              <Button DockPanel.Dock="Right" Click="DeleteItem" Style="{DynamicResource DeleteButton}">
+                <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
+              </Button>
+
+              <!-- count -->
+              <TextBox DockPanel.Dock="Left" Style="{DynamicResource EditorTextBoxStyle}" Grid.Row="0" Grid.Column="0" ToolTip="{x:Static r:Definitions.MD_GeometricObjects_geometricObjectCount}"
+                  v:Nav.AnchorName="geoObjCnt,geoObjCnt" v:MetadataRules.Rules="{StaticResource GeoObjCntRule}"
+                  Text="{e:MetadataBinding XPath=geoObjCnt}"/>
+
+              <!-- geometric object type -->
+              <ComboBox Loaded="PostProcessComboBoxValues" corepages:EditorPage.SourceXPath="geoObjTyp/GeoObjTypCd/@value" SelectionChanged="ComboBoxSyncSelectionChanged" DockPanel.Dock="Left" Style="{DynamicResource EditorHComboBoxStyle}" IsEditable="False"
+                  ToolTip="{x:Static r:Definitions.MD_GeometricObjects_geometricObjectType}"
+                  v:Nav.AnchorName="GeoObjTypCd,geoObjTyp/GeoObjTypCd"
+                  ItemsSource="{Binding Source={StaticResource MD_GeometricObjectTypeCode}, Path=List}"
+                  DisplayMemberPath="."
+                  SelectedValuePath="@value">
+                <ComboBox.SelectedValue>
+                  <e:MetadataBinding XPath="geoObjTyp/GeoObjTypCd/@value"/>
+                </ComboBox.SelectedValue>
+              </ComboBox>
+            </DockPanel>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+      
+      <!-- ADD geometric objects -->
+      <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=self::*[not(geometObjs)]}">
+        <ListBox.ItemTemplate>
+          <DataTemplate>
+            <Button Tag="GeometObjs" Click="AddRecordByTagToLocal" Style="{DynamicResource AddButton}">
+              <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                <Image Style="{DynamicResource AddImageStyle}" Source="../Icons/GenericAddGreen16.png"/>
+                <TextBlock Style="{DynamicResource ButtonTextStyle}" Text="{x:Static r:Resources.BTN_SPATREF_GEOOBJECTS}"/>
+              </StackPanel>
+            </Button>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+
+      <!-- validate after all anchors are loaded -->
+      <v:PageValidateControl/>
+      
+    </StackPanel>
+  </Grid>
+</corepages:EditorPage>
