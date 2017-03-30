@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="{9643E2F1-5FE2-42F3-A3E5-5C555E5B8AF9}" Name="EME 5.0 for ArcGIS 10.5x" Language="1033" Version="0.9.14.63" Manufacturer="Innovate! Inc." UpgradeCode="{522B556A-CE0C-48D8-BB7B-4925F8515A5D}">
+	<Product Id="{9643E2F1-5FE2-42F3-A3E5-5C555E5B8AF9}" Name="EME 5.0 for ArcGIS 10.5x" Language="1033" Version="0.9.21.07" Manufacturer="Innovate! Inc." UpgradeCode="{522B556A-CE0C-48D8-BB7B-4925F8515A5D}">
 		<Package Id="*" InstallerVersion="400" Compressed="yes" InstallScope="perMachine" />
 <!-- 0.9.8.1 Fix EMEdb "Defaults" checkbox behavior -->
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -271,6 +271,12 @@
         <File Id="Arc105UpgCleanup" Source="$(var.EMEToolbox.ProjectDir)//EPAUpgradeCleanup.xslt"/>
         <File Id="Arc105MergeTemp" Source="$(var.EMEToolbox.ProjectDir)//mergeTemplate.xslt"/>
         <File Id="Arc105SaveTemp" Source="$(var.EMEToolbox.ProjectDir)//saveTemplate.xslt"/>
+        <File Id="Arc105cleanupToolXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.cleanupTool.pyt.xml"/>
+        <File Id="Arc105exportISOToolXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.exportISOTool.pyt.xml"/>
+        <File Id="Arc105mergeTemplateXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.mergeTemplate.pyt.xml"/>
+        <File Id="Arc105ToolboxXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.pyt.xml"/>
+        <File Id="Arc105saveTemplateXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.saveTemplate.pyt.xml"/>
+        <File Id="Arc105upgradeToolXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.upgradeTool.pyt.xml"/>
         <RegistryValue Root="HKCU" Key="Software\Innovate" Name="Product" Type="string" Value="[ProductName]" KeyPath="yes"/>
       </Component>
     </ComponentGroup>
@@ -285,6 +291,12 @@
         <File Id="Arc104UpgCleanup" Source="$(var.EMEToolbox.ProjectDir)//EPAUpgradeCleanup.xslt"/>
         <File Id="Arc104MergeTemp" Source="$(var.EMEToolbox.ProjectDir)//mergeTemplate.xslt"/>
         <File Id="Arc104SaveTemp" Source="$(var.EMEToolbox.ProjectDir)//saveTemplate.xslt"/>
+        <File Id="Arc104cleanupToolXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.cleanupTool.pyt.xml"/>
+        <File Id="Arc104exportISOToolXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.exportISOTool.pyt.xml"/>
+        <File Id="Arc104mergeTemplateXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.mergeTemplate.pyt.xml"/>
+        <File Id="Arc104ToolboxXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.pyt.xml"/>
+        <File Id="Arc104saveTemplateXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.saveTemplate.pyt.xml"/>
+        <File Id="Arc104upgradeToolXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.upgradeTool.pyt.xml"/>
         <RegistryValue Root="HKCU" Key="Software\Innovate" Name="Product" Type="string" Value="[ProductName]" KeyPath="yes"/>
       </Component>
     </ComponentGroup>
@@ -299,6 +311,12 @@
         <File Id="Arc103UpgCleanup" Source="$(var.EMEToolbox.ProjectDir)//EPAUpgradeCleanup.xslt"/>
         <File Id="Arc103MergeTemp" Source="$(var.EMEToolbox.ProjectDir)//mergeTemplate.xslt"/>
         <File Id="Arc103SaveTemp" Source="$(var.EMEToolbox.ProjectDir)//saveTemplate.xslt"/>
+        <File Id="Arc103cleanupToolXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.cleanupTool.pyt.xml"/>
+        <File Id="Arc103exportISOToolXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.exportISOTool.pyt.xml"/>
+        <File Id="Arc103mergeTemplateXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.mergeTemplate.pyt.xml"/>
+        <File Id="Arc103ToolboxXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.pyt.xml"/>
+        <File Id="Arc103saveTemplateXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.saveTemplate.pyt.xml"/>
+        <File Id="Arc103upgradeToolXml" Source="$(var.EMEToolbox.ProjectDir)//EPA Metadata Toolbox.upgradeTool.pyt.xml"/>
         <RegistryValue Root="HKCU" Key="Software\Innovate" Name="Product" Type="string" Value="[ProductName]" KeyPath="yes"/>
       </Component>
     </ComponentGroup>

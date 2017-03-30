@@ -23,7 +23,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="EPA Metadata Toolbox.cleanupTool.pyt.xml" />
+    <Content Include="EPA Metadata Toolbox.exportISOTool.pyt.xml" />
+    <Content Include="EPA Metadata Toolbox.mergeTemplate.pyt.xml" />
     <Content Include="EPA Metadata Toolbox.pyt" />
+    <Content Include="EPA Metadata Toolbox.pyt.xml" />
+    <Content Include="EPA Metadata Toolbox.saveTemplate.pyt.xml" />
+    <Content Include="EPA Metadata Toolbox.upgradeTool.pyt.xml" />
     <Content Include="EPAUpgradeCleanup.xslt" />
     <Content Include="mergeTemplate.xslt" />
     <Content Include="saveTemplate.xslt" />

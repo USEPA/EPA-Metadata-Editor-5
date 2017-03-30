@@ -6,7 +6,7 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>b5cf2fc9-6a1b-4168-bf21-702d2166ba8f</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>EME_5.0_for_ArcGIS10.5x_beta-0.9.14</OutputName>
+    <OutputName>EME_5.0_for_ArcGIS10.5x_beta-0.9.21</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
