@@ -51,15 +51,15 @@
     <Reference Include="ESRI.ArcGIS.Geodatabase" />
     <Reference Include="ESRI.ArcGIS.Geoprocessing" />
     <Reference Include="ESRI.ArcGIS.ItemIndex">
-      <HintPath>..\..\..\Program Files (x86)\ArcGIS\Desktop10.5\bin\ESRI.ArcGIS.ItemIndex.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.5\bin\ESRI.ArcGIS.ItemIndex.dll</HintPath>
     </Reference>
     <Reference Include="ESRI.ArcGIS.MetadataEditor, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Program Files (x86)\ArcGIS\Desktop10.5\bin\ESRI.ArcGIS.MetadataEditor.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.5\bin\ESRI.ArcGIS.MetadataEditor.dll</HintPath>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Search" />
     <Reference Include="ESRI.ArcGIS.SearchCore">
-      <HintPath>..\..\..\Program Files (x86)\ArcGIS\Desktop10.5\bin\ESRI.ArcGIS.SearchCore.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.5\bin\ESRI.ArcGIS.SearchCore.dll</HintPath>
     </Reference>
     <Reference Include="ESRI.ArcGIS.System" />
     <Reference Include="ESRI.ArcGIS.Version" />
@@ -98,7 +98,7 @@
     </Reference>
     <Reference Include="WPFToolkit">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Program Files (x86)\ArcGIS\Desktop10.5\bin\WPFToolkit.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.5\bin\WPFToolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -1394,6 +1394,9 @@
     <Resource Include="Icons\help.rnd.white.png" />
     <Resource Include="Icons\info.rnd.transparent.png" />
     <Resource Include="Icons\info.rnd.white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EMEdb\emeConfig.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

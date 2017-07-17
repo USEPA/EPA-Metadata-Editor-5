@@ -321,14 +321,41 @@
                             </ListBox>
 
                             <!-- description / abstract -->
+                            <!-- Plain Text Control -->
                             <!-- do not show if this is a tool -->
                             <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata[not(tool)]}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Background="LemonChiffon">
                                             <DockPanel>
-                                                <!--<Label Style="{DynamicResource EditorVLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_ITEMINFO_SNIP}"/>-->
-                                                <!--<Label Style="{DynamicResource EditorVLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_ITEMINFO_SNIP}" Background="Red"/>-->
+                                                <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" ToolTip="Link to Technical Specification" >
+                                                    <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#description" RequestNavigate="Hyperlink_RequestNavigate">
+                                                        <TextBlock Text="{x:Static r:Resources.LBL_ITEMINFO_SNIP}" FontWeight="Bold"/>
+                                                    </Hyperlink>
+                                                </Label>
+                                                <Label VerticalAlignment="Center" HorizontalAlignment="Left" ToolTip="EME 5.0 Style Guide">
+                                                    <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-geospatial-metadata-style-guide-using-eme-5#description" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="{x:Null}">
+                                                        <Image Source="../Icons/info.rnd.white.png" RenderOptions.BitmapScalingMode="Fant" MaxHeight="14"/>
+                                                    </Hyperlink>
+                                                </Label>
+                                            </DockPanel>
+                                            <controls:Resizer>
+                                                <TextBox ToolTip="{x:Static r:Definitions.MD_Identification_abstract}" Style="{DynamicResource EditorTextAreaShortResizeStyle}" v:Nav.AnchorName="idAbs" Text="{e:MetadataBinding XPath=dataIdInfo[1]/idAbs}"/>
+                                            </controls:Resizer>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                            <!-- description / abstract -->
+                            <!-- do not show if this is a tool -->
+                            <!--<ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=/metadata[not(tool)]}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Background="LemonChiffon">
+                                            <DockPanel>
+                                                --><!--<Label Style="{DynamicResource EditorVLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_ITEMINFO_SNIP}"/>-->
+                                                <!--<Label Style="{DynamicResource EditorVLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_ITEMINFO_SNIP}" Background="Red"/>--><!--
                                                 <Label DockPanel.Dock="Left" Style="{DynamicResource EditorHLabelNoIdentStyle}" ToolTip="Link to Technical Specification" >
                                                     <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#description" RequestNavigate="Hyperlink_RequestNavigate">
                                                         <TextBlock Text="{x:Static r:Resources.LBL_ITEMINFO_SNIP}" FontWeight="Bold"/>
@@ -352,7 +379,7 @@
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
-                            </ListBox>
+                            </ListBox>-->
 
                             <!-- geoprocessing -->
                             <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" ItemsSource="{Binding XPath=tool}">
@@ -370,7 +397,26 @@
                             </controls:Resizer>
 
                             <!-- use limits -->
+                            <!-- Plain Text Control -->
                             <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
+                                <ListBox.ItemsSource>
+                                    <Binding XPath="(dataIdInfo/resConst/Consts/useLimit)[1]"/>
+                                </ListBox.ItemsSource>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <!--<Label Style="{DynamicResource EditorVLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_USELIMIT}"/>-->
+                                            <Label Style="{DynamicResource EditorVLabelNoIdentStyle}" Content="Test - Use Limitation"/>
+                                            <controls:Resizer>
+                                                <TextBox v:Nav.AnchorName="useLimit" ToolTip="{x:Static r:Definitions.MD_Constraints_useLimitation}" Style="{DynamicResource EditorTextAreaShortResizeStyle}" Text="{e:MetadataBinding XPath=.}"/>
+                                            </controls:Resizer>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+
+                            <!-- use limits -->
+                            <!--<ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">
                                 <ListBox.ItemsSource>
                                     <Binding XPath="(dataIdInfo/resConst/Consts/useLimit)[1]"/>
                                 </ListBox.ItemsSource>
@@ -384,7 +430,7 @@
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
-                            </ListBox>
+                            </ListBox>-->
 
                             <!--  ADD use limitation -->
                             <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}">

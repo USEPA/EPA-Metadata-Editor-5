@@ -32,11 +32,17 @@ namespace EPAMetadataEditor.Pages
     /// </summary>
     public partial class ContactManager : EditorPage
     {
-        private XmlDocument _contactsDoc = null;
-        private XmlDocument _contactsEsri = null;
-        private XmlDocument _contactsEpa = null;
-        private XmlDocument _contactsBAK = null;
+        XmlDocument _emeConfig = new XmlDocument();
+        XmlDocument _contactsDoc = new XmlDocument();
+        XmlDocument _contactsEsri = new XmlDocument();
+        XmlDocument _contactsEpa = new XmlDocument();
+        XmlDocument _contactsBAK = new XmlDocument();
+        XmlDocument _contactsWEB = new XmlDocument();
+        string _filePathEsri = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\ArcGIS\\Descriptions\\";
+        string _filePathEme = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EME Toolkit\\EMEdb\\";
+
         public string partySource = null;
+
         public ContactManager()
         {
             InitializeComponent();
@@ -58,7 +64,6 @@ namespace EPAMetadataEditor.Pages
             clone.AppendChild(contactsNode);
 
             // write back out the contacts marked saved
-            //var list = _contactsDoc.SelectNodes("//contact[(editorSave='True') and not(editorSource='EPA Directory')]");
             var list = _contactsDoc.SelectNodes("//contact[editorSave='True']");
             StringBuilder sb = new StringBuilder();
 
@@ -147,69 +152,136 @@ namespace EPAMetadataEditor.Pages
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+
         public void LoadContacts(object sender, RoutedEventArgs e)
         {
-            _contactsDoc = new XmlDocument();
-            _contactsEsri = new XmlDocument();
-            _contactsEpa = new XmlDocument();
-            _contactsBAK = new XmlDocument();
-            XmlDocument _contactsWEB = new XmlDocument();
+            #region Load EME Configuration File
+            // Load emeConfig.xml
+            try { _emeConfig.Load(_filePathEme + "emeConfig.xml"); }
+            catch (System.IO.FileNotFoundException)
+            {
+                _emeConfig.LoadXml(
+                "<?xml version=\"1.0\" standalone=\"yes\"?> \n" +
+                "<emeConfig> \n" +
+                "  <xs:schema id=\"emeConfig\" xmlns=\"\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:msdata=\"urn:schemas-microsoft-com:xml-msdata\"> \n" +
+                "    <xs:element name=\"emeControl\"> \n" +
+                "      <xs:complexType> \n" +
+                "        <xs:sequence> \n" +
+                "          <xs:element name=\"controlName\" type=\"xs:string\"/> \n" +
+                "          <xs:element name=\"param\" maxOccurs=\"10\" minOccurs=\"0\"> \n" +
+                "            <xs:complexType mixed=\"true\"> \n" +
+                "              <xs:attribute name=\"label\" type=\"xs:string\" use=\"required\" /> \n" +
+                "            </xs:complexType> \n" +
+                "          </xs:element> \n" +
+                "          <xs:element name=\"url\" maxOccurs=\"10\" minOccurs=\"0\"> \n" +
+                "            <xs:complexType mixed=\"true\"> \n" +
+                "              <xs:attribute name=\"label\" type=\"xs:string\" use=\"required\" /> \n" +
+                "            </xs:complexType> \n" +
+                "          </xs:element> \n" +
+                "          <xs:element name=\"date\" maxOccurs=\"10\" minOccurs=\"0\"> \n" +
+                "            <xs:complexType mixed=\"true\"> \n" +
+                "              <xs:attribute name=\"label\" type=\"xs:string\" use=\"required\" /> \n" +
+                "            </xs:complexType> \n" +
+                "          </xs:element> \n" +
+                "          <xs:element name=\"required\" maxOccurs=\"10\" minOccurs=\"0\"> \n" +
+                "            <xs:complexType mixed=\"true\"> \n" +
+                "              <xs:attribute name=\"label\" type=\"xs:string\" use=\"required\" /> \n" +
+                "            </xs:complexType> \n" +
+                "          </xs:element> \n" +
+                "        </xs:sequence> \n" +
+                "      </xs:complexType> \n" +
+                "    </xs:element> \n" +
+                "    <xs:element name=\"emeControl\"> \n" +
+                "      <xs:complexType> \n" +
+                "        <xs:choice minOccurs=\"0\" maxOccurs=\"unbounded\"> \n" +
+                "          <xs:element ref=\"emeControl\" /> \n" +
+                "        </xs:choice> \n" +
+                "      </xs:complexType> \n" +
+                "    </xs:element> \n" +
+                "  </xs:schema> \n" +
+                "  <emeControl> \n" +
+                "    <controlName>Contacts Manager</controlName> \n" +
+                "    <param label=\"Contacts Source\">EPA Contact</param> \n" +
+                "    <url label=\"Contacts URL\">https://edg.epa.gov/EME/contacts.xml</url> \n" +
+                "    <date label=\"Local Cache\">2010-06-27T12:00:00-07:00</date> \n" +
+                "  </emeControl> \n" +
+                "</emeConfig>");
+            }
+            #endregion
 
-            string filePathEsri = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\ArcGIS\\Descriptions\\";
-            string filePathEme = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EME Toolkit\\EMEdb\\";
+            var directoryName = _emeConfig.SelectSingleNode("//emeControl[controlName[contains(. , 'Contacts Manager')]]/param").InnerText;
+            var directoryUrl = _emeConfig.SelectSingleNode("//emeControl[controlName[contains(. , 'Contacts Manager')]]/url").InnerText;
+            TimeSpan syncAge = ((DateTime.Now) - (DateTime.Parse(_emeConfig.SelectSingleNode("//emeControl[controlName[contains(. , 'Contacts Manager')]]/date").InnerText)));
+            var syncDays = syncAge.ToString("d'd 'h'h 'm'm 's's'");
+
+            // check if local file is older than 12 hours
+            bool dbExpired = syncAge > (new TimeSpan(0, 12, 0, 0));
 
             // Check to see if contacts.bak exists.
             // contacts.bak is created during LoadList. If LoadList crashes contacts.xml will be left with bad data.
             // replace contacts.xml with contacts.bak
-            if (File.Exists(filePathEsri + "contacts.bak"))
+            if (File.Exists(_filePathEsri + "contacts.bak"))
             {
-                File.Delete(filePathEsri + "contacts.xml");
-                File.Copy(filePathEsri + "contacts.bak", filePathEsri + "contacts.xml");
-                File.Delete(filePathEsri + "contacts.bak");
+                File.Delete(_filePathEsri + "contacts.xml");
+                File.Copy(_filePathEsri + "contacts.bak", _filePathEsri + "contacts.xml");
+                File.Delete(_filePathEsri + "contacts.bak");
             }
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://edg.epa.gov/EME/contacts.xml");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(directoryUrl);
             request.Timeout = 15000;
             request.Method = "HEAD"; //test URL without downloading the content
-            try
+           
+            if (syncAge > (new TimeSpan(0, 12, 0, 0)))
             {
-                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                //MessageBoxResult fileCheck = MessageBox.Show("Local cache is " + syncDays + " old.\nLoading contacts from \"" + directoryName + "\"\n (" + directoryUrl + ")", "EME Contacts Manager", MessageBoxButton.OK, MessageBoxImage.Information);
+                try
                 {
-                    if (response.StatusCode.ToString() == "OK")
+                    using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                     {
-                        //MessageBoxResult webResponse = MessageBox.Show("EME contacts loaded from https://edg.epa.gov/EME/contacts.xml", "EME 5.0 Web Request", MessageBoxButton.OK, MessageBoxImage.Information);
-                        try { _contactsWEB.Load("https://edg.epa.gov/EME/contacts.xml"); }
-                        catch (System.IO.FileNotFoundException)
+                        if (response.StatusCode.ToString() == "OK")
                         {
-                            _contactsWEB.LoadXml(
-                            "<contacts> \n" +
-                            "  <contact> \n" +
-                            "    <editorSource></editorSource> \n" +
-                            "    <editorDigest></editorDigest> \n" +
-                            "    <rpIndName></rpIndName> \n" +
-                            "    <rpOrgName></rpOrgName> \n" +
-                            "    <rpPosName></rpPosName> \n" +
-                            "    <editorSave></editorSave> \n" +
-                            "    <rpCntInfo></rpCntInfo> \n" +
-                            "  </contact> \n" +
-                            "</contacts>");
+                            // Return contacts.xml Date Modified
+                            try { _contactsWEB.Load(directoryUrl); }
+                            catch (System.IO.FileNotFoundException)
+                            {
+                                _contactsWEB.LoadXml(
+                                "<contacts> \n" +
+                                "  <contact> \n" +
+                                "    <editorSource></editorSource> \n" +
+                                "    <editorDigest></editorDigest> \n" +
+                                "    <rpIndName></rpIndName> \n" +
+                                "    <rpOrgName></rpOrgName> \n" +
+                                "    <rpPosName></rpPosName> \n" +
+                                "    <editorSave></editorSave> \n" +
+                                "    <rpCntInfo></rpCntInfo> \n" +
+                                "  </contact> \n" +
+                                "</contacts>");
+                            }
+                            _contactsWEB.Save(_filePathEme + "contacts.xml");
+
+                            // Add timestamp to config file
+                            _emeConfig.SelectSingleNode("//emeControl[controlName[contains(. , 'Contacts Manager')]]/date").InnerText = DateTime.Now.ToString("o");
+                            _emeConfig.Save(_filePathEme + "emeConfig.xml");
                         }
-                        _contactsWEB.Save(filePathEme + "contacts.xml");
+                        else
+                        {
+                            MessageBoxResult webResponse = MessageBox.Show("Error loading contacts from " + directoryUrl + "." + "\n" + "EME contacts will be loaded from local cache.", "EME 5.0 Web Request", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
                     }
-                    else
+                }
+                catch (Exception weberror)
+                {
                     {
-                        MessageBoxResult webResponse = MessageBox.Show("Error loading contacts from https://edg.epa.gov/EME/contacts.xml." + "\n" + "EME contacts will be loaded from local cache.", "EME 5.0 Web Request", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBoxResult result = MessageBox.Show(weberror.Message + "\n" + "EME contacts will be loaded from local cache.", "EME 5.0 Web Request", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
             }
-            catch (Exception weberror)
+            else
             {
-                {
-                    MessageBoxResult result = MessageBox.Show(weberror.Message + "\n" + "EME contacts will be loaded from local cache.", "EME 5.0 Web Request", MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
+                //MessageBoxResult fileCheck = MessageBox.Show("Local cache is " + syncDays + " old.\nContacts will be loaded from local cache.", "EME Contacts Manager", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
-            try { _contactsBAK.Load(filePathEsri + "contacts.xml"); }
+            try { _contactsBAK.Load(_filePathEsri + "contacts.xml"); }
             catch (System.IO.FileNotFoundException)
             {
                 _contactsBAK.LoadXml(
@@ -226,10 +298,9 @@ namespace EPAMetadataEditor.Pages
                 "</contacts>");
             }
             // save backup of user contacts.xml
-            _contactsBAK.Save(filePathEsri + "contacts.bak");
+            _contactsBAK.Save(_filePathEsri + "contacts.bak");
             
-            //_contactsEsri.PreserveWhitespace = true;
-            try { _contactsEsri.Load(filePathEsri + "contacts.xml"); }
+            try { _contactsEsri.Load(_filePathEsri + "contacts.xml"); }
             catch (System.IO.FileNotFoundException)
             {
                 _contactsEsri.LoadXml(
@@ -245,10 +316,8 @@ namespace EPAMetadataEditor.Pages
                 "  </contact> \n" +
                 "</contacts>");
             }
-            //_contactsEsri.Save(filePathEsri + "contactManEsri.xml");
 
-            //_contactsEpa.PreserveWhitespace = true;
-            try { _contactsEpa.Load(filePathEme + "contacts.xml"); }
+            try { _contactsEpa.Load(_filePathEme + "contacts.xml"); }
             catch (System.IO.FileNotFoundException)
             {
                 _contactsEpa.LoadXml(
@@ -264,14 +333,23 @@ namespace EPAMetadataEditor.Pages
                 "  </contact> \n" +
                 "</contacts>");
             }
-            //_contactsEpa.Save(filePathEsri + "contactManEpa.xml");
 
             // new document
             XmlDocument cloneMerge = new XmlDocument();
+
+            #region This method took 8.66 seconds to load contacts
+            //try { cloneMerge.Load(_filePathEsri + "contacts.cfg"); }
+            //catch
+            //{
+            //    MessageBoxResult contactsTest = MessageBox.Show("Could not load contacts.cfg", "EME Contacts Manager", MessageBoxButton.OK, MessageBoxImage.Information);
+            //}
+            #endregion
+
+            #region This takes 8.00 seconds to load
             XmlNode contactsNodeMerge = cloneMerge.CreateElement("contacts");
             cloneMerge.AppendChild(contactsNodeMerge);
 
-            // Populate contacts list with local contacts.xml and EPA Directorys
+            // Populate contacts list with local contacts.xml and Agency Directory
             var listEsri = _contactsEsri.SelectNodes("//contact");
             var listEpa = _contactsEpa.SelectNodes("//contact");
             StringBuilder sb2 = new StringBuilder();
@@ -302,7 +380,7 @@ namespace EPAMetadataEditor.Pages
                 XmlNode e2 = child.SelectSingleNode("editorSource");
                 if (null != e2)
                 {
-                    e2.InnerText = "EPA Directory";
+                    e2.InnerText = directoryName;
                 }
 
                 e2 = child.SelectSingleNode("editorDigest");
@@ -326,9 +404,11 @@ namespace EPAMetadataEditor.Pages
 
             // append to clone
             contactsNodeMerge.InnerXml = sb2.ToString();
+            #endregion
 
             // save to file
             cloneMerge.Save(Utils.GetContactsFileLocation());
+            //cloneMerge.Save(_filePathEsri + "contacts.cfg");
 
 
             // generate contact list
@@ -338,9 +418,9 @@ namespace EPAMetadataEditor.Pages
             _contactsBAK.Save(Utils.GetContactsFileLocation());
 
             // contacts.xml restored successfully. It is now safe to delete BAK file.
-            if (File.Exists(filePathEsri + "contacts.bak"))
+            if (File.Exists(_filePathEsri + "contacts.bak"))
             {
-                File.Delete(filePathEsri + "contacts.bak");
+                File.Delete(_filePathEsri + "contacts.bak");
             }
 
             // come find me later...

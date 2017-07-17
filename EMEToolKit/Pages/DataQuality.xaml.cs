@@ -25,21 +25,31 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using ESRI.ArcGIS.Metadata.Editor; using ESRI.ArcGIS.Metadata.Editor.Pages; namespace EPAMetadataEditor.Pages
-{
-  /// <summary>
-  /// Interaction logic for DataQuality.xaml
-  /// </summary>
-  public partial class DataQuality : EditorPage
-  {
-    public DataQuality()
-    {
-      InitializeComponent();
-    }
+using ESRI.ArcGIS.Metadata.Editor;
+using ESRI.ArcGIS.Metadata.Editor.Pages;
+using System.Diagnostics;
 
-    public override string SidebarLabel
+namespace EPAMetadataEditor.Pages
+{
+    /// <summary>
+    /// Interaction logic for DataQuality.xaml
+    /// </summary>
+    public partial class DataQuality : EditorPage
     {
-      get { return ESRI.ArcGIS.Metadata.Editor.Properties.Resources.CFG_LBL_DATAQUALITY; }
+        public DataQuality()
+        {
+            InitializeComponent();
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
+        }
+
+        public override string SidebarLabel
+        {
+            get { return ESRI.ArcGIS.Metadata.Editor.Properties.Resources.CFG_LBL_DATAQUALITY; }
+        }
     }
-  }
 }

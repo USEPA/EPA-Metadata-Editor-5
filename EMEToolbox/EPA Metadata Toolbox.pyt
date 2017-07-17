@@ -9,7 +9,7 @@ class Toolbox(object):
         self.alias = ""
 
         # List of tool classes associated with this toolbox
-        self.tools = [upgradeTool,cleanupTool,exportISOTool,saveTemplate,mergeTemplate]
+        self.tools = [upgradeTool,cleanupTool,exportISOTool,saveTemplate,mergeTemplate,importTool]
 
 
 class upgradeTool(object):
@@ -36,7 +36,7 @@ class upgradeTool(object):
             datatype="DEFile",
             parameterType="Required",
             direction="Output")
-            
+
         params = [param0, param1]
         return params
 
@@ -64,7 +64,7 @@ class upgradeTool(object):
             """The source code of the tool."""
             Source_Metadata = parameters[0].valueAsText
             Output_Metadata = parameters[1].valueAsText
-            
+
             # Local variables:
             # Esri-provided standard stylesheet for copying metadata.
             exact_copy_of_xslt = arcpy.GetInstallInfo()['InstallDir'] + "Metadata\\Stylesheets\\gpTools\exact Copy Of.xslt"
@@ -82,7 +82,7 @@ class upgradeTool(object):
             messages.addMessage("Preserving the UUID and cleaning up legacy elements...")
             # Process: EPA Cleanup
             arcpy.XSLTransform_conversion(Upgraded_Metadata, EPAUpgradeCleanup_xslt, Output_Metadata, "")
-            
+
             messages.addMessage("Process complete - please review the output carefully before importing or harvesting.")
         except:
             # Cycle through Geoprocessing tool specific errors
@@ -118,7 +118,7 @@ class cleanupTool(object):
             datatype="DEFile",
             parameterType="Required",
             direction="Output")
-            
+
         params = [param0, param1]
         return params
 
@@ -146,14 +146,14 @@ class cleanupTool(object):
             """The source code of the tool."""
             Source_Metadata = parameters[0].valueAsText
             Output_Metadata = parameters[1].valueAsText
-            
+
             # Local variables:
             EPAUpgradeCleanup_xslt = "EPAUpgradeCleanup.xslt"
 
             messages.addMessage("Preserving the UUID and cleaning up legacy elements...")
             # Process: EPA Cleanup
             arcpy.XSLTransform_conversion(Source_Metadata, EPAUpgradeCleanup_xslt, Output_Metadata, "")
-            
+
             messages.addMessage("Process complete - please review the output carefully before importing or harvesting.")
         except:
             # Cycle through Geoprocessing tool specific errors
@@ -189,7 +189,7 @@ class exportISOTool(object):
             datatype="DEFile",
             parameterType="Required",
             direction="Output")
-            
+
         params = [param0, param1]
         return params
 
@@ -217,13 +217,13 @@ class exportISOTool(object):
             """The source code of the tool."""
             Source_Metadata = parameters[0].valueAsText
             Output_Metadata = parameters[1].valueAsText
-            
+
             # Local variables:
             translator = arcpy.GetInstallInfo()['InstallDir'] + "Metadata\\Translator\\ArcGIS2ISO19139.xml"
 
             # Process: Export Metadata
             arcpy.ExportMetadata_conversion(Source_Metadata, translator, Output_Metadata)
-            
+
             messages.addMessage("Process complete - please review the output carefully..")
         except:
             # Cycle through Geoprocessing tool specific errors
@@ -257,7 +257,7 @@ class saveTemplate(object):
             datatype="DEFile",
             parameterType="Required",
             direction="Output")
-            
+
         params = [param0, param1]
         return params
 
@@ -285,13 +285,13 @@ class saveTemplate(object):
             """The source code of the tool."""
             Source_Metadata = parameters[0].valueAsText
             Output_Metadata = parameters[1].valueAsText
-            
+
             # Local variables:
             saveTemplate_xslt = "saveTemplate.xslt"
 
             # Process: EPA Cleanup
             arcpy.XSLTransform_conversion(Source_Metadata, saveTemplate_xslt, Output_Metadata, "")
-            
+
             messages.addMessage("Process complete - please review the output carefully before reusing as a template.")
         except:
             # Cycle through Geoprocessing tool specific errors
@@ -302,7 +302,7 @@ class saveTemplate(object):
             # Regardless of errors, clean up intermediate products.
             pass
         return
-        
+
 class mergeTemplate(object):
     def __init__(self):
         """Define the tool (tool name is the name of the class)."""
@@ -325,14 +325,14 @@ class mergeTemplate(object):
             datatype="DEFile",
             parameterType="Required",
             direction="Input")
-            
+
         param2 = arcpy.Parameter(
             displayName="Output Metadata",
             name="out_metadata",
             datatype="DEFile",
             parameterType="Required",
             direction="Output")
-            
+
         params = [param0, param1, param2]
         return params
 
@@ -361,13 +361,13 @@ class mergeTemplate(object):
             Source_Metadata = parameters[0].valueAsText
             Template_Metadata = parameters[1].valueAsText
             Output_Metadata = parameters[2].valueAsText
-            
+
             # Local variables:
             mergeTemplate_xslt = "mergeTemplate.xslt"
 
             # Process: EPA Cleanup
             arcpy.XSLTransform_conversion(Source_Metadata, mergeTemplate_xslt, Output_Metadata, "Template_Metadata")
-            
+
             messages.addMessage("Process complete - please review the output carefully.")
         except:
             # Cycle through Geoprocessing tool specific errors
@@ -377,5 +377,74 @@ class mergeTemplate(object):
         finally:
             # Regardless of errors, clean up intermediate products.
             pass
-        return        
-        
+        return
+
+class importTool(object):
+    def __init__(self):
+        """Define the tool (tool name is the name of the class)."""
+        self.label = "EPA Import ArcGIS Record"
+        self.description = "It is not unusual for the default Esri tools to merge and preserve legacy metadata sections when performing a standard import. This tool first purges all metadata from the target (usually a feature class), then performs a clean import of the source. It does not perform the EPA upgrade or cleanup function, but rather is intended to supplement those tools and allow for a clean import of the output from those tools into a feature class."
+        self.canRunInBackground = False
+
+    def getParameterInfo(self):
+        """Define parameter definitions"""
+            # Second parameter
+        param0 = arcpy.Parameter(
+            displayName="Source Metadata",
+            name="sourcemetadata",
+            datatype="DEType",
+            parameterType="Required",
+            direction="Input")
+
+        # Third parameter
+        param1 = arcpy.Parameter(
+            displayName="Target Metadata",
+            name="out_metadata",
+            datatype="DEType",
+            parameterType="Required",
+            direction="Input")
+
+        params = [param0, param1]
+        return params
+
+    def isLicensed(self):
+        """Set whether tool is licensed to execute."""
+        return True
+
+    def updateParameters(self, parameters):
+        """Modify the values and properties of parameters before internal
+        validation is performed.  This method is called whenever a parameter
+        has been changed."""
+        return
+
+    def updateMessages(self, parameters):
+        """Modify the messages created by internal validation for each tool
+        parameter.  This method is called after internal validation."""
+        return
+
+    def execute(self, parameters, messages):
+        try:
+            """The source code of the tool."""
+            Source_Metadata = parameters[0].valueAsText
+            Target_Metadata = parameters[1].valueAsText
+
+            # Local variables:
+            blankDoc = "blankdoc.xml"
+
+            messages.addMessage("Performing complete purge of existing metadata")
+            # Process: Purge
+            arcpy.MetadataImporter_conversion(blankDoc, Target_Metadata)
+            messages.addMessage("Importing new metadata")
+            # Process: Import
+            arcpy.MetadataImporter_conversion(Source_Metadata, Target_Metadata)
+
+            messages.addMessage("Process complete - please review the output carefully.")
+        except:
+            # Cycle through Geoprocessing tool specific errors
+            for msg in range(0, arcpy.GetMessageCount()):
+                if arcpy.GetSeverity(msg) == 2:
+                    arcpy.AddReturnMessage(msg)
+        finally:
+            # Regardless of errors, clean up intermediate products.
+            pass
+        return

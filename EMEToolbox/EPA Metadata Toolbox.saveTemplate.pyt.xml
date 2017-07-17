@@ -1,47 +1,47 @@
 <metadata xml:lang="en">
-    <Esri>
-        <CreaDate>20170310</CreaDate>
-        <CreaTime>14285500</CreaTime>
-        <ArcGISFormat>1.0</ArcGISFormat>
-        <SyncOnce>TRUE</SyncOnce>
-        <ModDate>20170310</ModDate>
-        <ModTime>18023500</ModTime>
-        <scaleRange>
-            <minScale>150000000</minScale>
-            <maxScale>5000</maxScale>
-        </scaleRange>
-        <ArcGISProfile>ItemDescription</ArcGISProfile>
-    </Esri>
-    <tool name="saveTemplate" displayname="Save record as metadata template" toolboxalias="" xmlns="">
-        <parameters>
-            <param name="sourcemetadata" displayname="Source Metadata" type="Required" direction="Input" datatype="Data Element" expression="sourcemetadata">
-                <dialogReference>This should be the full path to a standalone XML metadata document or a dataset with an existing metadata document in ArcGIS Metadata format that is compliant with the EPA Metadata Technical Specification and otherwise is a record that you consider to be complete, valid, and a model for other records you wish to create.</dialogReference>
-            </param>
-            <param name="out_metadata" displayname="Output Metadata" type="Required" direction="Output" datatype="File" expression="out_metadata">
-                <dialogReference>This should be the full path to the standalone XML metadata document that will be produced using this tool. The output will only be a document fragment containing those sections that are most frequently reused. Because it will be missing mandatory sections that are unique to every metadata record, like title and abstract, it will not be a complete, fully valid metadata document, so attempting to edit it directly in the EME could potentially be confusing. </dialogReference>
-            </param>
-        </parameters>
-        <summary>This tool saves a metadata record as a reusable template by excluding those elements which must be unique in every metadata record, such as title, abstract, unique identifier, etc, leaving those elements that are common across many records.</summary>
-        <usage>This tool is designed to produce a metadata template fragment that can be merged into other metadata records via the "Merge a selected metadata record with a saved template" tool.</usage>
-    </tool>
-    <dataIdInfo>
-        <idCitation>
-            <resTitle>Save record as metadata template</resTitle>
-        </idCitation>
-        <idAbs>This tool saves a metadata record as a reusable template by excluding those elements which must be unique in every metadata record, such as title, abstract, unique identifier, etc, leaving those elements that are common across many records.</idAbs>
-        <idCredit>U.S. EPA Metadata Team (edg@epa.gov)</idCredit>
-        <searchKeys>
-            <keyword>EME</keyword>
-        </searchKeys>
-    </dataIdInfo>
-    <distInfo>
-        <distributor>
-            <distorFormat>
-                <formatName>ArcToolbox Tool</formatName>
-            </distorFormat>
-        </distributor>
-    </distInfo>
-    <mdHrLv>
-        <ScopeCd value="005"/>
-    </mdHrLv>
+	<Esri>
+		<CreaDate>20170310</CreaDate>
+		<CreaTime>14285500</CreaTime>
+		<ArcGISFormat>1.0</ArcGISFormat>
+		<SyncOnce>TRUE</SyncOnce>
+		<ModDate>20170310</ModDate>
+		<ModTime>18023500</ModTime>
+		<scaleRange>
+			<minScale>150000000</minScale>
+			<maxScale>5000</maxScale>
+		</scaleRange>
+		<ArcGISProfile>ItemDescription</ArcGISProfile>
+	</Esri>
+	<tool name="saveTemplate" displayname="Save record as metadata template" toolboxalias="" xmlns="">
+		<parameters>
+			<param name="sourcemetadata" displayname="Source Metadata" type="Required" direction="Input" datatype="Data Element" expression="sourcemetadata">
+				<dialogReference>This should be the full path to a standalone XML metadata document or a dataset with an existing metadata document in ArcGIS Metadata format that is compliant with the EPA Metadata Technical Specification and otherwise is a record that you consider to be complete, valid, and a model for other records you wish to create.</dialogReference>
+			</param>
+			<param name="out_metadata" displayname="Output Metadata" type="Required" direction="Output" datatype="File" expression="out_metadata">
+				<dialogReference>This should be the full path to the standalone XML metadata document that will be produced using this tool. The output will only be a document fragment containing those sections that are most frequently reused. Because it will be missing mandatory sections that are unique to every metadata record, like title and abstract, it will not be a complete, fully valid metadata document, so attempting to edit it directly in the EME could potentially be confusing. </dialogReference>
+			</param>
+		</parameters>
+		<summary>This tool saves a metadata record as a reusable template by excluding those elements which must be unique in every metadata record, such as title, abstract, unique identifier, etc, leaving those elements that are common across many records.</summary>
+		<usage>This tool is designed to produce a metadata template fragment that can be merged into other metadata records via the "Merge a selected metadata record with a saved template" tool.</usage>
+	</tool>
+	<dataIdInfo>
+		<idCitation>
+			<resTitle>Save record as metadata template</resTitle>
+		</idCitation>
+		<idAbs>This tool saves a metadata record as a reusable template by excluding those elements which must be unique in every metadata record, such as title, abstract, unique identifier, etc, leaving those elements that are common across many records.</idAbs>
+		<idCredit>U.S. EPA Metadata Team (edg@epa.gov)</idCredit>
+		<searchKeys>
+			<keyword>EME</keyword>
+		</searchKeys>
+	</dataIdInfo>
+	<distInfo>
+		<distributor>
+			<distorFormat>
+				<formatName>ArcToolbox Tool</formatName>
+			</distorFormat>
+		</distributor>
+	</distInfo>
+	<mdHrLv>
+		<ScopeCd value="005"/>
+	</mdHrLv>
 </metadata>

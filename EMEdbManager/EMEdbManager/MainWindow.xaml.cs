@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
+using System.IO;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using System.Xml;
@@ -13,6 +16,7 @@ namespace EMEdbManager
     public partial class MainWindow : Window
     {
         private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EME Toolkit\\EMEdb\\";
+        private XmlDocument _emeConfig = new XmlDocument();
 
         public MainWindow()
         {
@@ -24,6 +28,7 @@ namespace EMEdbManager
             XmlRecord_SystemofRecords.Source = new Uri(_pathEmeDb + "SystemofRecords.xml");
             XmlRecord_SystemofRecords.XPath = "/emeData/SystemOfRecord[SysRcrdName[(text())]]";
             XmlRecord_SecConsts.Source = new Uri(_pathEmeDb + "SecurityConstraints.xml");
+            XmlRecord_emeConfig.Source = new Uri(_pathEmeDb + "emeConfig.xml");
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
@@ -56,6 +61,13 @@ namespace EMEdbManager
             lblSecConstsCount.Content = "( " + lbxSecConsts.Items.Count.ToString() + " )";
         }
 
+        private void lbxConfig_loaded(object sender, RoutedEventArgs e)
+        {
+            _emeConfig.Load(_pathEmeDb + "emeConfig.xml");
+            TimeSpan emeSyncAge = (DateTime.Now) - (DateTime.Parse(_emeConfig.SelectSingleNode("//emeControl/date").InnerText));
+            bool dbExpired = emeSyncAge > (new TimeSpan(0, 12, 0, 0));
+        }
+
         private void btnSaveThemekeyEpa_Click(object sender, RoutedEventArgs e)
         {
             string source = XmlRecord_ThemeKeyEpa.Source.LocalPath;
@@ -84,6 +96,12 @@ namespace EMEdbManager
         {
             string source = XmlRecord_ThemeKeyUser.Source.LocalPath;
             XmlRecord_ThemeKeyUser.Document.Save(source);
+        }
+
+        private void btnSaveEmeConfig_Click(object sender, RoutedEventArgs e)
+        {
+            string source = XmlRecord_emeConfig.Source.LocalPath;
+            XmlRecord_emeConfig.Document.Save(source);
         }
 
         private void btnAddThemekeyEpa_Click(object sender, RoutedEventArgs e)
@@ -209,5 +227,27 @@ namespace EMEdbManager
             XmlRecord_SecConsts.Document.Save(source);
         }
 
+        private void btnDefaultConfig_Click(object sender, RoutedEventArgs e)
+        {
+            string dOrg = "U.S. Environmental Protection Agency";
+            string dContacts = "EPA Directory";
+            string dUrl = "https://edg.epa.gov/EME/contacts.xml";
+            string dDate = "2010-06-27T12:00:00-07:00";
+
+            XmlDocument doc = XmlRecord_emeConfig.Document;
+            string source = XmlRecord_emeConfig.Source.LocalPath;
+
+            XmlNode eOrg = doc.SelectSingleNode("//emeControl[controlName[contains(. , 'Organization')]]/param");
+            XmlNode eDir = doc.SelectSingleNode("//emeControl[controlName[contains(. , 'Contacts Manager')]]/param");
+            XmlNode eUrl = doc.SelectSingleNode("//emeControl[controlName[contains(. , 'Contacts Manager')]]/url");
+            XmlNode eDate = doc.SelectSingleNode("//emeControl[controlName[contains(. , 'Contacts Manager')]]/date");
+
+            eOrg.InnerText = dOrg;
+            eDir.InnerText = dContacts;
+            eUrl.InnerText = dUrl;
+            eDate.InnerText = dDate;
+
+            XmlRecord_emeConfig.Document.Save(source);
+        }
     }
 }

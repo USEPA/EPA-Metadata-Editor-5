@@ -16,6 +16,10 @@ using System.Windows;
 using System.Windows.Navigation;
 using ESRI.ArcGIS.Metadata.Editor.Pages;
 using System.Diagnostics;
+using System.Collections.Generic;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Linq;
 
 namespace EPAMetadataEditor.Pages
 {
@@ -36,7 +40,7 @@ namespace EPAMetadataEditor.Pages
 
         private void tbxMdDateSt_Loaded(object sender, RoutedEventArgs e)
         {
-            tbxMdDateSt.Text = DateTime.Now.ToString("yyyyMMdd");
+            tbxMdDateSt.Text = DateTime.Now.ToString("yyyy-MM-dd");
             tbxMdDateSt.Focus();
             tbxTopOfPage.Focus();
         }

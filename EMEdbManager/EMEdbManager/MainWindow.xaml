@@ -33,7 +33,7 @@
         </Style>
 
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
-        
+
         <DataTemplate x:Key="keywordItemTemplate">
             <Grid HorizontalAlignment="{Binding HorizontalAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Mode=OneWayToSource}">
                 <Grid.ColumnDefinitions>
@@ -104,6 +104,12 @@
             </Grid>
         </DataTemplate>
 
+        <DataTemplate x:Key="configItemTemplate">
+            <Grid HorizontalAlignment="{Binding HorizontalAlignment, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContentPresenter}}, Mode=OneWayToSource}">
+                <Label Content="{Binding XPath=controlName}" Loaded="lbxConfig_loaded" />
+            </Grid>
+        </DataTemplate>
+        
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -387,6 +393,83 @@
                     </Grid>
                 </Grid>
             </TabItem>
+
+            <TabItem Header="EME Configuration" x:Name="tabConfig">
+                <Grid Margin="0,10,0,0">
+                    <Grid.DataContext>
+                        <XmlDataProvider x:Name="XmlRecord_emeConfig" XPath="emeConfig/emeControl" />
+                    </Grid.DataContext>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <DockPanel Grid.Column="0" Margin="5,0,0,0" VerticalAlignment="Top">
+                        <Border Height="30" Padding="0" Background="SteelBlue" DockPanel.Dock="Top">
+                            <DockPanel>
+                                <Label VerticalAlignment="Center" Foreground="White">Configuration Options</Label>
+                                <Image Source="../Icons/GenericSliderWhite.png" Stretch="UniformToFill" MaxWidth="20" MaxHeight="20" HorizontalAlignment="Right" Margin="10,0" />
+                            </DockPanel>
+                        </Border>
+                        <ListBox x:Name="lbxConfig" Margin="0,0,0,20" DockPanel.Dock="Left"
+                     ItemsSource="{Binding}"
+                     ItemTemplate="{StaticResource configItemTemplate}"
+                     IsSynchronizedWithCurrentItem="True"
+                     Visibility="Visible" SelectionMode="Single"/>
+                    </DockPanel>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0" Style="{StaticResource labelStyle}" HorizontalAlignment="Left" Content="{Binding XPath=param/@label}" ContentStringFormat="{}{0}:" />
+                        <TextBox x:Name="tbParam" Grid.Column="1" Grid.Row="0" Style="{StaticResource textboxStyle}" Text="{Binding XPath=param}"/>
+                        <Label Grid.Column="0" Grid.Row="1" Style="{StaticResource labelStyle}" HorizontalAlignment="Left" Content="{Binding XPath=url/@label}" ContentStringFormat="{}{0}:" />
+                        <TextBox x:Name="tbUrl" Grid.Column="1" Grid.Row="1" Text="{Binding XPath=url}" >
+                            <TextBox.Style>
+                                <Style TargetType="{x:Type TextBox}">
+                                    <Setter Property="MinWidth" Value="200"/>
+                                    <Setter Property="Margin" Value="5" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding XPath=url}" Value="{x:Null}">
+                                            <Setter Property="Visibility" Value="Hidden"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBox.Style>
+                        </TextBox>
+                        <Label Grid.Column="0" Grid.Row="2" Style="{StaticResource labelStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" Content="{Binding XPath=date/@label}" ContentStringFormat="{}{0}:" />
+                        <Label x:Name="lblDate" Grid.Column="1" Grid.Row="2" Style="{StaticResource labelStyle}" Content="{Binding XPath=date}" FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <StackPanel Grid.ColumnSpan="2" Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button x:Name="btnSaveEmeConfig" Click="btnSaveEmeConfig_Click" Margin="10,0,10,0" Width="150" Height="20">Save Configuation</Button>
+                            <Button x:Name="btnDefaultConfig" Click="btnDefaultConfig_Click" VerticalAlignment="Center" HorizontalAlignment="Right" DockPanel.Dock="Right"
+                                    BorderThickness="0" Background="Transparent" Margin="0,0,5,0">
+                                <DockPanel>
+                                    <Image Source="../Icons/GenericGear.png" Stretch="UniformToFill" MaxWidth="16" MaxHeight="16" />
+                                    <Label DockPanel.Dock="Right" Content="Restore Defaults" FontSize="10" FontStyle="Italic" />
+                                </DockPanel>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            
         </TabControl>
 
     </Grid>

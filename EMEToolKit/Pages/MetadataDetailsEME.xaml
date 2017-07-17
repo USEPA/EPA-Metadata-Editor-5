@@ -86,7 +86,8 @@
 
         <p:XPathTextBoolConverter x:Key="XPathTextBoolConverter"/>
         <e:Codelists x:Key="CI_OnLineFunctionCode" CodelistName="CI_OnLineFunctionCode"/>
-        <p:DateConverter x:Key="DateConverter" Format="yyyyMMdd"/>
+        <!--<p:DateConverter x:Key="DateConverter" Format="yyyyMMdd"/>-->
+        <p:DateConverter x:Key="DateConverter" Format="yyyy-MM-dd"/>
         <p:VisibleEmptyConverter x:Key="VisibleEmptyConverter"/>
 
         <Style x:Key="TbxHidden" TargetType="{x:Type TextBox}">
@@ -137,8 +138,8 @@
                                     <!-- file id -->
                                     <!--<Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_META_FILEID}"/>-->
                                     <Border Grid.Row="0" Grid.ColumnSpan="2" Background="LemonChiffon"></Border>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label Grid.Row="0" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Background="LemonChiffon">
+                                    <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                                        <Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Background="LemonChiffon">
                                         <Hyperlink NavigateUri="https://www.epa.gov/geospatial/epa-metadata-technical-specification#identifier" RequestNavigate="Hyperlink_RequestNavigate">
                                             <TextBlock Text="{x:Static r:Resources.LBL_META_FILEID}" FontWeight="Bold"/>
                                         </Hyperlink>
@@ -148,15 +149,16 @@
                                                 <Image Source="../Icons/info.rnd.white.png" RenderOptions.BitmapScalingMode="Fant" MaxHeight="14"/>
                                             </Hyperlink>
                                         </Label>
-
-                                        <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding XPath=mdFileID}" Background="LemonChiffon">
-                                            <ListBox.ItemTemplate>
-                                                <DataTemplate>
-                                                    <p:MD_FileIdentifier/>
-                                                </DataTemplate>
-                                            </ListBox.ItemTemplate>
-                                        </ListBox>
                                     </StackPanel>
+
+                                    <ListBox Style="{DynamicResource EditorNoScrollListBoxStyle}" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding XPath=mdFileID}" Background="LemonChiffon">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <p:MD_FileIdentifier/>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+
                                     <!-- parent file id -->
                                     <Label Grid.Row="1" Grid.Column="0" Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_META_PARENTFILEID}"/>
                                     <TextBox Grid.Row="1" Grid.Column="1" Style="{DynamicResource EditorTextBoxStyle}" ToolTip="{x:Static r:Definitions.MD_Metadata_parentIdentifier}"
@@ -185,12 +187,24 @@
                                                     <Button Visibility="{Binding XPath=., Converter={StaticResource VisibleEmptyConverter}}" DockPanel.Dock="Right" Click="ClearItem" Style="{DynamicResource DeleteButton}">
                                                         <Image Style="{DynamicResource DeleteImageStyle}" Source="../Icons/GenericDeleteRed16.png"/>
                                                     </Button>
-                                                    <!--<controls:DateTimePicker DisplayTime="False" SelectedDate="{x:Static sys:DateTime.Today}" ToolTip="{x:Static r:Definitions.MD_Metadata_dateStamp}">-->
-                                                    <controls:DateTimePicker DisplayTime="False" ToolTip="{x:Static r:Definitions.MD_Metadata_dateStamp}">
-                                                        <controls:DateTimePicker.SelectedDate>
-                                                            <e:MetadataElementSync XPath="." Converter="{StaticResource DateConverter}"/>
-                                                        </controls:DateTimePicker.SelectedDate>
-                                                    </controls:DateTimePicker>
+                                                    <StackPanel Orientation="Horizontal" >
+                                                        <!--<controls:DateTimePicker DisplayTime="False" ToolTip="{x:Static r:Definitions.MD_Metadata_dateStamp}">
+                                                            <controls:DateTimePicker.SelectedDate>
+                                                                <e:MetadataElementSync XPath="." Converter="{StaticResource DateConverter}"/>
+                                                            </controls:DateTimePicker.SelectedDate>
+                                                        </controls:DateTimePicker>-->
+                                                        <DatePicker ToolTip="{x:Static r:Definitions.MD_Metadata_dateStamp}" BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center">
+                                                            <DatePicker.Resources>
+                                                                <Style TargetType="{x:Type DatePickerTextBox}">
+                                                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                                                </Style>
+                                                            </DatePicker.Resources>
+                                                            <DatePicker.SelectedDate>
+                                                                <e:MetadataElementSync XPath="." Converter="{StaticResource DateConverter}"/>
+                                                            </DatePicker.SelectedDate>
+                                                        </DatePicker>
+                                                    </StackPanel>
                                                 </DockPanel>
                                             </DataTemplate>
                                         </ListBox.ItemTemplate>

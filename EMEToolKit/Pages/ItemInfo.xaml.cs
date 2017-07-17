@@ -269,7 +269,8 @@ namespace EPAMetadataEditor.Pages
 
         private void tbxMdDateSt_Loaded(object sender, RoutedEventArgs e)
         {
-            tbxMdDateSt.Text = DateTime.Now.ToString("yyyyMMdd");
+            //tbxMdDateSt.Text = DateTime.Now.ToString("yyyyMMdd");
+            tbxMdDateSt.Text = DateTime.Now.ToString("yyyy-MM-dd");
             tbxMdDateSt.Focus();
             tbxTopOfPage.Focus();
         }

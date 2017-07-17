@@ -52,9 +52,12 @@
                                 <Label Style="{DynamicResource EditorHLabelNoIdentStyle}" Content="{x:Static r:Resources.LBL_CONSTS_USELIMIT}"/>
                             </DockPanel>
                             <!-- use limitations -->
-                            <Border Style="{DynamicResource EditorRichTextBoxContainerNoIndentStyle}">
+                            <controls:Resizer>
+                                <TextBox v:Nav.AnchorName="useLimit" ToolTip="{x:Static r:Definitions.MD_Constraints_useLimitation}" Style="{DynamicResource EditorTextAreaShortResizeStyle}" Text="{e:MetadataBinding XPath=.}" />
+                            </controls:Resizer>
+                            <!--<Border Style="{DynamicResource EditorRichTextBoxContainerNoIndentStyle}">
                                 <p:EditorRichTextBox v:Nav.AnchorName="useLimit" ToolTip="{x:Static r:Definitions.MD_Constraints_useLimitation}" />
-                            </Border>
+                            </Border>-->
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

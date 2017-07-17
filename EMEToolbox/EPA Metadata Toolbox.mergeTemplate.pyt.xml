@@ -1,50 +1,50 @@
 <metadata xml:lang="en">
-    <Esri>
-        <CreaDate>20170310</CreaDate>
-        <CreaTime>14285600</CreaTime>
-        <ArcGISFormat>1.0</ArcGISFormat>
-        <SyncOnce>TRUE</SyncOnce>
-        <ModDate>20170310</ModDate>
-        <ModTime>18104100</ModTime>
-        <scaleRange>
-            <minScale>150000000</minScale>
-            <maxScale>5000</maxScale>
-        </scaleRange>
-        <ArcGISProfile>ItemDescription</ArcGISProfile>
-    </Esri>
-    <tool name="mergeTemplate" displayname="Merge a selected metadata record with a saved template" toolboxalias="" xmlns="">
-        <parameters>
-            <param name="sourcemetadata" displayname="Source Metadata" type="Required" direction="Input" datatype="Data Element" expression="sourcemetadata">
-                <dialogReference>This should be the full path to a standalone XML metadata document or a dataset with an existing metadata document that has already been upgraded to ArcGIS Metadata format.</dialogReference>
-            </param>
-            <param name="template_metadata" displayname="Template Metadata" type="Required" direction="Input" datatype="File" expression="template_metadata">
-                <dialogReference>This should be the full path to a metadata template fragment XML file that was created using the "Save record as metadata template" tool in this toolbox.</dialogReference>
-            </param>
-            <param name="out_metadata" displayname="Output Metadata" type="Required" direction="Output" datatype="File" expression="out_metadata">
-                <dialogReference>This should be the full path to the standalone XML metadata document that will be produced using this tool. Please review and verify the output before importing it to a dataset or harvesting to a metadata catalog.</dialogReference>
-            </param>
-        </parameters>
-        <summary>This tool merges a selected metadata record with elements from a saved template record created using the "Save record as metadata template" tool. Elements from the template record will overwrite their equivalents in the selected record, but by design it will exclude those elements which must be unique in every metadata record, such as title, abstract, unique identifier, etc, replacing only those elements that are common across many records.</summary>
-        <usage>This tool may be used to quickly populate many common elements in an otherwise empty metadata document .</usage>
-    </tool>
-    <dataIdInfo>
-        <idCitation>
-            <resTitle>Merge a selected metadata record with a saved template</resTitle>
-        </idCitation>
-        <idAbs>This tool merges a selected metadata record with elements from a saved template record created using the "Save record as metadata template" tool. Elements from the template record will overwrite their equivalents in the selected record, but by design it will exclude those elements which must be unique in every metadata record, such as title, abstract, unique identifier, etc, replacing only those elements that are common across many records.</idAbs>
-        <idCredit>U.S. EPA Metadata Team (edg@epa.gov)</idCredit>
-        <searchKeys>
-            <keyword>EME</keyword>
-        </searchKeys>
-    </dataIdInfo>
-    <distInfo>
-        <distributor>
-            <distorFormat>
-                <formatName>ArcToolbox Tool</formatName>
-            </distorFormat>
-        </distributor>
-    </distInfo>
-    <mdHrLv>
-        <ScopeCd value="005"/>
-    </mdHrLv>
+	<Esri>
+		<CreaDate>20170310</CreaDate>
+		<CreaTime>14285600</CreaTime>
+		<ArcGISFormat>1.0</ArcGISFormat>
+		<SyncOnce>TRUE</SyncOnce>
+		<ModDate>20170310</ModDate>
+		<ModTime>18104100</ModTime>
+		<scaleRange>
+			<minScale>150000000</minScale>
+			<maxScale>5000</maxScale>
+		</scaleRange>
+		<ArcGISProfile>ItemDescription</ArcGISProfile>
+	</Esri>
+	<tool name="mergeTemplate" displayname="Merge a selected metadata record with a saved template" toolboxalias="" xmlns="">
+		<parameters>
+			<param name="sourcemetadata" displayname="Source Metadata" type="Required" direction="Input" datatype="Data Element" expression="sourcemetadata">
+				<dialogReference>This should be the full path to a standalone XML metadata document or a dataset with an existing metadata document that has already been upgraded to ArcGIS Metadata format.</dialogReference>
+			</param>
+			<param name="template_metadata" displayname="Template Metadata" type="Required" direction="Input" datatype="File" expression="template_metadata">
+				<dialogReference>This should be the full path to a metadata template fragment XML file that was created using the "Save record as metadata template" tool in this toolbox.</dialogReference>
+			</param>
+			<param name="out_metadata" displayname="Output Metadata" type="Required" direction="Output" datatype="File" expression="out_metadata">
+				<dialogReference>This should be the full path to the standalone XML metadata document that will be produced using this tool. Please review and verify the output before importing it to a dataset or harvesting to a metadata catalog.</dialogReference>
+			</param>
+		</parameters>
+		<summary>This tool merges a selected metadata record with elements from a saved template record created using the "Save record as metadata template" tool. Elements from the template record will overwrite their equivalents in the selected record, but by design it will exclude those elements which must be unique in every metadata record, such as title, abstract, unique identifier, etc, replacing only those elements that are common across many records.</summary>
+		<usage>This tool may be used to quickly populate many common elements in an otherwise empty metadata document .</usage>
+	</tool>
+	<dataIdInfo>
+		<idCitation>
+			<resTitle>Merge a selected metadata record with a saved template</resTitle>
+		</idCitation>
+		<idAbs>This tool merges a selected metadata record with elements from a saved template record created using the "Save record as metadata template" tool. Elements from the template record will overwrite their equivalents in the selected record, but by design it will exclude those elements which must be unique in every metadata record, such as title, abstract, unique identifier, etc, replacing only those elements that are common across many records.</idAbs>
+		<idCredit>U.S. EPA Metadata Team (edg@epa.gov)</idCredit>
+		<searchKeys>
+			<keyword>EME</keyword>
+		</searchKeys>
+	</dataIdInfo>
+	<distInfo>
+		<distributor>
+			<distorFormat>
+				<formatName>ArcToolbox Tool</formatName>
+			</distorFormat>
+		</distributor>
+	</distInfo>
+	<mdHrLv>
+		<ScopeCd value="005"/>
+	</mdHrLv>
 </metadata>
