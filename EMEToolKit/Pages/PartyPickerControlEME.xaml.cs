@@ -107,7 +107,8 @@ namespace EPAMetadataEditor.Pages
             var directoryName = _emeConfig.SelectSingleNode("//emeControl[controlName[contains(. , 'Contacts Manager')]]/param").InnerText;
             var directoryUrl = _emeConfig.SelectSingleNode("//emeControl[controlName[contains(. , 'Contacts Manager')]]/url").InnerText;
             TimeSpan syncAge = ((DateTime.Now) - (DateTime.Parse(_emeConfig.SelectSingleNode("//emeControl[controlName[contains(. , 'Contacts Manager')]]/date").InnerText)));
-            var syncDays = syncAge.ToString("d'd 'h'h 'm'm 's's'");
+            DateTime syncDate = new DateTime(syncAge.Ticks);
+            var syncDays = syncDate.ToString("d'd 'h'h 'm'm 's's'");
 
             // check if local file is older than 12 hours
             bool dbExpired = syncAge > (new TimeSpan(0, 12, 0, 0));

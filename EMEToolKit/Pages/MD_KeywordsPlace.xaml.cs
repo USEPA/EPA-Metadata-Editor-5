@@ -71,7 +71,7 @@ namespace EPAMetadataEditor.Pages
 
             _listPlaceK.Add(xmlCheckBox.InnerText);
             _listPlaceK.Sort();
-            _listPlaceK = _listPlaceK.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+            _listPlaceK = _listPlaceK.Where(s => !string.IsNullOrEmpty(s)).Distinct().ToList();
             tbxMDEpaPlaceK.Text = "";
 
             foreach (string s in _listPlaceK)
@@ -136,7 +136,7 @@ namespace EPAMetadataEditor.Pages
             //{
             //    MDKeywords.Add(s.Trim());
             //}
-            //MDKeywords = MDKeywords.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+            //MDKeywords = MDKeywords.Where(s => !string.IsNullOrEmpty(s)).Distinct().ToList();
             //MDKeywords.Sort();
 
             //ListBox liBox = (ListBox)lbxEpaPlaceK;
@@ -166,7 +166,7 @@ namespace EPAMetadataEditor.Pages
                         MDKeywords.Add(s.Trim());
                     }
                 }
-                MDKeywords = MDKeywords.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+                MDKeywords = MDKeywords.Where(s => !string.IsNullOrEmpty(s)).Distinct().ToList();
                 MDKeywords.Sort();
 
                 ListBox liBox = (ListBox)lbxEpaPlaceK;

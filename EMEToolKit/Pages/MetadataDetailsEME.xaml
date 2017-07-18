@@ -193,17 +193,11 @@
                                                                 <e:MetadataElementSync XPath="." Converter="{StaticResource DateConverter}"/>
                                                             </controls:DateTimePicker.SelectedDate>
                                                         </controls:DateTimePicker>-->
-                                                        <DatePicker ToolTip="{x:Static r:Definitions.MD_Metadata_dateStamp}" BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center">
-                                                            <DatePicker.Resources>
-                                                                <Style TargetType="{x:Type DatePickerTextBox}">
-                                                                    <Setter Property="HorizontalAlignment" Value="Center" />
-                                                                    <Setter Property="VerticalAlignment" Value="Center" />
-                                                                </Style>
-                                                            </DatePicker.Resources>
-                                                            <DatePicker.SelectedDate>
+                                                        <dg:DatePicker ToolTip="{x:Static r:Definitions.MD_Metadata_dateStamp}" BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Left" VerticalContentAlignment="Center">
+                                                            <dg:DatePicker.SelectedDate>
                                                                 <e:MetadataElementSync XPath="." Converter="{StaticResource DateConverter}"/>
-                                                            </DatePicker.SelectedDate>
-                                                        </DatePicker>
+                                                            </dg:DatePicker.SelectedDate>
+                                                        </dg:DatePicker>
                                                     </StackPanel>
                                                 </DockPanel>
                                             </DataTemplate>

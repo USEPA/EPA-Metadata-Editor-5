@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="{9643E2F1-5FE2-42F3-A3E5-5C555E5B8AF9}" Name="EME 5.0 for ArcGIS 10.5x" Language="1033" Version="1.0.0.56" Manufacturer="Innovate! Inc." UpgradeCode="{522B556A-CE0C-48D8-BB7B-4925F8515A5D}">
+	<Product Id="{9643E2F1-5FE2-42F3-A3E5-5C555E5B8AF9}" Name="EME 5.0 for ArcGIS 10.3x" Language="1033" Version="1.0.0.56" Manufacturer="Innovate! Inc." UpgradeCode="{522B556A-CE0C-48D8-BB7B-4925F8515A5D}">
 		<Package Id="*" InstallerVersion="400" Compressed="yes" InstallScope="perMachine" />
 <!-- 0.9.8.1 Fix EMEdb "Defaults" checkbox behavior -->
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -14,7 +14,7 @@
       <ComponentRef Id="ApplicationShortcut" />
 		</Feature>
 
-    <Feature Id="EMEToolkitArcGis105" Title="EME Toolkit for ArcCatalog 10.5" Level="1">
+    <Feature Id="EMEToolkitArcGis105" Title="EME Toolkit for ArcCatalog 10.5" Level="0">
       <ComponentRef Id="EMEToolkitDLL105"/>
       <ComponentRef Id="EMEToolkitConfig105"/>
       <ComponentGroupRef Id="EMEToolbox105"/>
@@ -26,7 +26,7 @@
       <ComponentGroupRef Id="EMEToolbox104"/>
     </Feature>
     
-		<Feature Id="EMEToolkitArcGis103" Title="EME Toolkit for ArcCatalog 10.3" Level="0">
+		<Feature Id="EMEToolkitArcGis103" Title="EME Toolkit for ArcCatalog 10.3" Level="1">
       <ComponentRef Id="EMEToolkitDLL103"/>
       <ComponentRef Id="EMEToolkitConfig103"/>
       <ComponentGroupRef Id="EMEToolbox103"/>

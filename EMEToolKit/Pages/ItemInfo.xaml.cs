@@ -296,7 +296,7 @@ namespace EPAMetadataEditor.Pages
                             listSearchTag.Add(s.Trim());
                         }
                     }
-                    listSearchTag = listSearchTag.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+                    listSearchTag = listSearchTag.Where(s => !string.IsNullOrEmpty(s)).Distinct().ToList();
                     listSearchTag.Sort();
                     //clear TextBox
                     liBoxCtrl.Text = "";
