@@ -9,7 +9,7 @@ class Toolbox(object):
         self.alias = ""
 
         # List of tool classes associated with this toolbox
-        self.tools = [upgradeTool,cleanupTool,exportISOTool,saveTemplate,mergeTemplate,importTool]
+        self.tools = [upgradeTool,cleanupTool,exportISOTool,saveTemplate,mergeTemplate,importTool,deleteTool,cleanExportTool]
 
 
 class upgradeTool(object):
@@ -379,6 +379,65 @@ class mergeTemplate(object):
             pass
         return
 
+class deleteTool(object):
+    def __init__(self):
+        """Define the tool (tool name is the name of the class)."""
+        self.label = "EPA Clear Record"
+        self.description = "It is not unusual for the default Esri tools to merge and preserve legacy metadata sections when performing a standard import. This tool purges all metadata from the target (usually a feature class)."
+        self.canRunInBackground = False
+
+    def getParameterInfo(self):
+        """Define parameter definitions"""
+            # Second parameter
+        param0 = arcpy.Parameter(
+            displayName="Target Metadata",
+            name="out_metadata",
+            datatype="DEType",
+            parameterType="Required",
+            direction="Input")
+
+        params = [param0]
+        return params
+
+    def isLicensed(self):
+        """Set whether tool is licensed to execute."""
+        return True
+
+    def updateParameters(self, parameters):
+        """Modify the values and properties of parameters before internal
+        validation is performed.  This method is called whenever a parameter
+        has been changed."""
+        return
+
+    def updateMessages(self, parameters):
+        """Modify the messages created by internal validation for each tool
+        parameter.  This method is called after internal validation."""
+        return
+
+    def execute(self, parameters, messages):
+        try:
+            """The source code of the tool."""
+            Target_Metadata = parameters[0].valueAsText
+
+            # Local variables:
+            blankDoc = "blankdoc.xml"
+
+            messages.addMessage("Performing complete purge of existing metadata")
+            # Process: Purge
+            arcpy.MetadataImporter_conversion(blankDoc, Target_Metadata)
+            messages.addMessage("Importing new metadata")
+           
+            messages.addMessage("Process complete - please review the output carefully.")
+        except:
+            # Cycle through Geoprocessing tool specific errors
+            for msg in range(0, arcpy.GetMessageCount()):
+                if arcpy.GetSeverity(msg) == 2:
+                    arcpy.AddReturnMessage(msg)
+        finally:
+            # Regardless of errors, clean up intermediate products.
+            pass
+        return
+		
 class importTool(object):
     def __init__(self):
         """Define the tool (tool name is the name of the class)."""
@@ -439,6 +498,77 @@ class importTool(object):
             arcpy.MetadataImporter_conversion(Source_Metadata, Target_Metadata)
 
             messages.addMessage("Process complete - please review the output carefully.")
+        except:
+            # Cycle through Geoprocessing tool specific errors
+            for msg in range(0, arcpy.GetMessageCount()):
+                if arcpy.GetSeverity(msg) == 2:
+                    arcpy.AddReturnMessage(msg)
+        finally:
+            # Regardless of errors, clean up intermediate products.
+            pass
+        return
+        
+class cleanExportTool(object):
+    def __init__(self):
+        """Define the tool (tool name is the name of the class)."""
+        self.label = "EPA Clean Export Tool"
+        self.description = "Most Esri metadata tools perform some sort of transformation on a metadata record when exporting to a standalone XML document. This tool allows a metadata record to be exported as-is with no transformations."
+        self.canRunInBackground = False
+
+    def getParameterInfo(self):
+        """Define parameter definitions"""
+            # Second parameter
+        param0 = arcpy.Parameter(
+            displayName="Source Metadata",
+            name="sourcemetadata",
+            datatype="DEType",
+            parameterType="Required",
+            direction="Input")
+
+        # Third parameter
+        param1 = arcpy.Parameter(
+            displayName="Output Metadata",
+            name="out_metadata",
+            datatype="DEFile",
+            parameterType="Required",
+            direction="Output")
+
+        params = [param0, param1]
+        return params
+
+    def isLicensed(self):
+        """Set whether tool is licensed to execute."""
+        return True
+
+    def updateParameters(self, parameters):
+        """Modify the values and properties of parameters before internal
+        validation is performed.  This method is called whenever a parameter
+        has been changed."""
+        if parameters[1].valueAsText:
+            fileExtension = parameters[1].valueAsText[-4:].lower()
+            if fileExtension != ".xml":
+                parameters[1].value = parameters[1].valueAsText + ".xml"
+        return
+
+    def updateMessages(self, parameters):
+        """Modify the messages created by internal validation for each tool
+        parameter.  This method is called after internal validation."""
+        return
+
+    def execute(self, parameters, messages):
+        try:
+            """The source code of the tool."""
+            Source_Metadata = parameters[0].valueAsText
+            Output_Metadata = parameters[1].valueAsText
+
+            # Local variables:
+            EPACleanExport_xslt = "EPACleanExport.xslt"
+
+            messages.addMessage("Exporting the metadata record...")
+            # Process: EPA Cleanup
+            arcpy.XSLTransform_conversion(Source_Metadata, EPACleanExport_xslt, Output_Metadata, "")
+
+            messages.addMessage("Process complete - please review the output carefully before importing or harvesting.")
         except:
             # Cycle through Geoprocessing tool specific errors
             for msg in range(0, arcpy.GetMessageCount()):
