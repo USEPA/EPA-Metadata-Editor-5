@@ -35,13 +35,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ESRI.ArcGIS.ItemIndex">
-      <HintPath>..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.5\bin\ESRI.ArcGIS.ItemIndex.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.6\bin\ESRI.ArcGIS.ItemIndex.dll</HintPath>
     </Reference>
     <Reference Include="ESRI.ArcGIS.MetadataEditor">
-      <HintPath>..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.5\bin\ESRI.ArcGIS.MetadataEditor.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.6\bin\ESRI.ArcGIS.MetadataEditor.dll</HintPath>
     </Reference>
     <Reference Include="ESRI.ArcGIS.SearchCore">
-      <HintPath>..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.5\bin\ESRI.ArcGIS.SearchCore.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.6\bin\ESRI.ArcGIS.SearchCore.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -58,7 +58,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="WPFToolkit">
-      <HintPath>..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.5\bin\WPFToolkit.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.6\bin\WPFToolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
