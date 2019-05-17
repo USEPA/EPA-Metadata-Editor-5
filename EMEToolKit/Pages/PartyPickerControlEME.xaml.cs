@@ -39,7 +39,7 @@ namespace EPAMetadataEditor.Pages
         XmlDocument _contactsWEB = new XmlDocument();
 
         string _filePathEsri = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + "\\ArcGIS\\Descriptions\\";
-        string _filePathEme = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EME Toolkit\\EMEdb\\";
+        string _filePathEme = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\U.S. EPA\\EME Toolkit\\EMEdb\\";
 
         public string ContainerElement { get; set; }
 

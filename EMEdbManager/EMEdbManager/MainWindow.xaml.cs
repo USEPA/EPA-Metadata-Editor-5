@@ -15,7 +15,7 @@ namespace EMEdbManager
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EME Toolkit\\EMEdb\\";
+        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\U.S. EPA\\EME Toolkit\\EMEdb\\";
         private XmlDocument _emeConfig = new XmlDocument();
 
         public MainWindow()

@@ -34,7 +34,7 @@ namespace EPAMetadataEditor.Pages
     /// </summary>
     public partial class CI_OnlineResourceEME : EditorPage
     {
-        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EME Toolkit\\EMEdb\\";
+        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\U.S. EPA\\EME Toolkit\\EMEdb\\";
 
         public CI_OnlineResourceEME()
         {

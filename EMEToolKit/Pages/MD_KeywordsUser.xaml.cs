@@ -28,7 +28,7 @@ namespace EPAMetadataEditor.Pages
     public partial class MD_KeywordsUser : EditorPage
     {
         private List<string> _listUserK = new List<string>();
-        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Innovate! Inc\\EME Toolkit\\EMEdb\\";
+        private string _pathEmeDb = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\U.S. EPA\\EME Toolkit\\EMEdb\\";
 
         public MD_KeywordsUser()
         {

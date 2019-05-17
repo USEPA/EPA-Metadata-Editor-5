@@ -15,7 +15,7 @@
     <WarningLevel>4</WarningLevel>
     <StartupObject>
     </StartupObject>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -52,14 +52,14 @@
     <Reference Include="ESRI.ArcGIS.Geodatabase" />
     <Reference Include="ESRI.ArcGIS.Geoprocessing" />
     <Reference Include="ESRI.ArcGIS.ItemIndex">
-      <HintPath>..\..\..\Program Files (x86)\ArcGIS\Desktop10.6\bin\ESRI.ArcGIS.ItemIndex.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.7\bin\ESRI.ArcGIS.ItemIndex.dll</HintPath>
     </Reference>
     <Reference Include="ESRI.ArcGIS.MetadataEditor">
-      <HintPath>..\..\..\Program Files (x86)\ArcGIS\Desktop10.6\bin\ESRI.ArcGIS.MetadataEditor.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.7\bin\ESRI.ArcGIS.MetadataEditor.dll</HintPath>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Search" />
     <Reference Include="ESRI.ArcGIS.SearchCore">
-      <HintPath>..\..\..\Program Files (x86)\ArcGIS\Desktop10.6\bin\ESRI.ArcGIS.SearchCore.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.7\bin\ESRI.ArcGIS.SearchCore.dll</HintPath>
     </Reference>
     <Reference Include="ESRI.ArcGIS.System" />
     <Reference Include="ESRI.ArcGIS.Version" />
@@ -97,7 +97,7 @@
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="WPFToolkit">
-      <HintPath>..\..\..\Program Files (x86)\ArcGIS\Desktop10.6\bin\WPFToolkit.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.7\bin\WPFToolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
