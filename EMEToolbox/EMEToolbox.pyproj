@@ -24,22 +24,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="EPA Metadata Toolbox.cleanupTool.pyt.xml" />
+    <Content Include="EPA Metadata Toolbox.deleteTool.pyt.xml" />
+    <Content Include="EPA Metadata Toolbox.importTool.pyt.xml" />
     <Content Include="EPA Metadata Toolbox.exportISOTool.pyt.xml" />
     <Content Include="EPA Metadata Toolbox.mergeTemplate.pyt.xml" />
     <Content Include="EPA Metadata Toolbox.pyt" />
     <Content Include="EPA Metadata Toolbox.pyt.xml" />
     <Content Include="EPA Metadata Toolbox.saveTemplate.pyt.xml" />
     <Content Include="EPA Metadata Toolbox.upgradeTool.pyt.xml" />
+    <Content Include="EPACleanExport.xslt" />
     <Content Include="EPAUpgradeCleanup.xslt" />
     <Content Include="mergeTemplate.xslt" />
     <Content Include="saveTemplate.xslt" />
+    <Content Include="blankdoc.xml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
-  <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
-  <Import Condition="!Exists($(PtvsTargetsFile))" Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
        Visual Studio and specify your pre- and post-build commands in
        the BeforeBuild and AfterBuild targets below. -->
@@ -48,4 +49,5 @@
   </Target>
   <Target Name="AfterBuild">
   </Target>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>
