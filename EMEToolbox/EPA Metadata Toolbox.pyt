@@ -9,8 +9,28 @@ class Toolbox(object):
         self.alias = ""
 
         # List of tool classes associated with this toolbox
-        self.tools = [upgradeTool,cleanupTool,exportISOTool,saveTemplate,mergeTemplate,importTool,deleteTool,cleanExportTool]
+        self.tools = [upgradeTool,cleanupTool,exportISOTool,saveTemplate,mergeTemplate,importTool,deleteTool,cleanExportTool,editElement,editDates]
 
+class scratchCopy(object):
+    def __init__(self,messages):
+        self.messages = messages
+        self.scratchXML = ""
+
+    def makeScratchCopy(self, Source_Metadata):
+        # Esri-provided standard stylesheet for copying metadata.
+        exact_copy_of_xslt = arcpy.GetInstallInfo()['InstallDir'] + "Metadata\\Stylesheets\\gpTools\exact Copy Of.xslt"
+        self.scratchWorkspace = arcpy.env.scratchFolder
+        self.scratchXML = arcpy.CreateScratchName(suffix=".xml", workspace=self.scratchWorkspace)
+
+        self.messages.addMessage("Making a temporary copy of the existing metadata...")
+        # Process: Copy Metadata for Upgrade
+        arcpy.XSLTransform_conversion(Source_Metadata, exact_copy_of_xslt, self.scratchXML, "")
+        return self.scratchXML
+
+    def cleanupScratchCopy(self):
+        self.messages.addMessage("Cleaning up scratch files...")
+        if arcpy.Exists(self.scratchXML):
+            arcpy.Delete_management(self.scratchXML)
 
 class upgradeTool(object):
     def __init__(self):
@@ -24,7 +44,7 @@ class upgradeTool(object):
             # Second parameter
         param0 = arcpy.Parameter(
             displayName="Source Metadata",
-            name="sourcemetadata",
+            name="Source_Metadata",
             datatype="DEType",
             parameterType="Required",
             direction="Input")
@@ -32,7 +52,7 @@ class upgradeTool(object):
         # Third parameter
         param1 = arcpy.Parameter(
             displayName="Output Metadata",
-            name="out_metadata",
+            name="Output_Metadata",
             datatype="DEFile",
             parameterType="Required",
             direction="Output")
@@ -65,15 +85,9 @@ class upgradeTool(object):
             Source_Metadata = parameters[0].valueAsText
             Output_Metadata = parameters[1].valueAsText
 
-            # Local variables:
-            # Esri-provided standard stylesheet for copying metadata.
-            exact_copy_of_xslt = arcpy.GetInstallInfo()['InstallDir'] + "Metadata\\Stylesheets\\gpTools\exact Copy Of.xslt"
-            Copy_to_be_upgraded = "%scratchworkspace%\\metadatatoupgrade.xml"
-            EPAUpgradeCleanup_xslt = "EPAUpgradeCleanup.xslt"
-
-            messages.addMessage("Making a temporary copy of the existing metadata to upgrade...")
-            # Process: Copy Metadata for Upgrade
-            arcpy.XSLTransform_conversion(Source_Metadata, exact_copy_of_xslt, Copy_to_be_upgraded, "")
+            # Use scratchCopy class to make a standalone XML doc to work with.
+            scratchCopier = scratchCopy(messages)
+            Copy_to_be_upgraded = scratchCopier.makeScratchCopy(Source_Metadata)
 
             messages.addMessage("Upgrading the metadata...")
             # Process: Upgrade Metadata
@@ -91,7 +105,7 @@ class upgradeTool(object):
                     arcpy.AddReturnMessage(msg)
         finally:
             # Regardless of errors, clean up intermediate products.
-            arcpy.Delete_management(Copy_to_be_upgraded)
+            scratchCopier.cleanupScratchCopy()
         return
 
 class cleanupTool(object):
@@ -106,7 +120,7 @@ class cleanupTool(object):
             # Second parameter
         param0 = arcpy.Parameter(
             displayName="Source Metadata",
-            name="sourcemetadata",
+            name="Source_Metadata",
             datatype="DEType",
             parameterType="Required",
             direction="Input")
@@ -114,7 +128,7 @@ class cleanupTool(object):
         # Third parameter
         param1 = arcpy.Parameter(
             displayName="Output Metadata",
-            name="out_metadata",
+            name="Output_Metadata",
             datatype="DEFile",
             parameterType="Required",
             direction="Output")
@@ -177,7 +191,7 @@ class exportISOTool(object):
             # Second parameter
         param0 = arcpy.Parameter(
             displayName="Source Metadata",
-            name="sourcemetadata",
+            name="Source_Metadata",
             datatype="DEType",
             parameterType="Required",
             direction="Input")
@@ -185,7 +199,7 @@ class exportISOTool(object):
         # Third parameter
         param1 = arcpy.Parameter(
             displayName="Output Metadata",
-            name="out_metadata",
+            name="Output_Metadata",
             datatype="DEFile",
             parameterType="Required",
             direction="Output")
@@ -246,14 +260,14 @@ class saveTemplate(object):
         """Define parameter definitions"""
         param0 = arcpy.Parameter(
             displayName="Source Metadata",
-            name="sourcemetadata",
+            name="Source_Metadata",
             datatype="DEType",
             parameterType="Required",
             direction="Input")
 
         param1 = arcpy.Parameter(
             displayName="Output Metadata",
-            name="out_metadata",
+            name="Output_Metadata",
             datatype="DEFile",
             parameterType="Required",
             direction="Output")
@@ -314,21 +328,21 @@ class mergeTemplate(object):
         """Define parameter definitions"""
         param0 = arcpy.Parameter(
             displayName="Source Metadata",
-            name="sourcemetadata",
+            name="Source_Metadata",
             datatype="DEType",
             parameterType="Required",
             direction="Input")
 
         param1 = arcpy.Parameter(
             displayName="Template Metadata",
-            name="template_metadata",
+            name="Template_Metadata",
             datatype="DEFile",
             parameterType="Required",
             direction="Input")
 
         param2 = arcpy.Parameter(
             displayName="Output Metadata",
-            name="out_metadata",
+            name="Output_Metadata",
             datatype="DEFile",
             parameterType="Required",
             direction="Output")
@@ -366,7 +380,7 @@ class mergeTemplate(object):
             mergeTemplate_xslt = "mergeTemplate.xslt"
 
             # Process: EPA Cleanup
-            arcpy.XSLTransform_conversion(Source_Metadata, mergeTemplate_xslt, Output_Metadata, "Template_Metadata")
+            arcpy.XSLTransform_conversion(Source_Metadata, mergeTemplate_xslt, Output_Metadata, Template_Metadata)
 
             messages.addMessage("Process complete - please review the output carefully.")
         except:
@@ -391,7 +405,7 @@ class deleteTool(object):
             # Second parameter
         param0 = arcpy.Parameter(
             displayName="Target Metadata",
-            name="out_metadata",
+            name="Target_Metadata",
             datatype="DEType",
             parameterType="Required",
             direction="Input")
@@ -426,7 +440,7 @@ class deleteTool(object):
             # Process: Purge
             arcpy.MetadataImporter_conversion(blankDoc, Target_Metadata)
             messages.addMessage("Importing new metadata")
-           
+
             messages.addMessage("Process complete - please review the output carefully.")
         except:
             # Cycle through Geoprocessing tool specific errors
@@ -437,7 +451,7 @@ class deleteTool(object):
             # Regardless of errors, clean up intermediate products.
             pass
         return
-		
+
 class importTool(object):
     def __init__(self):
         """Define the tool (tool name is the name of the class)."""
@@ -450,7 +464,7 @@ class importTool(object):
             # Second parameter
         param0 = arcpy.Parameter(
             displayName="Source Metadata",
-            name="sourcemetadata",
+            name="Source_Metadata",
             datatype="DEType",
             parameterType="Required",
             direction="Input")
@@ -458,7 +472,7 @@ class importTool(object):
         # Third parameter
         param1 = arcpy.Parameter(
             displayName="Target Metadata",
-            name="out_metadata",
+            name="Target_Metadata",
             datatype="DEType",
             parameterType="Required",
             direction="Input")
@@ -507,7 +521,7 @@ class importTool(object):
             # Regardless of errors, clean up intermediate products.
             pass
         return
-        
+
 class cleanExportTool(object):
     def __init__(self):
         """Define the tool (tool name is the name of the class)."""
@@ -520,7 +534,7 @@ class cleanExportTool(object):
             # Second parameter
         param0 = arcpy.Parameter(
             displayName="Source Metadata",
-            name="sourcemetadata",
+            name="Source_Metadata",
             datatype="DEType",
             parameterType="Required",
             direction="Input")
@@ -528,7 +542,7 @@ class cleanExportTool(object):
         # Third parameter
         param1 = arcpy.Parameter(
             displayName="Output Metadata",
-            name="out_metadata",
+            name="Output_Metadata",
             datatype="DEFile",
             parameterType="Required",
             direction="Output")
@@ -569,6 +583,200 @@ class cleanExportTool(object):
             arcpy.XSLTransform_conversion(Source_Metadata, EPACleanExport_xslt, Output_Metadata, "")
 
             messages.addMessage("Process complete - please review the output carefully before importing or harvesting.")
+        except:
+            # Cycle through Geoprocessing tool specific errors
+            for msg in range(0, arcpy.GetMessageCount()):
+                if arcpy.GetSeverity(msg) == 2:
+                    arcpy.AddReturnMessage(msg)
+        finally:
+            # Regardless of errors, clean up intermediate products.
+            pass
+        return
+
+class editElement(object):
+    def __init__(self):
+        """Define the tool (tool name is the name of the class)."""
+        self.label = "Edit Single XML Element Tool"
+        self.description = "This tool accepts an XML XPath expression and a text value to update just a single element. If the element does not exist, it will be added. Please be aware that the source metadata will be changed - make a backup copy if necessary."
+        self.canRunInBackground = False
+
+    def getParameterInfo(self):
+        """Define parameter definitions"""
+        param0 = arcpy.Parameter(
+            displayName="Target Metadata",
+            name="Target_Metadata",
+            datatype="DEType",
+            parameterType="Required",
+            direction="Input")
+
+        # Third parameter
+        param1 = arcpy.Parameter(
+            displayName="XPath Expression",
+            name="Xpath_Expression",
+            datatype="GPString",
+            parameterType="Required",
+            direction="Input")
+
+        param2 = arcpy.Parameter(
+            displayName="New Value",
+            name="New_Value",
+            datatype="GPString",
+            parameterType="Required",
+            direction="Input")
+
+        params = [param0, param1, param2]
+        return params
+
+    def isLicensed(self):
+        """Set whether tool is licensed to execute."""
+        return True
+
+    def updateParameters(self, parameters):
+        """Modify the values and properties of parameters before internal
+        validation is performed.  This method is called whenever a parameter
+        has been changed."""
+        return
+
+    def updateMessages(self, parameters):
+        """Modify the messages created by internal validation for each tool
+        parameter.  This method is called after internal validation."""
+        return
+
+    def execute(self, parameters, messages):
+        try:
+            """The source code of the tool."""
+            Target_Metadata = parameters[0].valueAsText
+            Xpath_Expression = parameters[1].valueAsText
+            New_Value = parameters[2].valueAsText
+
+            # Use scratchCopy class to make a standalone XML doc to work with.
+            scratchCopier = scratchCopy(messages)
+            scratch_Metadata = scratchCopier.makeScratchCopy(Target_Metadata)
+
+            messages.addMessage("Editing the metadata record...")
+            # Process: EPA Cleanup
+            import xml.etree.ElementTree as ET
+            tree = ET.parse(scratch_Metadata)
+            root = tree.getroot()
+
+            # This section iterates through the xpath components, adding any missing SubElements so there's at least one element to populate.
+            xpathElements = Xpath_Expression.split("/")
+            xpathList = []
+            thisNode = root
+            for xpathElem in xpathElements:
+                xpathList.append(xpathElem)
+                buildXPath = "/".join(xpathList)
+                if len(root.findall(buildXPath)) == 0:
+                    ET.SubElement(thisNode,xpathElem)
+                thisNode = root.findall(buildXPath)[0]
+
+            # This section updates the values of any matching xpath expressions
+            elements = root.findall(Xpath_Expression)
+            for elem in elements:
+                elem.text = New_Value
+            tree.write(scratch_Metadata)
+
+            # If the target is a standalone XML doc, just copy the scratch over the source file.
+            if Target_Metadata[-4:].lower() == ".xml":
+                import shutil
+                shutil.copy(scratch_Metadata,Target_Metadata)
+            else:
+                # Otherwise import the scratch metadata back to the source data.
+                importer = importTool()
+                importParams = importer.getParameterInfo()
+                import_source = importParams[0]
+                import_source.value = scratch_Metadata
+                import_target = importParams[1]
+                import_target.value = Target_Metadata
+
+                importer.execute([import_source,import_target],messages)
+
+            messages.addMessage("Process complete, element update count: {}.".format(str(len(elements))))
+        except:
+            # Cycle through Geoprocessing tool specific errors
+            for msg in range(0, arcpy.GetMessageCount()):
+                if arcpy.GetSeverity(msg) == 2:
+                    arcpy.AddReturnMessage(msg)
+        finally:
+            # Regardless of errors, clean up intermediate products.
+            scratchCopier.cleanupScratchCopy()
+        return
+
+class editDates(object):
+    def __init__(self):
+        """Define the tool (tool name is the name of the class)."""
+        self.label = "EPA Edit Metadata Dates Tool"
+        self.description = "This tool assists with editing the citation date values in ArcGIS Metadata to ease automated refreshes."
+        self.canRunInBackground = False
+
+    def getParameterInfo(self):
+        """Define parameter definitions"""
+        param0 = arcpy.Parameter(
+            displayName="Target Metadata",
+            name="Target_Metadata",
+            datatype="DEType",
+            parameterType="Required",
+            direction="Input")
+
+        # Third parameter
+        param1 = arcpy.Parameter(
+            displayName="Date Option",
+            name="Date_Label",
+            datatype="GPString",
+            parameterType="Required",
+            direction="Input")
+        param1.filter.type = "ValueList"
+        param1.filter.list = ["Publication Date", "Creation Date", "Revision Date"]
+        param1.value = "Revision Date"
+
+        param2 = arcpy.Parameter(
+            displayName="Date Value",
+            name="Date_Value",
+            datatype="GPDate",
+            parameterType="Required",
+            direction="Input")
+
+        params = [param0, param1, param2]
+        return params
+
+    def isLicensed(self):
+        """Set whether tool is licensed to execute."""
+        return True
+
+    def updateParameters(self, parameters):
+        """Modify the values and properties of parameters before internal
+        validation is performed.  This method is called whenever a parameter
+        has been changed."""
+        return
+
+    def updateMessages(self, parameters):
+        """Modify the messages created by internal validation for each tool
+        parameter.  This method is called after internal validation."""
+        return
+
+    def execute(self, parameters, messages):
+        try:
+            """The source code of the tool."""
+            Target_Metadata = parameters[0].valueAsText
+            Date_Label = parameters[1].valueAsText
+            Date_Value = parameters[2].valueAsText
+
+            dateTypeLookup = {"Publication Date":"pubDate", "Creation Date":"createDate", "Revision Date":"reviseDate"}
+            dateType = dateTypeLookup[Date_Label]
+            dateXpath = "dataIdInfo/idCitation/date/" + dateType
+
+            # Use the provided inputs to run editElement tool.
+            editElem = editElement()
+            editParams = editElem.getParameterInfo()
+            this_Metadata = editParams[0]
+            this_Metadata.value = Target_Metadata
+            Xpath_Expression = editParams[1]
+            Xpath_Expression.value = dateXpath
+            New_Value = editParams[2]
+            New_Value.value = Date_Value
+
+            editElem.execute([this_Metadata,Xpath_Expression,New_Value],messages)
+
         except:
             # Cycle through Geoprocessing tool specific errors
             for msg in range(0, arcpy.GetMessageCount()):

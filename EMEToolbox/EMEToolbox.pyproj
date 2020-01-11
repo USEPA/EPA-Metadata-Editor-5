@@ -23,10 +23,14 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="blankdoc.xml" />
+    <Content Include="EPA Metadata Toolbox.cleanExportTool.pyt.xml" />
     <Content Include="EPA Metadata Toolbox.cleanupTool.pyt.xml" />
     <Content Include="EPA Metadata Toolbox.deleteTool.pyt.xml" />
-    <Content Include="EPA Metadata Toolbox.importTool.pyt.xml" />
+    <Content Include="EPA Metadata Toolbox.editDates.pyt.xml" />
+    <Content Include="EPA Metadata Toolbox.editElement.pyt.xml" />
     <Content Include="EPA Metadata Toolbox.exportISOTool.pyt.xml" />
+    <Content Include="EPA Metadata Toolbox.importTool.pyt.xml" />
     <Content Include="EPA Metadata Toolbox.mergeTemplate.pyt.xml" />
     <Content Include="EPA Metadata Toolbox.pyt" />
     <Content Include="EPA Metadata Toolbox.pyt.xml" />
@@ -36,7 +40,6 @@
     <Content Include="EPAUpgradeCleanup.xslt" />
     <Content Include="mergeTemplate.xslt" />
     <Content Include="saveTemplate.xslt" />
-    <Content Include="blankdoc.xml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
