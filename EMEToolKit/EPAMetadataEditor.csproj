@@ -52,14 +52,15 @@
     <Reference Include="ESRI.ArcGIS.Geodatabase" />
     <Reference Include="ESRI.ArcGIS.Geoprocessing" />
     <Reference Include="ESRI.ArcGIS.ItemIndex">
-      <HintPath>..\..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.7\bin\ESRI.ArcGIS.ItemIndex.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.8\bin\ESRI.ArcGIS.ItemIndex.dll</HintPath>
     </Reference>
-    <Reference Include="ESRI.ArcGIS.MetadataEditor">
-      <HintPath>..\..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.7\bin\ESRI.ArcGIS.MetadataEditor.dll</HintPath>
+    <Reference Include="ESRI.ArcGIS.MetadataEditor, Version=10.8.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.8\bin\ESRI.ArcGIS.MetadataEditor.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="ESRI.ArcGIS.Search" />
     <Reference Include="ESRI.ArcGIS.SearchCore">
-      <HintPath>..\..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.7\bin\ESRI.ArcGIS.SearchCore.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.8\bin\ESRI.ArcGIS.SearchCore.dll</HintPath>
     </Reference>
     <Reference Include="ESRI.ArcGIS.System" />
     <Reference Include="ESRI.ArcGIS.Version" />
@@ -97,7 +98,7 @@
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="WPFToolkit">
-      <HintPath>..\..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.7\bin\WPFToolkit.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files (x86)\ArcGIS\Desktop10.8\bin\WPFToolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -1397,7 +1398,6 @@
   <ItemGroup>
     <Resource Include="EMEdb\emeConfig.xml" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!--To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

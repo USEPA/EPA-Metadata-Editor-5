@@ -15,7 +15,7 @@
 		<ArcGISProfile>ItemDescription</ArcGISProfile>
 	</Esri>
 	<toolbox name="EPA Metadata Toolbox" alias="">
-		<arcToolboxHelpPath>c:\program files (x86)\arcgis\desktop10.7\Help\gp</arcToolboxHelpPath>
+		<arcToolboxHelpPath>c:\program files (x86)\arcgis\desktop10.8\Help\gp</arcToolboxHelpPath>
 		<toolsets/></toolbox>
 	<dataIdInfo>
 		<idCitation>

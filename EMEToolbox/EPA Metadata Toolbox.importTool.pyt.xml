@@ -14,7 +14,7 @@
         <ArcGISProfile>ItemDescription</ArcGISProfile>
     </Esri>
     <tool name="importTool" displayname="EPA Import ArcGIS Record" toolboxalias="" xmlns="">
-        <arcToolboxHelpPath>c:\program files (x86)\arcgis\desktop10.7\Help\gp</arcToolboxHelpPath>
+        <arcToolboxHelpPath>c:\program files (x86)\arcgis\desktop10.8\Help\gp</arcToolboxHelpPath>
         <parameters>
             <param name="Source_Metadata" displayname="Source Metadata" type="Required" direction="Input" datatype="Data Element" expression="Source_Metadata">
                 <dialogReference>&lt;DIV STYLE="text-align:Left;"&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;This should be the full path to a standalone XML metadata document that has already been upgraded and cleaned.&lt;/SPAN&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/DIV&gt;</dialogReference>

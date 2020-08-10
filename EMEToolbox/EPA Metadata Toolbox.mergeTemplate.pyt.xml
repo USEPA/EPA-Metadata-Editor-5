@@ -26,7 +26,7 @@
         </parameters>
         <summary>&lt;DIV STYLE="text-align:Left;"&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;This tool merges a selected metadata record with elements from a saved template record created using the "Save record as metadata template" tool. Elements from the template record will overwrite their equivalents in the selected record, but by design it will exclude those elements which must be unique in every metadata record, such as title, abstract, unique identifier, etc, replacing only those elements that are common across many records.&lt;/SPAN&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/DIV&gt;</summary>
         <usage>&lt;DIV STYLE="text-align:Left;"&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;This tool may be used to quickly populate many common elements in an otherwise empty metadata document .&lt;/SPAN&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/DIV&gt;</usage>
-        <arcToolboxHelpPath>c:\program files (x86)\arcgis\desktop10.7\Help\gp</arcToolboxHelpPath>
+        <arcToolboxHelpPath>c:\program files (x86)\arcgis\desktop10.8\Help\gp</arcToolboxHelpPath>
     </tool>
     <dataIdInfo>
         <idCitation>

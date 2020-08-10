@@ -23,7 +23,7 @@
         </parameters>
         <summary>&lt;DIV STYLE="text-align:Left;"&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;This tool saves a metadata record as a reusable template by excluding those elements which must be unique in every metadata record, such as title, abstract, unique identifier, etc, leaving those elements that are common across many records.&lt;/SPAN&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/DIV&gt;</summary>
         <usage>&lt;DIV STYLE="text-align:Left;"&gt;&lt;DIV&gt;&lt;P&gt;&lt;SPAN&gt;This tool is designed to produce a metadata template fragment that can be merged into other metadata records via the "Merge a selected metadata record with a saved template" tool.&lt;/SPAN&gt;&lt;/P&gt;&lt;/DIV&gt;&lt;/DIV&gt;</usage>
-        <arcToolboxHelpPath>c:\program files (x86)\arcgis\desktop10.7\Help\gp</arcToolboxHelpPath>
+        <arcToolboxHelpPath>c:\program files (x86)\arcgis\desktop10.8\Help\gp</arcToolboxHelpPath>
     </tool>
     <dataIdInfo>
         <idCitation>
